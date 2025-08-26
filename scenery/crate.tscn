@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dibgppnanl3oy"]
+
+[ext_resource type="PackedScene" uid="uid://bw1byxstvbxfo" path="res://glb_models/Crate.glb" id="1_mo0jf"]
+[ext_resource type="Material" uid="uid://cq77n5sck33s6" path="res://materials/drawer.tres" id="2_ggnq6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fsu28"]
+size = Vector3(3.372, 3.82, 3.945)
+
+[node name="Crate" instance=ExtResource("1_mo0jf")]
+
+[node name="Cube_012" parent="." index="0"]
+material_override = ExtResource("2_ggnq6")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1215, 1.42399, 0)
+shape = SubResource("BoxShape3D_fsu28")

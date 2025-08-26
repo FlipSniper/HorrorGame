@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://licyfb78hh3h"]
+
+[ext_resource type="Script" uid="uid://ccoimpw7w8ddd" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://c5ctnuitskyhe" path="res://player/fp_cam.gd" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://bt34vmmpewafm" path="res://player/player_interact.gd" id="3_g1dw6"]
+[ext_resource type="PackedScene" uid="uid://csjdgig62xg20" path="res://ui/player_ui.tscn" id="4_yw30f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
+
+[node name="player" type="CharacterBody3D"]
+floor_max_angle = 1.13446
+script = ExtResource("1_oul6g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_kqu6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_oul6g")
+
+[node name="head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.766282, 0)
+script = ExtResource("2_rkbax")
+
+[node name="Camera3D" type="Camera3D" parent="head"]
+
+[node name="RayCast3D" type="RayCast3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+target_position = Vector3(0, -1.5, 0)
+script = ExtResource("3_g1dw6")
+
+[node name="flashlight" type="SpotLight3D" parent="head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0167401)
+shadow_enabled = true
+spot_range = 15.0
+spot_angle = 35.0
+
+[node name="player_ui" parent="." instance=ExtResource("4_yw30f")]

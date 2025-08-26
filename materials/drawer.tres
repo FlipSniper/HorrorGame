@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cq77n5sck33s6"]
+
+[ext_resource type="Texture2D" uid="uid://csmax48a3806t" path="res://textures/wood_floor_diff_1k.jpg" id="1_7wifs"]
+
+[resource]
+albedo_color = Color(0.471526, 0.278189, 2.88785e-07, 1)
+albedo_texture = ExtResource("1_7wifs")
+uv1_scale = Vector3(4.035, 1.795, 1)

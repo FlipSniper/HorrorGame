@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://carrf5hnodfp2"]
+
+[ext_resource type="Texture2D" uid="uid://c0kaoy4ktymxn" path="res://textures/worn_planks_diff_4k.jpg" id="1_58eu7"]
+[ext_resource type="Material" uid="uid://b5mkvd8yp34dp" path="res://materials/chair_leg.tres" id="2_vyh3o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_no86n"]
+albedo_texture = ExtResource("1_58eu7")
+uv1_scale = Vector3(6.345, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_humtb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_whm26"]
+size = Vector3(1, 1.69006, 0.896851)
+
+[node name="chair" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.890494, 0, 0, 0, 0.1, 0, 0, 0, 0.889433, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_no86n")
+mesh = SubResource("BoxMesh_humtb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.818, 0, 0, 0, 0.1, -0.36517, -0.455438, 0.34208)
+material_override = ExtResource("2_vyh3o")
+mesh = SubResource("BoxMesh_humtb")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.818, 0, 0, 0, 0.1, 0.365, -0.455438, 0.342)
+material_override = ExtResource("2_vyh3o")
+mesh = SubResource("BoxMesh_humtb")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.818, 0, 0, 0, 0.1, 0.365, -0.455438, -0.342)
+material_override = ExtResource("2_vyh3o")
+mesh = SubResource("BoxMesh_humtb")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.818, 0, 0, 0, 0.1, -0.365, -0.455438, -0.342)
+material_override = ExtResource("2_vyh3o")
+mesh = SubResource("BoxMesh_humtb")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.818, 0, 0, 0, 0.1, 0.365, 0.423562, -0.342)
+material_override = ExtResource("2_vyh3o")
+mesh = SubResource("BoxMesh_humtb")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.818, 0, 0, 0, 0.1, -0.365, 0.423562, -0.342)
+material_override = ExtResource("2_vyh3o")
+mesh = SubResource("BoxMesh_humtb")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.00482e-08, -0.832699, 0, 0.458648, -3.63984e-08, 0, 0, 0, 0.1, -0.00494212, 0.559469, -0.253501)
+material_override = ExtResource("2_vyh3o")
+mesh = SubResource("BoxMesh_humtb")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00421143, -0.00656325)
+shape = SubResource("BoxShape3D_whm26")

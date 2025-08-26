@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cyup7s0tfea3l"]
+
+[ext_resource type="Texture2D" uid="uid://c6f05pwkum6ga" path="res://textures/rusty_metal_04_diff_4k.jpg" id="1_klwoy"]
+
+[resource]
+albedo_texture = ExtResource("1_klwoy")
+metallic = 1.0
+roughness = 0.5
+uv1_scale = Vector3(2.585, 3.845, 1)

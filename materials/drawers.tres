@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ydqivgcysydw"]
+
+[ext_resource type="Texture2D" uid="uid://ufulef023gni" path="res://textures/wood_peeling_paint_weathered_diff_4k.jpg" id="1_mbm81"]
+
+[resource]
+albedo_color = Color(0.442434, 0.250629, 1.92523e-07, 1)
+albedo_texture = ExtResource("1_mbm81")
+uv1_scale = Vector3(0.54, 1, 1)

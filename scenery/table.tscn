@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://f2dg62kdcejl"]
+
+[ext_resource type="Texture2D" uid="uid://c0kaoy4ktymxn" path="res://textures/worn_planks_diff_4k.jpg" id="1_6omhd"]
+[ext_resource type="Material" uid="uid://b5mkvd8yp34dp" path="res://materials/chair_leg.tres" id="2_dvcnb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dvcnb"]
+albedo_texture = ExtResource("1_6omhd")
+uv1_scale = Vector3(6.345, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6tyje"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dvcnb"]
+size = Vector3(3, 1.071, 1.995)
+
+[node name="table" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -1.349, -0.538, 0.8)
+material_override = ExtResource("2_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 1.349, -0.538, 0.8)
+material_override = ExtResource("2_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 1.349, -0.538, -0.8)
+material_override = ExtResource("2_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, -1.349, -0.538, -0.8)
+material_override = ExtResource("2_dvcnb")
+mesh = SubResource("BoxMesh_6tyje")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.475106, 0)
+shape = SubResource("BoxShape3D_dvcnb")

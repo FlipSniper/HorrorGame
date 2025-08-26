@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://b41dm2xv3cn1x"]
+
+[ext_resource type="Material" uid="uid://cyup7s0tfea3l" path="res://materials/metal_2.tres" id="1_avy3q"]
+[ext_resource type="Material" uid="uid://btujvem6k057b" path="res://materials/metal_3.tres" id="2_tyvng"]
+[ext_resource type="Material" uid="uid://cq77n5sck33s6" path="res://materials/drawer.tres" id="3_i0sv4"]
+[ext_resource type="Texture2D" uid="uid://bb15tjjtnrpr6" path="res://textures/voltage.png" id="4_tyvng"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2850c"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ogcrx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0sv4"]
+transparency = 1
+albedo_texture = ExtResource("4_tyvng")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2850c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tyvng"]
+size = Vector3(1.085, 1.67, 0.875)
+
+[node name="powerbox" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.06797, 0, 0, 0, 1.65965, 0, 0, 0, 0.691395, 0, 0, 0)
+material_override = ExtResource("1_avy3q")
+mesh = SubResource("BoxMesh_2850c")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.913439, 0, 0, 0, 1.48006, 0, 0, 0, 0.691394, 0, 0, -0.069415)
+material_override = ExtResource("2_tyvng")
+mesh = SubResource("BoxMesh_2850c")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0928079, 0, 0, 0, 0.243895, 0, 0, 0, 0.107728, 0.340738, 0, -0.44678)
+material_override = ExtResource("3_i0sv4")
+mesh = SubResource("BoxMesh_ogcrx")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.207713, 8.74228e-08, 9.07945e-09, -9.07943e-09, 1.91069e-15, -0.207714, -1.81589e-08, -1, 3.96875e-16, 0, 0.472518, -0.41931)
+material_override = SubResource("StandardMaterial3D_i0sv4")
+mesh = SubResource("PlaneMesh_2850c")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00367737, -0.076416)
+shape = SubResource("BoxShape3D_tyvng")

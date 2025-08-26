@@ -1,0 +1,93 @@
+[gd_scene load_steps=18 format=3 uid="uid://c51nvch8u8oh4"]
+
+[ext_resource type="Texture2D" uid="uid://c7xa3ew5hgyn3" path="res://icon.svg" id="1_qohg2"]
+[ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="2_vkbyq"]
+[ext_resource type="PackedScene" uid="uid://ctls50khe2bc6" path="res://scenery/house.tscn" id="3_ktfr2"]
+[ext_resource type="PackedScene" uid="uid://kpgueo457tcu" path="res://scenery/bg_rain.tscn" id="4_vkbyq"]
+[ext_resource type="PackedScene" uid="uid://dm0abfuqis4lu" path="res://scenery/breathing.tscn" id="5_ktfr2"]
+[ext_resource type="PackedScene" uid="uid://sq25asf4eqb6" path="res://scenery/rain.tscn" id="6_44x8d"]
+
+[sub_resource type="Gradient" id="Gradient_ivpvi"]
+offsets = PackedFloat32Array(0, 0.492537, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.376471, 0.341176, 0.462745, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0v1st"]
+gradient = SubResource("Gradient_ivpvi")
+
+[sub_resource type="Gradient" id="Gradient_44x8d"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0945964, 0.152289, 0.357978, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ivpvi"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0v1st"]
+seamless = true
+color_ramp = SubResource("Gradient_44x8d")
+noise = SubResource("FastNoiseLite_ivpvi")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vonw3"]
+sky_top_color = Color(7.21961e-07, 0.175666, 0.504067, 1)
+sky_horizon_color = Color(0.00337478, 0.180374, 0.402837, 1)
+sky_cover = SubResource("NoiseTexture2D_0v1st")
+ground_bottom_color = Color(0.018033, 0, 0.506818, 1)
+ground_horizon_color = Color(0.00337478, 0.180374, 0.402837, 1)
+
+[sub_resource type="Sky" id="Sky_oi3di"]
+sky_material = SubResource("ProceduralSkyMaterial_vonw3")
+
+[sub_resource type="Environment" id="Environment_0b4ue"]
+background_mode = 2
+background_energy_multiplier = 0.3
+sky = SubResource("Sky_oi3di")
+tonemap_mode = 3
+ssr_max_steps = 256
+glow_enabled = true
+glow_bloom = 0.25
+fog_density = 0.03
+volumetric_fog_density = 0.8673
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission = Color(0.22577, 0.184837, 0.163564, 1)
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_0v1st")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vonw3"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oi3di"]
+albedo_texture = ExtResource("1_qohg2")
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0b4ue"]
+
+[node name="level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0b4ue")
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("BoxShape3D_vonw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_oi3di")
+mesh = SubResource("BoxMesh_0b4ue")
+
+[node name="player" parent="." instance=ExtResource("2_vkbyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37077, 2.77384, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.743145, 0.551448, -0.379, 0, 0.566406, 0.824126, 0.669131, -0.612445, 0.420922, 0, 7.29189, 0)
+visible = false
+light_energy = 0.4
+shadow_enabled = true
+
+[node name="house" parent="." instance=ExtResource("3_ktfr2")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0.232734, 2.84868, -14.8619)
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("4_vkbyq")]
+
+[node name="AudioStreamPlayer2" parent="." instance=ExtResource("5_ktfr2")]
+
+[node name="rain" parent="." instance=ExtResource("6_44x8d")]

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm0abfuqis4lu"]
+
+[ext_resource type="AudioStream" uid="uid://dqn60b3snv8d5" path="res://sound/Untitled-video-Made-with-Clipchamp-_1_.mp3" id="1_3jxwy"]
+[ext_resource type="Script" uid="uid://dxe2ejxsugxms" path="res://general_scripts/loop.gd" id="2_xi8bu"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3jxwy")
+volume_db = 6.199
+autoplay = true
+script = ExtResource("2_xi8bu")
+
+[connection signal="finished" from="AudioStreamPlayer2" to="Timer" method="_on_audio_stream_player_2_finished"]
+[connection signal="finished" from="AudioStreamPlayer2" to="Timer" method="_on_audio_stream_player_finished"]

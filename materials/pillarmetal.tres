@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dvq4kbeilrtm6"]
+
+[ext_resource type="Texture2D" uid="uid://qivdh45y3gyw" path="res://textures/cracked_concrete_wall_diff_4k.jpg" id="1_n1pdk"]
+
+[resource]
+albedo_texture = ExtResource("1_n1pdk")
+metallic = 1.0
+uv1_scale = Vector3(0.125, 0.36, 1)

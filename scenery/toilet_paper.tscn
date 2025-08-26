@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4y4fmph87cmf"]
+
+[ext_resource type="Texture2D" uid="uid://bg8rnal5p8agd" path="res://textures/carpet.jpg" id="1_baby1"]
+[ext_resource type="Material" uid="uid://b5mkvd8yp34dp" path="res://materials/chair_leg.tres" id="2_6s47g"]
+[ext_resource type="Material" uid="uid://dvq4kbeilrtm6" path="res://materials/pillarmetal.tres" id="3_8ka46"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ra2c2"]
+albedo_texture = ExtResource("1_baby1")
+uv1_scale = Vector3(0.53, 0.545, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6s47g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_brrpp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6s47g"]
+size = Vector3(2.23, 1, 1.51)
+
+[node name="toilet_paper" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.36002e-08, -0.567492, 0, 0.997455, -2.48059e-08, 0, 0, 0, 0.997455, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ra2c2")
+mesh = SubResource("CylinderMesh_6s47g")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.39615e-08, -0.761433, 0, 0.319403, -3.32833e-08, 0, 0, 0, 0.319403, 0, 0, 0)
+material_override = ExtResource("2_6s47g")
+mesh = SubResource("CylinderMesh_6s47g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.284567, 0, 0, 0, 0.362751, 0, 0, 0, 1.19979, 0.875126, 0, 0.36572)
+material_override = ExtResource("3_8ka46")
+mesh = SubResource("BoxMesh_brrpp")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.284567, 0, 0, 0, 0.362751, 0, 0, 0, 1.19979, -0.891806, 0, 0.36572)
+material_override = ExtResource("3_8ka46")
+mesh = SubResource("BoxMesh_brrpp")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.425247, 0, 0, 0, 0.444177, 0, 0, 0, 0.311327, -0.891806, 0, 0.83263)
+material_override = ExtResource("3_8ka46")
+mesh = SubResource("BoxMesh_brrpp")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.425247, 0, 0, 0, 0.444177, 0, 0, 0, 0.311327, 0.879547, 0, 0.83263)
+material_override = ExtResource("3_8ka46")
+mesh = SubResource("BoxMesh_brrpp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0345135, 0.241595)
+shape = SubResource("BoxShape3D_6s47g")

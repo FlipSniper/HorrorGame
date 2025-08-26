@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cjst1auektn25"]
+
+[ext_resource type="Texture2D" uid="uid://d0sue0jp0pxi0" path="res://paintings/OIP.jpg" id="1_gjrcl"]
+
+[resource]
+albedo_texture = ExtResource("1_gjrcl")
+uv1_scale = Vector3(1.085, 2.01, 1)

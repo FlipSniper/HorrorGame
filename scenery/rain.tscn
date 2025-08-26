@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://sq25asf4eqb6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktfr2"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.333333)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ib0en"]
+material = SubResource("StandardMaterial3D_ktfr2")
+size = Vector3(0.02, 1, 0.02)
+
+[node name="rain" type="Node3D"]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(0.378774, 0, 0, 0, 1, 0, 0, 0, 0.404248, 0, 13.2408, -0.0548782)
+amount = 100
+speed_scale = 5.82
+mesh = SubResource("BoxMesh_ib0en")
+emission_shape = 3
+emission_box_extents = Vector3(20, 0, 20)
+gravity = Vector3(0, -50, 0)
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
+transform = Transform3D(0.608373, 0, 0, 0, 1, 0, 0, 0, 0.404248, 0, 5.13666, -14.7858)
+amount = 3
+speed_scale = 5.82
+mesh = SubResource("BoxMesh_ib0en")
+emission_shape = 3
+emission_box_extents = Vector3(20, 0, 20)
+gravity = Vector3(0, -10, 0)

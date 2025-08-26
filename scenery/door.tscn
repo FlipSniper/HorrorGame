@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://dgig7ncsh5l7"]
+
+[ext_resource type="Script" uid="uid://dwrvscn3x1552" path="res://general_scripts/door.gd" id="1_jy65v"]
+[ext_resource type="Material" uid="uid://cq77n5sck33s6" path="res://materials/drawer.tres" id="2_m6kou"]
+[ext_resource type="Material" uid="uid://ywrbi3a0ckvc" path="res://materials/metal.tres" id="3_4owcv"]
+[ext_resource type="Material" uid="uid://dvq4kbeilrtm6" path="res://materials/pillarmetal.tres" id="4_ogd0u"]
+
+[sub_resource type="Animation" id="Animation_m6kou"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1fsns"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4owcv"]
+_data = {
+&"RESET": SubResource("Animation_m6kou"),
+&"open": SubResource("Animation_1fsns")
+}
+
+[sub_resource type="BoxMesh" id="BoxMesh_t3tcx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jy65v"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_l435u"]
+radial_segments = 24
+
+[node name="door" type="Node3D"]
+script = ExtResource("1_jy65v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4owcv")
+}
+
+[node name="hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54749, 0, 0.659287)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hinge"]
+transform = Transform3D(3.8, 0, 0, 0, 5.3, 0, 0, 0, 0.109, -1.89997, 4.76837e-07, -0.00155091)
+material_override = ExtResource("2_m6kou")
+mesh = SubResource("BoxMesh_t3tcx")
+skeleton = NodePath("../..")
+
+[node name="door" type="StaticBody3D" parent="hinge/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/MeshInstance3D/door"]
+shape = SubResource("BoxShape3D_jy65v")
+
+[node name="knob" type="Node3D" parent="hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.06955, 0, -0.0291092)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="hinge/knob"]
+transform = Transform3D(0.1, 0, 0, 0, -8.74228e-09, -0.1, 0, 0.2, -4.37114e-09, -0.512, 0, 0)
+material_override = ExtResource("3_4owcv")
+mesh = SubResource("CylinderMesh_l435u")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="hinge/knob"]
+transform = Transform3D(0.15, 0, 0, 0, -2.18557e-09, -0.15, 0, 0.05, -6.55671e-09, -0.512, 0, -0.172)
+material_override = ExtResource("4_ogd0u")
+mesh = SubResource("CylinderMesh_l435u")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node3D")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="hinge/knob"]
+transform = Transform3D(0.15, 0, 0, 0, -2.18557e-09, -0.15, 0, 0.05, -6.55671e-09, -0.512, 0, 0.172)
+material_override = ExtResource("4_ogd0u")
+mesh = SubResource("CylinderMesh_l435u")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node3D")

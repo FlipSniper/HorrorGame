@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://bwhijt7rhmjb6"]
+
+[ext_resource type="Script" uid="uid://dsm6u7nteer84" path="res://general_scripts/lamp.gd" id="1_vd3lh"]
+[ext_resource type="Texture2D" uid="uid://cn5g2bdmuijwm" path="res://textures/carpet.jpg" id="1_w4qcr"]
+[ext_resource type="Texture2D" uid="uid://ggaqbegh81p6" path="res://textures/cracked_concrete_wall_diff_4k.jpg" id="2_vd3lh"]
+[ext_resource type="Material" uid="uid://cyup7s0tfea3l" path="res://materials/metal_2.tres" id="3_hhesg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r1h3y"]
+albedo_color = Color(1, 1, 0, 1)
+albedo_texture = ExtResource("1_w4qcr")
+emission_enabled = true
+emission = Color(0.367387, 0.357987, 1.92523e-07, 1)
+uv1_scale = Vector3(0.5, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_hjuyy"]
+top_radius = 0.3
+radial_segments = 24
+cap_bottom = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj34m"]
+albedo_texture = ExtResource("2_vd3lh")
+metallic = 1.0
+uv1_scale = Vector3(0.045, 0.3, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_v2qx4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w4qcr"]
+size = Vector3(1, 1.49, 1)
+
+[node name="lamp" type="Node3D"]
+script = ExtResource("1_vd3lh")
+
+[node name="lamp_head" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.354821, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_r1h3y")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_hjuyy")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.61, 0, 0, 0, 0.1, 0, -0.438, 0)
+material_override = SubResource("StandardMaterial3D_mj34m")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_v2qx4")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.05, 0, 0, 0, 0.3, 0, -1.07, 0)
+material_override = ExtResource("3_hhesg")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_v2qx4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.707331, 0.739905, 0, 1)
+omni_range = 3.0
+
+[node name="light_switch" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="light_switch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.386393, 0)
+shape = SubResource("BoxShape3D_w4qcr")
