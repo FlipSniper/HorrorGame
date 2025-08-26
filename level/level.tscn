@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c51nvch8u8oh4"]
+[gd_scene load_steps=19 format=3 uid="uid://c51nvch8u8oh4"]
 
 [ext_resource type="Texture2D" uid="uid://c7xa3ew5hgyn3" path="res://icon.svg" id="1_qohg2"]
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="2_vkbyq"]
@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://kpgueo457tcu" path="res://scenery/bg_rain.tscn" id="4_vkbyq"]
 [ext_resource type="PackedScene" uid="uid://dm0abfuqis4lu" path="res://scenery/breathing.tscn" id="5_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://sq25asf4eqb6" path="res://scenery/rain.tscn" id="6_44x8d"]
+[ext_resource type="PackedScene" uid="uid://bae22y51hmwm8" path="res://scenery/task_trigger.tscn" id="7_ivpvi"]
 
 [sub_resource type="Gradient" id="Gradient_ivpvi"]
-offsets = PackedFloat32Array(0, 0.492537, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.376471, 0.341176, 0.462745, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0, 0.626866, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.376941, 0.358063, 0.366395, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_0v1st"]
 gradient = SubResource("Gradient_ivpvi")
@@ -26,8 +27,8 @@ color_ramp = SubResource("Gradient_44x8d")
 noise = SubResource("FastNoiseLite_ivpvi")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vonw3"]
-sky_top_color = Color(7.21961e-07, 0.175666, 0.504067, 1)
-sky_horizon_color = Color(0.00337478, 0.180374, 0.402837, 1)
+sky_top_color = Color(0.469625, 0.659434, 1, 1)
+sky_horizon_color = Color(0.0532502, 0.475704, 0.966639, 1)
 sky_cover = SubResource("NoiseTexture2D_0v1st")
 ground_bottom_color = Color(0.018033, 0, 0.506818, 1)
 ground_horizon_color = Color(0.00337478, 0.180374, 0.402837, 1)
@@ -37,7 +38,7 @@ sky_material = SubResource("ProceduralSkyMaterial_vonw3")
 
 [sub_resource type="Environment" id="Environment_0b4ue"]
 background_mode = 2
-background_energy_multiplier = 0.3
+background_energy_multiplier = 0.38
 sky = SubResource("Sky_oi3di")
 tonemap_mode = 3
 ssr_max_steps = 256
@@ -91,3 +92,20 @@ transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 
 [node name="AudioStreamPlayer2" parent="." instance=ExtResource("5_ktfr2")]
 
 [node name="rain" parent="." instance=ExtResource("6_44x8d")]
+
+[node name="task_trigger" parent="." instance=ExtResource("7_ivpvi")]
+transform = Transform3D(1.875, 0, 0, 0, 3, 0, 0, 0, 1, 0.692842, 2.24825, -8.53779)
+task_text = "Find the powerbox"
+
+[node name="CollisionShape3D" parent="task_trigger" index="0"]
+transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, 0.197132, 0.0471122, 0)
+
+[node name="task_trigger2" parent="." instance=ExtResource("7_ivpvi")]
+transform = Transform3D(1.875, 0, 0, 0, 3, 0, 0, 0, 1.94, -1.60616, -2.58432, -8.53779)
+task_text = "Switch the powerbox on"
+
+[node name="CollisionShape3D" parent="task_trigger2" index="0"]
+transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, 0.197132, 0.0471122, 0)
+
+[editable path="task_trigger"]
+[editable path="task_trigger2"]

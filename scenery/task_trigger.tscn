@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bae22y51hmwm8"]
+
+[ext_resource type="Script" uid="uid://cyblod2riy11o" path="res://general_scripts/task_trigger.gd" id="1_o7qfd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rkf14"]
+
+[node name="task_trigger" type="Area3D"]
+script = ExtResource("1_o7qfd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, 0, 0, 0)
+shape = SubResource("BoxShape3D_rkf14")
+
+[connection signal="body_entered" from="." to="." method="enter_trigger"]

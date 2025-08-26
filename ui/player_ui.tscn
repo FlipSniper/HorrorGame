@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://csjdgig62xg20"]
+[gd_scene load_steps=6 format=3 uid="uid://csjdgig62xg20"]
 
 [ext_resource type="Texture2D" uid="uid://d3wagh2ww0gvu" path="res://textures/crosshair.png" id="1_cfom6"]
 [ext_resource type="Script" uid="uid://de4s4500fkd71" path="res://general_scripts/player_ui.gd" id="1_ehg4m"]
 [ext_resource type="PackedScene" uid="uid://by8ytxw0i0ulq" path="res://ui/pause_menu.tscn" id="3_iwa1g"]
+[ext_resource type="PackedScene" uid="uid://dkmxd1eueyyg" path="res://ui/task_ui.tscn" id="3_lp0io"]
+[ext_resource type="PackedScene" uid="uid://c66t7mnjeyf4v" path="res://ui/safe_ui.tscn" id="5_lp0io"]
 
 [node name="player_ui" type="Control"]
 process_mode = 3
@@ -24,9 +26,17 @@ offset_bottom = 648.0
 layout_mode = 2
 texture = ExtResource("1_cfom6")
 
-[node name="pause_menu" parent="." instance=ExtResource("3_iwa1g")]
+[node name="task_ui" parent="." instance=ExtResource("3_lp0io")]
 
+[node name="safe_ui" parent="." instance=ExtResource("5_lp0io")]
+
+[node name="pause_menu" parent="." instance=ExtResource("3_iwa1g")]
+visible = false
+
+[connection signal="pressed" from="safe_ui/confirm" to="." method="confirm_password"]
+[connection signal="pressed" from="safe_ui/back" to="." method="exit_safe"]
 [connection signal="pressed" from="pause_menu/resume" to="." method="resume_game"]
 [connection signal="pressed" from="pause_menu/quit_game" to="." method="quit_game"]
 
+[editable path="safe_ui"]
 [editable path="pause_menu"]

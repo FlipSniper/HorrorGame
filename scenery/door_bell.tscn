@@ -9,21 +9,6 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_7fcfu"]
 size = Vector3(0.36, 0.59, 0.435)
 
-[sub_resource type="Animation" id="Animation_7peo6"]
-resource_name = "press"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D2:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0.125248, 0, 0), Vector3(0.034491, 0, 0), Vector3(0.125248, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_1s042"]
 length = 0.001
 tracks/0/type = "value"
@@ -37,6 +22,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0.125248, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7peo6"]
+resource_name = "press"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.125248, 0, 0), Vector3(0.034491, 0, 0), Vector3(0.125248, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q0if7"]

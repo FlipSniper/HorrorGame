@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://ctls50khe2bc6"]
+[gd_scene load_steps=82 format=4 uid="uid://ctls50khe2bc6"]
 
 [ext_resource type="PackedScene" uid="uid://b5hp1yni01mi" path="res://scenery/stairs.tscn" id="1_3fs81"]
 [ext_resource type="Material" uid="uid://6ctone680nsd" path="res://materials/house_material.tres" id="1_cdgek"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://c63e5js4tuosq" path="res://scenery/oven.tscn" id="36_l2b2r"]
 [ext_resource type="PackedScene" uid="uid://dibgppnanl3oy" path="res://scenery/crate.tscn" id="37_flo46"]
 [ext_resource type="PackedScene" uid="uid://bb2mb4flbhddp" path="res://scenery/door_bell.tscn" id="38_l8fk2"]
+[ext_resource type="PackedScene" uid="uid://jmuj3vk1m6ue" path="res://scenery/safe.tscn" id="39_bhti7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sy2ny"]
 resource_name = "Material"
@@ -812,6 +813,9 @@ shape = SubResource("BoxShape3D_l8fk2")
 [node name="door_bell" parent="." node_paths=PackedStringArray("door") instance=ExtResource("38_l8fk2")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.428213, -0.981263, -14.8351)
 door = NodePath("../door2")
+
+[node name="safe" parent="." instance=ExtResource("39_bhti7")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7.21935, -13.5484, 6.60549)
 
 [editable path="furniture/tables/table2"]
 [editable path="furniture/tables/table3"]
