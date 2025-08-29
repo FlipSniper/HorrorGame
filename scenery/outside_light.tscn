@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://w363r4w23pil"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2cik3"]
+radial_segments = 24
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ongg0"]
+emission_enabled = true
+emission = Color(0.842823, 0.714779, 0.474345, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_mtepg"]
+
+[node name="outside_light" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.163463, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_2cik3")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.648347, 0, 0, 0, 0.456035, 0, 0, 0, 0.648347, 0, 0.265912, 0)
+material_override = SubResource("StandardMaterial3D_ongg0")
+mesh = SubResource("SphereMesh_mtepg")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.763517, 0)
+light_color = Color(0.847915, 0.731906, 0.612563, 1)

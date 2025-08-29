@@ -1,0 +1,243 @@
+[gd_scene load_steps=24 format=3 uid="uid://c51nvch8u8oh4"]
+
+[ext_resource type="Texture2D" uid="uid://bb7jwbgsoiuer" path="res://textures/grass.jpg" id="1_0v1st"]
+[ext_resource type="Material" uid="uid://bdanc6bkvkqsc" path="res://materials/metal_fence.tres" id="2_cw150"]
+[ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="2_vkbyq"]
+[ext_resource type="Texture2D" uid="uid://rflknaf46vgq" path="res://textures/corrugated.jpg" id="3_cw150"]
+[ext_resource type="PackedScene" uid="uid://ctls50khe2bc6" path="res://scenery/house.tscn" id="3_ktfr2"]
+[ext_resource type="PackedScene" uid="uid://kpgueo457tcu" path="res://scenery/bg_rain.tscn" id="4_vkbyq"]
+[ext_resource type="PackedScene" uid="uid://dm0abfuqis4lu" path="res://scenery/breathing.tscn" id="5_ktfr2"]
+[ext_resource type="PackedScene" uid="uid://sq25asf4eqb6" path="res://scenery/rain.tscn" id="6_44x8d"]
+[ext_resource type="PackedScene" uid="uid://bae22y51hmwm8" path="res://scenery/task_trigger.tscn" id="7_ivpvi"]
+[ext_resource type="PackedScene" uid="uid://xj88hbrbvdun" path="res://scenery/code_paper.tscn" id="8_0v1st"]
+[ext_resource type="PackedScene" uid="uid://cwyqvmuvslo6o" path="res://scenery/super_shiba.tscn" id="11_xii2b"]
+
+[sub_resource type="Gradient" id="Gradient_ivpvi"]
+offsets = PackedFloat32Array(0, 0.626866, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.376941, 0.358063, 0.366395, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0v1st"]
+gradient = SubResource("Gradient_ivpvi")
+
+[sub_resource type="Gradient" id="Gradient_44x8d"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0945964, 0.152289, 0.357978, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ivpvi"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0v1st"]
+seamless = true
+color_ramp = SubResource("Gradient_44x8d")
+noise = SubResource("FastNoiseLite_ivpvi")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vonw3"]
+sky_top_color = Color(0.469625, 0.659434, 1, 1)
+sky_horizon_color = Color(0.0532502, 0.475704, 0.966639, 1)
+sky_cover = SubResource("NoiseTexture2D_0v1st")
+ground_bottom_color = Color(0.018033, 0, 0.506818, 1)
+ground_horizon_color = Color(0.00337478, 0.180374, 0.402837, 1)
+
+[sub_resource type="Sky" id="Sky_oi3di"]
+sky_material = SubResource("ProceduralSkyMaterial_vonw3")
+
+[sub_resource type="Environment" id="Environment_0b4ue"]
+background_mode = 2
+background_energy_multiplier = 0.38
+sky = SubResource("Sky_oi3di")
+tonemap_mode = 3
+ssr_max_steps = 256
+glow_enabled = true
+glow_bloom = 0.25
+fog_density = 0.03
+volumetric_fog_density = 0.8673
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission = Color(0.22577, 0.184837, 0.163564, 1)
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_0v1st")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vonw3"]
+size = Vector3(15, 1, 15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oi3di"]
+albedo_texture = ExtResource("1_0v1st")
+uv1_scale = Vector3(6.935, 4.805, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0b4ue"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rhqlf"]
+albedo_texture = ExtResource("3_cw150")
+uv1_scale = Vector3(1.07, 1, 1)
+
+[node name="level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0b4ue")
+
+[node name="grass" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grass"]
+shape = SubResource("BoxShape3D_vonw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="grass"]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_oi3di")
+mesh = SubResource("BoxMesh_0b4ue")
+
+[node name="fence" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9366, 2.10941, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence"]
+transform = Transform3D(0.07, 0, 0, 0, 4, 0, 0, 0, 1.005, 0, 0, 0)
+shape = SubResource("BoxShape3D_vonw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 15, 0, 0, 0)
+material_override = ExtResource("2_cw150")
+mesh = SubResource("BoxMesh_0b4ue")
+
+[node name="fence2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9244, 2.10941, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence2"]
+transform = Transform3D(0.07, 0, 0, 0, 4, 0, 0, 0, 1.005, 0, 0, 0)
+shape = SubResource("BoxShape3D_vonw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fence2"]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 15, 0, 0, 0)
+material_override = ExtResource("2_cw150")
+mesh = SubResource("BoxMesh_0b4ue")
+
+[node name="fence3" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.843682, 2.10941, 7.17721)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence3"]
+transform = Transform3D(0.07, 0, 0, 0, 4, 0, 0, 0, 0.556947, 0, 0, 3.071)
+shape = SubResource("BoxShape3D_vonw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fence3"]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 8.31264, 0, 0, 3.071)
+material_override = ExtResource("2_cw150")
+mesh = SubResource("BoxMesh_0b4ue")
+
+[node name="fence4" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 0.793145, 0, 1, 0, -1, 0, -3.46695e-08, -8.94991, 2.10941, 7.17721)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence4"]
+transform = Transform3D(0.07, 0, -8.88178e-16, 0, 4, 0, 0, 0, 0.31679, -4.76837e-07, 0, 3.071)
+shape = SubResource("BoxShape3D_vonw3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="fence4"]
+transform = Transform3D(1, 0, 0, 0, 4, 0, 0, 0, 4.72821, -4.76837e-07, 0, 3.071)
+material_override = SubResource("StandardMaterial3D_rhqlf")
+mesh = SubResource("BoxMesh_0b4ue")
+
+[node name="player" parent="." instance=ExtResource("2_vkbyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37077, 2.77384, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.743145, 0.551448, -0.379, 0, 0.566406, 0.824126, 0.669131, -0.612445, 0.420922, 0, 7.29189, 0)
+visible = false
+light_energy = 0.4
+shadow_enabled = true
+
+[node name="house" parent="." instance=ExtResource("3_ktfr2")]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0.232734, 2.84868, -14.8619)
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("4_vkbyq")]
+
+[node name="AudioStreamPlayer2" parent="." instance=ExtResource("5_ktfr2")]
+
+[node name="rain" parent="." instance=ExtResource("6_44x8d")]
+
+[node name="task_trigger" parent="." instance=ExtResource("7_ivpvi")]
+transform = Transform3D(1.875, 0, 0, 0, 3, 0, 0, 0, 1, 0.692842, 2.24825, -8.53779)
+task_text = "Find the powerbox"
+
+[node name="CollisionShape3D" parent="task_trigger" index="0"]
+transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, 0.197132, 0.0471122, 0)
+
+[node name="task_trigger2" parent="." instance=ExtResource("7_ivpvi")]
+transform = Transform3D(1.875, 0, 0, 0, 3, 0, 0, 0, 1.94, -1.60616, -2.58432, -8.53779)
+task_text = "Switch the powerbox on"
+
+[node name="CollisionShape3D" parent="task_trigger2" index="0"]
+transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, 0.197132, 0.0471122, 0)
+
+[node name="task_trigger3" parent="." instance=ExtResource("7_ivpvi")]
+transform = Transform3D(1.875, 0, 0, 0, 3, 0, 0, 0, 1.94, -4.33628, -3.36108, -18.4017)
+task_text = "Open the safe"
+enable_code = true
+
+[node name="CollisionShape3D" parent="task_trigger3" index="0"]
+transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, 0.197132, 0.0471122, 0)
+
+[node name="rand_pos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19836, 1.59475, -21.0856)
+
+[node name="rand_pos2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0558763, 1.48652, -21.1425)
+
+[node name="rand_pos3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.15275, 1.36678, -21.004)
+
+[node name="rand_pos4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.37053, 1.36678, -21.004)
+
+[node name="rand_pos15" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60973, 1.4266, -11.441)
+
+[node name="rand_pos16" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69861, 1.49855, -11.4758)
+
+[node name="rand_pos5" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.01152, -3.60004, -18.1211)
+
+[node name="rand_pos7" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.17955, -3.60004, -21.3028)
+
+[node name="rand_pos9" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25326, -3.60004, -11.764)
+
+[node name="rand_pos10" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.25326, -3.60004, -10.6245)
+
+[node name="rand_pos11" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60832, 1.53701, -16.9901)
+
+[node name="rand_pos17" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.05379, 1.53701, -8.33871)
+
+[node name="rand_pos18" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.72626, 1.53701, -8.33871)
+
+[node name="rand_pos19" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85836, 1.53701, -8.33871)
+
+[node name="rand_pos20" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.73054, 1.53701, -8.33871)
+
+[node name="rand_pos12" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.62097, 1.53701, -18.6229)
+
+[node name="rand_pos13" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.834, 1.59568, -21.02)
+
+[node name="rand_pos14" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.55381, 1.59568, -21.02)
+
+[node name="rand_pos8" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.763961, -3.60004, -21.3028)
+
+[node name="rand_pos6" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 14.1082, -2.70028, 12.6197)
+
+[node name="code_paper" parent="." node_paths=PackedStringArray("positions") instance=ExtResource("8_0v1st")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09863, 1.12743, -17.2687)
+positions = [NodePath("../rand_pos"), NodePath("../rand_pos2"), NodePath("../rand_pos3"), NodePath("../rand_pos4"), NodePath("../rand_pos5"), NodePath("../rand_pos6"), NodePath("../rand_pos7"), NodePath("../rand_pos8"), NodePath("../rand_pos9"), NodePath("../rand_pos10"), NodePath("../rand_pos11"), NodePath("../rand_pos12"), NodePath("../rand_pos13"), NodePath("../rand_pos14"), NodePath("../rand_pos15"), NodePath("../rand_pos16"), NodePath("../rand_pos17"), NodePath("../rand_pos18"), NodePath("../rand_pos19"), NodePath("../rand_pos20")]
+
+[node name="super_shiba" parent="." node_paths=PackedStringArray("positions") instance=ExtResource("11_xii2b")]
+positions = [NodePath("../rand_pos"), NodePath("../rand_pos2"), NodePath("../rand_pos3")]
+
+[editable path="task_trigger"]
+[editable path="task_trigger2"]
+[editable path="task_trigger3"]

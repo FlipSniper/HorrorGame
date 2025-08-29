@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://csjdgig62xg20"]
+[gd_scene load_steps=9 format=3 uid="uid://csjdgig62xg20"]
 
 [ext_resource type="Texture2D" uid="uid://d3wagh2ww0gvu" path="res://textures/crosshair.png" id="1_cfom6"]
 [ext_resource type="Script" uid="uid://de4s4500fkd71" path="res://general_scripts/player_ui.gd" id="1_ehg4m"]
 [ext_resource type="PackedScene" uid="uid://by8ytxw0i0ulq" path="res://ui/pause_menu.tscn" id="3_iwa1g"]
 [ext_resource type="PackedScene" uid="uid://dkmxd1eueyyg" path="res://ui/task_ui.tscn" id="3_lp0io"]
 [ext_resource type="PackedScene" uid="uid://c66t7mnjeyf4v" path="res://ui/safe_ui.tscn" id="5_lp0io"]
+[ext_resource type="Script" uid="uid://b0v0ltrkna652" path="res://general_scripts/scroll.gd" id="6_ykvpg"]
+[ext_resource type="Texture2D" uid="uid://r8im1wcfv6ea" path="res://textures/exit.png" id="7_hff70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hff70"]
+size = Vector2(455.5, 569)
 
 [node name="player_ui" type="Control"]
 process_mode = 3
@@ -29,14 +34,91 @@ texture = ExtResource("1_cfom6")
 [node name="task_ui" parent="." instance=ExtResource("3_lp0io")]
 
 [node name="safe_ui" parent="." instance=ExtResource("5_lp0io")]
+visible = false
 
 [node name="pause_menu" parent="." instance=ExtResource("3_iwa1g")]
 visible = false
 
+[node name="Win" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Win"]
+offset_right = 1153.0
+offset_bottom = 646.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Win"]
+offset_right = 1155.0
+offset_bottom = 169.0
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center]You completed all the tasks, and successfully found the one piece (Super Shiba Token)"
+
+[node name="controls" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="controls"]
+offset_left = 353.0
+offset_top = 30.0
+offset_right = 813.0
+offset_bottom = 599.0
+
+[node name="keys" type="Node2D" parent="controls/Panel"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_right = 459.0
+offset_bottom = 31.0
+bbcode_enabled = true
+text = "[center] Move - WASD"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 41.0
+offset_right = 459.0
+offset_bottom = 72.0
+bbcode_enabled = true
+text = "[center] Look around - Arrow keys or mouse"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 82.0
+offset_right = 459.0
+offset_bottom = 113.0
+bbcode_enabled = true
+text = "[center] Interact - E"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 126.0
+offset_right = 459.0
+offset_bottom = 157.0
+bbcode_enabled = true
+text = "[center] Flashlight - F"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 176.0
+offset_right = 459.0
+offset_bottom = 207.0
+bbcode_enabled = true
+text = "[center] Zoom - Right Click"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="controls"]
+script = ExtResource("6_ykvpg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="controls/CharacterBody2D"]
+position = Vector2(582.25, 312.5)
+shape = SubResource("RectangleShape2D_hff70")
+
+[node name="close" type="Button" parent="controls"]
+offset_left = 829.0
+offset_top = 10.0
+offset_right = 1087.0
+offset_bottom = 268.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("7_hff70")
+
 [connection signal="pressed" from="safe_ui/confirm" to="." method="confirm_password"]
 [connection signal="pressed" from="safe_ui/back" to="." method="exit_safe"]
 [connection signal="pressed" from="pause_menu/resume" to="." method="resume_game"]
+[connection signal="pressed" from="pause_menu/controls" to="." method="controls"]
 [connection signal="pressed" from="pause_menu/quit_game" to="." method="quit_game"]
+[connection signal="pressed" from="controls/close" to="." method="close_controls"]
 
 [editable path="safe_ui"]
 [editable path="pause_menu"]

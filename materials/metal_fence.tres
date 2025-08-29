@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://bdanc6bkvkqsc"]
+
+[ext_resource type="Texture2D" uid="uid://rflknaf46vgq" path="res://textures/corrugated.jpg" id="1_v6gra"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_v6gra"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_d02j2"]
+seamless = true
+as_normal_map = true
+noise = SubResource("FastNoiseLite_v6gra")
+
+[resource]
+albedo_texture = ExtResource("1_v6gra")
+roughness = 0.5
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_d02j2")
+uv1_scale = Vector3(5.695, 1, 1)

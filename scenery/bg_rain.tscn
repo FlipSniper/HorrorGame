@@ -1,7 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://kpgueo457tcu"]
 
-[ext_resource type="AudioStream" uid="uid://u7f6k7bsyh6a" path="res://sound/Untitled-video-Made-with-Clipchamp-_3_.mp3" id="1_kh1b8"]
+[ext_resource type="AudioStream" uid="uid://smaeni1kmaia" path="res://sound/calming-rain-257596.mp3" id="1_kh1b8"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_kh1b8")
+volume_db = -7.495
 autoplay = true

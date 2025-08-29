@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwyqvmuvslo6o"]
+
+[ext_resource type="Script" uid="uid://ubxbvddpra5u" path="res://general_scripts/super_shiba.gd" id="1_vatcl"]
+[ext_resource type="Texture2D" uid="uid://c18ehrgellpgk" path="res://textures/Dog-removebg-preview.png" id="2_vatcl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ojia"]
+albedo_texture = ExtResource("2_vatcl")
+uv1_scale = Vector3(1.24, 1.05, 1)
+uv1_offset = Vector3(-0.075, 0.595, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fwmgy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r0a86"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_6dqk1"]
+text = "YOU FOUND THE 
+SUPER SHIBA TOKEN"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3v01g"]
+size = Vector3(0.367714, 0.367714, 0.367714)
+
+[node name="super_shiba" type="RigidBody3D"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_vatcl")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.367714, 0, 0, 0, 0.0791408, 0, 0, 0, 0.367714, 0.156835, 0.0952482, -0.0282493)
+material_override = SubResource("StandardMaterial3D_1ojia")
+mesh = SubResource("BoxMesh_fwmgy")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/house")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(-0.143554, 0, 0, 0, -6.79665e-09, -0.0334649, 0, 0.155489, -1.4628e-09, 0.167359, 0.136437, -0.0292006)
+material_override = SubResource("StandardMaterial3D_r0a86")
+mesh = SubResource("TextMesh_6dqk1")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/super_shiba")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.215224, 0, 0, 0, 1, 0.155123, 0.0949655, -0.0255733)
+shape = SubResource("BoxShape3D_3v01g")
+
+[connection signal="body_exited" from="." to="." method="hit_obj"]

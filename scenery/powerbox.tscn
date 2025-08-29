@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://btujvem6k057b" path="res://materials/metal_3.tres" id="2_tyvng"]
 [ext_resource type="Material" uid="uid://cq77n5sck33s6" path="res://materials/drawer.tres" id="3_i0sv4"]
 [ext_resource type="Texture2D" uid="uid://bb15tjjtnrpr6" path="res://textures/voltage.png" id="4_tyvng"]
-[ext_resource type="Material" uid="uid://cfxov12qxoubv" path="res://materials/metal_4.tres" id="5_i0sv4"]
+[ext_resource type="Material" uid="uid://bhgafs8grgwv1" path="res://materials/metal_5.tres" id="6_2850c"]
 
 [sub_resource type="Animation" id="Animation_ogcrx"]
 length = 0.001
@@ -103,7 +103,7 @@ transform = Transform3D(0.0979736, 0, 0, 0, 0.638708, 0, 0, 0, 0.123734, -0.6521
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="hinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.502045, 0)
-material_override = ExtResource("5_i0sv4")
+material_override = ExtResource("6_2850c")
 mesh = SubResource("BoxMesh_jvgnm")
 skeleton = NodePath("../..")
 
@@ -115,5 +115,5 @@ shape = SubResource("BoxShape3D_ogcrx")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.41061e-08, -0.0618869, 0, 0.551483, -2.70516e-09, 0, 0, 0, 0.551483, -0.535, 0, 0.0402433)
-material_override = ExtResource("5_i0sv4")
+material_override = ExtResource("6_2850c")
 mesh = SubResource("CylinderMesh_xsjlo")

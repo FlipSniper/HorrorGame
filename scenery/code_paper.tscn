@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=3 uid="uid://xj88hbrbvdun"]
+
+[ext_resource type="Script" uid="uid://dk14gej2uhby8" path="res://general_scripts/code_paper.gd" id="1_vvaag"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7a11i"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vvaag"]
+width = 367
+height = 137
+as_normal_map = true
+noise = SubResource("FastNoiseLite_7a11i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_web1u"]
+albedo_color = Color(0.597176, 0.597176, 0.597176, 1)
+roughness = 0.6
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_vvaag")
+
+[sub_resource type="QuadMesh" id="QuadMesh_g01vd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dm00l"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="TextMesh" id="TextMesh_cnefa"]
+text = "0000"
+depth = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7a11i"]
+size = Vector3(1.147, 0.06, 0.84)
+
+[node name="code_paper" type="RigidBody3D"]
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_vvaag")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.166, 0, 0, 0, -6.11959e-09, 0.139, 0, -0.14, -6.07588e-09, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_web1u")
+mesh = SubResource("QuadMesh_g01vd")
+
+[node name="code_text" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, -1.74846e-08, 0.4, 0, -0.4, -1.74846e-08, 0, 0.00750792, 0)
+material_override = SubResource("StandardMaterial3D_dm00l")
+mesh = SubResource("TextMesh_cnefa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.142718, 0, 0, 0, 1, 0, 0, 0, 0.157244, -0.00146548, 0, 0.00387953)
+shape = SubResource("BoxShape3D_7a11i")
+
+[connection signal="body_exited" from="." to="." method="hit_obj"]

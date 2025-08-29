@@ -1,0 +1,116 @@
+[gd_scene load_steps=13 format=4 uid="uid://gosc8aifvja4"]
+
+[ext_resource type="Script" uid="uid://fbx5l8tpxdwx" path="res://general_scripts/lock.gd" id="1_jrdsp"]
+[ext_resource type="Material" uid="uid://cfxov12qxoubv" path="res://materials/metal_4.tres" id="1_xhj7f"]
+[ext_resource type="Texture2D" uid="uid://csmax48a3806t" path="res://textures/wood_floor_diff_1k.jpg" id="2_jrdsp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pevl3"]
+albedo_color = Color(0.471526, 0.278189, 2.88785e-07, 1)
+albedo_texture = ExtResource("2_jrdsp")
+uv1_scale = Vector3(4.39, 7.27, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fcclr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5wll"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uvhug"]
+resource_name = "Material.005"
+cull_mode = 2
+albedo_color = Color(0.906332, 0.906332, 0.906332, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xhj7f"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAwAAAAIAAAAEAAEAAwABAAUABAAFAAEABgAAAAMABgADAAUABgAHAAAABwAEAAAABgAFAAgABAAIAAUACQAGAAgABwAGAAkABAAKAAgACQAIAAoABwALAAQACwAKAAQABwAJAAwACgAMAAkADQALAAcABwAMAA0ACgALAA4ACgAOAAwADgALAA8ADQAPAAsADwAMAA4ADwANAAwA"),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("/////wAAAAAAAP////8AAAAA//8AAAAAAADO0gAAAAD///////8AAAAAztL//wAAT6rO0gAAAAD//wAAAAAAAE+qztL+/wAAT6owLQAAAABPqjAt/v8AAP//AAD//wAAAAAwLQAAAAAAAAAAAAAAAAAAMC3//wAAAAAAAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1hoxi"]
+resource_name = "fridge_Cube_003"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("/5//f//f/z//3/9//5//P/+f/z+zlAAA/58AALOUkypLa5Mq/1//P0trAAD/XwAA/1///0tr/79La////1//v/8f/3//X/8//1//f/8f/z//X/9//5//P/+f/3//X/8//1//f0tr/7//X/+/S2trlbOUa5X/n/9/s5T/v/+f/7//n2V0t7WZS/+fmUu3tWV0s5T/v/+f//+zlP///5//v/9fZXT/n5lL/1+ZS/+fZXT/X5lLR0pldP9fZXRHSplL"),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUABAAIAAcACQAIAAQACAAJAAoACgAJAAsADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAGAAcABsAHAAYAB0AHAAdAB4AHgAdAB8AIAAhACIAIAAjACEAJAAlACYAJAAnACUAKAApACoAKAArACkALAAtAC4ALAAvAC0A"),
+"material": SubResource("StandardMaterial3D_uvhug"),
+"name": "Material.005",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 48,
+"vertex_data": PackedByteArray("/////wAA//8AAP///////wAA//8AAP//////////////////////vwAAztL///+/AAD//////79Pqs7S/v//v0+qMC3+//+///8AAP///78AADAt////vwAAAAD///+/AAAAAP//VNUAADAtAABU1QAAMC3//1TVAAAAAAAAVNUAAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v///AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAAAA//8AADAtAAD//wAAAAAAAP//T6owLQAA//9Pqs7SAAD///////8AAP//AADO0gAA//8AAP//AAD//0+qztIAAAAAAADO0v//AABPqs7S/v8AAAAAztIAAAAAAADO0gAAVNUAAP////9U1QAAztL//1TVAAD//wAAVNVPqjAtAACqKk+qztL+/6oqT6owLf7/qipPqs7SAACqKk+qMC3+//8/AAAwLQAA/z9PqjAtAAD/PwAAMC3///8//3//v/9//7//f/+//3//v///////////////////////////////////////////VNVU1VTVVNVU1VTVVNVU1QAA/38AAP9/AAD/fwAA/3+qKqoqqiqqKqoqqiqqKqoq/7//v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//f/8//3//P/9//z//f/8/VNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNVU1VTVVNX///9/////f////3////9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xhj7f")
+
+[sub_resource type="Animation" id="Animation_xhj7f"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("trapdoor_hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(1.39626, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jrdsp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("trapdoor_hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1hoxi"]
+_data = {
+&"RESET": SubResource("Animation_jrdsp"),
+&"open": SubResource("Animation_xhj7f")
+}
+
+[node name="trap_door" type="Node3D"]
+script = ExtResource("1_jrdsp")
+
+[node name="trapdoor_hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.08337, -4.26785)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="trapdoor_hinge"]
+transform = Transform3D(10.1649, 0, 0, 0, 0.132999, 0, 0, 0, 6.99313, 0, 0, -3.46664)
+material_override = SubResource("StandardMaterial3D_pevl3")
+mesh = SubResource("BoxMesh_fcclr")
+skeleton = NodePath("../..")
+
+[node name="trapdoor" type="StaticBody3D" parent="trapdoor_hinge/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trapdoor_hinge/MeshInstance3D2/trapdoor"]
+shape = SubResource("BoxShape3D_g5wll")
+
+[node name="Cube_003" type="MeshInstance3D" parent="trapdoor_hinge"]
+transform = Transform3D(1.12052e-08, -0.470249, 0, 0.256345, 2.05552e-08, 0, 0, 0, -0.264667, 0.677371, 0.268975, -6.48755)
+material_override = ExtResource("1_xhj7f")
+mesh = SubResource("ArrayMesh_1hoxi")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1hoxi")
+}
