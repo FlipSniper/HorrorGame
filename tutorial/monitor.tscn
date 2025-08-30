@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://bg0gqq8bfnbyv"]
+
+[ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="1_a08h7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6uka"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+roughness = 0.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_n6uka"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a08h7"]
+albedo_color = Color(0.230315, 0.230315, 0.230315, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emow7"]
+
+[sub_resource type="TextMesh" id="TextMesh_xb3xb"]
+text = "Interpol"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xb3xb"]
+albedo_texture = ExtResource("1_a08h7")
+metallic = 1.0
+roughness = 0.5
+uv1_scale = Vector3(0.27, 1.665, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a08h7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_emow7"]
+
+[node name="monitor" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0706732, -0.00544335, 0, 0.000303438, 1.26782, 0, 0, 0, 2.03585, -0.0753024, 0.00996906, 0)
+material_override = SubResource("StandardMaterial3D_n6uka")
+mesh = SubResource("BoxMesh_n6uka")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.0590636, -0.000610281, 0, 0.000253592, 0.14214, 0, 0, 0, 1.95515, -0.0480307, -0.554019, 0)
+material_override = SubResource("StandardMaterial3D_a08h7")
+mesh = SubResource("BoxMesh_n6uka")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.3686e-08, 0.0286612, 0.976286, 1.48967e-09, 0.840517, -0.0332908, -1, 8.00023e-16, -4.26996e-08, -0.0338637, -0.537962, 0)
+material_override = SubResource("StandardMaterial3D_emow7")
+mesh = SubResource("TextMesh_xb3xb")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.0754807, 0.224232, 0, 0.0368601, 0.459174, 0, 0, 0, 0.156, -0.319957, -0.756015, 0)
+material_override = SubResource("StandardMaterial3D_xb3xb")
+mesh = SubResource("CylinderMesh_a08h7")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0992565, 0, 0, 0, 1, -0.160681, -1.26306, 0)
+material_override = SubResource("StandardMaterial3D_xb3xb")
+mesh = SubResource("CylinderMesh_emow7")

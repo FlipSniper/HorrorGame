@@ -29,13 +29,13 @@ func handle_arrow_look(delta: float) -> void:
 	var look_x = 0.0
 	var look_y = 0.0
 
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("look_left"):
 		look_x -= .5
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("look_right"):
 		look_x += .5
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("look_up"):
 		look_y += .5
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("look_down"):
 		look_y -= .5
 
 	rotation.y -= look_x * look_sensitivity * 10.0 # Boost for arrows

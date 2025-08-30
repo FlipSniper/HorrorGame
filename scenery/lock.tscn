@@ -144,141 +144,6 @@ shadow_mesh = SubResource("ArrayMesh_g23mq")
 [sub_resource type="BoxShape3D" id="BoxShape3D_n62ay"]
 size = Vector3(4.415, 10.819, 21.13)
 
-[sub_resource type="Animation" id="Animation_64d7e"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cylinder_001:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -3.75134, 0), Vector3(0, -3.75134, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cube_002:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 2.7167, 0.0652408), Vector3(0.00032259, 5.55258, 0.0634803)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cube_001:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.00263402, -1.10138, -6.2202), Vector3(-0.00231143, 1.7345, -6.22196)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cube:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.00438893, -0.25092, 6.18657), Vector3(0.00471152, 2.58496, 6.18481)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cylinder_001:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, -3.14159, -1.5708), Vector3(0, -3.14159, -1.5708)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Cube_002:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1.5708, 0, 0), Vector3(1.5708, 1.36732e-20, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Cube_001:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-7.61601e-11, -2.38106e-23, 3.12639e-13), Vector3(-1.5232e-10, -2.94232e-23, 3.12639e-13)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Cube:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(5.26026e-11, 1.64456e-23, 3.12639e-13), Vector3(1.05205e-10, 1.46932e-23, 3.12639e-13)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Cube:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Cube_002:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Cube_001:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="Animation" id="Animation_abk14"]
 length = 0.001
 tracks/0/type = "value"
@@ -414,6 +279,141 @@ tracks/10/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_64d7e"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cylinder_001:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -3.75134, 0), Vector3(0, -3.75134, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_002:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 2.7167, 0.0652408), Vector3(0.00032259, 5.55258, 0.0634803)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_001:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.00263402, -1.10138, -6.2202), Vector3(-0.00231143, 1.7345, -6.22196)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.00438893, -0.25092, 6.18657), Vector3(0.00471152, 2.58496, 6.18481)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cylinder_001:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -3.14159, -1.5708), Vector3(0, -3.14159, -1.5708)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube_002:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.5708, 0, 0), Vector3(1.5708, 1.36732e-20, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube_001:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-7.61601e-11, -2.38106e-23, 3.12639e-13), Vector3(-1.5232e-10, -2.94232e-23, 3.12639e-13)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cube:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(5.26026e-11, 1.64456e-23, 3.12639e-13), Vector3(1.05205e-10, 1.46932e-23, 3.12639e-13)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Cube:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Cube_002:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Cube_001:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5rmw1"]
 _data = {
 &"RESET": SubResource("Animation_abk14"),
@@ -425,25 +425,25 @@ transform = Transform3D(-0.000113753, -1, 0.000620795, 1, -0.000114127, -0.00060
 script = ExtResource("1_64d7e")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.33937e-07, 1.98377, -9.17822e-07, 3.06413, 8.67133e-08, 0, -1.17092e-14, 1.73427e-07, 10.4987, 0, -3.75134, 0)
+transform = Transform3D(-1.10921e-05, 1.98377, 2.66161e-05, 3.06413, 7.18123e-06, 0, 2.81205e-11, -5.02922e-06, 10.4987, 0, -3.75134, 0)
 material_override = ExtResource("2_abk14")
 mesh = SubResource("ArrayMesh_dka23")
 skeleton = NodePath("")
 
 [node name="Cube_002" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -3.76983e-07, -1, 0, 8.62436, -4.37114e-08, 0, 2.7167, 0.0652408)
+transform = Transform3D(1, 0, 0, 0, -3.12201e-05, -1, 0, 8.62436, -3.61999e-06, 0, 2.7167, 0.0652408)
 material_override = SubResource("StandardMaterial3D_64d7e")
 mesh = SubResource("ArrayMesh_rcbmv")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, -9.55775e-13, -2.38106e-23, 3.12639e-13, 3.05712, 7.61601e-11, -1.57772e-30, -2.32831e-10, 1, -0.00263402, -1.10138, -6.2202)
+transform = Transform3D(1, -9.55775e-13, -2.38106e-23, 3.12639e-13, 3.05712, 7.61601e-11, -1.57772e-29, -2.32831e-10, 1, -0.00263402, -1.10138, -6.2202)
 material_override = SubResource("StandardMaterial3D_5rmw1")
 mesh = SubResource("ArrayMesh_ofwsj")
 skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, -6.91904e-13, 1.64456e-23, 3.12639e-13, 2.21311, -5.26026e-11, -3.15544e-30, 1.16415e-10, 1, 0.00438893, -0.25092, 6.18657)
+transform = Transform3D(1, -6.91904e-13, 1.64456e-23, 3.12639e-13, 2.21311, -5.26026e-11, 2.36658e-29, 1.16415e-10, 1, 0.00438893, -0.25092, 6.18657)
 material_override = SubResource("StandardMaterial3D_5rmw1")
 mesh = SubResource("ArrayMesh_icmfk")
 skeleton = NodePath("")

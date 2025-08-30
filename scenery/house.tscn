@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=4 uid="uid://ctls50khe2bc6"]
+[gd_scene load_steps=92 format=4 uid="uid://ctls50khe2bc6"]
 
 [ext_resource type="PackedScene" uid="uid://b5hp1yni01mi" path="res://scenery/stairs.tscn" id="1_3fs81"]
 [ext_resource type="Material" uid="uid://6ctone680nsd" path="res://materials/house_material.tres" id="1_cdgek"]
@@ -43,6 +43,7 @@
 [ext_resource type="Material" uid="uid://cfxov12qxoubv" path="res://materials/metal_4.tres" id="41_yrxfy"]
 [ext_resource type="PackedScene" uid="uid://gosc8aifvja4" path="res://scenery/trap_door.tscn" id="42_w78tr"]
 [ext_resource type="PackedScene" uid="uid://teudi5kv344b" path="res://scenery/lock.tscn" id="43_uuwef"]
+[ext_resource type="PackedScene" uid="uid://c8l78yy6oqmhw" path="res://scenery/bin.tscn" id="44_w78tr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sy2ny"]
 resource_name = "Material"
@@ -886,11 +887,29 @@ transform = Transform3D(1.12052e-08, -0.470249, 0, 0.256345, 2.05552e-08, 0, 0, 
 [node name="lock" parent="." instance=ExtResource("43_uuwef")]
 transform = Transform3D(-1.08084e-05, -0.0950171, 7.60843e-05, 0.0950166, -1.0844e-05, -7.38602e-05, 5.72682e-05, 5.89796e-05, 0.12256, 1.11495, -3.9025, -11.2639)
 
+[node name="Cylinder_001" parent="lock" index="0"]
+transform = Transform3D(-1.10921e-05, 1.98377, 2.66161e-05, 3.06413, 7.18123e-06, 0, 2.81205e-11, -5.02922e-06, 10.4987, 0, -3.75134, 0)
+
+[node name="Cube_002" parent="lock" index="1"]
+transform = Transform3D(1, 0, 0, 0, -3.12201e-05, -1, 0, 8.62436, -3.61999e-06, 0, 2.7167, 0.0652408)
+
 [node name="Cube_001" parent="lock" index="2"]
-transform = Transform3D(1, -9.55775e-13, -2.38106e-23, 3.12639e-13, 3.05712, 7.61601e-11, -1.57772e-30, -2.32831e-10, 1, -0.00263402, -1.10138, -6.2202)
+transform = Transform3D(1, -9.55775e-13, -2.38106e-23, 3.12639e-13, 3.05712, 7.61601e-11, -1.57772e-29, -2.32831e-10, 1, -0.00263402, -1.10138, -6.2202)
 
 [node name="Cube" parent="lock" index="3"]
-transform = Transform3D(1, -6.91904e-13, 1.64456e-23, 3.12639e-13, 2.21311, -5.26026e-11, -3.15544e-30, 1.16415e-10, 1, 0.00438893, -0.25092, 6.18657)
+transform = Transform3D(1, -6.91904e-13, 1.64456e-23, 3.12639e-13, 2.21311, -5.26026e-11, 2.36658e-29, 1.16415e-10, 1, 0.00438893, -0.25092, 6.18657)
+
+[node name="bin" parent="." instance=ExtResource("44_w78tr")]
+transform = Transform3D(1.57492, 0, 0, 0, 1.57492, 0, 0, 0, 1.57492, -5.92514, -3.07885, -12.7776)
+
+[node name="bin2" parent="." instance=ExtResource("44_w78tr")]
+transform = Transform3D(1.57492, 0, 0, 0, 1.57492, 0, 0, 0, 1.57492, -9.16117, -3.07885, -12.7776)
+
+[node name="bin3" parent="." instance=ExtResource("44_w78tr")]
+transform = Transform3D(1.57492, 0, 0, 0, 1.57492, 0, 0, 0, 1.57492, -14.2602, -12.8375, -12.7101)
+
+[node name="lid" parent="bin3" index="2"]
+transform = Transform3D(0.79712, 0.60382, 0, -0.509415, 0.672494, -0.536887, -0.324184, 0.427964, 0.843654, 0.842294, -0.794581, -0.322476)
 
 [editable path="stairs"]
 [editable path="furniture/tables/table2"]
@@ -899,3 +918,4 @@ transform = Transform3D(1, -6.91904e-13, 1.64456e-23, 3.12639e-13, 2.21311, -5.2
 [editable path="bulbs_switches/bulb6"]
 [editable path="trap_door"]
 [editable path="lock"]
+[editable path="bin3"]

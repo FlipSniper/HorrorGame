@@ -12,6 +12,7 @@ func _ready() -> void:
 	$safe_ui.visible = false
 	$pause_menu.visible = false
 	$controls.visible = false
+	$Set.visible = true
 	set_task("Ring the door bell... twice for good measure")
 	var p1 = rng.randi_range(0,9)
 	var p2 = rng.randi_range(0,9)
@@ -24,6 +25,7 @@ func _ready() -> void:
 func resume_game():
 	get_tree().paused = false
 	$pause_menu.visible = false
+	$Set.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func quit_game():
@@ -53,16 +55,22 @@ func controls():
 func close_controls():
 	$pause_menu.visible = true
 	$controls.visible = false
-	
+
+func settings_open():
+	$Set.visible = false
+	$pause_menu.visible = !$pause_menu.visible
+	get_tree().paused = $pause_menu.visible
+	if get_tree().paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if !get_tree().paused:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		$pause_menu.visible = false
+		$controls.visible = false
+		$Set.visible = true
 
 func set_task(task_text:String):
 	$task_ui/task_text.text = task_text
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and !$safe_ui.visible:
-		$pause_menu.visible = !$pause_menu.visible
-		get_tree().paused = $pause_menu.visible
-		if get_tree().paused:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		if !get_tree().paused:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		settings_open()

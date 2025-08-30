@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://o7uf58gnyk1b"]
+
+[ext_resource type="Texture2D" uid="uid://dv7pgm0g6ysyc" path="res://textures/bricks.jpg" id="1_xvgr5"]
+
+[resource]
+albedo_texture = ExtResource("1_xvgr5")
+uv1_scale = Vector3(1.95, 12.975, 1)
+uv1_triplanar_sharpness = 0.90125
+grow_amount = -0.914
+proximity_fade_distance = 0.01

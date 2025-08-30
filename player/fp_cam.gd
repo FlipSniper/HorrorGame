@@ -1,6 +1,7 @@
 extends Node3D
 
 var sensitivity = 0.2
+@onready var flashlight = get_tree().current_scene.get_node("flashlight")
 
 func _ready() -> void:
 	# Show a prompt to click before locking mouse
@@ -8,7 +9,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("flashlight"):
-		$flashlight.visible = !$flashlight.visible
+		flashlight.visible = !flashlight.visible
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent) -> void:

@@ -1,46 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bk4m8g21gj7g5"]
+[gd_scene load_steps=9 format=3 uid="uid://bk4m8g21gj7g5"]
 
-[ext_resource type="Script" uid="uid://dwrvscn3x1552" path="res://general_scripts/door.gd" id="1_oop7k"]
 [ext_resource type="Texture2D" uid="uid://rflknaf46vgq" path="res://textures/corrugated.jpg" id="2_al61n"]
 [ext_resource type="Material" uid="uid://cfxov12qxoubv" path="res://materials/metal_4.tres" id="3_apdd5"]
 [ext_resource type="Material" uid="uid://bhgafs8grgwv1" path="res://materials/metal_5.tres" id="4_8dr2x"]
 [ext_resource type="Material" uid="uid://dvq4kbeilrtm6" path="res://materials/pillarmetal.tres" id="4_bwp1v"]
-
-[sub_resource type="Animation" id="Animation_m6kou"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("hinge:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_1fsns"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("hinge:rotation")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4owcv"]
-_data = {
-&"RESET": SubResource("Animation_m6kou"),
-&"open": SubResource("Animation_1fsns")
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kc6lf"]
 albedo_texture = ExtResource("2_al61n")
@@ -56,12 +19,6 @@ uv1_scale = Vector3(0.595, 1, 1)
 radial_segments = 24
 
 [node name="gate_door" type="Node3D"]
-script = ExtResource("1_oop7k")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_4owcv")
-}
 
 [node name="hinge" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54749, 0, 0.659287)
@@ -72,9 +29,9 @@ material_override = SubResource("StandardMaterial3D_kc6lf")
 mesh = SubResource("BoxMesh_t3tcx")
 skeleton = NodePath("../..")
 
-[node name="door" type="StaticBody3D" parent="hinge/MeshInstance3D"]
+[node name="gate_door" type="StaticBody3D" parent="hinge/MeshInstance3D"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/MeshInstance3D/door"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/MeshInstance3D/gate_door"]
 shape = SubResource("BoxShape3D_jy65v")
 
 [node name="knob" type="Node3D" parent="hinge"]
