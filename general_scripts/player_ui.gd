@@ -1,14 +1,25 @@
 extends Control
 
-@onready var safe_anim = get_tree().current_scene.get_node("house/safe/AnimationPlayer")
+var safe_anim
 @onready var rng = RandomNumberGenerator.new()
 @onready var code_paper = get_tree().current_scene.get_node("code_paper")
 var safe_password
 var safe_interactable = true
-
+var main_scene_name = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var current_scene = get_tree().current_scene
+	if current_scene != null:
+		main_scene_name = current_scene.name  # "Office" or "Level" etc.
+		print("Current main scene: ", main_scene_name)
+	var powerbox = false
+	if main_scene_name == "level":
+		safe_anim = get_tree().current_scene.get_node("house/safe/AnimationPlayer")
+	if main_scene_name == "office":
+		safe_anim = get_tree().current_scene.get_node("office_layout/safe/AnimationPlayer")
+		
+
 	$safe_ui.visible = false
 	$pause_menu.visible = false
 	$controls.visible = false

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d08avp4q2esg2"]
+
+[ext_resource type="PackedScene" uid="uid://cghcm76ogw7pe" path="res://glb_models/coffee.glb" id="1_ganyb"]
+[ext_resource type="Texture2D" uid="uid://dgmcc1b7b4k1s" path="res://textures/coffee.jpg" id="2_tx6sh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lf83a"]
+albedo_color = Color(0.705042, 0.667911, 0.531347, 1)
+albedo_texture = ExtResource("2_tx6sh")
+uv1_scale = Vector3(2.875, 1.79, 1)
+uv1_offset = Vector3(-0.895, 0, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujmt5"]
+albedo_color = Color(0.346243, 0.19823, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m5i8t"]
+albedo_color = Color(0.695822, 0.447707, 0.09944, 1)
+
+[node name="coffee" instance=ExtResource("1_ganyb")]
+
+[node name="Cylinder_001" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_lf83a")
+
+[node name="Cylinder_002" parent="." index="1"]
+transform = Transform3D(1.41436, 0, 0, 0, 0.267103, 0, 0, 0, 1.41436, 0, 3.06562, 0)
+material_override = SubResource("StandardMaterial3D_ujmt5")
+
+[node name="Cylinder" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_m5i8t")

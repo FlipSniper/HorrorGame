@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://bsggq4ktqk3tf"]
+[gd_scene load_steps=41 format=4 uid="uid://bsggq4ktqk3tf"]
 
 [ext_resource type="Material" uid="uid://o7uf58gnyk1b" path="res://materials/wall.tres" id="1_wubrf"]
 [ext_resource type="Material" uid="uid://1kn4vlqxxsio" path="res://materials/house_material3.tres" id="2_55bs1"]
@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://bq0mp34mq154j" path="res://tutorial/desk.tscn" id="5_70x5j"]
 [ext_resource type="PackedScene" uid="uid://cnqxm0cvxpo0n" path="res://tutorial/plant.tscn" id="6_l4uea"]
 [ext_resource type="PackedScene" uid="uid://bg0gqq8bfnbyv" path="res://tutorial/monitor.tscn" id="7_5qj4x"]
+[ext_resource type="PackedScene" uid="uid://d4ksxqh36sjo1" path="res://tutorial/desk_chair.tscn" id="8_q2sjy"]
+[ext_resource type="PackedScene" uid="uid://hkwuwrl1mb6n" path="res://tutorial/boss.tscn" id="10_43ep7"]
+[ext_resource type="PackedScene" uid="uid://y6j80yhhpslt" path="res://tutorial/keyboard.tscn" id="10_640yb"]
+[ext_resource type="Script" uid="uid://4388ptd4yvhk" path="res://general_scripts/boss.gd" id="11_43ep7"]
+[ext_resource type="Texture2D" uid="uid://c1bbo0wqdycsg" path="res://fbx_models/Typing_0.png" id="12_5bwtx"]
+[ext_resource type="PackedScene" uid="uid://jmuj3vk1m6ue" path="res://scenery/safe.tscn" id="12_xr1xq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q7of"]
 resource_name = "Material"
@@ -203,6 +209,22 @@ shadow_mesh = SubResource("ArrayMesh_j264q")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q2sjy"]
 data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0rdi"]
+albedo_color = Color(0.466703, 0.330053, 0.115371, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kr8hs"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xr1xq"]
+albedo_color = Color(0.474811, 0.282337, 0, 1)
+albedo_texture = ExtResource("12_5bwtx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bwtx"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epg68"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="office_layout" type="Node3D"]
 
 [node name="office_meshes" type="Node3D" parent="."]
@@ -230,7 +252,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_70x5j")
 
 [node name="Cube_001" type="MeshInstance3D" parent="office_meshes"]
-transform = Transform3D(13.5991, 0, 0, 0, 4.89535, 0, 0, 0, 10.6805, -5.06664, 0.220106, -5.84022)
+transform = Transform3D(14.8446, 0, 0, 0, 4.89535, 0, 0, 0, 11.6587, -5.06664, 0.220106, -5.84022)
 material_override = SubResource("StandardMaterial3D_5qj4x")
 mesh = SubResource("ArrayMesh_wxjkp")
 skeleton = NodePath("")
@@ -261,11 +283,92 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="office_meshes/Cube_002/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_q2sjy")
 
-[node name="desk" parent="." instance=ExtResource("5_70x5j")]
+[node name="desk" type="Node3D" parent="."]
+
+[node name="desk" parent="desk" instance=ExtResource("5_70x5j")]
 transform = Transform3D(0.733519, 0, 0, 0, 0.733519, 0, 0, 0, 0.733519, 13.3848, -2.59233, -11.5907)
 
-[node name="plant" parent="." instance=ExtResource("6_l4uea")]
+[node name="plant" parent="desk" instance=ExtResource("6_l4uea")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 11.8221, -1.03119, -10.8022)
 
-[node name="monitor" parent="." instance=ExtResource("7_5qj4x")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.4771, 0, -12.0971)
+[node name="monitor" parent="desk" instance=ExtResource("7_5qj4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.4771, 0, -11.9892)
+
+[node name="desk_chair3" parent="desk" instance=ExtResource("8_q2sjy")]
+transform = Transform3D(-0.35, 0, -3.0598e-08, 0, 0.35, 0, 3.0598e-08, 0, -0.35, 14.7526, -2.33873, -9.23643)
+
+[node name="desk_chair2" parent="desk" instance=ExtResource("8_q2sjy")]
+transform = Transform3D(-0.35, 0, -3.0598e-08, 0, 0.35, 0, 3.0598e-08, 0, -0.35, 12.0909, -2.33873, -9.23643)
+
+[node name="keyboard" parent="desk" instance=ExtResource("10_640yb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.5225, -1.23325, -12.7878)
+
+[node name="desk_chair" parent="desk" instance=ExtResource("8_q2sjy")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 12.9723, -2.3509, -14.2198)
+
+[node name="typing2" parent="desk" instance=ExtResource("10_43ep7")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 12.9284, -3.11204, -14.3111)
+script = ExtResource("11_43ep7")
+
+[node name="desk2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0814, 0, 0)
+
+[node name="desk" parent="desk2" instance=ExtResource("5_70x5j")]
+transform = Transform3D(0.733519, 0, 0, 0, 0.733519, 0, 0, 0, 0.733519, 13.3848, -2.59233, -11.5907)
+
+[node name="monitor" parent="desk2" instance=ExtResource("7_5qj4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.4771, 0, -11.9892)
+
+[node name="keyboard" parent="desk2" instance=ExtResource("10_640yb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.5225, -1.23325, -12.7878)
+
+[node name="desk_chair" parent="desk2" instance=ExtResource("8_q2sjy")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 12.9723, -2.3509, -14.2198)
+
+[node name="typing2" parent="desk2" instance=ExtResource("10_43ep7")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 12.9284, -3.11204, -14.3111)
+script = ExtResource("11_43ep7")
+
+[node name="Ch31_Hair" parent="desk2/typing2/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_c0rdi")
+
+[node name="Ch31_Sweater" parent="desk2/typing2/Skeleton3D" index="7"]
+material_override = SubResource("StandardMaterial3D_kr8hs")
+
+[node name="desk3" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.46524, 0, 0)
+
+[node name="desk" parent="desk3" instance=ExtResource("5_70x5j")]
+transform = Transform3D(0.733519, 0, 0, 0, 0.733519, 0, 0, 0, 0.733519, 13.3848, -2.59233, -11.5907)
+
+[node name="monitor" parent="desk3" instance=ExtResource("7_5qj4x")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.4771, 0, -11.9892)
+
+[node name="keyboard" parent="desk3" instance=ExtResource("10_640yb")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.5225, -1.23325, -12.7878)
+
+[node name="desk_chair" parent="desk3" instance=ExtResource("8_q2sjy")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 12.9723, -2.3509, -14.2198)
+
+[node name="typing2" parent="desk3" instance=ExtResource("10_43ep7")]
+transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 12.9284, -3.11204, -14.3111)
+script = ExtResource("11_43ep7")
+
+[node name="Ch31_Body" parent="desk3/typing2/Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_xr1xq")
+
+[node name="Ch31_Eyelashes" parent="desk3/typing2/Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_5bwtx")
+
+[node name="Ch31_Hair" parent="desk3/typing2/Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_epg68")
+
+[node name="Ch31_Sweater" parent="desk3/typing2/Skeleton3D" index="7"]
+material_override = SubResource("StandardMaterial3D_kr8hs")
+
+[node name="safe" parent="." instance=ExtResource("12_xr1xq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9583, -2.85428, 15.636)
+
+[editable path="desk/typing2"]
+[editable path="desk2/typing2"]
+[editable path="desk3/typing2"]

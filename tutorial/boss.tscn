@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://hkwuwrl1mb6n"]
+
+[ext_resource type="PackedScene" uid="uid://dveo0c4pegiwb" path="res://fbx_models/typing2.fbx" id="1_h5urt"]
+[ext_resource type="Texture2D" uid="uid://c1bbo0wqdycsg" path="res://fbx_models/Typing_0.png" id="2_bqwjc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5urt"]
+albedo_texture = ExtResource("2_bqwjc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bqwjc"]
+albedo_color = Color(0.212305, 0.212305, 0.212305, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avkxt"]
+albedo_color = Color(0.427493, 0.427493, 0.427493, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0iqp3"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_al1ec"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_knxou"]
+albedo_color = Color(0.403524, 0.210018, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gof0n"]
+albedo_color = Color(0, 1, 1, 1)
+
+[node name="typing2" instance=ExtResource("1_h5urt")]
+
+[node name="Light" parent="Skeleton3D" index="0"]
+transform = Transform3D(-29.0865, -77.1101, 56.6393, -5.51891, 60.4525, 79.4672, -95.5171, 19.9883, -21.8391, 4.07625, 5.90386, -1.00545)
+bone_idx = 73
+
+[node name="Ch31_Body" parent="Skeleton3D" index="1"]
+material_override = SubResource("StandardMaterial3D_h5urt")
+
+[node name="Ch31_Collar" parent="Skeleton3D" index="2"]
+material_override = SubResource("StandardMaterial3D_bqwjc")
+
+[node name="Ch31_Eyelashes" parent="Skeleton3D" index="3"]
+material_override = SubResource("StandardMaterial3D_avkxt")
+
+[node name="Ch31_Hair" parent="Skeleton3D" index="4"]
+material_override = SubResource("StandardMaterial3D_0iqp3")
+
+[node name="Ch31_Pants" parent="Skeleton3D" index="5"]
+material_override = SubResource("StandardMaterial3D_al1ec")
+
+[node name="Ch31_Shoes" parent="Skeleton3D" index="6"]
+material_override = SubResource("StandardMaterial3D_knxou")
+
+[node name="Ch31_Sweater" parent="Skeleton3D" index="7"]
+material_override = SubResource("StandardMaterial3D_gof0n")

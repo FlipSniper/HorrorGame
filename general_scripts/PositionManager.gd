@@ -1,7 +1,17 @@
 extends Node
 
 @export var available_positions: Array[Node3D]
-@onready var key = get_tree().current_scene.get_node("key")
+var key
+var main_scene_name = ""
+func _ready() -> void:
+	var current_scene = get_tree().current_scene
+	if current_scene != null:
+		main_scene_name = current_scene.name  # "Office" or "Level" etc.
+		print("Current main scene: ", main_scene_name)
+	var powerbox = false
+	if main_scene_name == "level":
+		key = get_tree().current_scene.get_node("key")
+
 
 func get_random_position(target_node) -> Node3D:
 	if available_positions.is_empty():

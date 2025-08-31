@@ -1,9 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://brmwm74sq4y6e"]
+[gd_scene load_steps=19 format=3 uid="uid://brmwm74sq4y6e"]
 
 [ext_resource type="PackedScene" uid="uid://bsggq4ktqk3tf" path="res://tutorial/office_layout.tscn" id="1_8v3bu"]
+[ext_resource type="Script" uid="uid://cnsdxahrsxi5g" path="res://general_scripts/cutscenes.gd" id="1_al5yc"]
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="2_q07b3"]
 [ext_resource type="PackedScene" uid="uid://xj88hbrbvdun" path="res://scenery/code_paper.tscn" id="3_746kk"]
 [ext_resource type="PackedScene" uid="uid://dfmw2pa162rv2" path="res://scenery/bulb.tscn" id="4_dfmmr"]
+[ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="6_c8dsk"]
+[ext_resource type="AudioStream" uid="uid://od3a6iwau511" path="res://sound/Dialogue 1.mp3" id="7_rhwes"]
+[ext_resource type="AudioStream" uid="uid://j7mrl6sdyggv" path="res://sound/Dialogue 2.mp3" id="8_x0hxl"]
+[ext_resource type="Script" uid="uid://dyv8qikose51p" path="res://tutorial/spawner.gd" id="9_lc562"]
+[ext_resource type="Script" uid="uid://cdkr62p5m2wc7" path="res://general_scripts/PositionManager.gd" id="10_ssyla"]
+[ext_resource type="Script" uid="uid://dfdfal4rcseak" path="res://general_scripts/flashlight.gd" id="11_ssyla"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dfmmr"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -18,7 +25,290 @@ sky = SubResource("Sky_al5yc")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="Animation" id="Animation_al5yc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.79262, -1.57559, -1.93292)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("office_layout/desk/desk_chair2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(12.0909, -2.33873, -9.23643)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player/head/coffee:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.728495, -0.435333, -0.662195)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player/head/coffee:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("coffee2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("player/head/arm:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("player/head/arm:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.143681, 0, -0.402633)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("player/head/arm:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.70978, 0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("office_layout/desk/monitor:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(13.4771, 0, -11.9892)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("office_layout/desk/monitor:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dfmmr"]
+resource_name = "cutscene1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 1.8, 2, 2.2, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(8.79262, -1.57559, -1.93292), Vector3(8.793, -1.576, -4.433), Vector3(8.793, -1.576, -4.433), Vector3(8.793, -1.576, -5.96331), Vector3(7.99286, -1.576, -5.96331), Vector3(7.99286, -1.08861, -5.96331), Vector3(7.99286, -1.08861, -5.31628)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("office_layout/desk/desk_chair2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.01, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(12.0909, -2.33873, -9.23643), Vector3(12.0909, -2.33873, -9.23643), Vector3(12.0909, -2.33873, -8.03183)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player/head/coffee:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.4, 2.5, 2.7, 2.9, 3.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.728495, -0.435333, -0.662195), Vector3(0.728495, -0.435333, -1.56784), Vector3(1.61303, -0.435333, -2.44754), Vector3(1.61303, -0.435333, -2.44754), Vector3(0.728495, -0.435333, -0.662195)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player/head/coffee:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.7, 2.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("coffee2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.63, 2.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_rhwes"]
+resource_name = "cutscene2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("office_layout/desk/desk_chair2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(12.0909, -2.33873, -8.03183)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.3, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(7.99286, -1.08861, -5.31628), Vector3(7.99286, -1.08861, -5.31628), Vector3(7.99286, -1.08861, -5.92025), Vector3(7.99286, -1.08861, -5.31628)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player/head/arm:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("player/head/arm:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5, 1.25, 1.3, 1.46667, 1.56, 1.66667, 1.81),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.143681, 0, -0.402633), Vector3(0.143681, 0, -0.402633), Vector3(0.143681, 0, -0.942947), Vector3(-0.0227041, 0, -0.254388), Vector3(0.143681, 0, -0.942947), Vector3(0.143681, 0, -0.402633), Vector3(0.143681, 0, -0.402633)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("player/head/arm:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.25, 1.3, 1.46667, 1.66, 1.83),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.70978, 0, 0), Vector3(0.12617, 0, 0), Vector3(0.12617, 0, 0), Vector3(0.12617, -0.608317, 0), Vector3(0, 0.386643, 0), Vector3(0.12617, 0, 0), Vector3(-1.70978, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("office_layout/desk/monitor:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.3, 1.56667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(13.4771, 0, -11.9892), Vector3(13.477, 0, -11.449)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("office_layout/desk/monitor:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(1.3, 1.56667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c8dsk"]
+_data = {
+&"RESET": SubResource("Animation_al5yc"),
+&"cutscene1": SubResource("Animation_dfmmr"),
+&"cutscene2": SubResource("Animation_rhwes")
+}
+
 [node name="office" type="Node3D"]
+script = ExtResource("1_al5yc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.930378, 0.317487, -0.1833, -1.49013e-08, 0.499998, 0.866027, 0.366602, -0.805732, 0.465187, -21.465, 5.88708, 0)
@@ -30,10 +320,18 @@ environment = SubResource("Environment_c8dsk")
 [node name="office_layout" parent="." instance=ExtResource("1_8v3bu")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 
+[node name="monitor" parent="office_layout/desk" index="2"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.4771, 0, -11.9892)
+
 [node name="code_paper" parent="." instance=ExtResource("3_746kk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0578, -1.8143, -13.5237)
 
 [node name="player" parent="." instance=ExtResource("2_q07b3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.79262, -1.57559, -1.93292)
+
+[node name="arm" parent="player/head" index="4"]
+transform = Transform3D(1, 0, 0, 0, -0.138534, 0.990358, 0, -0.990358, -0.138534, 0.143681, 0, -0.402633)
+visible = false
 
 [node name="bulb" parent="." instance=ExtResource("4_dfmmr")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.45081, 2.47666, -7.85916)
@@ -50,6 +348,10 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -8.3245, 2.47666, 6.773
 [node name="bulb7" parent="." instance=ExtResource("4_dfmmr")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -10.0293, 2.47666, 0.127459)
 
+[node name="coffee2" parent="." instance=ExtResource("6_c8dsk")]
+transform = Transform3D(0.0928695, 0, 0, 0, 0.0928695, 0, 0, 0, 0.0928695, 9.60589, -0.757661, -7.76382)
+visible = false
+
 [node name="bulb5" parent="." instance=ExtResource("4_dfmmr")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -10.0293, 2.47666, -10.0159)
 
@@ -58,3 +360,47 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.33817, 2.47666, -10.0
 
 [node name="bulb8" parent="." instance=ExtResource("4_dfmmr")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.33817, 2.47666, 0.127459)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_c8dsk")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rhwes")
+volume_db = 12.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_x0hxl")
+volume_db = 12.0
+
+[node name="Spawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04979, 2.75337, 6.48842)
+script = ExtResource("9_lc562")
+
+[node name="random" type="Node" parent="." node_paths=PackedStringArray("available_positions")]
+script = ExtResource("10_ssyla")
+available_positions = [NodePath("rand_pos")]
+
+[node name="rand_pos" type="Node3D" parent="random"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27242, -1.1713, -8.02038)
+
+[node name="rand_pos2" type="Node3D" parent="random"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27242, -1.82501, -8.02038)
+
+[node name="rand_pos3" type="Node3D" parent="random"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27242, -2.21165, -8.02038)
+
+[node name="flashlight" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50375, 2.0701, 0)
+shadow_enabled = true
+spot_range = 15.0
+spot_angle = 35.0
+script = ExtResource("11_ssyla")
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="play2"]
+
+[editable path="office_layout"]
+[editable path="office_layout/desk/typing2"]
+[editable path="office_layout/desk2/typing2"]
+[editable path="player"]
