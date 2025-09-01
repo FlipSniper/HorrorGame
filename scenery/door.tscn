@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgig7ncsh5l7"]
+[gd_scene load_steps=12 format=3 uid="uid://dgig7ncsh5l7"]
 
 [ext_resource type="Script" uid="uid://dwrvscn3x1552" path="res://general_scripts/door.gd" id="1_jy65v"]
 [ext_resource type="Material" uid="uid://cq77n5sck33s6" path="res://materials/drawer.tres" id="2_m6kou"]
@@ -48,6 +48,9 @@ _data = {
 [sub_resource type="CylinderMesh" id="CylinderMesh_l435u"]
 radial_segments = 24
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_m6kou"]
+size = Vector3(3.915, 5.295, 7.105)
+
 [node name="door" type="Node3D"]
 script = ExtResource("1_jy65v")
 
@@ -90,3 +93,12 @@ transform = Transform3D(0.15, 0, 0, 0, -2.18557e-09, -0.15, 0, 0.05, -6.55671e-0
 material_override = ExtResource("4_ogd0u")
 mesh = SubResource("CylinderMesh_l435u")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node3D")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.636187, 0, 0.633586)
+shape = SubResource("BoxShape3D_m6kou")
+
+[connection signal="body_entered" from="Area3D" to="." method="ai_enable_door"]
+[connection signal="body_exited" from="Area3D" to="." method="ai_disable_door"]

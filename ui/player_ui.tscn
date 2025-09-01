@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://csjdgig62xg20"]
+[gd_scene load_steps=13 format=3 uid="uid://csjdgig62xg20"]
 
 [ext_resource type="Texture2D" uid="uid://d3wagh2ww0gvu" path="res://textures/crosshair.png" id="1_cfom6"]
 [ext_resource type="Script" uid="uid://de4s4500fkd71" path="res://general_scripts/player_ui.gd" id="1_ehg4m"]
@@ -11,6 +11,42 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hff70"]
 size = Vector2(455.5, 569)
+
+[sub_resource type="Animation" id="Animation_f7sc3"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g1ro4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b6i2q"]
+_data = {
+&"RESET": SubResource("Animation_g1ro4"),
+&"fade": SubResource("Animation_f7sc3")
+}
 
 [node name="player_ui" type="Control"]
 process_mode = 3
@@ -128,6 +164,19 @@ offset_top = 22.0
 offset_right = 86.0
 offset_bottom = 47.0
 text = "ESC"
+
+[node name="fade_ui" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="fade_ui"]
+offset_right = 1156.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fade_ui"]
+libraries = {
+&"": SubResource("AnimationLibrary_b6i2q")
+}
 
 [connection signal="pressed" from="safe_ui/confirm" to="." method="confirm_password"]
 [connection signal="pressed" from="safe_ui/back" to="." method="exit_safe"]

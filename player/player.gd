@@ -11,6 +11,8 @@ var camera_pitch := 0.0
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Lock cursor
 	$head/player_key.visible = false
+	$head/coffee.visible = false
+	$head/arm.visible = false
 
 func _input(event):
 	if event is InputEventMouseMotion:

@@ -24,6 +24,7 @@ roughness = 0.5
 uv1_scale = Vector3(0.27, 1.665, 1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_a08h7"]
+radial_segments = 24
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_emow7"]
 

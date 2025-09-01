@@ -1,0 +1,420 @@
+[gd_scene load_steps=29 format=3 uid="uid://cylfwlcmy1ud7"]
+
+[ext_resource type="Script" uid="uid://btc44hmp2h3w1" path="res://general_scripts/level_intro.gd" id="1_7rerw"]
+[ext_resource type="PackedScene" uid="uid://b7ory6p22g7gd" path="res://scenery/car.tscn" id="1_18rdn"]
+[ext_resource type="Texture2D" uid="uid://bb7jwbgsoiuer" path="res://textures/grass.jpg" id="1_brajp"]
+[ext_resource type="PackedScene" uid="uid://f2u1drgfd6fa" path="res://scenery/tree.tscn" id="3_xgdo2"]
+[ext_resource type="PackedScene" uid="uid://d3k56qlrqpf64" path="res://scenery/bush.tscn" id="4_ej46k"]
+[ext_resource type="PackedScene" uid="uid://dkfpyas3xvagp" path="res://scenery/street_light.tscn" id="5_ej46k"]
+[ext_resource type="PackedScene" uid="uid://dl068vyhk4r5r" path="res://ui/cutscene_ui.tscn" id="7_b8d4s"]
+
+[sub_resource type="Gradient" id="Gradient_1jt86"]
+colors = PackedColorArray(0.266575, 0.266575, 0.266575, 1, 0.61339, 0.61339, 0.61339, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xgdo2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ej46k"]
+width = 350
+height = 1200
+color_ramp = SubResource("Gradient_1jt86")
+noise = SubResource("FastNoiseLite_xgdo2")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_7rerw"]
+frequency = 0.1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b8d4s"]
+width = 350
+height = 1200
+as_normal_map = true
+bump_strength = 4.0
+noise = SubResource("FastNoiseLite_7rerw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phngh"]
+albedo_color = Color(0.589096, 0.589096, 0.589096, 1)
+albedo_texture = SubResource("NoiseTexture2D_ej46k")
+normal_enabled = true
+normal_scale = 0.7
+normal_texture = SubResource("NoiseTexture2D_b8d4s")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ytvj2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifywb"]
+albedo_texture = ExtResource("1_brajp")
+uv1_scale = Vector3(10, 10, 1)
+
+[sub_resource type="Gradient" id="Gradient_brajp"]
+offsets = PackedFloat32Array(0, 0.626866, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.376941, 0.358063, 0.366395, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0v1st"]
+gradient = SubResource("Gradient_brajp")
+
+[sub_resource type="Gradient" id="Gradient_xgdo2"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0945964, 0.152289, 0.357978, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ej46k"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0v1st"]
+seamless = true
+color_ramp = SubResource("Gradient_xgdo2")
+noise = SubResource("FastNoiseLite_ej46k")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7rerw"]
+sky_top_color = Color(0.469625, 0.659434, 1, 1)
+sky_horizon_color = Color(0.0532502, 0.475704, 0.966639, 1)
+sky_cover = SubResource("NoiseTexture2D_0v1st")
+ground_bottom_color = Color(0.018033, 0, 0.506818, 1)
+ground_horizon_color = Color(0.00337478, 0.180374, 0.402837, 1)
+
+[sub_resource type="Sky" id="Sky_oi3di"]
+sky_material = SubResource("ProceduralSkyMaterial_7rerw")
+
+[sub_resource type="Environment" id="Environment_b8d4s"]
+background_mode = 2
+background_energy_multiplier = 0.41
+sky = SubResource("Sky_oi3di")
+tonemap_mode = 3
+ssr_max_steps = 256
+glow_enabled = true
+glow_bloom = 0.25
+fog_enabled = true
+fog_light_energy = 0.1
+fog_density = 0.0226
+volumetric_fog_density = 0.8673
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission = Color(0.22577, 0.184837, 0.163564, 1)
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_0v1st")
+
+[sub_resource type="Animation" id="Animation_ej46k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("car:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(2.18, 1.459, 45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cutscene_cam:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.78739, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cutscene_cam:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8.71541, 1.33757, 3.78706)]
+}
+
+[sub_resource type="Animation" id="Animation_xgdo2"]
+resource_name = "level_cutscene"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("car:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(2.18, 1.459, 45), Vector3(2.18, 1.459, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cutscene_cam:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.6, 5.11609, 6.55724, 7.99839),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.78739, 0), Vector3(0, 1.58476, 0), Vector3(0, 0.155334, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cutscene_cam:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.73333, 6.55724, 7.99839),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(8.71541, 1.33757, 3.78706), Vector3(8.71541, 1.33757, 3.78706), Vector3(3.72, 1.338, 3.787), Vector3(3.72, 1.338, 45.157)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7rerw"]
+_data = {
+&"RESET": SubResource("Animation_ej46k"),
+&"level_cutscene": SubResource("Animation_xgdo2")
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej46k"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_7rerw"]
+
+[node name="level_intro" type="Node3D"]
+script = ExtResource("1_7rerw")
+
+[node name="road" type="MeshInstance3D" parent="."]
+transform = Transform3D(12, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_phngh")
+mesh = SubResource("BoxMesh_ytvj2")
+
+[node name="road2" type="MeshInstance3D" parent="."]
+transform = Transform3D(54.1223, 0, 0, 0, 0.9, 0, 0, 0, 100, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_ifywb")
+mesh = SubResource("BoxMesh_ytvj2")
+
+[node name="car" parent="." instance=ExtResource("1_18rdn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.18, 1.459, 45)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_b8d4s")
+
+[node name="tree" type="Node3D" parent="."]
+
+[node name="tree" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, -47.2939)
+
+[node name="tree2" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, -40.3119)
+
+[node name="tree3" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, -32.6813)
+
+[node name="tree4" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, -24.4128)
+
+[node name="tree5" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, -16.3712)
+
+[node name="tree6" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, -7.69158)
+
+[node name="tree7" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, -0.650971)
+
+[node name="tree8" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, 7.03198)
+
+[node name="tree9" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, 14.7026)
+
+[node name="tree10" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, 22.5812)
+
+[node name="tree11" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, 29.6914)
+
+[node name="tree12" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, 36.3637)
+
+[node name="tree13" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.39308, 2.71632, 42.598)
+
+[node name="tree27" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, -45.7853)
+
+[node name="tree28" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, -38.8032)
+
+[node name="tree29" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, -31.1726)
+
+[node name="tree30" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, -22.9042)
+
+[node name="tree31" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, -14.8626)
+
+[node name="tree32" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, -6.18292)
+
+[node name="tree33" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, 0.857688)
+
+[node name="tree34" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, 8.54064)
+
+[node name="tree35" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, 16.2113)
+
+[node name="tree36" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, 24.0898)
+
+[node name="tree37" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, 31.2001)
+
+[node name="tree38" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, 37.8723)
+
+[node name="tree39" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3811, 2.71632, 44.1067)
+
+[node name="tree40" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, -49.5354)
+
+[node name="tree41" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, -42.5534)
+
+[node name="tree42" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, -34.9228)
+
+[node name="tree43" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, -26.6543)
+
+[node name="tree44" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, -18.6128)
+
+[node name="tree45" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, -9.9331)
+
+[node name="tree46" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, -2.89249)
+
+[node name="tree47" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, 4.79046)
+
+[node name="tree48" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, 12.4611)
+
+[node name="tree49" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, 20.3396)
+
+[node name="tree50" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, 27.4499)
+
+[node name="tree51" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, 34.1221)
+
+[node name="tree52" parent="tree" instance=ExtResource("3_xgdo2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.09183, 2.71632, 40.3565)
+
+[node name="bushes" type="Node3D" parent="."]
+
+[node name="bush" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, 0)
+
+[node name="bush2" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, -13.9905)
+
+[node name="bush3" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, 7.71145)
+
+[node name="bush4" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, -6.99015)
+
+[node name="bush5" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, -31.0726)
+
+[node name="bush6" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, -45.0631)
+
+[node name="bush7" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, -23.3612)
+
+[node name="bush8" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, -38.0628)
+
+[node name="bush9" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, 29.4189)
+
+[node name="bush10" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, 15.4284)
+
+[node name="bush11" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, 37.1303)
+
+[node name="bush12" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.75011, 0.63385, 22.4287)
+
+[node name="bush13" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99271, 0.63385, -4.43234)
+
+[node name="bush14" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99271, 0.63385, -18.4228)
+
+[node name="bush16" parent="bushes" instance=ExtResource("4_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99271, 0.63385, -11.4225)
+
+[node name="cutscene_cam" type="Camera3D" parent="."]
+transform = Transform3D(-0.214904, 0, 0.976635, 0, 1, 0, -0.976635, 0, -0.214904, 8.71541, 1.33757, 3.78706)
+fov = 132.9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7rerw")
+}
+
+[node name="lights" type="Node3D" parent="."]
+
+[node name="street_light" parent="lights" instance=ExtResource("5_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35621, 6.87214, -0.00555515)
+
+[node name="street_light2" parent="lights" instance=ExtResource("5_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35621, 6.87214, -25.3124)
+
+[node name="street_light3" parent="lights" instance=ExtResource("5_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35621, 6.87214, 17.3224)
+
+[node name="street_light4" parent="lights" instance=ExtResource("5_ej46k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.35621, 6.87214, 43.063)
+
+[node name="street_light5" parent="lights" instance=ExtResource("5_ej46k")]
+transform = Transform3D(-0.992174, 0, -0.124866, 0, 1, 0, 0.124866, 0, -0.992174, 4.82577, 6.87214, 17.5391)
+
+[node name="street_light6" parent="lights" instance=ExtResource("5_ej46k")]
+transform = Transform3D(-0.992174, 0, -0.124866, 0, 1, 0, 0.124866, 0, -0.992174, 4.64865, 6.87214, 42.8453)
+
+[node name="street_light7" parent="lights" instance=ExtResource("5_ej46k")]
+transform = Transform3D(-0.992174, 0, -0.124866, 0, 1, 0, 0.124866, 0, -0.992174, 4.94704, 6.87214, 0.211549)
+
+[node name="street_light8" parent="lights" instance=ExtResource("5_ej46k")]
+transform = Transform3D(-0.992174, 0, -0.124866, 0, 1, 0, 0.124866, 0, -0.992174, 5.1272, 6.87214, -25.5284)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.2242e-05, 0, 1, 0, 42.1079, 0, -280.064, 0, -4.37114e-08, -30.7261, 0, 0)
+material_override = SubResource("StandardMaterial3D_ej46k")
+mesh = SubResource("QuadMesh_7rerw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.2242e-05, 0, -1, 0, 42.1079, 0, 280.064, 0, -4.37114e-08, 30.726, 0, 0)
+material_override = SubResource("StandardMaterial3D_ej46k")
+mesh = SubResource("QuadMesh_7rerw")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-280.064, 0, -8.74228e-08, 0, 29.2333, 0, 2.4484e-05, 0, -1, 6.83339, 0, 46.1616)
+material_override = SubResource("StandardMaterial3D_ej46k")
+mesh = SubResource("QuadMesh_7rerw")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(280.064, 0, 0, 0, 42.1079, 0, 0, 0, 1, 6.833, 0, -48.4514)
+material_override = SubResource("StandardMaterial3D_ej46k")
+mesh = SubResource("QuadMesh_7rerw")
+
+[node name="cutscene_ui" parent="." instance=ExtResource("7_b8d4s")]

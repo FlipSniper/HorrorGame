@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=4 uid="uid://bsggq4ktqk3tf"]
+[gd_scene load_steps=47 format=4 uid="uid://bsggq4ktqk3tf"]
 
 [ext_resource type="Material" uid="uid://o7uf58gnyk1b" path="res://materials/wall.tres" id="1_wubrf"]
 [ext_resource type="Material" uid="uid://1kn4vlqxxsio" path="res://materials/house_material3.tres" id="2_55bs1"]
@@ -13,6 +13,10 @@
 [ext_resource type="Script" uid="uid://4388ptd4yvhk" path="res://general_scripts/boss.gd" id="11_43ep7"]
 [ext_resource type="Texture2D" uid="uid://c1bbo0wqdycsg" path="res://fbx_models/Typing_0.png" id="12_5bwtx"]
 [ext_resource type="PackedScene" uid="uid://jmuj3vk1m6ue" path="res://scenery/safe.tscn" id="12_xr1xq"]
+[ext_resource type="PackedScene" uid="uid://f2dg62kdcejl" path="res://scenery/table.tscn" id="14_c0rdi"]
+[ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="15_kr8hs"]
+[ext_resource type="Texture2D" uid="uid://yrngvscdhd0u" path="res://textures/ceiling_interior_diff_4k.jpg" id="16_r6ws6"]
+[ext_resource type="PackedScene" uid="uid://c8ynapv58dp1v" path="res://tutorial/coffee_machine.tscn" id="17_iph5v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q7of"]
 resource_name = "Material"
@@ -225,6 +229,14 @@ albedo_color = Color(0, 0, 0, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epg68"]
 albedo_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m522g"]
+albedo_texture = ExtResource("15_kr8hs")
+uv1_scale = Vector3(2.98, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7r2qm"]
+albedo_texture = ExtResource("16_r6ws6")
+uv1_scale = Vector3(0.195, 1, 1)
+
 [node name="office_layout" type="Node3D"]
 
 [node name="office_meshes" type="Node3D" parent="."]
@@ -369,6 +381,88 @@ material_override = SubResource("StandardMaterial3D_kr8hs")
 [node name="safe" parent="." instance=ExtResource("12_xr1xq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9583, -2.85428, 15.636)
 
+[node name="table" parent="." instance=ExtResource("14_c0rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.38003, -2.76407, 15.6226)
+
+[node name="MeshInstance3D" parent="table" index="0"]
+material_override = SubResource("StandardMaterial3D_m522g")
+
+[node name="MeshInstance3D2" parent="table" index="1"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="MeshInstance3D3" parent="table" index="2"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="MeshInstance3D4" parent="table" index="3"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="MeshInstance3D5" parent="table" index="4"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="coffee_machine" parent="." instance=ExtResource("17_iph5v")]
+transform = Transform3D(-7.21238e-09, 0, 0.165, 0, 0.165, 0, -0.165, 0, -7.21238e-09, -2.5343, -2.22129, 15.7065)
+
+[node name="coffee_machine2" parent="." instance=ExtResource("17_iph5v")]
+transform = Transform3D(-7.21238e-09, 0, 0.165, 0, 0.165, 0, -0.165, 0, -7.21238e-09, -3.94383, -2.22129, 15.7065)
+
+[node name="table2" parent="." instance=ExtResource("14_c0rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.1096, -2.76407, 15.6226)
+
+[node name="MeshInstance3D" parent="table2" index="0"]
+material_override = SubResource("StandardMaterial3D_m522g")
+
+[node name="MeshInstance3D2" parent="table2" index="1"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="MeshInstance3D3" parent="table2" index="2"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="MeshInstance3D4" parent="table2" index="3"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="MeshInstance3D5" parent="table2" index="4"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="table3" parent="." instance=ExtResource("14_c0rdi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99462, -2.76407, 15.6226)
+
+[node name="MeshInstance3D" parent="table3" index="0"]
+material_override = SubResource("StandardMaterial3D_m522g")
+
+[node name="MeshInstance3D2" parent="table3" index="1"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="MeshInstance3D3" parent="table3" index="2"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="MeshInstance3D4" parent="table3" index="3"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="MeshInstance3D5" parent="table3" index="4"]
+material_override = SubResource("StandardMaterial3D_7r2qm")
+
+[node name="coffee_machine3" parent="." instance=ExtResource("17_iph5v")]
+transform = Transform3D(-7.21238e-09, 0, 0.165, 0, 0.165, 0, -0.165, 0, -7.21238e-09, 10.9554, -2.22129, 15.7065)
+
+[node name="Cube_010" parent="coffee_machine3" index="10"]
+transform = Transform3D(0.341442, 0, -1.77636e-15, 0, 0.537672, 0, 1.77636e-15, 0, 0.313878, 0.522667, -2.22319, -45.7134)
+
+[node name="Cylinder_001" parent="coffee_machine3" index="11"]
+transform = Transform3D(0.705458, 0, 0, 0, 0.17318, 0, 0, 0, 0.705458, 0.501106, -1.422, -44.1062)
+
+[node name="Cylinder_002" parent="coffee_machine3" index="12"]
+transform = Transform3D(1.03421, 0, -4.26326e-14, 0, 0.17318, 0, 4.26326e-14, 0, 1.03421, 0.46006, -2.52345, -44.1062)
+
+[node name="Cylinder" parent="coffee_machine3" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469864, -2.03289, -44.1295)
+
+[node name="coffee_machine4" parent="." instance=ExtResource("17_iph5v")]
+transform = Transform3D(-7.21238e-09, 0, 0.165, 0, 0.165, 0, -0.165, 0, -7.21238e-09, 9.54583, -2.22129, 15.7065)
+
 [editable path="desk/typing2"]
 [editable path="desk2/typing2"]
 [editable path="desk3/typing2"]
+[editable path="table"]
+[editable path="table2"]
+[editable path="table3"]
+[editable path="coffee_machine3"]

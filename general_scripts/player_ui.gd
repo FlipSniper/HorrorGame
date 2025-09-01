@@ -9,6 +9,7 @@ var main_scene_name = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$fade_ui/AnimationPlayer.play("fade")
 	var current_scene = get_tree().current_scene
 	if current_scene != null:
 		main_scene_name = current_scene.name  # "Office" or "Level" etc.
@@ -18,8 +19,6 @@ func _ready() -> void:
 		safe_anim = get_tree().current_scene.get_node("house/safe/AnimationPlayer")
 	if main_scene_name == "office":
 		safe_anim = get_tree().current_scene.get_node("office_layout/safe/AnimationPlayer")
-		
-
 	$safe_ui.visible = false
 	$pause_menu.visible = false
 	$controls.visible = false
@@ -32,6 +31,8 @@ func _ready() -> void:
 	safe_password = str(p1) + str(p2) + str(p3) + str(p4)
 	code_paper.get_node("code_text").mesh.text =  safe_password
 	print(safe_password)
+	await  get_tree().create_timer(1.1,false).timeout
+	$fade_ui.visible = false
 
 func resume_game():
 	get_tree().paused = false

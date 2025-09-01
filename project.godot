@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shiba"
-run/main_scene="uid://brmwm74sq4y6e"
+run/main_scene="uid://cylfwlcmy1ud7"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

@@ -11,4 +11,7 @@ func enter_trigger(body):
 		triggered = true
 		ui.set_task(task_text)
 		if enable_code:
+			get_tree().current_scene.get_node("enemy").process_mode = Node.PROCESS_MODE_INHERIT
+			get_tree().current_scene.get_node("enemy").visible = true
 			code_paper.confirm()
+	

@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkfpyas3xvagp"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_buyc4"]
+radial_segments = 24
+
+[sub_resource type="BoxMesh" id="BoxMesh_j5a2o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86ipg"]
+emission_enabled = true
+emission = Color(0.9002, 0.684549, 0.398665, 1)
+emission_energy_multiplier = 10.0
+
+[node name="street_light" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.467156, 0, 0, 0, 3.91085, 0, 0, 0, 0.467156, -0.619909, -2.52216, 0)
+mesh = SubResource("CylinderMesh_buyc4")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.91592, -0.288329, 0, 1.53629, 0.547257, 0, 0, 0, 0.808164, 0.808653, 1.97554, -0.000185966)
+mesh = SubResource("BoxMesh_j5a2o")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.30019, -0.259883, 0, 1.21188, 0.493267, 0, 0, 0, 0.66821, 0.95392, 1.94881, -0.000185966)
+material_override = SubResource("StandardMaterial3D_86ipg")
+mesh = SubResource("BoxMesh_j5a2o")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.649374, 1.03841, 0)
+spot_range = 352.04
+spot_angle = 35.26

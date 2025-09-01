@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=4 uid="uid://c8ynapv58dp1v"]
+[gd_scene load_steps=73 format=4 uid="uid://c8ynapv58dp1v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ea206"]
 albedo_color = Color(0.489622, 0.489622, 0.489622, 1)
@@ -751,6 +751,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7s1rf")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ea206"]
+size = Vector3(4.525, 5.745, 4.14)
+
 [node name="coffee_machine" type="Node3D"]
 
 [node name="Cube" type="MeshInstance3D" parent="."]
@@ -877,3 +880,8 @@ transform = Transform3D(0, 0.0412312, 0, -0.0515603, 0, 0, 0, 0, 0.0515603, 2.21
 material_override = SubResource("StandardMaterial3D_vf7jk")
 mesh = SubResource("ArrayMesh_17luh")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_ea206")

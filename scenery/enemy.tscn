@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlvptlhvd1s0a"]
+
+[ext_resource type="Script" uid="uid://cob7ca5kifnqe" path="res://general_scripts/enemy.gd" id="1_niajt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0y524"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yjxpk"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_niajt"]
+
+[node name="enemy" type="CharacterBody3D"]
+script = ExtResource("1_niajt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_0y524")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_yjxpk")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.741141, 0, 0, 0, 0.315541, 0, 0, 0, 0.412234, -0.0284724, 0.548306, -0.476029)
+mesh = SubResource("BoxMesh_niajt")
+
+[node name="chasecast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
+target_position = Vector3(0, -10, 0)
+
+[node name="chasecast2" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
+target_position = Vector3(5, -10, 0)
+
+[node name="chasecast3" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
+target_position = Vector3(-5, -10, 0)
+
+[node name="chasecast4" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
+target_position = Vector3(-2.5, -10, 0)
+
+[node name="chasecast5" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
+target_position = Vector3(2.5, -10, 0)
