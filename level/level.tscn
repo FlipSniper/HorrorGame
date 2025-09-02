@@ -589,6 +589,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.55313, 1.32202, -13.3856)
 [node name="destination9" parent="destinations" instance=ExtResource("23_o0wo3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17349, 1.47794, -8.72578)
 
+[node name="destination10" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.17349, -3.71855, -8.72578)
+
+[node name="destination11" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.74301, -3.71855, -8.72578)
+
+[node name="destination12" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.50373, -3.71855, -10.4727)
+
+[node name="destination13" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.72275, -3.71855, -13.6453)
+
+[node name="destination14" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.2644, -3.71855, -15.9175)
+
+[node name="destination15" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.35732, -3.71855, -20.7188)
+
+[node name="destination16" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.92715, -3.71855, -19.2851)
+
+[node name="destination17" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.487777, -3.71855, -19.7718)
+
+[node name="destination18" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.487777, -3.71855, -13.3183)
+
+[node name="destination19" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.78877, -3.71855, -13.3183)
+
+[node name="destination20" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.3945, -3.71855, -15.6879)
+
+[node name="destination21" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.80882, -3.71855, -19.4419)
+
+[node name="destination22" parent="destinations" instance=ExtResource("23_o0wo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.37179, -3.71855, -17.7545)
+
 [node name="destination6" parent="destinations" instance=ExtResource("23_o0wo3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44914, 1.32202, -10.2328)
 
