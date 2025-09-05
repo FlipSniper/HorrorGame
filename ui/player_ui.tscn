@@ -12,21 +12,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hff70"]
 size = Vector2(455.5, 569)
 
-[sub_resource type="Animation" id="Animation_f7sc3"]
-resource_name = "fade"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_g1ro4"]
 length = 0.001
 tracks/0/type = "value"
@@ -40,6 +25,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f7sc3"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b6i2q"]
@@ -182,6 +182,7 @@ libraries = {
 [connection signal="pressed" from="safe_ui/back" to="." method="exit_safe"]
 [connection signal="pressed" from="pause_menu/resume" to="." method="resume_game"]
 [connection signal="pressed" from="pause_menu/controls" to="." method="controls"]
+[connection signal="pressed" from="pause_menu/main_menu" to="." method="main_menu"]
 [connection signal="pressed" from="pause_menu/quit_game" to="." method="quit_game"]
 [connection signal="pressed" from="controls/close" to="." method="close_controls"]
 [connection signal="pressed" from="Set/Settings" to="." method="settings_open"]

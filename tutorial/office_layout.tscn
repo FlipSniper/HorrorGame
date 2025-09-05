@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bsggq4ktqk3tf"]
+[gd_scene load_steps=48 format=4 uid="uid://bsggq4ktqk3tf"]
 
 [ext_resource type="Material" uid="uid://o7uf58gnyk1b" path="res://materials/wall.tres" id="1_wubrf"]
 [ext_resource type="Material" uid="uid://1kn4vlqxxsio" path="res://materials/house_material3.tres" id="2_55bs1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://y6j80yhhpslt" path="res://tutorial/keyboard.tscn" id="10_640yb"]
 [ext_resource type="Script" uid="uid://4388ptd4yvhk" path="res://general_scripts/boss.gd" id="11_43ep7"]
 [ext_resource type="Texture2D" uid="uid://c1bbo0wqdycsg" path="res://fbx_models/Typing_0.png" id="12_5bwtx"]
+[ext_resource type="PackedScene" uid="uid://b56tsms3wnfjc" path="res://tutorial/phone.tscn" id="12_kr8hs"]
 [ext_resource type="PackedScene" uid="uid://jmuj3vk1m6ue" path="res://scenery/safe.tscn" id="12_xr1xq"]
 [ext_resource type="PackedScene" uid="uid://f2dg62kdcejl" path="res://scenery/table.tscn" id="14_c0rdi"]
 [ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="15_kr8hs"]
@@ -322,6 +323,12 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 12.9723, -2.3509, -1
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 12.9284, -3.11204, -14.3111)
 script = ExtResource("11_43ep7")
 
+[node name="Light" parent="desk/typing2/Skeleton3D" index="0"]
+transform = Transform3D(-29.0865, -77.1101, 56.6393, -5.51891, 60.4525, 79.4672, -95.5171, 19.9883, -21.8391, 4.07625, 5.90386, -1.00545)
+
+[node name="phone" parent="desk" instance=ExtResource("12_kr8hs")]
+transform = Transform3D(0.055763, 0, 0, 0, 0.055763, 0, 0, 0, 0.055763, 11.7321, -1.19481, -12.6248)
+
 [node name="desk2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.0814, 0, 0)
 
@@ -340,6 +347,9 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 12.9723, -2.3509, -1
 [node name="typing2" parent="desk2" instance=ExtResource("10_43ep7")]
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 12.9284, -3.11204, -14.3111)
 script = ExtResource("11_43ep7")
+
+[node name="Light" parent="desk2/typing2/Skeleton3D" index="0"]
+transform = Transform3D(-29.0865, -77.1101, 56.6393, -5.51891, 60.4525, 79.4672, -95.5171, 19.9883, -21.8391, 4.07625, 5.90386, -1.00545)
 
 [node name="Ch31_Hair" parent="desk2/typing2/Skeleton3D" index="4"]
 material_override = SubResource("StandardMaterial3D_c0rdi")
@@ -366,6 +376,9 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 12.9723, -2.3509, -1
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 12.9284, -3.11204, -14.3111)
 script = ExtResource("11_43ep7")
 
+[node name="Light" parent="desk3/typing2/Skeleton3D" index="0"]
+transform = Transform3D(-29.0865, -77.1101, 56.6393, -5.51891, 60.4525, 79.4672, -95.5171, 19.9883, -21.8391, 4.07625, 5.90386, -1.00545)
+
 [node name="Ch31_Body" parent="desk3/typing2/Skeleton3D" index="1"]
 material_override = SubResource("StandardMaterial3D_xr1xq")
 
@@ -377,6 +390,9 @@ material_override = SubResource("StandardMaterial3D_epg68")
 
 [node name="Ch31_Sweater" parent="desk3/typing2/Skeleton3D" index="7"]
 material_override = SubResource("StandardMaterial3D_kr8hs")
+
+[node name="phone" parent="desk3" instance=ExtResource("12_kr8hs")]
+transform = Transform3D(0.055763, 0, 0, 0, 0.055763, 0, 0, 0, 0.055763, 14.7156, -1.19481, -12.6248)
 
 [node name="safe" parent="." instance=ExtResource("12_xr1xq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9583, -2.85428, 15.636)

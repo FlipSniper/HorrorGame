@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://licyfb78hh3h"]
+[gd_scene load_steps=13 format=3 uid="uid://licyfb78hh3h"]
 
 [ext_resource type="Script" uid="uid://ccoimpw7w8ddd" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c5ctnuitskyhe" path="res://player/fp_cam.gd" id="2_rkbax"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://csjdgig62xg20" path="res://ui/player_ui.tscn" id="4_yw30f"]
 [ext_resource type="PackedScene" uid="uid://cpcsliocyto0l" path="res://scenery/player_key.tscn" id="5_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="6_boad6"]
+[ext_resource type="PackedScene" uid="uid://b3ca4hein56pc" path="res://scenery/arrow_pointer.tscn" id="7_rgyib"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -83,5 +84,12 @@ mesh = SubResource("CylinderMesh_boad6")
 transform = Transform3D(0.00238083, -0.0319923, 0.000445506, 0.108418, 0.000702545, 0.0202873, -0.0433744, 0, 0.0507342, 0.434267, -0.133557, -1.13105)
 material_override = SubResource("StandardMaterial3D_boad6")
 mesh = SubResource("CylinderMesh_boad6")
+
+[node name="pointer" parent="head" instance=ExtResource("7_rgyib")]
+transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, -0.766282, -1.46871)
+
+[node name="Arrow" type="RayCast3D" parent="head/pointer"]
+transform = Transform3D(2.0333e-15, -4.65164e-08, -1.06417, -1.06417, -4.65164e-08, 0, -4.65164e-08, 1.06417, -4.65164e-08, 0.205038, 0, 0)
+target_position = Vector3(0, -80, 0)
 
 [node name="player_ui" parent="." instance=ExtResource("4_yw30f")]

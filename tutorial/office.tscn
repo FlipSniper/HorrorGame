@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://brmwm74sq4y6e"]
+[gd_scene load_steps=25 format=3 uid="uid://brmwm74sq4y6e"]
 
 [ext_resource type="PackedScene" uid="uid://bsggq4ktqk3tf" path="res://tutorial/office_layout.tscn" id="1_8v3bu"]
 [ext_resource type="Script" uid="uid://cnsdxahrsxi5g" path="res://general_scripts/cutscenes.gd" id="1_al5yc"]
@@ -8,9 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="6_c8dsk"]
 [ext_resource type="AudioStream" uid="uid://od3a6iwau511" path="res://sound/Dialogue 1.mp3" id="7_rhwes"]
 [ext_resource type="AudioStream" uid="uid://j7mrl6sdyggv" path="res://sound/Dialogue 2.mp3" id="8_x0hxl"]
+[ext_resource type="AudioStream" uid="uid://bifi6ww1ob123" path="res://sound/coffeeL.mp3" id="9_223b8"]
 [ext_resource type="Script" uid="uid://dyv8qikose51p" path="res://tutorial/spawner.gd" id="9_lc562"]
+[ext_resource type="AudioStream" uid="uid://dcr3t0t8vowjj" path="res://sound/Experience.mp3" id="10_6l4r5"]
 [ext_resource type="Script" uid="uid://cdkr62p5m2wc7" path="res://general_scripts/PositionManager.gd" id="10_ssyla"]
-[ext_resource type="Script" uid="uid://dfdfal4rcseak" path="res://general_scripts/flashlight.gd" id="11_ssyla"]
+[ext_resource type="PackedScene" uid="uid://bae22y51hmwm8" path="res://scenery/task_trigger.tscn" id="14_o25n8"]
+[ext_resource type="PackedScene" uid="uid://sgqo71vybeq8" path="res://tutorial/coffee_safe.tscn" id="15_3c2y0"]
+[ext_resource type="PackedScene" uid="uid://bpid1eiphcprc" path="res://scenery/flashlight.tscn" id="16_086d5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dfmmr"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -19,8 +23,9 @@ ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
 [sub_resource type="Sky" id="Sky_al5yc"]
 sky_material = SubResource("ProceduralSkyMaterial_dfmmr")
 
-[sub_resource type="Environment" id="Environment_c8dsk"]
+[sub_resource type="Environment" id="Environment_086d5"]
 background_mode = 2
+background_energy_multiplier = 0.0
 sky = SubResource("Sky_al5yc")
 tonemap_mode = 2
 glow_enabled = true
@@ -299,6 +304,30 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5708, 0), Vector3(0, -1.5708, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("player/head/coffee:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("coffee2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c8dsk"]
 _data = {
@@ -306,6 +335,13 @@ _data = {
 &"cutscene1": SubResource("Animation_dfmmr"),
 &"cutscene2": SubResource("Animation_rhwes")
 }
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_086d5"]
+albedo_color = Color(0, 0.713726, 1, 1)
+metallic = 1.0
+roughness = 0.15
+
+[sub_resource type="BoxMesh" id="BoxMesh_4qdnw"]
 
 [node name="office" type="Node3D"]
 script = ExtResource("1_al5yc")
@@ -315,7 +351,7 @@ transform = Transform3D(0.930378, 0.317487, -0.1833, -1.49013e-08, 0.499998, 0.8
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_c8dsk")
+environment = SubResource("Environment_086d5")
 
 [node name="office_layout" parent="." instance=ExtResource("1_8v3bu")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
@@ -326,8 +362,13 @@ transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 13.477
 [node name="code_paper" parent="." instance=ExtResource("3_746kk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0578, -1.8143, -13.5237)
 
-[node name="player" parent="." instance=ExtResource("2_q07b3")]
+[node name="player" parent="." node_paths=PackedStringArray("code_paper", "safe", "boss", "exit", "flash") instance=ExtResource("2_q07b3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.79262, -1.57559, -1.93292)
+code_paper = NodePath("../code_paper")
+safe = NodePath("../office_layout/safe")
+boss = NodePath("../office_layout/desk/typing2")
+exit = NodePath("../task_trigger3")
+flash = NodePath("../flashlight2")
 
 [node name="arm" parent="player/head" index="4"]
 transform = Transform3D(1, 0, 0, 0, -0.138537, 0.990358, 0, -0.990358, -0.138537, 0.143681, 0, -0.402633)
@@ -374,29 +415,64 @@ volume_db = 12.0
 stream = ExtResource("8_x0hxl")
 volume_db = 12.0
 
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_223b8")
+volume_db = 12.0
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6l4r5")
+volume_db = 12.0
+
 [node name="Spawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04979, 2.75337, 6.48842)
 script = ExtResource("9_lc562")
 
 [node name="random" type="Node" parent="." node_paths=PackedStringArray("available_positions")]
 script = ExtResource("10_ssyla")
-available_positions = [NodePath("rand_pos")]
+available_positions = [NodePath("rand_pos"), NodePath("rand_pos2"), NodePath("rand_pos3")]
 
 [node name="rand_pos" type="Node3D" parent="random"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27242, -1.1713, -8.02038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2301, -1.1713, -8.02038)
 
 [node name="rand_pos2" type="Node3D" parent="random"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27242, -1.82501, -8.02038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2301, -1.82501, -8.02038)
 
 [node name="rand_pos3" type="Node3D" parent="random"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.27242, -2.21165, -8.02038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2301, -2.21165, -8.02038)
 
-[node name="flashlight" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50375, 2.0701, 0)
-shadow_enabled = true
-spot_range = 15.0
-spot_angle = 35.0
-script = ExtResource("11_ssyla")
+[node name="task_trigger" parent="." instance=ExtResource("14_o25n8")]
+transform = Transform3D(2.24, 0, 0, 0, 2.24, 0, 0, 0, 2.24, -9.23048, -1.20929, -8.42097)
+task_text = "Use E to interact In this case press E, while looking at the drawers. Follow the arrow again after finding the code."
+safe_arrow = true
+
+[node name="task_trigger2" parent="." instance=ExtResource("14_o25n8")]
+transform = Transform3D(2.24, 0, 0, 0, 2.24, 0, 0, 0, 2.24, 9.11531, -1.20929, -0.115435)
+task_text = ".Talk to the boss"
+boss_arrow = true
+multi_trigger = true
+
+[node name="task_trigger3" parent="." instance=ExtResource("14_o25n8")]
+transform = Transform3D(2.24, 0, 0, 0, 2.24, 0, 0, 0, 2.24, 12.3163, -1.20929, 6.35345)
+task_text = "Go to the first shadow merger's house."
+multi_trigger = true
+exit = true
+
+[node name="coffee" parent="." instance=ExtResource("15_3c2y0")]
+transform = Transform3D(0.0928695, 0, 0, 0, 0.0928695, 0, 0, 0, 0.0928695, -11.1635, -2.15374, 10.126)
+
+[node name="flashlight2" parent="." instance=ExtResource("16_086d5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.55978, -1.61226, -8.2272)
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.196484, 0, 0, 0, 2.66533, 0, 0, 0, 9.53766, -12.7682, -0.276556, -4.85667)
+material_override = SubResource("StandardMaterial3D_086d5")
+mesh = SubResource("BoxMesh_4qdnw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.196484, 0, 0, 0, 2.66533, 0, 0, 0, 3.61625, -12.7682, -0.276556, 6.30327)
+material_override = SubResource("StandardMaterial3D_086d5")
+mesh = SubResource("BoxMesh_4qdnw")
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="play2"]
 
@@ -409,3 +485,6 @@ script = ExtResource("11_ssyla")
 [editable path="office_layout/table3"]
 [editable path="office_layout/coffee_machine3"]
 [editable path="player"]
+[editable path="task_trigger"]
+[editable path="task_trigger2"]
+[editable path="task_trigger3"]

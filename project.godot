@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Shiba"
-run/main_scene="uid://cylfwlcmy1ud7"
+run/main_scene="uid://cgtkkv7yfx1qn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+player_level="*res://general_scripts/player_level.gd"
 
 [display]
 

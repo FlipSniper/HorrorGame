@@ -1,7 +1,202 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgtkkv7yfx1qn"]
+[gd_scene load_steps=8 format=3 uid="uid://cgtkkv7yfx1qn"]
 
-[ext_resource type="PackedScene" uid="uid://dy6ca3yyijaqg" path="res://level/level.tscn" id="1_fr8op"]
+[ext_resource type="Texture2D" uid="uid://k7usswskggoc" path="res://textures/ShadowScary.png" id="1_fr8op"]
+[ext_resource type="Script" uid="uid://cdj1v2elblk8d" path="res://Main/main_menu.gd" id="1_l00uc"]
+[ext_resource type="Texture2D" uid="uid://tcdxd0f57352" path="res://textures/cooltext.png" id="2_vrvlg"]
+[ext_resource type="Script" uid="uid://b0v0ltrkna652" path="res://general_scripts/scroll.gd" id="3_bprq1"]
+[ext_resource type="Texture2D" uid="uid://r8im1wcfv6ea" path="res://textures/exit.png" id="4_l00uc"]
+[ext_resource type="AudioStream" uid="uid://er0vwig7xvx4" path="res://sound/Main_Menu.mp3" id="6_3mueg"]
 
-[node name="Main_Menu" type="Node3D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3mueg"]
+size = Vector2(455.5, 569)
 
-[node name="level" parent="." instance=ExtResource("1_fr8op")]
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l00uc")
+
+[node name="background" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+offset_top = -55.0
+offset_right = 1150.0
+offset_bottom = 713.0
+texture = ExtResource("1_fr8op")
+
+[node name="Buttons" type="CanvasLayer" parent="."]
+
+[node name="play" type="Button" parent="Buttons"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -130.0
+offset_right = 83.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Play"
+
+[node name="settings" type="Button" parent="Buttons"]
+offset_left = 474.0
+offset_top = 307.0
+offset_right = 675.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 50
+text = "Settings
+"
+
+[node name="controls" type="Button" parent="Buttons"]
+offset_left = 474.0
+offset_top = 413.0
+offset_right = 686.0
+offset_bottom = 490.0
+theme_override_font_sizes/font_size = 50
+text = "Controls
+"
+
+[node name="quit" type="Button" parent="Buttons"]
+offset_left = 474.0
+offset_top = 511.0
+offset_right = 686.0
+offset_bottom = 588.0
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Text" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Text"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -461.0
+offset_right = 461.0
+offset_bottom = 123.0
+grow_horizontal = 2
+texture = ExtResource("2_vrvlg")
+
+[node name="controls" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="controls"]
+offset_left = 353.0
+offset_top = 30.0
+offset_right = 813.0
+offset_bottom = 599.0
+
+[node name="keys" type="Node2D" parent="controls/Panel"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_right = 459.0
+offset_bottom = 31.0
+bbcode_enabled = true
+text = "[center] Move - WASD"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 41.0
+offset_right = 459.0
+offset_bottom = 72.0
+bbcode_enabled = true
+text = "[center] Look around - Arrow keys or mouse"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 82.0
+offset_right = 459.0
+offset_bottom = 113.0
+bbcode_enabled = true
+text = "[center] Interact - E"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 126.0
+offset_right = 459.0
+offset_bottom = 157.0
+bbcode_enabled = true
+text = "[center] Flashlight - F"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 176.0
+offset_right = 459.0
+offset_bottom = 207.0
+bbcode_enabled = true
+text = "[center] Zoom - Right Click"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 226.0
+offset_right = 459.0
+offset_bottom = 257.0
+bbcode_enabled = true
+text = "[center] Crouch - Shift"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 265.0
+offset_right = 459.0
+offset_bottom = 296.0
+bbcode_enabled = true
+text = "[center] Move - Left Joystick"
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 306.0
+offset_right = 459.0
+offset_bottom = 337.0
+bbcode_enabled = true
+text = "[center] Look - Right Joystick"
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 347.0
+offset_right = 459.0
+offset_bottom = 378.0
+bbcode_enabled = true
+text = "[center] Interact - Right Trigger"
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 391.0
+offset_right = 459.0
+offset_bottom = 422.0
+bbcode_enabled = true
+text = "[center] Flashlight - Right Button(LB)"
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 441.0
+offset_right = 459.0
+offset_bottom = 472.0
+bbcode_enabled = true
+text = "[center] Zoom - Left Button(LB)"
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="controls/Panel/keys"]
+offset_top = 491.0
+offset_right = 459.0
+offset_bottom = 522.0
+bbcode_enabled = true
+text = "[center] Crouch - Left Trigger"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="controls"]
+script = ExtResource("3_bprq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="controls/CharacterBody2D"]
+position = Vector2(582.25, 312.5)
+shape = SubResource("RectangleShape2D_3mueg")
+
+[node name="close" type="Button" parent="controls"]
+offset_left = 829.0
+offset_top = 10.0
+offset_right = 1087.0
+offset_bottom = 268.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("4_l00uc")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3mueg")
+volume_db = 18.0
+autoplay = true
+
+[connection signal="pressed" from="Buttons/play" to="." method="play"]
+[connection signal="pressed" from="Buttons/controls" to="." method="controls"]
+[connection signal="pressed" from="Buttons/quit" to="." method="quit_game"]
+[connection signal="pressed" from="controls/close" to="." method="close_controls"]

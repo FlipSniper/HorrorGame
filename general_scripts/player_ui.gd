@@ -6,6 +6,7 @@ var safe_anim
 var safe_password
 var safe_interactable = true
 var main_scene_name = ""
+var safe
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,13 +18,17 @@ func _ready() -> void:
 	var powerbox = false
 	if main_scene_name == "level":
 		safe_anim = get_tree().current_scene.get_node("house/safe/AnimationPlayer")
+		safe = get_tree().current_scene.get_node("house/safe/safe/CollisionShape3D")
+		set_task("Ring the door bell... twice for good measure")
 	if main_scene_name == "office":
 		safe_anim = get_tree().current_scene.get_node("office_layout/safe/AnimationPlayer")
+		set_task(".Follow the arrow to the code. Use WASD and mouse or arrow keys to look around. You may use a controller")
+		safe = get_tree().current_scene.get_node("office_layout/safe/safe/CollisionShape3D")
+		
 	$safe_ui.visible = false
 	$pause_menu.visible = false
 	$controls.visible = false
 	$Set.visible = true
-	set_task("Ring the door bell... twice for good measure")
 	var p1 = rng.randi_range(0,9)
 	var p2 = rng.randi_range(0,9)
 	var p3 = rng.randi_range(0,9)
@@ -42,18 +47,29 @@ func resume_game():
 
 func quit_game():
 	get_tree().quit()
+
+func main_menu():
+	get_tree().change_scene_to_file("res://Main/main_menu.tscn")
 	
 func open_safe_password():
 	if safe_interactable:
 		$safe_ui.visible = true
 		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		set_task("!Find the code... it must be in the drawers")
+		if main_scene_name == "office":
+			set_task("!Go back and memorise the code")
+		else:
+			set_task("!Find the code... it must be in the drawers")
 func confirm_password():
 	if $safe_ui/password.text == safe_password:
 		safe_anim.play("open")
 		safe_interactable = false
+		safe.disabled = true
 		exit_safe()
+		if main_scene_name == "office":
+			set_task("!Grab the coffee")
+		else:
+			set_task("!Nothing here for now")
 
 func exit_safe():
 	$safe_ui.visible = false
@@ -86,3 +102,7 @@ func set_task(task_text:String):
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and !$safe_ui.visible:
 		settings_open()
+
+
+func mian_menu() -> void:
+	pass # Replace with function body.

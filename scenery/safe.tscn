@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bq5nne5bveuj4" path="res://textures/metal_no_rust.jpg" id="1_sului"]
 [ext_resource type="Material" uid="uid://bhgafs8grgwv1" path="res://materials/metal_5.tres" id="2_n6xfs"]
-[ext_resource type="Texture2D" uid="uid://qivdh45y3gyw" path="res://textures/cracked_concrete_wall_diff_4k.jpg" id="3_t21tk"]
+[ext_resource type="Texture2D" uid="uid://cke711im43by2" path="res://textures/cracked_concrete_wall_diff_4k.jpg" id="3_t21tk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1rpu"]
 albedo_texture = ExtResource("1_sului")
