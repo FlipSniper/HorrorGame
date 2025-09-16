@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://brmwm74sq4y6e"]
+[gd_scene load_steps=34 format=3 uid="uid://brmwm74sq4y6e"]
 
 [ext_resource type="PackedScene" uid="uid://bsggq4ktqk3tf" path="res://tutorial/office_layout.tscn" id="1_8v3bu"]
 [ext_resource type="Script" uid="uid://cnsdxahrsxi5g" path="res://general_scripts/cutscenes.gd" id="1_al5yc"]
@@ -14,7 +14,11 @@
 [ext_resource type="Script" uid="uid://cdkr62p5m2wc7" path="res://general_scripts/PositionManager.gd" id="10_ssyla"]
 [ext_resource type="PackedScene" uid="uid://bae22y51hmwm8" path="res://scenery/task_trigger.tscn" id="14_o25n8"]
 [ext_resource type="PackedScene" uid="uid://sgqo71vybeq8" path="res://tutorial/coffee_safe.tscn" id="15_3c2y0"]
+[ext_resource type="PackedScene" uid="uid://dgig7ncsh5l7" path="res://scenery/door.tscn" id="16_4qdnw"]
 [ext_resource type="PackedScene" uid="uid://bpid1eiphcprc" path="res://scenery/flashlight.tscn" id="16_086d5"]
+[ext_resource type="Script" uid="uid://cqax5kes7lhdy" path="res://general_scripts/planks.gd" id="17_q74ow"]
+[ext_resource type="Texture2D" uid="uid://csmax48a3806t" path="res://textures/wood_floor_diff_1k.jpg" id="18_kt7wx"]
+[ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="19_kt7wx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dfmmr"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -343,6 +347,21 @@ roughness = 0.15
 
 [sub_resource type="BoxMesh" id="BoxMesh_4qdnw"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mk3jd"]
+albedo_texture = ExtResource("18_kt7wx")
+uv1_scale = Vector3(2.045, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_spum0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mg862"]
+size = Vector3(2.00968, 0.199937, 0.0679181)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfjf7"]
+size = Vector3(2.00968, 0.199937, 0.0679181)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mk3jd"]
+size = Vector3(1, 2.05615, 1)
+
 [node name="office" type="Node3D"]
 script = ExtResource("1_al5yc")
 
@@ -365,10 +384,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0578, -1.8143, -13.5237)
 [node name="player" parent="." node_paths=PackedStringArray("code_paper", "safe", "boss", "exit", "flash") instance=ExtResource("2_q07b3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.79262, -1.57559, -1.93292)
 code_paper = NodePath("../code_paper")
-safe = NodePath("../office_layout/safe")
-boss = NodePath("../office_layout/desk/typing2")
+safe = NodePath("../task_trigger")
+boss = NodePath("../task_trigger2")
 exit = NodePath("../task_trigger3")
 flash = NodePath("../flashlight2")
+
+[node name="RayCast3D" parent="player/head" index="1" node_paths=PackedStringArray("door")]
+door = NodePath("../../../door")
+
+[node name="coffee" parent="player/head" index="3"]
+visible = true
 
 [node name="arm" parent="player/head" index="4"]
 transform = Transform3D(1, 0, 0, 0, -0.138537, 0.990358, 0, -0.990358, -0.138537, 0.143681, 0, -0.402633)
@@ -445,6 +470,9 @@ transform = Transform3D(2.24, 0, 0, 0, 2.24, 0, 0, 0, 2.24, -9.23048, -1.20929, 
 task_text = "Use E to interact In this case press E, while looking at the drawers. Follow the arrow again after finding the code."
 safe_arrow = true
 
+[node name="CollisionShape3D" parent="task_trigger" index="0"]
+transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, -0.0999851, 0, -0.276407)
+
 [node name="task_trigger2" parent="." instance=ExtResource("14_o25n8")]
 transform = Transform3D(2.24, 0, 0, 0, 2.24, 0, 0, 0, 2.24, 9.11531, -1.20929, -0.115435)
 task_text = ".Talk to the boss"
@@ -452,7 +480,7 @@ boss_arrow = true
 multi_trigger = true
 
 [node name="task_trigger3" parent="." instance=ExtResource("14_o25n8")]
-transform = Transform3D(2.24, 0, 0, 0, 2.24, 0, 0, 0, 2.24, 12.3163, -1.20929, 6.35345)
+transform = Transform3D(2.24, 0, 0, 0, 2.24, 0, 0, 0, 2.24, 14.1736, -1.20929, 6.35345)
 task_text = "Go to the first shadow merger's house."
 multi_trigger = true
 exit = true
@@ -474,6 +502,48 @@ transform = Transform3D(0.196484, 0, 0, 0, 2.66533, 0, 0, 0, 3.61625, -12.7682, 
 material_override = SubResource("StandardMaterial3D_086d5")
 mesh = SubResource("BoxMesh_4qdnw")
 
+[node name="door" parent="." instance=ExtResource("16_4qdnw")]
+transform = Transform3D(-2.98711e-08, 0, 0.68526, 0, 0.622735, 0, -0.683372, 0, -2.99537e-08, 11.901, -0.85894, 6.79985)
+locked = true
+
+[node name="planks" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12.3706, -1.75008, 6.77725)
+script = ExtResource("17_q74ow")
+plank_nodes = Array[NodePath]([NodePath("plank1"), NodePath("plank2")])
+
+[node name="plank1" type="RigidBody3D" parent="planks"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="planks/plank1"]
+transform = Transform3D(3.11798, 0, 0, 0, 0.199937, 0, 0, 0, 0.0679181, 0.46712, 0, -0.0604954)
+material_override = SubResource("StandardMaterial3D_mk3jd")
+mesh = SubResource("BoxMesh_spum0")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/level/planks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planks/plank1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46712, 0, -0.0604954)
+shape = SubResource("BoxShape3D_mg862")
+
+[node name="plank2" type="RigidBody3D" parent="planks"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="planks/plank2"]
+transform = Transform3D(3.11798, 0, 0, 0, 0.199937, 0, 0, 0, 0.0679181, 0.46712, 1.48959, -0.0604954)
+material_override = SubResource("StandardMaterial3D_mk3jd")
+mesh = SubResource("BoxMesh_spum0")
+skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/level/planks")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="planks/plank2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46712, 1.48959, -0.0604954)
+shape = SubResource("BoxShape3D_kfjf7")
+
+[node name="crowbar" parent="." instance=ExtResource("19_kt7wx")]
+transform = Transform3D(0.295819, -0.444957, 0, 0.444957, 0.295819, 0, 0, 0, 0.534318, 6.99818, -2.22292, -1.30168)
+
+[node name="crowbar" type="StaticBody3D" parent="crowbar"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crowbar/crowbar"]
+transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, -0.0690918, 0)
+shape = SubResource("BoxShape3D_mk3jd")
+
 [connection signal="finished" from="AudioStreamPlayer" to="." method="play2"]
 
 [editable path="office_layout"]
@@ -488,3 +558,4 @@ mesh = SubResource("BoxMesh_4qdnw")
 [editable path="task_trigger"]
 [editable path="task_trigger2"]
 [editable path="task_trigger3"]
+[editable path="crowbar"]

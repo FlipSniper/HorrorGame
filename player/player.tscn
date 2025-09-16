@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://licyfb78hh3h"]
+[gd_scene load_steps=15 format=3 uid="uid://licyfb78hh3h"]
 
 [ext_resource type="Script" uid="uid://ccoimpw7w8ddd" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c5ctnuitskyhe" path="res://player/fp_cam.gd" id="2_rkbax"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cpcsliocyto0l" path="res://scenery/player_key.tscn" id="5_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="6_boad6"]
 [ext_resource type="PackedScene" uid="uid://b3ca4hein56pc" path="res://scenery/arrow_pointer.tscn" id="7_rgyib"]
+[ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="8_8t03j"]
+[ext_resource type="AudioStream" uid="uid://dxvltc7324uke" path="res://sound/footstep1.mp3" id="9_hg6s5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -47,6 +49,7 @@ visible = false
 
 [node name="coffee" parent="head" instance=ExtResource("6_boad6")]
 transform = Transform3D(0.0928695, 0, 0, 0, 0.0928695, 0, 0, 0, 0.0928695, 0.728495, -0.435333, -0.662195)
+visible = false
 
 [node name="arm" type="Node3D" parent="head"]
 
@@ -92,4 +95,11 @@ transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, -0.766282, -1.
 transform = Transform3D(2.0333e-15, -4.65164e-08, -1.06417, -1.06417, -4.65164e-08, 0, -4.65164e-08, 1.06417, -4.65164e-08, 0.205038, 0, 0)
 target_position = Vector3(0, -80, 0)
 
+[node name="crowbar" parent="head" instance=ExtResource("8_8t03j")]
+transform = Transform3D(-1.77031e-08, 0, -0.405, 0, 0.527653, 0, 0.405, 0, -1.77031e-08, 0.552126, -0.340778, -0.877819)
+visible = false
+
 [node name="player_ui" parent="." instance=ExtResource("4_yw30f")]
+
+[node name="FootstepPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_hg6s5")

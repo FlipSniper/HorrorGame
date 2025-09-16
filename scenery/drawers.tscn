@@ -1,9 +1,10 @@
-[gd_scene load_steps=44 format=4 uid="uid://co2fckq670jhu"]
+[gd_scene load_steps=45 format=4 uid="uid://co2fckq670jhu"]
 
 [ext_resource type="Material" uid="uid://cq77n5sck33s6" path="res://materials/drawer.tres" id="1_mcxpp"]
 [ext_resource type="Material" uid="uid://ydqivgcysydw" path="res://materials/drawers.tres" id="2_2uhxk"]
 [ext_resource type="Script" uid="uid://dwrvscn3x1552" path="res://general_scripts/door.gd" id="2_sw6mj"]
 [ext_resource type="Material" uid="uid://ywrbi3a0ckvc" path="res://materials/metal.tres" id="3_2uhxk"]
+[ext_resource type="AudioStream" uid="uid://cnfi1227wwegv" path="res://sound/drawer-open-98801.mp3" id="5_a0fp6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cs4r"]
 resource_name = "Material"
@@ -446,7 +447,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033095, 5.36442e-07, 0.00
 shape = SubResource("ConcavePolygonShape3D_a0fp6")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="drawer1/Cube_004/drawer"]
-transform = Transform3D(0.999967, 0, 0, 0, 0.999956, 0, 0, 0, 1, -0.00677538, -0.697669, -0.00372303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00677538, -0.697669, -0.00372303)
 shape = SubResource("BoxShape3D_2t1xd")
 
 [node name="Cylinder" type="MeshInstance3D" parent="drawer1"]
@@ -469,6 +470,9 @@ libraries = {
 [node name="spawn" type="Node3D" parent="drawer1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164388, 0.109233)
 
+[node name="DrawerSound" type="AudioStreamPlayer" parent="drawer1"]
+stream = ExtResource("5_a0fp6")
+
 [node name="drawer2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0439563, 0.281568, -1.2782)
 script = ExtResource("2_sw6mj")
@@ -486,7 +490,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0033095, 5.36442e-07, 0.00
 shape = SubResource("ConcavePolygonShape3D_a0fp6")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="drawer2/Cube_003/drawer"]
-transform = Transform3D(0.999967, 0, 0, 0, 0.999956, 0, 0, 0, 1, -0.00677538, -0.697669, -0.00372303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00677538, -0.697669, -0.00372303)
 shape = SubResource("BoxShape3D_2t1xd")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="drawer2"]
@@ -508,6 +512,9 @@ libraries = {
 
 [node name="spawn" type="Node3D" parent="drawer2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.143369, -0.173947)
+
+[node name="DrawerSound" type="AudioStreamPlayer" parent="drawer2"]
+stream = ExtResource("5_a0fp6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

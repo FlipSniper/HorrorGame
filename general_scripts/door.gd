@@ -1,7 +1,7 @@
 extends Node3D
 
 var opened = false
-var locked = false
+@export var locked : bool = false
 
 func ai_enable_door(body):
 	if body.name == "enemy" and !locked and $AnimationPlayer.current_animation != "open":

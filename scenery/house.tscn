@@ -443,6 +443,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9102, -11.584, -0.51711)
 
 [node name="door2" parent="bulbs_switches" instance=ExtResource("21_42jcm")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1.22911, 0, 8.74228e-08, 0, -1, -1.33275, -1.10122, -13.6246)
+locked = true
 
 [node name="bulb2" parent="bulbs_switches" instance=ExtResource("22_j45mc")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 13.94, 4.37957, 5.56777)

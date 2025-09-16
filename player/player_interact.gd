@@ -1,20 +1,27 @@
 extends RayCast3D
 
+@export var door : Node3D
 @onready var crosshair = get_parent().get_parent().get_node("player_ui/CanvasLayer/crosshair")
 @onready var player_ui = get_parent().get_parent().get_node("player_ui")
 @onready var player_key = get_tree().current_scene.get_node_or_null("player/head/player_key")
 @onready var player_coffee = get_tree().current_scene.get_node_or_null("player/head/coffee")
+@onready var player_crowbar = get_tree().current_scene.get_node_or_null("player/head/crowbar")
 @onready var player = get_tree().current_scene.get_node_or_null("player")
 var key
 var key_collider
+var crowbar_collider
+var crowbar
 var lock_opened
 var main_scene_name = ""
 var powerbox
+var plank1
+var plank2
 var trapdoor = false
 var coffee_collider
 var coffee
 var flashlight
 var flashlight_collider
+var unlocked = 0
 func _ready() -> void:
 	var current_scene = get_tree().current_scene
 	if current_scene != null:
@@ -30,6 +37,11 @@ func _ready() -> void:
 		coffee = get_tree().current_scene.get_node_or_null("coffee")
 		flashlight_collider = get_tree().current_scene.get_node_or_null("flashlight2/CollisionShape3D")
 		flashlight = get_tree().current_scene.get_node_or_null("flashlight2")
+		plank1 = get_tree().current_scene.get_node_or_null("planks/plank1")
+		plank2 = get_tree().current_scene.get_node_or_null("planks/plank2")
+		crowbar_collider = get_tree().current_scene.get_node_or_null("crowbar/crowbar/CollisionShape3D")
+		crowbar = get_tree().current_scene.get_node_or_null("crowbar/Cube")
+		crowbar.visible = false
 
 func _physics_process(delta: float) -> void:
 	if is_colliding():
@@ -59,6 +71,8 @@ func _physics_process(delta: float) -> void:
 		elif hit.name == "drawer":
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
+				var drawer_sound = hit.get_parent().get_parent().get_node("DrawerSound")
+				drawer_sound.play()
 				hit.get_parent().get_parent().toggle_door()
 
 		elif hit.name == "door_bell":
@@ -71,6 +85,19 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("interact"):
 				hit.get_parent().toggle_lock()
 				trapdoor = true
+		elif hit.name == "plank1" and player_crowbar.visible:
+			crosshair.visible = true
+			if Input.is_action_just_pressed("interact"):
+				hit.get_parent().toggle_plank(0)
+				if hit.get_parent().unlocked == 2:
+					door.locked = false
+		elif hit.name == "plank2" and player_crowbar.visible:
+			crosshair.visible = true
+			if Input.is_action_just_pressed("interact"):
+				hit.get_parent().toggle_plank(1)
+				if hit.get_parent().unlocked == 2:
+					door.locked = false
+		
 
 		elif hit.name == "key":
 			crosshair.visible = true
@@ -79,13 +106,20 @@ func _physics_process(delta: float) -> void:
 				key.visible = false
 				player_key.visible = true
 				player_ui.set_task(".Nice work. Now open the lock")
+		elif hit.name == "crowbar":
+			crosshair.visible = true
+			if Input.is_action_just_pressed("interact"):
+				crowbar_collider.disabled = true
+				crowbar.visible = false
+				player_crowbar.visible = true
+				player_ui.set_task(".Nice work. Now take down the planks")
 
 		elif hit.name == "flashlight2":
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				flashlight_collider.visible = false
 				flashlight.visible = false
-				player_ui.set_task(".Now leave the office")
+				player_ui.set_task(".Now leave the office. Use the crowbar to get rid of planks")
 				player.change_arrow("exit")
 				get_tree().current_scene.get_node("task_trigger3").leave = true
 

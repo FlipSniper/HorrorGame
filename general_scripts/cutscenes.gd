@@ -1,6 +1,6 @@
 extends Node3D
 
-
+@onready var crowbar = get_tree().current_scene.get_node_or_null("crowbar/Cube")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AudioStreamPlayer4.playing = true
@@ -17,6 +17,7 @@ func play2():
 	$flashlight2.visible = true
 	var player_ui = get_tree().current_scene.get_node("player/player_ui")
 	player_ui.set_task(".Take the flashlight from the boss's desk")
+	crowbar.visible = true
 func play1():
 	$player.controls_enabled = false
 	$AnimationPlayer.play("cutscene1")

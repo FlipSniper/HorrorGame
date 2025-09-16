@@ -1,6 +1,7 @@
 extends Area3D
 
 @onready var ui = get_tree().current_scene.get_node("player/player_ui")
+@onready var tutorial = get_tree().current_scene.get_node("player/player_ui/tutorial_pop_ups")
 @onready var player = get_tree().current_scene.get_node("player")
 @onready var player_coffee = get_tree().current_scene.get_node("player/head/coffee")
 @onready var code_paper = get_tree().current_scene.get_node("code_paper")
@@ -24,6 +25,7 @@ func enter_trigger(body):
 			code_paper.confirm()
 		if safe_arrow:
 			player.change_arrow("safe")
+			tutorial.start = "interact"
 		if exit and leave:
 			player_level.level = "level1"
 			get_tree().change_scene_to_file("res://scenery/level_intro.tscn")

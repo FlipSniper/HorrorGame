@@ -1,9 +1,10 @@
-[gd_scene load_steps=39 format=4 uid="uid://bq0mp34mq154j"]
+[gd_scene load_steps=40 format=4 uid="uid://bq0mp34mq154j"]
 
 [ext_resource type="Texture2D" uid="uid://csmax48a3806t" path="res://textures/wood_floor_diff_1k.jpg" id="1_buv17"]
 [ext_resource type="Material" uid="uid://cq77n5sck33s6" path="res://materials/drawer.tres" id="2_2vv2l"]
 [ext_resource type="Script" uid="uid://dwrvscn3x1552" path="res://general_scripts/door.gd" id="2_aw3aq"]
 [ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="3_2vv2l"]
+[ext_resource type="AudioStream" uid="uid://cnfi1227wwegv" path="res://sound/drawer-open-98801.mp3" id="5_pcjst"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw3aq"]
 albedo_texture = ExtResource("1_buv17")
@@ -363,6 +364,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_pcjst")
 }
 
+[node name="DrawerSound" type="AudioStreamPlayer" parent="top"]
+stream = ExtResource("5_pcjst")
+
 [node name="middle" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.103, 0.121943, -1.33297)
 script = ExtResource("2_aw3aq")
@@ -408,6 +412,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_y6ybr")
 }
 
+[node name="DrawerSound" type="AudioStreamPlayer" parent="middle"]
+stream = ExtResource("5_pcjst")
+
 [node name="bottom" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.103, -1.22555, -1.49772)
 script = ExtResource("2_aw3aq")
@@ -451,6 +458,9 @@ skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/Do
 libraries = {
 &"": SubResource("AnimationLibrary_vk186")
 }
+
+[node name="DrawerSound" type="AudioStreamPlayer" parent="bottom"]
+stream = ExtResource("5_pcjst")
 
 [node name="light" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0168848, 0.128309, -2.29863)
