@@ -119,18 +119,19 @@ shadow_mesh = SubResource("ArrayMesh_agj7s")
 [node name="coffee" type="Node3D"]
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.39756, 0, 0, 0, 0.437516, 0, 0, 0, 1.39756, 0, 2.06189, 0)
+transform = Transform3D(0.11674337, 0, 0, 0, 0.036547333, 0, 0, 0, 0.11674337, 0, 0.106214404, 0)
 material_override = SubResource("StandardMaterial3D_rcntm")
 mesh = SubResource("ArrayMesh_tx6sh")
 skeleton = NodePath("")
 
 [node name="Cylinder_002" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.41436, 0, 0, 0, 0.267103, 0, 0, 0, 1.41436, 0, 3.06562, 0)
+transform = Transform3D(0.11814674, 0, 0, 0, 0.022312103, 0, 0, 0, 0.11814674, 0, 0.19005978, 0)
 material_override = SubResource("StandardMaterial3D_lf83a")
 mesh = SubResource("ArrayMesh_m5i8t")
 skeleton = NodePath("")
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.083533704, 0, 0, 0, 0.083533704, 0, 0, 0, 0.083533704, 0, -0.06602275, 0)
 material_override = SubResource("StandardMaterial3D_ukixt")
 mesh = SubResource("ArrayMesh_4k7i6")
 skeleton = NodePath("")

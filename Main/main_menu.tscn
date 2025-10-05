@@ -267,93 +267,94 @@ offset_top = 30.0
 offset_right = 813.0
 offset_bottom = 599.0
 
-[node name="keys" type="Node2D" parent="Main_Menu/controls/Panel"]
+[node name="slots" type="Node2D" parent="Main_Menu/controls/Panel"]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_right = 459.0
 offset_bottom = 31.0
 bbcode_enabled = true
 text = "[center] Move - WASD"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 41.0
 offset_right = 459.0
 offset_bottom = 72.0
 bbcode_enabled = true
 text = "[center] Look around - Arrow keys or mouse"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 82.0
 offset_right = 459.0
 offset_bottom = 113.0
 bbcode_enabled = true
 text = "[center] Interact - E"
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 126.0
 offset_right = 459.0
 offset_bottom = 157.0
 bbcode_enabled = true
 text = "[center] Flashlight - F"
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 176.0
 offset_right = 459.0
 offset_bottom = 207.0
 bbcode_enabled = true
 text = "[center] Zoom - Right Click"
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel6" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 226.0
 offset_right = 459.0
 offset_bottom = 257.0
 bbcode_enabled = true
 text = "[center] Crouch - Shift"
 
-[node name="RichTextLabel7" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel7" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 265.0
 offset_right = 459.0
 offset_bottom = 296.0
 bbcode_enabled = true
 text = "[center] Move - Left Joystick"
 
-[node name="RichTextLabel8" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel8" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 306.0
 offset_right = 459.0
 offset_bottom = 337.0
 bbcode_enabled = true
 text = "[center] Look - Right Joystick"
 
-[node name="RichTextLabel9" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel9" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 347.0
 offset_right = 459.0
 offset_bottom = 378.0
 bbcode_enabled = true
 text = "[center] Interact - Right Trigger"
 
-[node name="RichTextLabel10" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel10" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 391.0
 offset_right = 459.0
 offset_bottom = 422.0
 bbcode_enabled = true
 text = "[center] Flashlight - Right Button(LB)"
 
-[node name="RichTextLabel11" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel11" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 441.0
 offset_right = 459.0
 offset_bottom = 472.0
 bbcode_enabled = true
 text = "[center] Zoom - Left Button(LB)"
 
-[node name="RichTextLabel12" type="RichTextLabel" parent="Main_Menu/controls/Panel/keys"]
+[node name="RichTextLabel12" type="RichTextLabel" parent="Main_Menu/controls/Panel/slots"]
 offset_top = 491.0
 offset_right = 459.0
 offset_bottom = 522.0
 bbcode_enabled = true
 text = "[center] Crouch - Left Trigger"
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Main_Menu/controls"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Main_Menu/controls" node_paths=PackedStringArray("moving")]
 script = ExtResource("3_bprq1")
+moving = NodePath("../Panel/slots")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Main_Menu/controls/CharacterBody2D"]
 position = Vector2(582.25, 312.5)
@@ -398,6 +399,9 @@ transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 12.9723, -2.3509, -1
 [node name="typing2" parent="desk" instance=ExtResource("11_nbat2")]
 transform = Transform3D(2.7, 0, 0, 0, 2.7, 0, 0, 0, 2.7, 12.9284, -3.11204, -14.3111)
 script = ExtResource("12_8ljr0")
+
+[node name="Light" parent="desk/typing2/Skeleton3D" index="0"]
+transform = Transform3D(-29.086489, -77.11009, 56.63933, -5.5189056, 60.452477, 79.46724, -95.51714, 19.988348, -21.839144, 4.0762453, 5.9038625, -1.005454)
 
 [node name="phone" parent="desk" instance=ExtResource("13_bd2w1")]
 transform = Transform3D(0.055763, 0, 0, 0, 0.055763, 0, 0, 0, 0.055763, 11.7321, -1.19481, -12.6248)

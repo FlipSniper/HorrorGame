@@ -119,27 +119,26 @@ shadow_mesh = SubResource("ArrayMesh_g2pe1")
 [sub_resource type="BoxShape3D" id="BoxShape3D_gdxf3"]
 size = Vector3(2.855, 4.82, 2.81)
 
-[node name="coffee" type="Node3D"]
+[node name="coffee" type="RigidBody3D"]
 
 [node name="Cylinder_003" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.39756, 0, 0, 0, 0.437516, 0, 0, 0, 1.39756, 0, 2.06189, 0)
+transform = Transform3D(0.13515541, 0, 0, 0, 0.04231135, 0, 0, 0, 0.13515541, 0, 0.3241164, 0)
 material_override = SubResource("StandardMaterial3D_td3ra")
 mesh = SubResource("ArrayMesh_plq0x")
 skeleton = NodePath("")
 
 [node name="Cylinder_004" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.41436, 0, 0, 0, 0.267103, 0, 0, 0, 1.41436, 0, 3.06562, 0)
+transform = Transform3D(0.13678011, 0, 0, 0, 0.025831029, 0, 0, 0, 0.13678011, 0, 0.4211852, 0)
 material_override = SubResource("StandardMaterial3D_yckbm")
 mesh = SubResource("ArrayMesh_7f5ak")
 skeleton = NodePath("")
 
 [node name="Cylinder2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.09670813, 0, 0, 0, 0.09670813, 0, 0, 0, 0.09670813, 0, 0.12471479, 0)
 material_override = SubResource("StandardMaterial3D_1s5lk")
 mesh = SubResource("ArrayMesh_ee4sl")
 skeleton = NodePath("")
 
-[node name="coffee" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="coffee"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43443, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.09670813, 0, 0, 0, 0.09670813, 0, 0, 0, 0.09670813, 0, 0.26343584, 0)
 shape = SubResource("BoxShape3D_gdxf3")

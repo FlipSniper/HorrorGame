@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://brmwm74sq4y6e"]
+[gd_scene load_steps=37 format=3 uid="uid://brmwm74sq4y6e"]
 
 [ext_resource type="PackedScene" uid="uid://bsggq4ktqk3tf" path="res://tutorial/office_layout.tscn" id="1_8v3bu"]
 [ext_resource type="Script" uid="uid://cnsdxahrsxi5g" path="res://general_scripts/cutscenes.gd" id="1_al5yc"]
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="2_q07b3"]
 [ext_resource type="PackedScene" uid="uid://xj88hbrbvdun" path="res://scenery/code_paper.tscn" id="3_746kk"]
 [ext_resource type="PackedScene" uid="uid://dfmw2pa162rv2" path="res://scenery/bulb.tscn" id="4_dfmmr"]
+[ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="5_mk3jd"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="6_c8dsk"]
 [ext_resource type="AudioStream" uid="uid://od3a6iwau511" path="res://sound/Dialogue 1.mp3" id="7_rhwes"]
 [ext_resource type="AudioStream" uid="uid://j7mrl6sdyggv" path="res://sound/Dialogue 2.mp3" id="8_x0hxl"]
@@ -347,6 +348,12 @@ roughness = 0.15
 
 [sub_resource type="BoxMesh" id="BoxMesh_4qdnw"]
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kt7wx"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mk3jd"]
+points = PackedVector3Array(-0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mk3jd"]
 albedo_texture = ExtResource("18_kt7wx")
 uv1_scale = Vector3(2.045, 1, 1)
@@ -376,7 +383,16 @@ environment = SubResource("Environment_086d5")
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
 
 [node name="monitor" parent="office_layout/desk" index="2"]
-transform = Transform3D(-3.61999e-06, 0, 1, 0, 1, 0, -1, 0, -3.61999e-06, 13.4771, 0, -11.9892)
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 13.4771, 0, -11.9892)
+
+[node name="Light" parent="office_layout/desk/typing2/Skeleton3D" index="0"]
+transform = Transform3D(-29.086489, -77.11009, 56.63933, -5.5189056, 60.452477, 79.46724, -95.51714, 19.988348, -21.839144, 4.0762453, 5.9038625, -1.005454)
+
+[node name="Light" parent="office_layout/desk2/typing2/Skeleton3D" index="0"]
+transform = Transform3D(-29.086489, -77.11009, 56.63933, -5.5189056, 60.452477, 79.46724, -95.51714, 19.988348, -21.839144, 4.0762453, 5.9038625, -1.005454)
+
+[node name="Light" parent="office_layout/desk3/typing2/Skeleton3D" index="0"]
+transform = Transform3D(-29.086489, -77.11009, 56.63933, -5.5189056, 60.452477, 79.46724, -95.51714, 19.988348, -21.839144, 4.0762453, 5.9038625, -1.005454)
 
 [node name="code_paper" parent="." instance=ExtResource("3_746kk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0578, -1.8143, -13.5237)
@@ -388,15 +404,19 @@ safe = NodePath("../task_trigger")
 boss = NodePath("../task_trigger2")
 exit = NodePath("../task_trigger3")
 flash = NodePath("../flashlight2")
+key_scene = ExtResource("5_mk3jd")
+coffee_scene = ExtResource("15_3c2y0")
+crowbar_scene = ExtResource("19_kt7wx")
 
 [node name="RayCast3D" parent="player/head" index="1" node_paths=PackedStringArray("door")]
 door = NodePath("../../../door")
 
 [node name="coffee" parent="player/head" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.728495, -0.435333, -0.662195)
 visible = true
 
 [node name="arm" parent="player/head" index="4"]
-transform = Transform3D(1, 0, 0, 0, -0.138537, 0.990358, 0, -0.990358, -0.138537, 0.143681, 0, -0.402633)
+transform = Transform3D(1, 0, 0, 0, -0.13853674, 0.990358, 0, -0.990358, -0.13853674, 0.143681, 0, -0.402633)
 visible = false
 
 [node name="bulb" parent="." instance=ExtResource("4_dfmmr")]
@@ -415,7 +435,7 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -8.3245, 2.47666, 6.773
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -10.0293, 2.47666, 0.127459)
 
 [node name="coffee2" parent="." instance=ExtResource("6_c8dsk")]
-transform = Transform3D(0.0928695, 0, 0, 0, 0.0928695, 0, 0, 0, 0.0928695, 9.60589, -0.757661, -7.76382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.60589, -0.6610217, -7.76382)
 visible = false
 
 [node name="bulb5" parent="." instance=ExtResource("4_dfmmr")]
@@ -486,7 +506,7 @@ multi_trigger = true
 exit = true
 
 [node name="coffee" parent="." instance=ExtResource("15_3c2y0")]
-transform = Transform3D(0.0928695, 0, 0, 0, 0.0928695, 0, 0, 0, 0.0928695, -11.1635, -2.15374, 10.126)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1635, -2.15374, 10.126)
 
 [node name="flashlight2" parent="." instance=ExtResource("16_086d5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.55978, -1.61226, -8.2272)
@@ -497,10 +517,20 @@ transform = Transform3D(0.196484, 0, 0, 0, 2.66533, 0, 0, 0, 9.53766, -12.7682, 
 material_override = SubResource("StandardMaterial3D_086d5")
 mesh = SubResource("BoxMesh_4qdnw")
 
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_kt7wx")
+
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.196484, 0, 0, 0, 2.66533, 0, 0, 0, 3.61625, -12.7682, -0.276556, 6.30327)
 material_override = SubResource("StandardMaterial3D_086d5")
 mesh = SubResource("BoxMesh_4qdnw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_mk3jd")
 
 [node name="door" parent="." instance=ExtResource("16_4qdnw")]
 transform = Transform3D(-2.98711e-08, 0, 0.68526, 0, 0.622735, 0, -0.683372, 0, -2.99537e-08, 11.901, -0.85894, 6.79985)

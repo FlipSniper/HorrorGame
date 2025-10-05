@@ -48,7 +48,7 @@ transform = Transform3D(-4.37114e-09, 0.1, 0, 4.37114e-09, 1.91069e-16, 0.1, 0.1
 visible = false
 
 [node name="coffee" parent="head" instance=ExtResource("6_boad6")]
-transform = Transform3D(0.0928695, 0, 0, 0, 0.0928695, 0, 0, 0, 0.0928695, 0.728495, -0.435333, -0.662195)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3646543, -0.435333, -0.62082267)
 visible = false
 
 [node name="arm" type="Node3D" parent="head"]

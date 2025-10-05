@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://csjdgig62xg20"]
+[gd_scene load_steps=25 format=3 uid="uid://csjdgig62xg20"]
 
 [ext_resource type="Texture2D" uid="uid://d3wagh2ww0gvu" path="res://textures/crosshair.png" id="1_cfom6"]
 [ext_resource type="Script" uid="uid://de4s4500fkd71" path="res://general_scripts/player_ui.gd" id="1_ehg4m"]
@@ -17,6 +17,9 @@
 [ext_resource type="Texture2D" uid="uid://das0lk00vuroj" path="res://textures/icons8-computer-mouse-50.png" id="14_ud46t"]
 [ext_resource type="Texture2D" uid="uid://dktcp8e05wcol" path="res://textures/icons8-right-click-50.png" id="15_2dni3"]
 [ext_resource type="Texture2D" uid="uid://dtc23r4eig221" path="res://textures/icons8-shift-50.png" id="16_22frk"]
+[ext_resource type="Script" uid="uid://byhlybp5c4yk5" path="res://general_scripts/inventory_ui.gd" id="18_j0e15"]
+[ext_resource type="AudioStream" uid="uid://cgajcreqwlqcr" path="res://sound/goblin-cackle-87566.mp3" id="19_prpn4"]
+[ext_resource type="AudioStream" uid="uid://m0kk1mfe7xsq" path="res://sound/goblin-scream-87564.mp3" id="20_ud46t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hff70"]
 size = Vector2(455.5, 569)
@@ -77,6 +80,291 @@ offset_bottom = 648.0
 layout_mode = 2
 texture = ExtResource("1_cfom6")
 
+[node name="InventoryUI" type="CanvasLayer" parent="."]
+script = ExtResource("18_j0e15")
+
+[node name="Panel" type="Panel" parent="InventoryUI"]
+clip_contents = true
+offset_right = 291.0
+offset_bottom = 650.0
+
+[node name="slots" type="Node2D" parent="InventoryUI/Panel"]
+
+[node name="Slot1" type="Button" parent="InventoryUI/Panel/slots"]
+custom_minimum_size = Vector2(292.535, 31.505)
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(1, 2.48)
+focus_mode = 0
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot1"]
+layout_mode = 0
+offset_left = 1.0000076
+offset_right = 41.000008
+offset_bottom = 40.0
+scale = Vector2(2.0800006, 0.75806457)
+expand_mode = 3
+stretch_mode = 4
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot1"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 10.483871
+offset_right = 291.0
+offset_bottom = 33.48387
+scale = Vector2(1, 0.40322578)
+text = "No"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ColorRect" parent="InventoryUI/Panel/slots/Slot1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(7.270647, 1.34153)
+color = Color(0.6666667, 0, 0, 0.65882355)
+
+[node name="Slot2" type="Button" parent="InventoryUI/Panel/slots"]
+custom_minimum_size = Vector2(292.535, 31.505)
+offset_top = 79.0
+offset_right = 292.535
+offset_bottom = 110.505
+scale = Vector2(1, 2.48)
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot2"]
+layout_mode = 0
+offset_left = 1.0000076
+offset_right = 41.000008
+offset_bottom = 40.0
+scale = Vector2(2.0800006, 0.75806457)
+expand_mode = 3
+stretch_mode = 4
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot2"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 10.483871
+offset_right = 291.0
+offset_bottom = 33.48387
+scale = Vector2(1, 0.40322578)
+text = "No"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ColorRect" parent="InventoryUI/Panel/slots/Slot2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(7.270647, 1.34153)
+color = Color(0.6666667, 0, 0, 0.65882355)
+
+[node name="Slot3" type="Button" parent="InventoryUI/Panel/slots"]
+custom_minimum_size = Vector2(292.535, 31.505)
+offset_top = 161.0
+offset_right = 292.535
+offset_bottom = 192.505
+scale = Vector2(1, 2.48)
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot3"]
+layout_mode = 0
+offset_left = 1.0000076
+offset_right = 41.000008
+offset_bottom = 40.0
+scale = Vector2(2.0800006, 0.75806457)
+expand_mode = 5
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot3"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 10.483871
+offset_right = 291.0
+offset_bottom = 33.48387
+scale = Vector2(1, 0.40322578)
+text = "No"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ColorRect" parent="InventoryUI/Panel/slots/Slot3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(7.270647, 1.34153)
+color = Color(0.6666667, 0, 0, 0.65882355)
+
+[node name="Slot4" type="Button" parent="InventoryUI/Panel/slots"]
+custom_minimum_size = Vector2(292.535, 31.505)
+offset_top = 245.0
+offset_right = 292.535
+offset_bottom = 276.505
+scale = Vector2(1, 2.48)
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot4"]
+layout_mode = 0
+offset_left = 1.0000076
+offset_right = 41.000008
+offset_bottom = 40.0
+scale = Vector2(2.0800006, 0.75806457)
+expand_mode = 5
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot4"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 10.483871
+offset_right = 291.0
+offset_bottom = 33.48387
+scale = Vector2(1, 0.40322578)
+text = "No"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ColorRect" parent="InventoryUI/Panel/slots/Slot4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(7.270647, 1.34153)
+color = Color(0.6666667, 0, 0, 0.65882355)
+
+[node name="Slot5" type="Button" parent="InventoryUI/Panel/slots"]
+custom_minimum_size = Vector2(292.535, 31.505)
+offset_left = 1.0
+offset_top = 327.00003
+offset_right = 293.535
+offset_bottom = 358.50504
+scale = Vector2(1, 2.48)
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot5"]
+layout_mode = 0
+offset_left = 1.0000076
+offset_right = 41.000008
+offset_bottom = 40.0
+scale = Vector2(2.0800006, 0.75806457)
+expand_mode = 5
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot5"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 10.483871
+offset_right = 291.0
+offset_bottom = 33.48387
+scale = Vector2(1, 0.40322578)
+text = "No"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ColorRect" parent="InventoryUI/Panel/slots/Slot5"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(7.270647, 1.34153)
+color = Color(0.6666667, 0, 0, 0.65882355)
+
+[node name="Slot6" type="Button" parent="InventoryUI/Panel/slots"]
+custom_minimum_size = Vector2(292.535, 31.505)
+offset_top = 407.0
+offset_right = 292.535
+offset_bottom = 438.505
+scale = Vector2(1, 2.48)
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot6"]
+layout_mode = 0
+offset_left = 1.0000076
+offset_right = 41.000008
+offset_bottom = 40.0
+scale = Vector2(2.0800006, 0.75806457)
+expand_mode = 5
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot6"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 10.483871
+offset_right = 291.0
+offset_bottom = 33.48387
+scale = Vector2(1, 0.40322578)
+text = "No"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ColorRect" parent="InventoryUI/Panel/slots/Slot6"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(7.270647, 1.34153)
+color = Color(0.6666667, 0, 0, 0.65882355)
+
+[node name="Slot7" type="Button" parent="InventoryUI/Panel/slots"]
+custom_minimum_size = Vector2(292.535, 31.505)
+offset_top = 488.0
+offset_right = 292.535
+offset_bottom = 519.505
+scale = Vector2(1, 2.48)
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot7"]
+layout_mode = 0
+offset_left = 1.0000076
+offset_right = 41.000008
+offset_bottom = 40.0
+scale = Vector2(2.0800006, 0.75806457)
+expand_mode = 5
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot7"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 10.483871
+offset_right = 291.0
+offset_bottom = 33.48387
+scale = Vector2(1, 0.40322578)
+text = "No"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ColorRect" parent="InventoryUI/Panel/slots/Slot7"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(7.270647, 1.34153)
+color = Color(0.6666667, 0, 0, 0.65882355)
+
+[node name="Slot8" type="Button" parent="InventoryUI/Panel/slots"]
+custom_minimum_size = Vector2(292.535, 31.505)
+offset_top = 571.0
+offset_right = 292.535
+offset_bottom = 602.505
+scale = Vector2(1, 2.48)
+
+[node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot8"]
+layout_mode = 0
+offset_left = 1.0000076
+offset_right = 41.000008
+offset_bottom = 40.0
+scale = Vector2(2.0800006, 0.75806457)
+expand_mode = 5
+
+[node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot8"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 10.483871
+offset_right = 291.0
+offset_bottom = 33.48387
+scale = Vector2(1, 0.40322578)
+text = "No"
+horizontal_alignment = 2
+
+[node name="Highlight" type="ColorRect" parent="InventoryUI/Panel/slots/Slot8"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(7.270647, 1.34153)
+color = Color(0.6666667, 0, 0, 0.65882355)
+
+[node name="InventoryOpenSound" type="AudioStreamPlayer" parent="InventoryUI"]
+stream = ExtResource("19_prpn4")
+volume_db = 5.0
+
+[node name="InventoryCloseSound" type="AudioStreamPlayer" parent="InventoryUI"]
+stream = ExtResource("20_ud46t")
+volume_db = 5.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="InventoryUI" node_paths=PackedStringArray("moving")]
+script = ExtResource("6_ykvpg")
+moving = NodePath("../Panel/slots")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InventoryUI/CharacterBody2D"]
+position = Vector2(582.25, 312.5)
+shape = SubResource("RectangleShape2D_hff70")
+
 [node name="task_ui" parent="." instance=ExtResource("3_lp0io")]
 
 [node name="safe_ui" parent="." instance=ExtResource("5_lp0io")]
@@ -108,44 +396,45 @@ offset_top = 30.0
 offset_right = 813.0
 offset_bottom = 599.0
 
-[node name="keys" type="Node2D" parent="controls/Panel"]
+[node name="slots" type="Node2D" parent="controls/Panel"]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="controls/Panel/keys"]
+[node name="RichTextLabel" type="RichTextLabel" parent="controls/Panel/slots"]
 offset_right = 459.0
 offset_bottom = 31.0
 bbcode_enabled = true
 text = "[center] Move - WASD"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="controls/Panel/keys"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="controls/Panel/slots"]
 offset_top = 41.0
 offset_right = 459.0
 offset_bottom = 72.0
 bbcode_enabled = true
 text = "[center] Look around - Arrow keys or mouse"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="controls/Panel/keys"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="controls/Panel/slots"]
 offset_top = 82.0
 offset_right = 459.0
 offset_bottom = 113.0
 bbcode_enabled = true
 text = "[center] Interact - E"
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="controls/Panel/keys"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="controls/Panel/slots"]
 offset_top = 126.0
 offset_right = 459.0
 offset_bottom = 157.0
 bbcode_enabled = true
 text = "[center] Flashlight - F"
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="controls/Panel/keys"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="controls/Panel/slots"]
 offset_top = 176.0
 offset_right = 459.0
 offset_bottom = 207.0
 bbcode_enabled = true
 text = "[center] Zoom - Right Click"
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="controls"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="controls" node_paths=PackedStringArray("moving")]
 script = ExtResource("6_ykvpg")
+moving = NodePath("../Panel/slots")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="controls/CharacterBody2D"]
 position = Vector2(582.25, 312.5)
@@ -162,20 +451,23 @@ icon = ExtResource("7_hff70")
 [node name="Set" type="CanvasLayer" parent="."]
 
 [node name="Settings" type="Button" parent="Set"]
-offset_right = 308.0
-offset_bottom = 205.0
+offset_left = 1065.0
+offset_top = 601.0
+offset_right = 1373.0
+offset_bottom = 806.0
 scale = Vector2(0.208565, 0.208565)
 icon = ExtResource("8_f7sc3")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Set"]
-offset_left = 47.0
-offset_top = 22.0
-offset_right = 86.0
-offset_bottom = 47.0
+offset_left = 1112.0
+offset_top = 623.0
+offset_right = 1151.0
+offset_bottom = 648.0
 text = "ESC"
 
 [node name="fade_ui" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="fade_ui"]
 offset_right = 1156.0

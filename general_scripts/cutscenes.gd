@@ -19,6 +19,7 @@ func play2():
 	player_ui.set_task(".Take the flashlight from the boss's desk")
 	crowbar.visible = true
 func play1():
+	Inventory.remove_item(0)
 	$player.controls_enabled = false
 	$AnimationPlayer.play("cutscene1")
 	$AudioStreamPlayer.playing = true

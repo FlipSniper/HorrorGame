@@ -15,6 +15,7 @@ var triggered = false
 var leave = false
 
 func enter_trigger(body):
+	print(player_coffee.visible)
 	if body.name == "player" and !triggered or multi_trigger:
 		triggered = true
 		if !boss_arrow:

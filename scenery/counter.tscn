@@ -1,10 +1,11 @@
-[gd_scene load_steps=48 format=4 uid="uid://cr0j08c5gu1mp"]
+[gd_scene load_steps=49 format=4 uid="uid://cr0j08c5gu1mp"]
 
 [ext_resource type="Material" uid="uid://6ctone680nsd" path="res://materials/house_material.tres" id="1_y4hhc"]
 [ext_resource type="Material" uid="uid://dvq4kbeilrtm6" path="res://materials/pillarmetal.tres" id="2_8dumg"]
 [ext_resource type="Script" uid="uid://dwrvscn3x1552" path="res://general_scripts/door.gd" id="3_8dumg"]
 [ext_resource type="Texture2D" uid="uid://cke711im43by2" path="res://textures/cracked_concrete_wall_diff_4k.jpg" id="3_h8x0a"]
 [ext_resource type="Material" uid="uid://btujvem6k057b" path="res://materials/metal_3.tres" id="4_y4hhc"]
+[ext_resource type="AudioStream" uid="uid://cnfi1227wwegv" path="res://sound/drawer-open-98801.mp3" id="6_h8x0a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cs4r"]
 resource_name = "Material"
@@ -451,6 +452,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_pud3n")
 }
 
+[node name="DrawerSound" type="AudioStreamPlayer" parent="drawer"]
+stream = ExtResource("6_h8x0a")
+
 [node name="drawer2" type="Node3D" parent="."]
 script = ExtResource("3_8dumg")
 
@@ -486,6 +490,9 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_3l7lx")
 }
+
+[node name="DrawerSound" type="AudioStreamPlayer" parent="drawer2"]
+stream = ExtResource("6_h8x0a")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=4 uid="uid://cvsm5gvl2uxjt"]
 
-[ext_resource type="Texture2D" uid="uid://c6f05pwkum6ga" path="res://textures/rusty_metal_04_diff_4k.jpg" id="1_vmi3k"]
+[ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="1_vmi3k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xd2jw"]
 albedo_texture = ExtResource("1_vmi3k")
-uv1_scale = Vector3(2.12, 1.585, 1)
+uv1_scale = Vector3(3.13, 1.275, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovjh2"]
 resource_name = "Material"
