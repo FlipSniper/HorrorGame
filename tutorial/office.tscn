@@ -407,6 +407,7 @@ flash = NodePath("../flashlight2")
 key_scene = ExtResource("5_mk3jd")
 coffee_scene = ExtResource("15_3c2y0")
 crowbar_scene = ExtResource("19_kt7wx")
+flashlight_scene = ExtResource("16_086d5")
 
 [node name="RayCast3D" parent="player/head" index="1" node_paths=PackedStringArray("door")]
 door = NodePath("../../../door")

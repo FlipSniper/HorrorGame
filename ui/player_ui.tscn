@@ -433,6 +433,20 @@ offset_bottom = 207.0
 bbcode_enabled = true
 text = "[center] Zoom - Right Click"
 
+[node name="RichTextLabel6" type="RichTextLabel" parent="controls/Panel/slots"]
+offset_top = 226.0
+offset_right = 459.0
+offset_bottom = 257.0
+bbcode_enabled = true
+text = "[center] Inventory - R"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="controls/Panel/slots"]
+offset_top = 272.0
+offset_right = 459.0
+offset_bottom = 303.0
+bbcode_enabled = true
+text = "[center] Drop - Q"
+
 [node name="CharacterBody2D" type="CharacterBody2D" parent="controls" node_paths=PackedStringArray("moving")]
 script = ExtResource("6_ykvpg")
 moving = NodePath("../Panel/slots")
@@ -632,7 +646,7 @@ offset_left = 1064.0
 offset_top = 165.0
 offset_right = 1151.0
 offset_bottom = 194.0
-text = "Quest"
+text = "Quests"
 
 [node name="FirstQuest" type="Label" parent="Quests"]
 visible = false
@@ -644,9 +658,10 @@ text = "             Get Hired -
  Unlocks 1 inventory slot"
 
 [node name="SecondQuest" type="Label" parent="Quests"]
-offset_left = 962.0
+visible = false
+offset_left = 922.0
 offset_top = 198.0
-offset_right = 1153.0
+offset_right = 1150.0
 offset_bottom = 247.0
 text = "Get the First Shadow Crystal -
 Unlocks Inventory Slot"

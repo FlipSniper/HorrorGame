@@ -6,7 +6,7 @@ extends RayCast3D
 
 # Pickups
 @onready var player_key = get_tree().current_scene.get_node_or_null("player/head/player_key")
-@onready var player_crowbar = get_tree().current_scene.get_node_or_null("player/head/arm")
+@onready var player_crowbar = get_tree().current_scene.get_node_or_null("player/head/crowbar")
 
 # Objects
 @export var door: Node3D
@@ -86,6 +86,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				hit.get_parent().toggle_lock()
 				trapdoor = true
 		"plank1":
+			print(player_crowbar.visible)
 			if player_crowbar.visible:
 				hit.get_parent().toggle_plank(0)
 				if hit.get_parent().unlocked == 2:
@@ -118,7 +119,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 
 			# Update player visuals / inventory
 			Inventory.add_item("COFFEE")
-			player_ui.set_task(".Nice work. Now go to the boss's office")
+			player_ui.set_task(".Nice work. Now go to the boss's office. Use R and equip the coffee")
 			player.change_arrow("boss")
 
 

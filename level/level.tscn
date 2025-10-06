@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dy6ca3yyijaqg"]
+[gd_scene load_steps=42 format=3 uid="uid://dy6ca3yyijaqg"]
 
 [ext_resource type="Texture2D" uid="uid://bb7jwbgsoiuer" path="res://textures/grass.jpg" id="1_0v1st"]
 [ext_resource type="Texture2D" uid="uid://d0embddnscp8" path="res://textures/stone.jpg" id="2_7jqyl"]
@@ -10,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dm0abfuqis4lu" path="res://scenery/breathing.tscn" id="5_ktfr2"]
 [ext_resource type="PackedScene" uid="uid://sq25asf4eqb6" path="res://scenery/rain.tscn" id="6_44x8d"]
 [ext_resource type="PackedScene" uid="uid://bae22y51hmwm8" path="res://scenery/task_trigger.tscn" id="7_ivpvi"]
+[ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="7_ml0fe"]
 [ext_resource type="PackedScene" uid="uid://xj88hbrbvdun" path="res://scenery/code_paper.tscn" id="8_0v1st"]
+[ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="8_h74y2"]
+[ext_resource type="PackedScene" uid="uid://bpid1eiphcprc" path="res://scenery/flashlight.tscn" id="9_7cdnq"]
 [ext_resource type="Script" uid="uid://cdkr62p5m2wc7" path="res://general_scripts/PositionManager.gd" id="10_l5lfc"]
 [ext_resource type="Script" uid="uid://chlfj14raskcc" path="res://general_scripts/spawner.gd" id="11_m3nah"]
 [ext_resource type="PackedScene" uid="uid://cwyqvmuvslo6o" path="res://scenery/super_shiba.tscn" id="11_xii2b"]
@@ -38,9 +41,9 @@ colors = PackedColorArray(0, 0, 0, 1, 0.0945964, 0.152289, 0.357978, 1)
 noise_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0v1st"]
-seamless = true
-color_ramp = SubResource("Gradient_44x8d")
 noise = SubResource("FastNoiseLite_ivpvi")
+color_ramp = SubResource("Gradient_44x8d")
+seamless = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vonw3"]
 sky_top_color = Color(0.469625, 0.659434, 1, 1)
@@ -167,6 +170,10 @@ mesh = SubResource("BoxMesh_0b4ue")
 
 [node name="player" parent="." instance=ExtResource("2_vkbyq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65771, 2.77384, 6.06959)
+key_scene = ExtResource("18_sui6v")
+coffee_scene = ExtResource("7_ml0fe")
+crowbar_scene = ExtResource("8_h74y2")
+flashlight_scene = ExtResource("9_7cdnq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.743145, 0.551448, -0.379, 0, 0.566406, 0.824126, 0.669131, -0.612445, 0.420922, 0, 7.29189, 0)

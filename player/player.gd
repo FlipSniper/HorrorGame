@@ -28,13 +28,16 @@ var tutorial
 # --- PLAYER PICKUPS ---
 @onready var player_key = $head/player_key
 @onready var player_coffee = $head/coffee
-@onready var player_crowbar = $head/arm
+@onready var player_crowbar = $head/crowbar
+@onready var player_flashlight = $head/flashlight
+@onready var player_arm = $head/arm
 @onready var equipped_item: String = ""
 
 # --- DROP SCENES (add your .tscn paths in inspector) ---
 @export var key_scene: PackedScene
 @export var coffee_scene: PackedScene
 @export var crowbar_scene: PackedScene
+@export var flashlight_scene: PackedScene
 
 # --- OPTIONAL DROP SCALES ---
 var drop_scales = {
@@ -169,6 +172,8 @@ func equip_item(item_name: String) -> void:
 				player_coffee.visible = false
 			"CROWBAR":
 				player_crowbar.visible = false
+			"FLASHLIGHT":
+				player_flashlight.visible = false
 
 	# Equip new item
 	equipped_item = item_name
@@ -179,6 +184,8 @@ func equip_item(item_name: String) -> void:
 			player_coffee.visible = true
 		"CROWBAR":
 			player_crowbar.visible = true
+		"FLASHLIGHT":
+			player_flashlight.visible = true
 		_:
 			pass  # add more if you have other items
 
@@ -196,6 +203,8 @@ func drop_item() -> void:
 			scene = coffee_scene
 		"CROWBAR":
 			scene = crowbar_scene
+		"FLASHLIGHT":
+			scene = flashlight_scene
 		_:
 			scene = null
 
@@ -249,5 +258,7 @@ func drop_item() -> void:
 		player_coffee.visible = false
 	elif equipped_item == "CROWBAR":
 		player_crowbar.visible = false
+	elif equipped_item == "FLASHLIGHT":
+		player_flashlight.visible = false
 
 	equipped_item = ""
