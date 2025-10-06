@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://csjdgig62xg20"]
+[gd_scene load_steps=26 format=3 uid="uid://csjdgig62xg20"]
 
 [ext_resource type="Texture2D" uid="uid://d3wagh2ww0gvu" path="res://textures/crosshair.png" id="1_cfom6"]
 [ext_resource type="Script" uid="uid://de4s4500fkd71" path="res://general_scripts/player_ui.gd" id="1_ehg4m"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://byhlybp5c4yk5" path="res://general_scripts/inventory_ui.gd" id="18_j0e15"]
 [ext_resource type="AudioStream" uid="uid://cgajcreqwlqcr" path="res://sound/goblin-cackle-87566.mp3" id="19_prpn4"]
 [ext_resource type="AudioStream" uid="uid://m0kk1mfe7xsq" path="res://sound/goblin-scream-87564.mp3" id="20_ud46t"]
+[ext_resource type="Script" uid="uid://c7ioevsa5kcna" path="res://ui/quests.gd" id="21_ud46t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hff70"]
 size = Vector2(455.5, 569)
@@ -623,6 +624,33 @@ offset_bottom = 77.0
 text = "Shift - to crouch
 useful to get unstuck"
 
+[node name="Quests" type="CanvasLayer" parent="."]
+script = ExtResource("21_ud46t")
+
+[node name="Button" type="Button" parent="Quests"]
+offset_left = 1064.0
+offset_top = 165.0
+offset_right = 1151.0
+offset_bottom = 194.0
+text = "Quest"
+
+[node name="FirstQuest" type="Label" parent="Quests"]
+visible = false
+offset_left = 962.0
+offset_top = 198.0
+offset_right = 1153.0
+offset_bottom = 247.0
+text = "             Get Hired -
+ Unlocks 1 inventory slot"
+
+[node name="SecondQuest" type="Label" parent="Quests"]
+offset_left = 962.0
+offset_top = 198.0
+offset_right = 1153.0
+offset_bottom = 247.0
+text = "Get the First Shadow Crystal -
+Unlocks Inventory Slot"
+
 [connection signal="pressed" from="safe_ui/confirm" to="." method="confirm_password"]
 [connection signal="pressed" from="safe_ui/back" to="." method="exit_safe"]
 [connection signal="pressed" from="pause_menu/resume" to="." method="resume_game"]
@@ -631,6 +659,7 @@ useful to get unstuck"
 [connection signal="pressed" from="pause_menu/quit_game" to="." method="quit_game"]
 [connection signal="pressed" from="controls/close" to="." method="close_controls"]
 [connection signal="pressed" from="Set/Settings" to="." method="settings_open"]
+[connection signal="pressed" from="Quests/Button" to="Quests" method="_on_button_pressed"]
 
 [editable path="safe_ui"]
 [editable path="pause_menu"]
