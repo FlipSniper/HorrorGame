@@ -47,7 +47,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_87tf3")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sului"]
-size = Vector3(2.29888, 2.001, 2)
+size = Vector3(0.42044717, 2.001, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bb42x"]
 resource_name = "Material.002"
@@ -256,7 +256,27 @@ skeleton = NodePath("")
 [node name="safe" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="safe"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.148562, -0.00157449, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0877784, -0.00157449, 0)
+shape = SubResource("BoxShape3D_sului")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="safe"]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, -0.01940608, 0.79010797, 0)
+shape = SubResource("BoxShape3D_sului")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="safe"]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, -0.01940608, -0.79105103, 0)
+shape = SubResource("BoxShape3D_sului")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="safe"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.79362756, 0.004980564, 0)
+shape = SubResource("BoxShape3D_sului")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="safe"]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 0.99999994, 0, -0.99999994, 0, -4.371139e-08, -0.019404173, 0.004980564, 0.78512764)
+shape = SubResource("BoxShape3D_sului")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="safe"]
+transform = Transform3D(-4.3711385e-08, 0, 1, 0, 0.99999994, 0, -0.99999994, 0, -4.371139e-08, -0.019404173, 0.004980564, -0.79603004)
 shape = SubResource("BoxShape3D_sului")
 
 [node name="hinge" type="Node3D" parent="."]

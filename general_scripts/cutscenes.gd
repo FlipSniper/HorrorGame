@@ -17,7 +17,7 @@ func play2():
 	$player.controls_enabled = true
 	$flashlight.visible = true
 	var player_ui = get_tree().current_scene.get_node("player/player_ui")
-	player_ui.set_task(".Take the flashlight from the boss's desk")
+	player_ui.set_task(".Take the flashlight from the boss's desk","res://assets/icons/flashlight.png")
 	quests.quest += 1
 	crowbar.visible = true
 func play1():

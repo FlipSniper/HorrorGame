@@ -96,9 +96,10 @@ func settings_open():
 		$controls.visible = false
 		$Set.visible = true
 
-func set_task(task_text:String, task_texture):
+func set_task(task_text:String, task_texture = null):
 	$task_ui/task_text.text = task_text
-	icon_rect.texture = load(task_texture)
+	if task_texture != null:
+		$task_ui/TextureRect.texture = load(task_texture)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and !$safe_ui.visible:

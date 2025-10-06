@@ -72,7 +72,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"powerbox":
 			if not powerbox:
 				hit.get_parent().get_parent().toggle_power()
-				player_ui.set_task(".Find the safe")
+				player_ui.set_task(".Find the safe",null)
 				powerbox = true
 		"door":
 			hit.get_parent().get_parent().get_parent().toggle_door()
@@ -100,18 +100,18 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			if hit != null:
 				hit.queue_free()
 			Inventory.add_item("KEY")
-			player_ui.set_task(".Nice work. Now open the lock")
+			player_ui.set_task(".Nice work. Now open the lock",null)
 		"crowbar":
 			print(hit != null)
 			if hit != null:
 				hit.queue_free()
 			Inventory.add_item("CROWBAR")
-			player_ui.set_task(".Nice work. Now take down the planks")
+			player_ui.set_task(".Nice work. Now take down the planks",null)
 		"flashlight":
 			if flashlight_collider: flashlight_collider.visible = false
 			if flashlight: flashlight.visible = false
 			Inventory.add_item("FLASHLIGHT")
-			player_ui.set_task(".Now leave the office. Use the crowbar to get rid of planks")
+			player_ui.set_task(".Now leave the office. Use the crowbar to get rid of planks","res://assets/icons/crowbar.png")
 			player.change_arrow("exit")
 			get_tree().current_scene.get_node("task_trigger3").leave = true
 		"coffee":
