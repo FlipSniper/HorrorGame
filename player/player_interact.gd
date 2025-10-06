@@ -105,6 +105,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			print(hit != null)
 			if hit != null:
 				hit.queue_free()
+				print("here")
 			Inventory.add_item("CROWBAR")
 			player_ui.set_task(".Nice work. Now take down the planks",null)
 		"flashlight":

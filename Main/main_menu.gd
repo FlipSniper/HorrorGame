@@ -27,3 +27,7 @@ func play():
 		get_tree().change_scene_to_file("res://tutorial/office.tscn")
 	if player_level.level == "level1":
 		get_tree().change_scene_to_file("res://level/level.tscn")
+
+
+func select_level() -> void:
+	pass

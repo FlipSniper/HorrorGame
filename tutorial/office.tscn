@@ -421,29 +421,29 @@ visible = true
 transform = Transform3D(1, 0, 0, 0, -0.13853674, 0.990358, 0, -0.990358, -0.13853674, 0.143681, 0, -0.402633)
 
 [node name="bulb" parent="." instance=ExtResource("4_dfmmr")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.45081, 2.47666, -7.85916)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.45081, 2.315136, -7.85916)
 
 [node name="bulb2" parent="." instance=ExtResource("4_dfmmr")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 9.08022, 2.47666, 5.12701)
 
 [node name="bulb3" parent="." instance=ExtResource("4_dfmmr")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.206273, 2.47666, 7.24396)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.0768905, 2.3252358, 7.24396)
 
 [node name="bulb4" parent="." instance=ExtResource("4_dfmmr")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -8.3245, 2.47666, 6.77303)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -8.3245, 2.3268666, 6.77303)
 
 [node name="bulb7" parent="." instance=ExtResource("4_dfmmr")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -10.0293, 2.47666, 0.127459)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -10.0293, 2.343843, 0.127459)
 
 [node name="coffee2" parent="." instance=ExtResource("6_c8dsk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.60589, -0.6610217, -7.76382)
 visible = false
 
 [node name="bulb5" parent="." instance=ExtResource("4_dfmmr")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -10.0293, 2.47666, -10.0159)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -10.0293, 2.305733, -10.0159)
 
 [node name="bulb6" parent="." instance=ExtResource("4_dfmmr")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.33817, 2.47666, -10.0159)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.33817, 2.322851, -10.0159)
 
 [node name="bulb8" parent="." instance=ExtResource("4_dfmmr")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2.33817, 2.47666, 0.127459)

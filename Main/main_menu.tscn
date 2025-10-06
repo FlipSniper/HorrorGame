@@ -246,6 +246,26 @@ offset_bottom = 588.0
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
+[node name="level_select" type="Button" parent="Main_Menu/Buttons"]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="level_1" type="Button" parent="Main_Menu/Buttons"]
+offset_left = 210.0
+offset_top = 306.0
+offset_right = 385.0
+offset_bottom = 383.0
+theme_override_font_sizes/font_size = 50
+text = "Level 1"
+
+[node name="level_2" type="Button" parent="Main_Menu/Buttons"]
+offset_left = 745.0
+offset_top = 306.0
+offset_right = 920.0
+offset_bottom = 383.0
+theme_override_font_sizes/font_size = 50
+text = "Tutorial"
+
 [node name="Text" type="CanvasLayer" parent="Main_Menu"]
 
 [node name="TextureRect" type="TextureRect" parent="Main_Menu/Text"]
@@ -463,6 +483,7 @@ shape = SubResource("ConcavePolygonShape3D_t8757")
 [connection signal="pressed" from="Main_Menu/Buttons/play" to="Main_Menu" method="play"]
 [connection signal="pressed" from="Main_Menu/Buttons/controls" to="Main_Menu" method="controls"]
 [connection signal="pressed" from="Main_Menu/Buttons/quit" to="Main_Menu" method="quit_game"]
+[connection signal="pressed" from="Main_Menu/Buttons/level_select" to="Main_Menu" method="select_level"]
 [connection signal="pressed" from="Main_Menu/controls/close" to="Main_Menu" method="close_controls"]
 
 [editable path="desk/typing2"]
