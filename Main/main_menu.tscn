@@ -247,9 +247,12 @@ theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="level_select" type="Button" parent="Main_Menu/Buttons"]
-visible = false
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 438.0
+offset_top = 106.0
+offset_right = 727.0
+offset_bottom = 183.0
+theme_override_font_sizes/font_size = 50
+text = "Select Level"
 
 [node name="level_1" type="Button" parent="Main_Menu/Buttons"]
 visible = false
@@ -260,7 +263,16 @@ offset_bottom = 383.0
 theme_override_font_sizes/font_size = 50
 text = "Level 1"
 
-[node name="level_2" type="Button" parent="Main_Menu/Buttons"]
+[node name="Label" type="Label" parent="Main_Menu/Buttons/level_1"]
+visible = false
+layout_mode = 0
+offset_left = -36.0
+offset_top = 86.0
+offset_right = 235.0
+offset_bottom = 109.0
+text = "Finish the tutorial to unlock Level 1"
+
+[node name="Tutorial" type="Button" parent="Main_Menu/Buttons"]
 visible = false
 offset_left = 745.0
 offset_top = 306.0
@@ -487,6 +499,8 @@ shape = SubResource("ConcavePolygonShape3D_t8757")
 [connection signal="pressed" from="Main_Menu/Buttons/controls" to="Main_Menu" method="controls"]
 [connection signal="pressed" from="Main_Menu/Buttons/quit" to="Main_Menu" method="quit_game"]
 [connection signal="pressed" from="Main_Menu/Buttons/level_select" to="Main_Menu" method="select_level"]
+[connection signal="pressed" from="Main_Menu/Buttons/level_1" to="Main_Menu" method="_on_level_1_pressed"]
+[connection signal="pressed" from="Main_Menu/Buttons/Tutorial" to="Main_Menu" method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Main_Menu/controls/close" to="Main_Menu" method="close_controls"]
 
 [editable path="desk/typing2"]

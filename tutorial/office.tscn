@@ -507,7 +507,7 @@ multi_trigger = true
 exit = true
 
 [node name="coffee" parent="." instance=ExtResource("15_3c2y0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.614331, -2.0242136, 9.934609)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.525711, -2.0242136, 9.995172)
 
 [node name="flashlight" parent="." instance=ExtResource("16_086d5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.55978, -1.61226, -8.2272)

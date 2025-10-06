@@ -50,6 +50,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_colliding():
 		var hit = get_collider()
+		print(hit)
 		crosshair.visible = false
 
 		if not hit:
@@ -113,6 +114,8 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"flashlight":
 			if flashlight_collider: flashlight_collider.visible = false
 			if flashlight: flashlight.visible = false
+			if hit != null:
+				hit.queue_free()
 			Inventory.add_item("FLASHLIGHT")
 			player_ui.set_task(".Now leave the office. Use the crowbar to get rid of planks","res://assets/icons/crowbar.png")
 			player.change_arrow("exit")
