@@ -37,8 +37,8 @@ func _ready() -> void:
 	elif main_scene_name == "office":
 		coffee_collider = current_scene.get_node_or_null("coffee/CollisionShape3D")
 		coffee = current_scene.get_node_or_null("coffee")
-		flashlight_collider = current_scene.get_node_or_null("flashlight2/CollisionShape3D")
-		flashlight = current_scene.get_node_or_null("flashlight2")
+		flashlight_collider = current_scene.get_node_or_null("flashlight/CollisionShape3D")
+		flashlight = current_scene.get_node_or_null("flashlight")
 		plank1 = current_scene.get_node_or_null("planks/plank1")
 		plank2 = current_scene.get_node_or_null("planks/plank2")
 		crowbar_collider = current_scene.get_node_or_null("crowbar/crowbar/CollisionShape3D")
@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 		var hit_name = hit.name.to_lower()  # lowercase for dropped items
 
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
-						"lock", "plank1", "plank2", "key", "crowbar", "flashlight2", "coffee", "trapdoor"]:
+						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -102,11 +102,12 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			Inventory.add_item("KEY")
 			player_ui.set_task(".Nice work. Now open the lock")
 		"crowbar":
+			print(hit != null)
 			if hit != null:
 				hit.queue_free()
 			Inventory.add_item("CROWBAR")
 			player_ui.set_task(".Nice work. Now take down the planks")
-		"flashlight2":
+		"flashlight":
 			if flashlight_collider: flashlight_collider.visible = false
 			if flashlight: flashlight.visible = false
 			Inventory.add_item("FLASHLIGHT")

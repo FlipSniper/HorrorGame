@@ -19,10 +19,10 @@ func _ready() -> void:
 	if main_scene_name == "level":
 		safe_anim = get_tree().current_scene.get_node("house/safe/AnimationPlayer")
 		safe = get_tree().current_scene.get_node("house/safe/safe/CollisionShape3D")
-		set_task("Ring the door bell... twice for good measure")
+		set_task("Ring the door bell... twice for good measure",null)
 	if main_scene_name == "office":
 		safe_anim = get_tree().current_scene.get_node("office_layout/safe/AnimationPlayer")
-		set_task(".Follow the arrow to the code. Use WASD and mouse or arrow keys to look around. You may use a controller")
+		set_task(".Follow the arrow to the code. Use WASD and mouse or arrow keys to look around. You may use a controller", null)
 		safe = get_tree().current_scene.get_node("office_layout/safe/safe/CollisionShape3D")
 		
 	$safe_ui.visible = false
@@ -57,9 +57,9 @@ func open_safe_password():
 		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		if main_scene_name == "office":
-			set_task("!Go back and memorise the code")
+			set_task("!Go back and memorise the code",null)
 		else:
-			set_task("!Find the code... it must be in the drawers")
+			set_task("!Find the code... it must be in the drawers",null)
 func confirm_password():
 	if $safe_ui/password.text == safe_password:
 		safe_anim.play("open")
@@ -67,9 +67,9 @@ func confirm_password():
 		safe.disabled = true
 		exit_safe()
 		if main_scene_name == "office":
-			set_task("!Grab the coffee")
+			set_task("!Grab the coffee","res://assets/icons/coffee.png")
 		else:
-			set_task("!Nothing here for now")
+			set_task("!Nothing here for now",null)
 
 func exit_safe():
 	$safe_ui.visible = false
@@ -96,8 +96,9 @@ func settings_open():
 		$controls.visible = false
 		$Set.visible = true
 
-func set_task(task_text:String):
+func set_task(task_text:String, task_texture):
 	$task_ui/task_text.text = task_text
+	icon_rect.texture = load(task_texture)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("pause") and !$safe_ui.visible:

@@ -231,15 +231,12 @@ func drop_item() -> void:
 			params.from = from
 			params.to = to
 			params.collide_with_bodies = true
-
 			var result = space_state.intersect_ray(params)
 			if result:
 				spawn_pos.y = result.position.y + 0.1  # slight offset above floor
 			else:
 				spawn_pos.y = 0.0  # fallback
 			dropped.global_transform.origin = spawn_pos
-
-		# Add to scene first
 		get_tree().current_scene.add_child(dropped)
 
 		# Now rename to lowercase so hit.name works

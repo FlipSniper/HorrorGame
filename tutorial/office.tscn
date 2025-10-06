@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://brmwm74sq4y6e"]
+[gd_scene load_steps=38 format=3 uid="uid://brmwm74sq4y6e"]
 
 [ext_resource type="PackedScene" uid="uid://bsggq4ktqk3tf" path="res://tutorial/office_layout.tscn" id="1_8v3bu"]
 [ext_resource type="Script" uid="uid://cnsdxahrsxi5g" path="res://general_scripts/cutscenes.gd" id="1_al5yc"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://cqax5kes7lhdy" path="res://general_scripts/planks.gd" id="17_q74ow"]
 [ext_resource type="Texture2D" uid="uid://csmax48a3806t" path="res://textures/wood_floor_diff_1k.jpg" id="18_kt7wx"]
 [ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="19_kt7wx"]
+[ext_resource type="Script" uid="uid://dfdfal4rcseak" path="res://general_scripts/flashlight.gd" id="21_spum0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dfmmr"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -403,7 +404,7 @@ code_paper = NodePath("../code_paper")
 safe = NodePath("../task_trigger")
 boss = NodePath("../task_trigger2")
 exit = NodePath("../task_trigger3")
-flash = NodePath("../flashlight2")
+flash = NodePath("../flashlight")
 key_scene = ExtResource("5_mk3jd")
 coffee_scene = ExtResource("15_3c2y0")
 crowbar_scene = ExtResource("19_kt7wx")
@@ -418,7 +419,6 @@ visible = true
 
 [node name="arm" parent="player/head" index="4"]
 transform = Transform3D(1, 0, 0, 0, -0.13853674, 0.990358, 0, -0.990358, -0.13853674, 0.143681, 0, -0.402633)
-visible = false
 
 [node name="bulb" parent="." instance=ExtResource("4_dfmmr")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 8.45081, 2.47666, -7.85916)
@@ -507,9 +507,9 @@ multi_trigger = true
 exit = true
 
 [node name="coffee" parent="." instance=ExtResource("15_3c2y0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.1635, -2.15374, 10.126)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.588895, -2.0242136, 10.183165)
 
-[node name="flashlight2" parent="." instance=ExtResource("16_086d5")]
+[node name="flashlight" parent="." instance=ExtResource("16_086d5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.55978, -1.61226, -8.2272)
 visible = false
 
@@ -574,6 +574,13 @@ transform = Transform3D(0.295819, -0.444957, 0, 0.444957, 0.295819, 0, 0, 0, 0.5
 [node name="CollisionShape3D" type="CollisionShape3D" parent="crowbar/crowbar"]
 transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, -0.0690918, 0)
 shape = SubResource("BoxShape3D_mk3jd")
+
+[node name="flashlight2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50375, 2.0701, 0)
+shadow_enabled = true
+spot_range = 15.0
+spot_angle = 35.0
+script = ExtResource("21_spum0")
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="play2"]
 

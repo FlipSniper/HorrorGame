@@ -17,3 +17,11 @@ offset_bottom = 177.0
 theme_override_font_sizes/normal_font_size = 22
 text = "Sample text for task"
 text_direction = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 992.0
+offset_right = 1032.0
+offset_bottom = 40.0
+scale = Vector2(1.1599998, 1.1599998)
+expand_mode = 3
+stretch_mode = 4
