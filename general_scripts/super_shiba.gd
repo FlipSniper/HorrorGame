@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 func hit_obj(body: Node) -> void:
 	pos_obj = body
 	freeze = true
-	
+
 func toggle_body():
 	disconnect("body_exited", Callable(self, "hit_obj"))
 	freeze = true

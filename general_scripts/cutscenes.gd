@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var crowbar = get_tree().current_scene.get_node_or_null("crowbar/Cube")
 @onready var quests = get_tree().current_scene.get_node_or_null("player/player_ui/Quests")
+@onready var player = get_tree().current_scene.get_node_or_null("player")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AudioStreamPlayer4.playing = true
@@ -23,6 +24,7 @@ func play2():
 func play1():
 	Inventory.remove_item(0)
 	Inventory.unlock_slot()
+	player.equipped_item= ""
 	$player.controls_enabled = false
 	$AnimationPlayer.play("cutscene1")
 	$AudioStreamPlayer.playing = true

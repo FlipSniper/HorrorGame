@@ -12,6 +12,7 @@ var triggered = false
 @export var boss_arrow : bool
 @export var multi_trigger : bool
 @export var exit : bool
+@export var task_texture: String
 var leave = false
 
 func enter_trigger(body):
@@ -19,7 +20,7 @@ func enter_trigger(body):
 	if body.name == "player" and !triggered or multi_trigger:
 		triggered = true
 		if !boss_arrow:
-			ui.set_task(task_text)
+			ui.set_task(task_text,task_texture)
 		if enable_code:
 			get_tree().current_scene.get_node("enemy").process_mode = Node.PROCESS_MODE_INHERIT
 			get_tree().current_scene.get_node("enemy").visible = true

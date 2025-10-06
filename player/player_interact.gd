@@ -23,6 +23,7 @@ var plank1
 var plank2
 var powerbox = false
 var trapdoor = false
+var proper_crowbar
 var main_scene_name = ""
 
 func _ready() -> void:
@@ -43,6 +44,7 @@ func _ready() -> void:
 		plank2 = current_scene.get_node_or_null("planks/plank2")
 		crowbar_collider = current_scene.get_node_or_null("crowbar/crowbar/CollisionShape3D")
 		crowbar = current_scene.get_node_or_null("crowbar/Cube")
+		proper_crowbar = current_scene.get_node_or_null("crowbar")
 		crowbar.visible = false
 
 func _physics_process(delta: float) -> void:
@@ -104,7 +106,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"crowbar":
 			print(hit != null)
 			if hit != null:
-				hit.queue_free()
+				proper_crowbar.queue_free()
 				print("here")
 			Inventory.add_item("CROWBAR")
 			player_ui.set_task(".Nice work. Now take down the planks",null)
