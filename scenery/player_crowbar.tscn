@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://cvsm5gvl2uxjt"]
+[gd_scene load_steps=6 format=4 uid="uid://chmpqj5xlw1sg"]
 
-[ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="1_vmi3k"]
-[ext_resource type="Script" uid="uid://c2y64o24ufddr" path="res://general_scripts/crowbar.gd" id="1_xd2jw"]
+[ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="2_mp481"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xd2jw"]
-albedo_texture = ExtResource("1_vmi3k")
+albedo_texture = ExtResource("2_mp481")
 uv1_scale = Vector3(3.13, 1.275, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovjh2"]
@@ -47,19 +46,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qpkvo")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_vmi3k"]
-size = Vector3(0.4517212, 0.6954648, 1)
-
-[node name="crowbar" type="RigidBody3D"]
+[node name="crowbar" type="Node3D"]
 transform = Transform3D(0.7278805, -0.685704, 0, 0.685704, 0.7278805, 0, 0, 0, 1, 0, 0, 0)
-script = ExtResource("1_xd2jw")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.065, 0, 0, 0, 0.352, -1.1022693e-08, 0, 5.3150522e-08, 0.073, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_xd2jw")
 mesh = SubResource("ArrayMesh_3uujo")
 skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055816613, -0.006789999, 0)
-shape = SubResource("BoxShape3D_vmi3k")

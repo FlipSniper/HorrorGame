@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://brmwm74sq4y6e"]
+[gd_scene load_steps=37 format=3 uid="uid://brmwm74sq4y6e"]
 
 [ext_resource type="PackedScene" uid="uid://bsggq4ktqk3tf" path="res://tutorial/office_layout.tscn" id="1_8v3bu"]
 [ext_resource type="Script" uid="uid://cnsdxahrsxi5g" path="res://general_scripts/cutscenes.gd" id="1_al5yc"]
@@ -367,9 +367,6 @@ size = Vector3(2.00968, 0.199937, 0.0679181)
 [sub_resource type="BoxShape3D" id="BoxShape3D_kfjf7"]
 size = Vector3(2.00968, 0.199937, 0.0679181)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mk3jd"]
-size = Vector3(1, 2.05615, 1)
-
 [node name="office" type="Node3D"]
 script = ExtResource("1_al5yc")
 
@@ -415,7 +412,6 @@ door = NodePath("../../../door")
 
 [node name="coffee" parent="player/head" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.728495, -0.435333, -0.662195)
-visible = true
 
 [node name="arm" parent="player/head" index="4"]
 transform = Transform3D(1, 0, 0, 0, -0.13853674, 0.990358, 0, -0.990358, -0.13853674, 0.143681, 0, -0.402633)
@@ -566,21 +562,15 @@ skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/Do
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46712, 1.48959, -0.0604954)
 shape = SubResource("BoxShape3D_kfjf7")
 
-[node name="crowbar" parent="." instance=ExtResource("19_kt7wx")]
-transform = Transform3D(0.295819, -0.444957, 0, 0.444957, 0.295819, 0, 0, 0, 0.534318, 6.99818, -2.22292, -1.30168)
-
-[node name="crowbar" type="StaticBody3D" parent="crowbar"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="crowbar/crowbar"]
-transform = Transform3D(1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, -0.0690918, 0)
-shape = SubResource("BoxShape3D_mk3jd")
-
 [node name="flashlight2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50375, 2.0701, 0)
 shadow_enabled = true
 spot_range = 15.0
 spot_angle = 35.0
 script = ExtResource("21_spum0")
+
+[node name="crowbar" parent="." instance=ExtResource("19_kt7wx")]
+transform = Transform3D(0.7278805, -0.685704, 0, 0.685704, 0.7278805, 0, 0, 0, 1, 7.0171957, -1.9521582, -1.5255623)
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="play2"]
 
@@ -596,4 +586,3 @@ script = ExtResource("21_spum0")
 [editable path="task_trigger"]
 [editable path="task_trigger2"]
 [editable path="task_trigger3"]
-[editable path="crowbar"]

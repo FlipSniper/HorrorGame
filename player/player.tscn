@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cpcsliocyto0l" path="res://scenery/player_key.tscn" id="5_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="6_boad6"]
 [ext_resource type="PackedScene" uid="uid://b3ca4hein56pc" path="res://scenery/arrow_pointer.tscn" id="7_rgyib"]
-[ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="8_8t03j"]
+[ext_resource type="PackedScene" uid="uid://chmpqj5xlw1sg" path="res://scenery/player_crowbar.tscn" id="8_8t03j"]
 [ext_resource type="AudioStream" uid="uid://dxvltc7324uke" path="res://sound/footstep1.mp3" id="9_hg6s5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
@@ -165,7 +165,6 @@ visible = false
 
 [node name="coffee" parent="head" instance=ExtResource("6_boad6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3646543, -0.435333, -0.62082267)
-visible = false
 
 [node name="arm" type="Node3D" parent="head"]
 visible = false
@@ -212,10 +211,6 @@ transform = Transform3D(0.295, 0, 0, 0, 0.295, 0, 0, 0, 0.295, 0, -0.766282, -1.
 transform = Transform3D(2.0333e-15, -4.65164e-08, -1.06417, -1.06417, -4.65164e-08, 0, -4.65164e-08, 1.06417, -4.65164e-08, 0.205038, 0, 0)
 target_position = Vector3(0, -80, 0)
 
-[node name="crowbar" parent="head" instance=ExtResource("8_8t03j")]
-transform = Transform3D(-1.77031e-08, 0, -0.405, 0, 0.527653, 0, 0.405, 0, -1.77031e-08, 0.552126, -0.340778, -0.877819)
-visible = false
-
 [node name="flashlight" type="Node3D" parent="head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5410591, -0.38664335, -0.48269606)
 visible = false
@@ -237,6 +232,10 @@ transform = Transform3D(-8.448724e-16, -1.2760709e-09, -0.093788095, -0.09378809
 material_override = SubResource("StandardMaterial3D_kb6p2")
 mesh = SubResource("ArrayMesh_wodsf")
 skeleton = NodePath("")
+
+[node name="crowbar" parent="head" instance=ExtResource("8_8t03j")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3766502, -0.32885647, -0.66671634)
+script = null
 
 [node name="player_ui" parent="." instance=ExtResource("4_yw30f")]
 

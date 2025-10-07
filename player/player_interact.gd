@@ -11,8 +11,6 @@ extends RayCast3D
 # Objects
 @export var door: Node3D
 var lock_opened
-var crowbar
-var crowbar_collider
 var key
 var key_collider
 var coffee
@@ -42,10 +40,8 @@ func _ready() -> void:
 		flashlight = current_scene.get_node_or_null("flashlight")
 		plank1 = current_scene.get_node_or_null("planks/plank1")
 		plank2 = current_scene.get_node_or_null("planks/plank2")
-		crowbar_collider = current_scene.get_node_or_null("crowbar/crowbar/CollisionShape3D")
-		crowbar = current_scene.get_node_or_null("crowbar/Cube")
 		proper_crowbar = current_scene.get_node_or_null("crowbar")
-		crowbar.visible = false
+		proper_crowbar.disable_body()
 
 func _physics_process(delta: float) -> void:
 	if is_colliding():
@@ -75,7 +71,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"powerbox":
 			if not powerbox:
 				hit.get_parent().get_parent().toggle_power()
-				player_ui.set_task(".Find the safe",null)
+				player_ui.set_task(".Find the safe","res://assets/icons/safe.png")
 				powerbox = true
 		"door":
 			hit.get_parent().get_parent().get_parent().toggle_door()
@@ -88,6 +84,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			if lock_opened and player_key.visible:
 				hit.get_parent().toggle_lock()
 				trapdoor = true
+				player_ui.set_task(".Crouch and open the trapdoor, make sure you find the right place to lift it from","res://assets/icons/trapdoor.png")
 		"plank1":
 			print(player_crowbar.visible)
 			if player_crowbar.visible:
@@ -103,14 +100,14 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			if hit != null:
 				hit.queue_free()
 			Inventory.add_item("KEY")
-			player_ui.set_task(".Nice work. Now open the lock",null)
+			player_ui.set_task(".Nice work. Now open the lock","res://assets/icons/lock.png")
 		"crowbar":
 			print(hit != null)
 			if hit != null:
 				proper_crowbar.queue_free()
 				print("here")
 			Inventory.add_item("CROWBAR")
-			player_ui.set_task(".Nice work. Now take down the planks",null)
+			player_ui.set_task(".Nice work. Now take down the planks","res://assets/icons/plank.png")
 		"flashlight":
 			if flashlight_collider: flashlight_collider.visible = false
 			if flashlight: flashlight.visible = false
@@ -126,14 +123,14 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 
 			# Update player visuals / inventory
 			Inventory.add_item("COFFEE")
-			player_ui.set_task(".Nice work. Now go to the boss's office. Use R and equip the coffee")
+			player_ui.set_task(".Nice work. Now go to the boss's office. Use R and equip the coffee","res://assets/icons/coffee.png")
 			player.change_arrow("boss")
 
 
 		"trapdoor":
 			if trapdoor:
 				hit.get_parent().get_parent().get_parent().toggle_lock()
-				player_ui.set_task(".Find the powerbox")
+				player_ui.set_task(".Find the powerbox","res://assets/icons/powerbox.png")
 				await get_tree().create_timer(1.1,false).timeout
 				hit.get_parent().get_parent().get_parent().get_parent().bake_navigation_mesh()
 				trapdoor = false

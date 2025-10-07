@@ -95,24 +95,25 @@ func handle_arrow_look(delta: float) -> void:
 	head.rotation.x = camera_pitch
 
 func update_pointer() -> void:
-	var pointer = $head/pointer
-	var obj = ray.get_collider()
-	match looking_for:
-		"code_paper":
-			if not obj or obj.name != "code_paper": pointer.look_at(code_paper.global_transform.origin, Vector3.UP)
-		"safe":
-			if not obj or obj.name != "safe": pointer.look_at(safe.global_transform.origin, Vector3.UP)
-		"flashlight":
-			if not obj or obj.name != "flashlight2": pointer.look_at(flash.global_transform.origin, Vector3.UP)
-		"exit":
-			if not obj or obj.name != "exit": pointer.look_at(exit.global_transform.origin, Vector3.UP)
-		"boss":
-			if not obj or obj.name != "boss": pointer.look_at(boss.global_transform.origin, Vector3.UP)
+	if tutorial:
+		var pointer = $head/pointer
+		var obj = ray.get_collider()
+		match looking_for:
+			"code_paper":
+				if not obj or obj.name != "code_paper": pointer.look_at(code_paper.global_transform.origin, Vector3.UP)
+			"safe":
+				if not obj or obj.name != "safe": pointer.look_at(safe.global_transform.origin, Vector3.UP)
+			"flashlight":
+				if not obj or obj.name != "flashlight2": pointer.look_at(flash.global_transform.origin, Vector3.UP)
+			"exit":
+				if not obj or obj.name != "exit": pointer.look_at(exit.global_transform.origin, Vector3.UP)
+			"boss":
+				if not obj or obj.name != "boss": pointer.look_at(boss.global_transform.origin, Vector3.UP)
 
-	if not controls_enabled:
-		pointer.visible = false
-	elif tutorial:
-		pointer.visible = true
+		if not controls_enabled:
+			pointer.visible = false
+		elif tutorial:
+			pointer.visible = true
 
 func change_arrow(find: String):
 	looking_for = find

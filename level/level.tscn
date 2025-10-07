@@ -201,6 +201,7 @@ transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, 0.197132
 [node name="task_trigger2" parent="." instance=ExtResource("7_ivpvi")]
 transform = Transform3D(1.875, 0, 0, 0, 3, 0, 0, 0, 1.94, -1.60616, -2.58432, -8.53779)
 task_text = "Switch the powerbox on"
+task_texture = "res://assets/icons/powerbox.png"
 
 [node name="CollisionShape3D" parent="task_trigger2" index="0"]
 transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, 0.197132, 0.0471122, 0)
@@ -210,6 +211,7 @@ transform = Transform3D(1.875, 0, 0, 0, 3, 0, 0, 0, 1.94, -4.33628, -3.36108, -1
 visible = false
 task_text = "Open the safe"
 enable_code = true
+task_texture = "res://assets/icons/safe.png"
 
 [node name="CollisionShape3D" parent="task_trigger3" index="0"]
 transform = Transform3D(0.997499, 0, 0, 0, 0.997499, 0, 0, 0, 0.997499, 0.197132, 0.0471122, 0)

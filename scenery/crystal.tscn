@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdb5b5tgnu1hy"]
+
+[ext_resource type="PackedScene" uid="uid://whrjx1tegjfq" path="res://glb_models/crystal.glb" id="1_emn6c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emn6c"]
+albedo_color = Color(0.80784315, 0.56078434, 1, 0.42745098)
+metallic = 1.0
+roughness = 0.0
+
+[node name="crystal" instance=ExtResource("1_emn6c")]
+
+[node name="Sphere" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_emn6c")

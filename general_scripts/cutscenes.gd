@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var crowbar = get_tree().current_scene.get_node_or_null("crowbar/Cube")
+@onready var crowbar = get_tree().current_scene.get_node_or_null("crowbar")
 @onready var quests = get_tree().current_scene.get_node_or_null("player/player_ui/Quests")
 @onready var player = get_tree().current_scene.get_node_or_null("player")
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +20,7 @@ func play2():
 	var player_ui = get_tree().current_scene.get_node("player/player_ui")
 	player_ui.set_task(".Take the flashlight from the boss's desk","res://assets/icons/flashlight.png")
 	quests.quest += 1
-	crowbar.visible = true
+	crowbar.enable_body()
 func play1():
 	Inventory.remove_item(0)
 	Inventory.unlock_slot()
