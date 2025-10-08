@@ -135,7 +135,11 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				hit.get_parent().get_parent().get_parent().get_parent().bake_navigation_mesh()
 				trapdoor = false
 		"crystal":
-			if hit != null:
-				hit.queue_free()
-			hit.get_parent().toggle_crystal()
+			if hit.get_parent() != null:
+				hit.get_parent().toggle_crystal()
+				print("trying")
+				hit.get_parent().queue_free()
+			if main_scene_name == "level":
+				player_level.level1 += 1
+				player_level.crystals += 1
 			player_ui.set_task(".Leave the property")
