@@ -1,3 +1,6 @@
 extends Node
 
-var level = "tutorial"
+var level = "level1"
+
+var crystals = 0
+var level1 = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=4 uid="uid://c63e5js4tuosq"]
+[gd_scene load_steps=82 format=4 uid="uid://c63e5js4tuosq"]
 
 [ext_resource type="Material" uid="uid://bhgafs8grgwv1" path="res://materials/metal_5.tres" id="1_ba50e"]
 [ext_resource type="Material" uid="uid://cfxov12qxoubv" path="res://materials/metal_4.tres" id="2_311eu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c6f05pwkum6ga" path="res://textures/rusty_metal_04_diff_4k.jpg" id="4_jd20v"]
 [ext_resource type="Texture2D" uid="uid://bq5nne5bveuj4" path="res://textures/metal_no_rust.jpg" id="5_j4r2f"]
 [ext_resource type="Script" uid="uid://dwrvscn3x1552" path="res://general_scripts/door.gd" id="6_orhvq"]
+[ext_resource type="AudioStream" uid="uid://cnfi1227wwegv" path="res://sound/drawer-open-98801.mp3" id="8_jd20v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_orhvq"]
 size = Vector3(1.96886, 1.99, 2)
@@ -910,3 +911,6 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_j4r2f")
 }
+
+[node name="DrawerSound" type="AudioStreamPlayer" parent="hinge"]
+stream = ExtResource("8_jd20v")

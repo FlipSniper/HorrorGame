@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		var hit_name = hit.name.to_lower()  # lowercase for dropped items
 
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
-						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor"]:
+						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -134,3 +134,8 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				await get_tree().create_timer(1.1,false).timeout
 				hit.get_parent().get_parent().get_parent().get_parent().bake_navigation_mesh()
 				trapdoor = false
+		"crystal":
+			if hit != null:
+				hit.queue_free()
+			hit.get_parent().toggle_crystal()
+			player_ui.set_task(".Leave the property")

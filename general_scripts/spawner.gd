@@ -4,6 +4,8 @@ extends Node
 @onready var super_shiba = get_tree().current_scene.get_node("super_shiba")
 @onready var key = get_tree().current_scene.get_node("key")
 @onready var code_paper = get_tree().current_scene.get_node("code_paper")
+@export var crystal_pos : Node3D
+@export var crystal : PackedScene
 
 func _ready():
 	var shiba_pos = position_manager.get_random_position(super_shiba)
@@ -16,6 +18,9 @@ func _ready():
 		code_paper.global_transform.origin = paper_pos.global_transform.origin
 	if key_pos:
 		key.global_transform.origin = key_pos.global_transform.origin
+	if player_level.level1 == 0:
+		var crystal_in = crystal.instantiate()
+		crystal_in.global_transform.origin = crystal_pos.global_transform.origin
 
 	# Hide visuals for code_paper until confirmed
 	code_paper.get_node("MeshInstance3D").visible = false

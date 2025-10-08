@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dy6ca3yyijaqg"]
+[gd_scene load_steps=43 format=3 uid="uid://dy6ca3yyijaqg"]
 
 [ext_resource type="Texture2D" uid="uid://bb7jwbgsoiuer" path="res://textures/grass.jpg" id="1_0v1st"]
 [ext_resource type="Texture2D" uid="uid://d0embddnscp8" path="res://textures/stone.jpg" id="2_7jqyl"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://f2u1drgfd6fa" path="res://scenery/tree.tscn" id="21_b7y0n"]
 [ext_resource type="PackedScene" uid="uid://dlvptlhvd1s0a" path="res://scenery/enemy.tscn" id="22_xl7j7"]
 [ext_resource type="PackedScene" uid="uid://chkx0fd0vglxp" path="res://scenery/destination.tscn" id="23_o0wo3"]
+[ext_resource type="PackedScene" uid="uid://cdb5b5tgnu1hy" path="res://scenery/crystal.tscn" id="27_h74y2"]
 
 [sub_resource type="Gradient" id="Gradient_ivpvi"]
 offsets = PackedFloat32Array(0, 0.626866, 1)
@@ -298,9 +299,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.28109, 1.22964, -11.3857)
 [node name="rand_pos6" type="Node3D" parent="random"]
 transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 14.1082, -2.70028, 12.6197)
 
-[node name="Spawner" type="Node3D" parent="."]
+[node name="Spawner" type="Node3D" parent="." node_paths=PackedStringArray("crystal_pos")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.04979, 2.75337, 6.48842)
 script = ExtResource("11_m3nah")
+crystal_pos = NodePath("../spawn_crystal")
+crystal = ExtResource("27_h74y2")
 
 [node name="super_shiba" parent="." instance=ExtResource("11_xii2b")]
 
@@ -640,6 +643,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.37179, -3.71855, -17.7545)
 
 [node name="destination6" parent="destinations" instance=ExtResource("23_o0wo3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44914, 1.32202, -10.2328)
+
+[node name="crystal" parent="." instance=ExtResource("27_h74y2")]
+transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, -3.616188, -4.040137, -18.06032)
+
+[node name="spawn_crystal" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5722165, -4.00924, -18.128435)
 
 [editable path="task_trigger"]
 [editable path="task_trigger2"]

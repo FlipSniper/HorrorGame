@@ -1,13 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://cdb5b5tgnu1hy"]
+[gd_scene load_steps=5 format=3 uid="uid://cdb5b5tgnu1hy"]
 
 [ext_resource type="PackedScene" uid="uid://whrjx1tegjfq" path="res://glb_models/crystal.glb" id="1_emn6c"]
+[ext_resource type="Script" uid="uid://xq82tm2apbsc" path="res://general_scripts/crystal.gd" id="2_8vlkf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_emn6c"]
 albedo_color = Color(0.80784315, 0.56078434, 1, 0.42745098)
 metallic = 1.0
 roughness = 0.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_emn6c"]
+size = Vector3(2.4328613, 4.74469, 2.3885498)
+
 [node name="crystal" instance=ExtResource("1_emn6c")]
+script = ExtResource("2_8vlkf")
 
 [node name="Sphere" parent="." index="0"]
 material_override = SubResource("StandardMaterial3D_emn6c")
+
+[node name="crystal" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crystal" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28723145, 0.2635193, -1.1293986)
+shape = SubResource("BoxShape3D_emn6c")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=4 uid="uid://ceae0p68ubb5k"]
+[gd_scene load_steps=27 format=4 uid="uid://ceae0p68ubb5k"]
 
 [ext_resource type="Material" uid="uid://cq77n5sck33s6" path="res://materials/drawer.tres" id="1_hhdbc"]
 [ext_resource type="Script" uid="uid://dwrvscn3x1552" path="res://general_scripts/door.gd" id="2_2tgvu"]
 [ext_resource type="Material" uid="uid://ydqivgcysydw" path="res://materials/drawers.tres" id="2_o3fdc"]
 [ext_resource type="Material" uid="uid://b5mkvd8yp34dp" path="res://materials/chair_leg.tres" id="3_2tgvu"]
+[ext_resource type="AudioStream" uid="uid://cnfi1227wwegv" path="res://sound/drawer-open-98801.mp3" id="5_2tgvu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rigfd"]
 resource_name = "Material"
@@ -285,6 +286,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_fm6hy")
 }
 
+[node name="DrawerSound" type="AudioStreamPlayer" parent="bottom_door"]
+stream = ExtResource("5_2tgvu")
+
 [node name="top_door" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08, 1.31152, 0.857086)
 script = ExtResource("2_2tgvu")
@@ -311,3 +315,6 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_fm6hy")
 }
+
+[node name="DrawerSound" type="AudioStreamPlayer" parent="top_door"]
+stream = ExtResource("5_2tgvu")
