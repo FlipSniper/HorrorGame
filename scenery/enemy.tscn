@@ -32,8 +32,9 @@ mesh = SubResource("BoxMesh_niajt")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
 target_position = Vector3(0, -10, 0)
 
-[node name="chasecast6" type="RayCast3D" parent="."]
+[node name="killcast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.511662, -0.458)
+enabled = false
 target_position = Vector3(0, -0.8, 0)
 
 [node name="chasecast2" type="RayCast3D" parent="."]
