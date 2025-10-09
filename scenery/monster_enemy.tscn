@@ -677,6 +677,94 @@ tracks/6/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0.18675023, 0), Vector3(0, 0.036651913, 0), Vector3(0, 0.20071286, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_aeshb"]
+resource_name = "jumpscare"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("head:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.0837758, 0.19198622)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body/upper_r_arm:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.53445077, 0.13637961, 0.2631665), Vector3(0.5375614, 0.97563905, 0.12391838)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body/upper_l_arm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.7853982, -1.1222467, 0.10297442), Vector3(0.7853982, -1.1780972, 0.10297442)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("body/upper_r_arm/lower_arm:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.5467593)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("body/upper_l_arm/lower_arm:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.52532667)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("body/Sphere:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.31323427, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_m0ofj"]
 resource_name = "walk"
 length = 2.0
@@ -766,94 +854,6 @@ tracks/6/keys = {
 "values": [Vector3(0, 0.32827896, 0), Vector3(0, -0.18709932, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_aeshb"]
-resource_name = "jumpscare"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("head:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body/upper_r_arm:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -0.83103853)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body/upper_l_arm:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0.8598539)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("body/upper_r_arm/lower_arm:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, -0.5467593)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("body/upper_l_arm/lower_arm:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0.52532667)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("body/Sphere:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aeshb"]
 _data = {
 &"RESET": SubResource("Animation_e841q"),
@@ -906,7 +906,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4568713, 0)
 
 [node name="upper_r_arm" type="Node3D" parent="body"]
-transform = Transform3D(0.6741091, 0.73863184, 0, -0.7386319, 0.67410904, 0, 0, 0, 1, 0.74583673, -0.3645935, 0)
+transform = Transform3D(0.674109, 0.7386318, 0, -0.7386318, 0.674109, 0, 0, 0, 1, 0.74583673, -0.3645935, 0)
 
 [node name="Sphere_001" type="MeshInstance3D" parent="body/upper_r_arm"]
 transform = Transform3D(0, -0.81789315, 0, 0.35319957, 0, 0, 0, 0, 0.35319957, 0.7367364, -0.0044629574, 0)
@@ -930,7 +930,7 @@ skeleton = NodePath("")
 transform = Transform3D(-0.048682977, -0.13815734, -0.5405021, 0.5295117, -0.18225303, -0.0011075018, -0.17563415, -0.5111715, 0.14647959, 2.1109955, -0.009960739, -0.047430225)
 
 [node name="upper_l_arm" type="Node3D" parent="body"]
-transform = Transform3D(0.65254813, -0.7577471, 0, 0.7577471, 0.6525481, 0, 0, 0, 0.9999999, -0.7444391, -0.4096625, 0)
+transform = Transform3D(0.65254813, -0.7577471, 0, 0.7577471, 0.65254813, 0, 0, 0, 0.99999994, -0.7444391, -0.4096625, 0)
 
 [node name="Sphere_006" type="MeshInstance3D" parent="body/upper_l_arm"]
 transform = Transform3D(0, 0.81789315, 0, -0.3532, 0, 0, 0, 0, 0.35319957, -0.7134485, 0.040606022, 0)
@@ -951,7 +951,7 @@ mesh = SubResource("ArrayMesh_6fhqh")
 skeleton = NodePath("")
 
 [node name="Sphere" type="MeshInstance3D" parent="body"]
-transform = Transform3D(0.9999999, 0, 0, 0, 2.3156686, 0, 0, 0, 0.9999999, 0, -2.4568713, 0)
+transform = Transform3D(1.0000001, 0, 0, 0, 2.3156686, 0, 0, 0, 1.0000001, 0, -2.4568713, 0)
 mesh = SubResource("ArrayMesh_p2not")
 skeleton = NodePath("")
 
@@ -959,3 +959,4 @@ skeleton = NodePath("")
 libraries = {
 &"": SubResource("AnimationLibrary_aeshb")
 }
+speed_scale = 2.0

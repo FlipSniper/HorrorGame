@@ -32,6 +32,10 @@ mesh = SubResource("BoxMesh_niajt")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
 target_position = Vector3(0, -10, 0)
 
+[node name="chasecast6" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.511662, -0.458)
+target_position = Vector3(0, -0.8, 0)
+
 [node name="chasecast2" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
 target_position = Vector3(5, -10, 0)
@@ -60,9 +64,6 @@ material_override = ExtResource("4_qjjs4")
 [node name="Sphere_001" parent="monster_enemy/body/upper_r_arm" index="0"]
 material_override = ExtResource("4_qjjs4")
 
-[node name="lower_arm" parent="monster_enemy/body/upper_r_arm" index="1"]
-transform = Transform3D(0.8542138, 0.51992166, 0, -0.51992166, 0.8542138, 0, 0, 0, 1, 1.5399312, 0, 0)
-
 [node name="Sphere_002" parent="monster_enemy/body/upper_r_arm/lower_arm" index="0"]
 material_override = ExtResource("4_qjjs4")
 
@@ -75,7 +76,7 @@ material_override = ExtResource("4_qjjs4")
 [node name="Sphere" parent="monster_enemy/body" index="2"]
 material_override = ExtResource("4_qjjs4")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.7214486, -0.66957235)
+[node name="jumpscare_cam" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0.49775833, -1.137321)
 
 [editable path="monster_enemy"]
