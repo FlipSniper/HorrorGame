@@ -596,7 +596,7 @@ mesh = SubResource("QuadMesh_v4yay")
 skeleton = NodePath("../..")
 
 [node name="enemy" parent="." node_paths=PackedStringArray("patrol_destinations") instance=ExtResource("22_xl7j7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16775, 2.12808, -10.3821)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16775, 2.12808, -12.534896)
 patrol_destinations = [NodePath("../destinations/destination"), NodePath("../destinations/destination2"), NodePath("../destinations/destination3"), NodePath("../destinations/destination4"), NodePath("../destinations/destination5"), NodePath("../destinations/destination6"), NodePath("../destinations/destination7"), null]
 
 [node name="destinations" type="Node3D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dlvptlhvd1s0a"]
+[gd_scene load_steps=16 format=3 uid="uid://dlvptlhvd1s0a"]
 
 [ext_resource type="Script" uid="uid://cob7ca5kifnqe" path="res://general_scripts/enemy.gd" id="1_niajt"]
 [ext_resource type="PackedScene" uid="uid://dewmqge7o1rbi" path="res://scenery/monster_enemy.tscn" id="2_0y524"]
@@ -10,6 +10,51 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yjxpk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_niajt"]
+
+[sub_resource type="Gradient" id="Gradient_ivpvi"]
+offsets = PackedFloat32Array(0, 0.626866, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.376941, 0.358063, 0.366395, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0v1st"]
+gradient = SubResource("Gradient_ivpvi")
+
+[sub_resource type="Gradient" id="Gradient_44x8d"]
+colors = PackedColorArray(0, 0, 0, 1, 0.0945964, 0.152289, 0.357978, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ivpvi"]
+noise_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0v1st"]
+noise = SubResource("FastNoiseLite_ivpvi")
+color_ramp = SubResource("Gradient_44x8d")
+seamless = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_vonw3"]
+sky_top_color = Color(0.469625, 0.659434, 1, 1)
+sky_horizon_color = Color(0.0532502, 0.475704, 0.966639, 1)
+sky_cover = SubResource("NoiseTexture2D_0v1st")
+ground_bottom_color = Color(0.018033, 0, 0.506818, 1)
+ground_horizon_color = Color(0.00337478, 0.180374, 0.402837, 1)
+
+[sub_resource type="Sky" id="Sky_oi3di"]
+sky_material = SubResource("ProceduralSkyMaterial_vonw3")
+
+[sub_resource type="Environment" id="Environment_qjjs4"]
+background_mode = 2
+background_energy_multiplier = 0.55
+sky = SubResource("Sky_oi3di")
+tonemap_mode = 3
+ssr_max_steps = 256
+glow_enabled = true
+glow_bloom = 0.25
+fog_enabled = true
+fog_light_energy = 0.1
+fog_density = 0.021
+volumetric_fog_density = 0.8673
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission = Color(0.22577, 0.184837, 0.163564, 1)
+adjustment_enabled = true
+adjustment_color_correction = SubResource("GradientTexture1D_0v1st")
 
 [node name="enemy" type="CharacterBody3D"]
 script = ExtResource("1_niajt")
@@ -32,10 +77,12 @@ mesh = SubResource("BoxMesh_niajt")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
 target_position = Vector3(0, -10, 0)
 
-[node name="killcast" type="RayCast3D" parent="."]
+[node name="killcast" type="Node3D" parent="."]
+
+[node name="killcast" type="RayCast3D" parent="killcast"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.511662, -0.458)
 enabled = false
-target_position = Vector3(0, -0.8, 0)
+target_position = Vector3(0, -2, 0)
 
 [node name="chasecast2" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.282, -0.458)
@@ -56,6 +103,9 @@ target_position = Vector3(2.5, -10, 0)
 [node name="monster_enemy" parent="." instance=ExtResource("2_0y524")]
 transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, 0, -0.2379595, 0)
 
+[node name="head" parent="monster_enemy" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000002, 0, 2.4545856, 0)
+
 [node name="Sphere_007" parent="monster_enemy/head" index="0"]
 material_override = ExtResource("3_yjxpk")
 
@@ -68,6 +118,9 @@ material_override = ExtResource("4_qjjs4")
 [node name="Sphere_002" parent="monster_enemy/body/upper_r_arm/lower_arm" index="0"]
 material_override = ExtResource("4_qjjs4")
 
+[node name="upper_l_arm" parent="monster_enemy/body" index="1"]
+transform = Transform3D(0.6525481, -0.7577471, 0, 0.7577471, 0.65254813, 0, 0, 0, 0.9999999, -0.7444391, -0.4096625, 0)
+
 [node name="Sphere_006" parent="monster_enemy/body/upper_l_arm" index="0"]
 material_override = ExtResource("4_qjjs4")
 
@@ -78,6 +131,7 @@ material_override = ExtResource("4_qjjs4")
 material_override = ExtResource("4_qjjs4")
 
 [node name="jumpscare_cam" type="Camera3D" parent="."]
-transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, 0, 0.49775833, -1.137321)
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 0.99999994, 0, -1.509958e-07, 0, -1, 0, 0.49775833, -1.137321)
+environment = SubResource("Environment_qjjs4")
 
 [editable path="monster_enemy"]

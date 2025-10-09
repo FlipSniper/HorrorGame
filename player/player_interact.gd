@@ -53,7 +53,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if is_colliding():
 		var hit = get_collider()
-		print(hit)
 		crosshair.visible = false
 
 		if not hit:

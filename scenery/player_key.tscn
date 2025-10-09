@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://cpcsliocyto0l"]
+[gd_scene load_steps=14 format=4 uid="uid://cpcsliocyto0l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqye3"]
 albedo_color = Color(4.31973e-06, 0.424445, 0.118771, 1)
@@ -155,9 +155,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6useo")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_iuws3"]
-size = Vector3(5.83264, 1, 2.09772)
-
 [node name="key" type="Node3D"]
 
 [node name="Cube" type="MeshInstance3D" parent="."]
@@ -183,9 +180,3 @@ transform = Transform3D(0.230454, 0, 0, 0, 0.237982, 0, 0, 0, 0.619408, -3.26818
 material_override = SubResource("StandardMaterial3D_rqye3")
 mesh = SubResource("ArrayMesh_ux7lc")
 skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81122, 0, -0.0389709)
-shape = SubResource("BoxShape3D_iuws3")
