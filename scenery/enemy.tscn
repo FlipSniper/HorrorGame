@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlvptlhvd1s0a"]
+[gd_scene load_steps=8 format=3 uid="uid://dlvptlhvd1s0a"]
 
 [ext_resource type="Script" uid="uid://cob7ca5kifnqe" path="res://general_scripts/enemy.gd" id="1_niajt"]
 [ext_resource type="PackedScene" uid="uid://dewmqge7o1rbi" path="res://scenery/monster_enemy.tscn" id="2_0y524"]
+[ext_resource type="Material" uid="uid://ywrbi3a0ckvc" path="res://materials/metal.tres" id="3_yjxpk"]
+[ext_resource type="Material" uid="uid://vf28toqn2nyq" path="res://materials/carpet.tres" id="4_qjjs4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0y524"]
 
@@ -48,3 +50,32 @@ target_position = Vector3(2.5, -10, 0)
 
 [node name="monster_enemy" parent="." instance=ExtResource("2_0y524")]
 transform = Transform3D(0.28, 0, 0, 0, 0.28, 0, 0, 0, 0.28, 0, -0.2379595, 0)
+
+[node name="Sphere_007" parent="monster_enemy/head" index="0"]
+material_override = ExtResource("3_yjxpk")
+
+[node name="Sphere_010" parent="monster_enemy/head" index="6"]
+material_override = ExtResource("4_qjjs4")
+
+[node name="Sphere_001" parent="monster_enemy/body/upper_r_arm" index="0"]
+material_override = ExtResource("4_qjjs4")
+
+[node name="lower_arm" parent="monster_enemy/body/upper_r_arm" index="1"]
+transform = Transform3D(0.8542138, 0.51992166, 0, -0.51992166, 0.8542138, 0, 0, 0, 1, 1.5399312, 0, 0)
+
+[node name="Sphere_002" parent="monster_enemy/body/upper_r_arm/lower_arm" index="0"]
+material_override = ExtResource("4_qjjs4")
+
+[node name="Sphere_006" parent="monster_enemy/body/upper_l_arm" index="0"]
+material_override = ExtResource("4_qjjs4")
+
+[node name="Sphere_004" parent="monster_enemy/body/upper_l_arm/lower_arm" index="1"]
+material_override = ExtResource("4_qjjs4")
+
+[node name="Sphere" parent="monster_enemy/body" index="2"]
+material_override = ExtResource("4_qjjs4")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.7214486, -0.66957235)
+
+[editable path="monster_enemy"]

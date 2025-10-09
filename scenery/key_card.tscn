@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cy0aqqyhmee45"]
+
+[ext_resource type="Script" uid="uid://c48o72ya3c4vl" path="res://general_scripts/key_card.gd" id="1_1ko8h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_havoa"]
+size = Vector3(1.53795, 0.228, 0.562908)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1ko8h"]
+
+[node name="key" type="RigidBody3D"]
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_1ko8h")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.281796, 0, 0, 0, 0.281796, 0, 0, 0, 0.281796, -0.147787, 0.0136578, -0.0113579)
+shape = SubResource("BoxShape3D_havoa")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(0.500488, 0, 0, 0, 0.500488, 0, 0, 0, 0.500488, -0.155625, 0.00454668, -0.00378105)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0.7130021, 0, 0, 0, 0.08452678, 0, 0, 0, 0.20937476, 0, 0, -0.017303865)
+mesh = SubResource("BoxMesh_1ko8h")
+
+[connection signal="body_exited" from="." to="." method="hit_obj"]

@@ -23,6 +23,9 @@ var powerbox = false
 var trapdoor = false
 var proper_crowbar
 var main_scene_name = ""
+var boiler = false
+var melted = false
+var elevator
 
 func _ready() -> void:
 	var current_scene = get_tree().current_scene
@@ -42,6 +45,10 @@ func _ready() -> void:
 		plank2 = current_scene.get_node_or_null("planks/plank2")
 		proper_crowbar = current_scene.get_node_or_null("crowbar")
 		proper_crowbar.disable_body()
+	elif main_scene_name == "level2":
+		plank1 = current_scene.get_node_or_null("planks/plank1")
+		plank2 = current_scene.get_node_or_null("planks/plank2")
+		elevator = current_scene.get_node_or_null("elevator")
 
 func _physics_process(delta: float) -> void:
 	if is_colliding():
@@ -55,7 +62,7 @@ func _physics_process(delta: float) -> void:
 		var hit_name = hit.name.to_lower()  # lowercase for dropped items
 
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
-						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal"]:
+						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -143,3 +150,15 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				player_level.level1 += 1
 				player_level.crystals += 1
 			player_ui.set_task(".Leave the property")
+		"water_boiler":
+			if boiler:
+				hit.get_parent().toggle_boil()
+				player_ui.set_task(".Nice now melt the ice")
+				boiler = true
+		"ice":
+			if !melted:
+				hit.get_parent().melt_ice()
+				player_ui.set_task(".Now take the key card")
+		"elevator_button":
+			if elevator.level == player.level:
+				hit.get_parent().open_elevator()
