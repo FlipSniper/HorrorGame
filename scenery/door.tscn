@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgig7ncsh5l7"]
+[gd_scene load_steps=14 format=3 uid="uid://dgig7ncsh5l7"]
 
 [ext_resource type="Script" uid="uid://dwrvscn3x1552" path="res://general_scripts/door.gd" id="1_jy65v"]
 [ext_resource type="Material" uid="uid://cq77n5sck33s6" path="res://materials/drawer.tres" id="2_m6kou"]
 [ext_resource type="Material" uid="uid://ywrbi3a0ckvc" path="res://materials/metal.tres" id="3_4owcv"]
 [ext_resource type="Material" uid="uid://dvq4kbeilrtm6" path="res://materials/pillarmetal.tres" id="4_ogd0u"]
+[ext_resource type="AudioStream" uid="uid://cbp4fy81y0gie" path="res://sound/15419__pagancow__dorm-door-opening.wav" id="5_ogd0u"]
+[ext_resource type="AudioStream" uid="uid://dy4pbm1foantj" path="res://sound/652347__weak_hero__door-closed_2.wav" id="6_ekvfs"]
 
 [sub_resource type="Animation" id="Animation_m6kou"]
 length = 0.001
@@ -93,6 +95,18 @@ transform = Transform3D(0.15, 0, 0, 0, -2.18557e-09, -0.15, 0, 0.05, -6.55671e-0
 material_override = ExtResource("4_ogd0u")
 mesh = SubResource("CylinderMesh_l435u")
 skeleton = NodePath("../../root/@EditorNode@21272/@Panel@14/@VBoxContainer@15/DockHSplitLeftL/DockHSplitLeftR/DockHSplitMain/@VBoxContainer@26/DockVSplitCenter/@VSplitContainer@54/@VBoxContainer@55/@EditorMainScreen@102/MainScreen/@CanvasItemEditor@11482/@VSplitContainer@11134/@HSplitContainer@11136/@HSplitContainer@11138/@Control@11139/@SubViewportContainer@11140/@SubViewport@11141/Node3D")
+
+[node name="open" type="AudioStreamPlayer3D" parent="hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8746223, 0, 0)
+stream = ExtResource("5_ogd0u")
+max_distance = 30.0
+bus = &"SFX"
+
+[node name="close" type="AudioStreamPlayer3D" parent="hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8746223, 0, 0)
+stream = ExtResource("6_ekvfs")
+max_distance = 30.0
+bus = &"SFX"
 
 [node name="Area3D" type="Area3D" parent="."]
 

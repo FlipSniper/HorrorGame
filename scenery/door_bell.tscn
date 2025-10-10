@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bb2mb4flbhddp"]
+[gd_scene load_steps=11 format=3 uid="uid://bb2mb4flbhddp"]
 
 [ext_resource type="Script" uid="uid://lryiux7jkwlp" path="res://general_scripts/door_bell.gd" id="1_0f6x2"]
 [ext_resource type="Material" uid="uid://bhgafs8grgwv1" path="res://materials/metal_5.tres" id="1_7fcfu"]
 [ext_resource type="Material" uid="uid://6ctone680nsd" path="res://materials/house_material.tres" id="3_rp8vv"]
+[ext_resource type="AudioStream" uid="uid://6rin4fv8tg66" path="res://sound/710463__leoanderson67__button-press.wav" id="4_7peo6"]
+[ext_resource type="AudioStream" uid="uid://dgas8jkr211ar" path="res://sound/816094__ultra-edward__future-door-bell.wav" id="5_1s042"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_1ckd6"]
 
@@ -68,3 +70,13 @@ shape = SubResource("BoxShape3D_7fcfu")
 libraries = {
 &"": SubResource("AnimationLibrary_q0if7")
 }
+
+[node name="button" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_7peo6")
+max_distance = 15.0
+bus = &"SFX"
+
+[node name="door_bell2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_1s042")
+max_distance = 30.0
+bus = &"SFX"

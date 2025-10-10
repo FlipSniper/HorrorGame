@@ -10,7 +10,8 @@ var camera_pitch := 0.0
 @onready var head = $head
 @onready var ray = $head/pointer/Arrow
 @onready var footstep_player = $FootstepPlayer
-@export var footstep_sound = load("res://sound/footstep1.mp3")
+#@export var footstep_sound = load("res://sound/footstep1.mp3")
+@export var footstep_sound: Array[AudioStream]
 var step_timer = 0.0
 
 # --- ITEMS / OBJECTIVES ---
@@ -32,6 +33,7 @@ var tutorial
 @onready var player_flashlight = $head/flashlight
 @onready var player_arm = $head/arm
 @onready var equipped_item: String = ""
+@onready var rng = RandomNumberGenerator.new()
 
 # --- DROP SCENES (add your .tscn paths in inspector) ---
 @export var key_scene: PackedScene
@@ -45,6 +47,10 @@ var drop_scales = {
 	"COFFEE": Vector3(0.5,0.5,0.5),
 	"CROWBAR": Vector3(0.2,0.2,0.2)
 }
+
+func footsteps():
+	if !$feet.playing:
+		$feet.stream = footstep_sound[rng.randi_range(0,footstep_sound.size()-1)]
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
