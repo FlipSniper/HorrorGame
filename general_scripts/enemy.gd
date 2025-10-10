@@ -95,6 +95,8 @@ func kill_player():
 			player.process_mode = Node.PROCESS_MODE_DISABLED
 			velocity = Vector3.ZERO
 			move_and_slide()
+			await get_tree().create_timer(2.5,false).timeout
+			get_tree().change_scene_to_file("res://scenery/death.tscn")
 
 func pick_destination(dont_choose = null):
 	if !chasing and !killed:
