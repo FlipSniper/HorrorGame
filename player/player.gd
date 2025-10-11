@@ -51,6 +51,7 @@ var drop_scales = {
 func footsteps():
 	if !$feet.playing:
 		$feet.stream = footstep_sound[rng.randi_range(0,footstep_sound.size()-1)]
+		$feet.play()
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
