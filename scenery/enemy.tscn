@@ -134,4 +134,7 @@ material_override = ExtResource("4_qjjs4")
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 0.99999994, 0, -1.509958e-07, 0, -1, 0, 0.49775833, -1.137321)
 environment = SubResource("Environment_qjjs4")
 
+[node name="feet" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.89721495, 0)
+
 [editable path="monster_enemy"]

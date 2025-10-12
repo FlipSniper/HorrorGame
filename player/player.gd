@@ -10,7 +10,6 @@ var camera_pitch := 0.0
 @onready var head = $head
 @onready var ray = $head/pointer/Arrow
 @onready var footstep_player = $FootstepPlayer
-#@export var footstep_sound = load("res://sound/footstep1.mp3")
 @export var footstep_sound: Array[AudioStream]
 var step_timer = 0.0
 
@@ -35,7 +34,6 @@ var tutorial
 @onready var equipped_item: String = ""
 @onready var rng = RandomNumberGenerator.new()
 
-# --- DROP SCENES (add your .tscn paths in inspector) ---
 @export var key_scene: PackedScene
 @export var coffee_scene: PackedScene
 @export var crowbar_scene: PackedScene
@@ -70,7 +68,9 @@ func _ready() -> void:
 	if main_scene_name == "level":
 		tutorial = false
 		$head/pointer.visible = false
-
+	if main_scene_name == "level2":
+		tutorial = false
+		$head/pointer.visible = false
 func _input(event):
 	if controls_enabled and event is InputEventMouseMotion:
 		rotation.y -= event.relative.x * look_sensitivity
@@ -135,7 +135,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		$CollisionShape3D.shape.height = lerp($CollisionShape3D.shape.height, 2.0, 0.2)
 
-	# Gravity + Jump
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -149,11 +148,10 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 
-		# Footsteps
 		if is_on_floor():
 			step_timer -= delta
 			if step_timer <= 0.0:
-				play_footstep()
+				footsteps()
 				step_timer = 0.6 if crouching else 0.4
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -163,9 +161,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func play_footstep() -> void:
-	if not footstep_player.playing:
+	pass
+	"""if not footstep_player.playing:
 		footstep_player.stream = footstep_sound
-		footstep_player.play()
+		footstep_player.play()"""
 
 func equip_item(item_name: String) -> void:
 	if item_name == "" or not Inventory:

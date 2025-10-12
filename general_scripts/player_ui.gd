@@ -20,6 +20,8 @@ func _ready() -> void:
 		safe_anim = get_tree().current_scene.get_node("house/safe/AnimationPlayer")
 		safe = get_tree().current_scene.get_node("house/safe/safe/CollisionShape3D")
 		set_task("Ring the door bell... twice for good measure","res://assets/icons/door_bell.png")
+	if main_scene_name == "level2":
+		print("hi there")
 	if main_scene_name == "office":
 		safe_anim = get_tree().current_scene.get_node("office_layout/safe/AnimationPlayer")
 		set_task(".Follow the arrow to the code. Use WASD and mouse or arrow keys to look around. You may use a controller", null)

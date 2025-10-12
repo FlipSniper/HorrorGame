@@ -1,9 +1,11 @@
-[gd_scene load_steps=27 format=4 uid="uid://licyfb78hh3h"]
+[gd_scene load_steps=29 format=4 uid="uid://licyfb78hh3h"]
 
 [ext_resource type="Script" uid="uid://ccoimpw7w8ddd" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c5ctnuitskyhe" path="res://player/fp_cam.gd" id="2_rkbax"]
+[ext_resource type="AudioStream" uid="uid://03xsii3mr3v0" path="res://sound/footstep2.mp3" id="3_ebec5"]
 [ext_resource type="Script" uid="uid://bt34vmmpewafm" path="res://player/player_interact.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://c18cf4j1ky1bu" path="res://player/fov.gd" id="3_qjkh3"]
+[ext_resource type="AudioStream" uid="uid://75j5d1owikjb" path="res://sound/footstep3.mp3" id="4_yllr7"]
 [ext_resource type="PackedScene" uid="uid://csjdgig62xg20" path="res://ui/player_ui.tscn" id="4_yw30f"]
 [ext_resource type="PackedScene" uid="uid://cpcsliocyto0l" path="res://scenery/player_key.tscn" id="5_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="6_boad6"]
@@ -140,6 +142,7 @@ shadow_mesh = SubResource("ArrayMesh_uxabj")
 [node name="player" type="CharacterBody3D"]
 floor_max_angle = 1.13446
 script = ExtResource("1_oul6g")
+footstep_sound = Array[AudioStream]([ExtResource("9_hg6s5"), ExtResource("3_ebec5"), ExtResource("4_yllr7")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_kqu6x")

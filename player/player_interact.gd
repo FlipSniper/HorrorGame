@@ -26,6 +26,7 @@ var main_scene_name = ""
 var boiler = false
 var melted = false
 var elevator
+var fire
 
 func _ready() -> void:
 	var current_scene = get_tree().current_scene
@@ -33,6 +34,7 @@ func _ready() -> void:
 		main_scene_name = current_scene.name
 
 	if main_scene_name == "level":
+		powerbox = false
 		lock_opened = current_scene.get_node_or_null("house/lock")
 		key_collider = current_scene.get_node_or_null("key/CollisionShape3D")
 		key = current_scene.get_node_or_null("key/Node3D")
@@ -46,9 +48,11 @@ func _ready() -> void:
 		proper_crowbar = current_scene.get_node_or_null("crowbar")
 		proper_crowbar.disable_body()
 	elif main_scene_name == "level2":
+		powerbox = true
 		plank1 = current_scene.get_node_or_null("planks/plank1")
 		plank2 = current_scene.get_node_or_null("planks/plank2")
 		elevator = current_scene.get_node_or_null("elevator")
+		fire = current_scene.get_node_or_null("matchstick")
 
 func _physics_process(delta: float) -> void:
 	if is_colliding():
@@ -61,7 +65,8 @@ func _physics_process(delta: float) -> void:
 		var hit_name = hit.name.to_lower()  # lowercase for dropped items
 
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
-						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler"]:
+						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
+						"matchstick", "elevator_ground", "elevator_floor1"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
