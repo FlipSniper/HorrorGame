@@ -48,7 +48,7 @@ var drop_scales = {
 
 func footsteps():
 	if !$feet.playing:
-		$feet.stream = footstep_sound[rng.randi_range(0,footstep_sound.size()-1)]
+		$feet.stream = footstep_sound[rng.randi_range(0, footstep_sound.size() - 1)]
 		$feet.play()
 
 func _ready() -> void:
@@ -65,12 +65,10 @@ func _ready() -> void:
 		$head/pointer.visible = true
 		looking_for = "code_paper"
 		tutorial = true
-	if main_scene_name == "level":
+	elif main_scene_name in ["level", "level2"]:
 		tutorial = false
 		$head/pointer.visible = false
-	if main_scene_name == "level2":
-		tutorial = false
-		$head/pointer.visible = false
+
 func _input(event):
 	if controls_enabled and event is InputEventMouseMotion:
 		rotation.y -= event.relative.x * look_sensitivity
@@ -125,6 +123,10 @@ func update_pointer() -> void:
 func change_arrow(find: String):
 	looking_for = find
 
+# Helper: checks if player is actually moving
+func is_moving() -> bool:
+	return abs(velocity.x) > 0.1 or abs(velocity.z) > 0.1
+
 func _physics_process(delta: float) -> void:
 	if not controls_enabled:
 		return
@@ -135,15 +137,18 @@ func _physics_process(delta: float) -> void:
 	else:
 		$CollisionShape3D.shape.height = lerp($CollisionShape3D.shape.height, 2.0, 0.2)
 
+	# Gravity + Jump
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Movement
+	# Movement input
 	var input_dir = Input.get_vector("left", "right", "forward", "backwards")
 	var direction = Vector3(input_dir.x, 0, input_dir.y)
+
 	if direction.length() > 0.01:
+		# Player is actively moving
 		direction = direction.rotated(Vector3.UP, rotation.y).normalized()
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -154,17 +159,18 @@ func _physics_process(delta: float) -> void:
 				footsteps()
 				step_timer = 0.6 if crouching else 0.4
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		# No input = instantly stop footsteps + zero out velocity drift
+		velocity.x = move_toward(velocity.x, 0, speed * 2)
+		velocity.z = move_toward(velocity.z, 0, speed * 2)
 		step_timer = 0.0
+		if $feet.playing:
+			$feet.stop()
 
 	move_and_slide()
 
+
 func play_footstep() -> void:
 	pass
-	"""if not footstep_player.playing:
-		footstep_player.stream = footstep_sound
-		footstep_player.play()"""
 
 func equip_item(item_name: String) -> void:
 	if item_name == "" or not Inventory:
@@ -173,96 +179,70 @@ func equip_item(item_name: String) -> void:
 	# Unequip previous item visuals
 	if equipped_item != "":
 		match equipped_item:
-			"KEY":
-				player_key.visible = false
-			"COFFEE":
-				player_coffee.visible = false
-			"CROWBAR":
-				player_crowbar.visible = false
-			"FLASHLIGHT":
-				player_flashlight.visible = false
+			"KEY": player_key.visible = false
+			"COFFEE": player_coffee.visible = false
+			"CROWBAR": player_crowbar.visible = false
+			"FLASHLIGHT": player_flashlight.visible = false
 
 	# Equip new item
 	equipped_item = item_name
 	match item_name:
-		"KEY":
-			player_key.visible = true
-		"COFFEE":
-			player_coffee.visible = true
-		"CROWBAR":
-			player_crowbar.visible = true
-		"FLASHLIGHT":
-			player_flashlight.visible = true
-		_:
-			pass  # add more if you have other items
+		"KEY": player_key.visible = true
+		"COFFEE": player_coffee.visible = true
+		"CROWBAR": player_crowbar.visible = true
+		"FLASHLIGHT": player_flashlight.visible = true
+		_: pass
 
-
-# --- EQUIP ITEM ---
+# --- DROP ITEM ---
 func drop_item() -> void:
 	if equipped_item == "" or not Inventory:
 		return
 
 	var scene: PackedScene = null
 	match equipped_item:
-		"KEY":
-			scene = key_scene
-		"COFFEE":
-			scene = coffee_scene
-		"CROWBAR":
-			scene = crowbar_scene
-		"FLASHLIGHT":
-			scene = flashlight_scene
-		_:
-			scene = null
+		"KEY": scene = key_scene
+		"COFFEE": scene = coffee_scene
+		"CROWBAR": scene = crowbar_scene
+		"FLASHLIGHT": scene = flashlight_scene
+		_: scene = null
 
 	if scene:
 		var dropped = scene.instantiate()
-
-		# Apply scale if defined
 		dropped.scale = drop_scales.get(equipped_item, Vector3.ONE)
 
-		# Default spawn position in front of head
 		var spawn_pos = head.global_transform.origin + -head.global_transform.basis.z * 1.2 + Vector3.UP * 0.5
 
 		if dropped is RigidBody3D:
-			# RigidBody3D: spawn in air and toss forward
 			dropped.global_transform.origin = spawn_pos
 			dropped.apply_central_impulse(-head.global_transform.basis.z * 3)
 		else:
-			# Node3D / StaticBody3D: place on floor using raycast
 			var space_state = get_world_3d().direct_space_state
 			var from = spawn_pos + Vector3.UP * 5.0
 			var to = spawn_pos - Vector3.UP * 10.0
-
 			var params = PhysicsRayQueryParameters3D.new()
 			params.from = from
 			params.to = to
 			params.collide_with_bodies = true
 			var result = space_state.intersect_ray(params)
 			if result:
-				spawn_pos.y = result.position.y + 0.1  # slight offset above floor
+				spawn_pos.y = result.position.y + 0.1
 			else:
-				spawn_pos.y = 0.0  # fallback
+				spawn_pos.y = 0.0
 			dropped.global_transform.origin = spawn_pos
-		get_tree().current_scene.add_child(dropped)
 
-		# Now rename to lowercase so hit.name works
+		get_tree().current_scene.add_child(dropped)
 		dropped.name = equipped_item.to_lower()
 
-	# Remove from inventory
 	var slot_index = Inventory.slots.find(equipped_item)
 	if slot_index != -1:
 		Inventory.slots[slot_index] = null
 	Inventory.emit_signal("inventory_updated")
 
 	# Hide visuals
-	if equipped_item == "KEY":
-		player_key.visible = false
-	elif equipped_item == "COFFEE":
-		player_coffee.visible = false
-	elif equipped_item == "CROWBAR":
-		player_crowbar.visible = false
-	elif equipped_item == "FLASHLIGHT":
-		player_flashlight.visible = false
+	match equipped_item:
+		"KEY": player_key.visible = false
+		"COFFEE": player_coffee.visible = false
+		"CROWBAR": player_crowbar.visible = false
+		"FLASHLIGHT": player_flashlight.visible = false
 
 	equipped_item = ""

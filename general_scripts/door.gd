@@ -21,5 +21,5 @@ func toggle_door():
 			$hinge/close.play()
 			$AnimationPlayer.play_backwards("open")
 		if opened:
-			$hinge/close.play()
+			$hinge/open.play()
 			$AnimationPlayer.play("open")

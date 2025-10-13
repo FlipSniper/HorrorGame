@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dlvptlhvd1s0a"]
+[gd_scene load_steps=19 format=3 uid="uid://dlvptlhvd1s0a"]
 
 [ext_resource type="Script" uid="uid://cob7ca5kifnqe" path="res://general_scripts/enemy.gd" id="1_niajt"]
 [ext_resource type="PackedScene" uid="uid://dewmqge7o1rbi" path="res://scenery/monster_enemy.tscn" id="2_0y524"]
+[ext_resource type="AudioStream" uid="uid://dxvltc7324uke" path="res://sound/footstep1.mp3" id="2_t0kwa"]
+[ext_resource type="AudioStream" uid="uid://03xsii3mr3v0" path="res://sound/footstep2.mp3" id="3_vwbfj"]
 [ext_resource type="Material" uid="uid://ywrbi3a0ckvc" path="res://materials/metal.tres" id="3_yjxpk"]
+[ext_resource type="AudioStream" uid="uid://75j5d1owikjb" path="res://sound/footstep3.mp3" id="4_lhg25"]
 [ext_resource type="Material" uid="uid://vf28toqn2nyq" path="res://materials/carpet.tres" id="4_qjjs4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0y524"]
@@ -58,6 +61,7 @@ adjustment_color_correction = SubResource("GradientTexture1D_0v1st")
 
 [node name="enemy" type="CharacterBody3D"]
 script = ExtResource("1_niajt")
+footstep_sound = Array[AudioStream]([ExtResource("2_t0kwa"), ExtResource("3_vwbfj"), ExtResource("4_lhg25")])
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 visible = false

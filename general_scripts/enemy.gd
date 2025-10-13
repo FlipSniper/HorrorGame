@@ -9,6 +9,7 @@ var chasing = false
 var destination_value
 var killed = false
 var chase_timer = 0
+@export var footstep_sound: Array[AudioStream]
 
 @onready var anim: AnimationPlayer = $monster_enemy/AnimationPlayer
 
@@ -16,12 +17,23 @@ func _ready() -> void:
 	anim.play("idle")
 	pick_destination()
 
+func footsteps():
+	if !chasing and $feet.pitch_scale != 1.0:
+		$feet.pitch_scale = 1.0
+	elif chasing and $feet.pitch_scale != 1.5:
+		$feet.pitch_scale = 1.5
+	if !$feet.playing:
+		$feet.stream = footstep_sound[rng.randi_range(0,footstep_sound.size()-1)]
+		$feet.play()
+
+
 func _process(delta: float) -> void:
 	if killed:
 		if anim.current_animation != "jumpscare":
 			anim.play("jumpscare")
 		return
-	
+	if speed > 0:
+		footsteps()
 	if !chasing:
 		if speed != 3.0:
 			speed = 3.0

@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://gosc8aifvja4"]
+[gd_scene load_steps=15 format=4 uid="uid://gosc8aifvja4"]
 
 [ext_resource type="Script" uid="uid://fbx5l8tpxdwx" path="res://general_scripts/lock.gd" id="1_jrdsp"]
 [ext_resource type="Material" uid="uid://cfxov12qxoubv" path="res://materials/metal_4.tres" id="1_xhj7f"]
 [ext_resource type="Texture2D" uid="uid://csmax48a3806t" path="res://textures/wood_floor_diff_1k.jpg" id="2_jrdsp"]
+[ext_resource type="AudioStream" uid="uid://cbp4fy81y0gie" path="res://sound/15419__pagancow__dorm-door-opening.wav" id="4_pevl3"]
+[ext_resource type="AudioStream" uid="uid://dy4pbm1foantj" path="res://sound/652347__weak_hero__door-closed_2.wav" id="5_fcclr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pevl3"]
 albedo_color = Color(0.471526, 0.278189, 2.88785e-07, 1)
@@ -68,6 +70,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xhj7f"]
 resource_name = "open"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -75,7 +78,7 @@ tracks/0/path = NodePath("trapdoor_hinge:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(1.39626, 0, 0)]
@@ -109,6 +112,20 @@ transform = Transform3D(1.12052e-08, -0.470249, 0, 0.256345, 2.05552e-08, 0, 0, 
 material_override = ExtResource("1_xhj7f")
 mesh = SubResource("ArrayMesh_1hoxi")
 skeleton = NodePath("")
+
+[node name="open" type="AudioStreamPlayer3D" parent="trapdoor_hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30518723, 0, 0)
+stream = ExtResource("4_pevl3")
+pitch_scale = 0.4
+max_distance = 30.0
+bus = &"SFX"
+
+[node name="close" type="AudioStreamPlayer3D" parent="trapdoor_hinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30518723, 0, 0)
+stream = ExtResource("5_fcclr")
+pitch_scale = 0.4
+max_distance = 30.0
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
