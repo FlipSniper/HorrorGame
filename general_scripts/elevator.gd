@@ -9,8 +9,10 @@ func elevator(button: String):
 		await get_tree().create_timer(2).timeout
 		for i in range(90):
 			global_position.y += .1
-			await get_tree().create_timer(.11).timeout
+			await get_tree().create_timer(.1).timeout
 		$AnimationPlayer.play("open")
+		await get_tree().create_timer(4).timeout
+		$AnimationPlayer.play_backwards("open")
 		await get_tree().create_timer(2).timeout
 		level = "floor"
 	elif level == "floor" and button == "ground":
@@ -21,15 +23,29 @@ func elevator(button: String):
 			global_position.y -= .1
 			await get_tree().create_timer(.1).timeout
 		$AnimationPlayer.play("open")
+		await get_tree().create_timer(4).timeout
+		$AnimationPlayer.play_backwards("open")
 		await get_tree().create_timer(2).timeout
 		level = "ground"
-	elif level == "ground" and button == "back":
+	elif level == "ground" and button == "f_back":
 		level = ""
-		$AnimationPlayer.play_backwards("open")
 		await get_tree().create_timer(2).timeout
 		for i in range(90):
 			global_position.y += .1
-			await get_tree().create_timer(.11).timeout
+			await get_tree().create_timer(.1).timeout
 		$AnimationPlayer.play("open")
 		await get_tree().create_timer(2).timeout
 		level = "floor"
+	elif level == "floor" and button == "g_back":
+		level = ""
+		await get_tree().create_timer(2).timeout
+		for i in range(90):
+			global_position.y += .1
+			await get_tree().create_timer(.1).timeout
+		$AnimationPlayer.play("open")
+		await get_tree().create_timer(2).timeout
+		level = "ground"
+	elif level == "floor" and button == "f_back":
+		return true
+	elif level == "ground" and button == "g_back":
+		return true

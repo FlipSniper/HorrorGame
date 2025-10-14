@@ -53,7 +53,7 @@ func _ready() -> void:
 		elevator_animplayer = current_scene.get_node_or_null("NavigationRegion3D/House/Elevator/AnimationPlayer")
 		plank1 = current_scene.get_node_or_null("planks/plank1")
 		plank2 = current_scene.get_node_or_null("planks/plank2")
-		elevator = current_scene.get_node_or_null("elevator")
+		elevator = current_scene.get_node_or_null("NavigationRegion3D/House/Elevator")
 		fire = current_scene.get_node_or_null("matchstick")
 
 func _physics_process(delta: float) -> void:
@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
-						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button"]:
+						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -166,9 +166,13 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				hit.get_parent().melt_ice()
 				player_ui.set_task(".Now take the key card")
 		"elevator_button":
-			elevator_animplayer.play("open")
-			"""if elevator.level == player.level:
-				hit.get_parent().open_elevator()"""
+			var same = elevator.elevator("back_g")
+			if same:
+				elevator_animplayer.play("open")
+		"elevator_button2":
+			var same = elevator.elevator("back_f")
+			if same:
+				elevator_animplayer.play("open")
 		"elevator_ground":
 			hit.get_parent().get_parent().elevator("ground")
 		"elevator_floor1":
