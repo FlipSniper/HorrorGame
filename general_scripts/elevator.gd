@@ -3,6 +3,7 @@ extends Node3D
 var level = "ground"
 
 func elevator(button: String):
+	print(level,button)
 	if level == "ground" and button == "floor":
 		level = ""
 		$AnimationPlayer.play_backwards("open")
@@ -11,7 +12,7 @@ func elevator(button: String):
 			global_position.y += .1
 			await get_tree().create_timer(.1).timeout
 		$AnimationPlayer.play("open")
-		await get_tree().create_timer(4).timeout
+		await get_tree().create_timer(6).timeout
 		$AnimationPlayer.play_backwards("open")
 		await get_tree().create_timer(2).timeout
 		level = "floor"
@@ -23,7 +24,7 @@ func elevator(button: String):
 			global_position.y -= .1
 			await get_tree().create_timer(.1).timeout
 		$AnimationPlayer.play("open")
-		await get_tree().create_timer(4).timeout
+		await get_tree().create_timer(6).timeout
 		$AnimationPlayer.play_backwards("open")
 		await get_tree().create_timer(2).timeout
 		level = "ground"
@@ -49,3 +50,13 @@ func elevator(button: String):
 		return true
 	elif level == "ground" and button == "g_back":
 		return true
+	elif level == "floor" and button == "floor":
+		level = ""
+		$AnimationPlayer.play("open")
+		await get_tree().create_timer(6).timeout
+		level = "floor"
+	elif level == "ground" and button == "ground":
+		level = ""
+		$AnimationPlayer.play("open")
+		await get_tree().create_timer(6).timeout
+		level = "ground"

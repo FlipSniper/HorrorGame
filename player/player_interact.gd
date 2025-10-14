@@ -166,15 +166,16 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				hit.get_parent().melt_ice()
 				player_ui.set_task(".Now take the key card")
 		"elevator_button":
-			var same = elevator.elevator("back_g")
+			var same =  await elevator.elevator("g_back")
+			print(same)
 			if same:
 				elevator_animplayer.play("open")
 		"elevator_button2":
-			var same = elevator.elevator("back_f")
+			var same = await elevator.elevator("f_back")
 			if same:
 				elevator_animplayer.play("open")
 		"elevator_ground":
-			hit.get_parent().get_parent().elevator("ground")
+			await hit.get_parent().get_parent().elevator("ground")
 		"elevator_floor1":
 			print("trying")
-			hit.get_parent().get_parent().elevator("floor")
+			await hit.get_parent().get_parent().elevator("floor")
