@@ -161,11 +161,11 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			player_ui.set_task(".Leave the property")
 		"turner":
 			if !boiler:
-				hit.get_parent().toggle_boil()
+				hit.get_parent().get_parent().toggle_boil()
 				player_ui.set_task(".Nice now melt the ice")
 				boiler = true
 		"ice":
-			if !melted:
+			if !melted and boiler:
 				hit.get_parent().melt_ice()
 				player_ui.set_task(".Now take the key card")
 		"elevator_button":
