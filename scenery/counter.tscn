@@ -416,8 +416,10 @@ material_override = SubResource("StandardMaterial3D_y4hhc")
 mesh = SubResource("ArrayMesh_7giyf")
 skeleton = NodePath("")
 
-[node name="drawer" type="Node3D" parent="."]
+[node name="drawer" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 script = ExtResource("3_8dumg")
+play_open = NodePath("DrawerSound")
+play_close = NodePath("DrawerSound")
 
 [node name="Cube_004" type="MeshInstance3D" parent="drawer"]
 transform = Transform3D(0.981699, 0, 0, 0, 0.427983, 0, 0, 0, 1.13297, 0.194703, 0.38185, 1.24271)
@@ -452,7 +454,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_pud3n")
 }
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="drawer"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="drawer"]
 stream = ExtResource("6_h8x0a")
 
 [node name="drawer2" type="Node3D" parent="."]

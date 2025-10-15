@@ -430,9 +430,11 @@ material_override = ExtResource("1_mcxpp")
 mesh = SubResource("ArrayMesh_7giyf")
 skeleton = NodePath("")
 
-[node name="drawer1" type="Node3D" parent="."]
+[node name="drawer1" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0452418, 0.308822, 1.27388)
 script = ExtResource("2_sw6mj")
+play_open = NodePath("DrawerSound")
+play_close = NodePath("DrawerSound")
 
 [node name="Cube_004" type="MeshInstance3D" parent="drawer1"]
 transform = Transform3D(0.981699, 0, 0, 0, 0.427983, 0, 0, 0, 1.13297, 0.194703, 0.0827506, -0.00694716)
@@ -470,12 +472,14 @@ libraries = {
 [node name="spawn" type="Node3D" parent="drawer1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.164388, 0.109233)
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="drawer1"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="drawer1"]
 stream = ExtResource("5_a0fp6")
 
-[node name="drawer2" type="Node3D" parent="."]
+[node name="drawer2" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0439563, 0.281568, -1.2782)
 script = ExtResource("2_sw6mj")
+play_open = NodePath("DrawerSound")
+play_close = NodePath("DrawerSound")
 
 [node name="Cube_003" type="MeshInstance3D" parent="drawer2"]
 transform = Transform3D(0.981699, 0, 0, 0, 0.427983, 0, 0, 0, 1.13297, 0.194703, 0.111679, 0.0771271)
@@ -513,7 +517,7 @@ libraries = {
 [node name="spawn" type="Node3D" parent="drawer2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.143369, -0.173947)
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="drawer2"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="drawer2"]
 stream = ExtResource("5_a0fp6")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

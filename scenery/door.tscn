@@ -53,8 +53,10 @@ radial_segments = 24
 [sub_resource type="BoxShape3D" id="BoxShape3D_m6kou"]
 size = Vector3(3.915, 5.295, 7.105)
 
-[node name="door" type="Node3D"]
+[node name="door" type="Node3D" node_paths=PackedStringArray("play_open", "play_close")]
 script = ExtResource("1_jy65v")
+play_open = NodePath("hinge/open")
+play_close = NodePath("hinge/close")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

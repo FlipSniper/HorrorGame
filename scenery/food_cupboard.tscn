@@ -259,9 +259,11 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126636, 0.00488281, 0)
 shape = SubResource("BoxShape3D_38jc7")
 
-[node name="bottom_door" type="Node3D" parent="."]
+[node name="bottom_door" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08, -0.632749, 0.857086)
 script = ExtResource("2_2tgvu")
+play_open = NodePath("../top_door/DrawerSound")
+play_close = NodePath("../top_door/DrawerSound")
 
 [node name="Cube_002" type="MeshInstance3D" parent="bottom_door"]
 transform = Transform3D(0.12781, 0, 0, 0, 1.09577, 0, 0, 0, 0.886095, -0.0678558, -0.0435435, -0.857336)
@@ -286,12 +288,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_fm6hy")
 }
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="bottom_door"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="bottom_door"]
 stream = ExtResource("5_2tgvu")
 
-[node name="top_door" type="Node3D" parent="."]
+[node name="top_door" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.08, 1.31152, 0.857086)
 script = ExtResource("2_2tgvu")
+play_open = NodePath("DrawerSound")
+play_close = NodePath("DrawerSound")
 
 [node name="Cube_001" type="MeshInstance3D" parent="top_door"]
 transform = Transform3D(0.12781, 0, 0, 0, 0.585542, 0, 0, 0, 0.886095, -0.0668459, -0.0378751, -0.857086)
@@ -316,5 +320,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_fm6hy")
 }
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="top_door"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="top_door"]
 stream = ExtResource("5_2tgvu")

@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://5l2rve2nx5bk"]
+
+[ext_resource type="PackedScene" uid="uid://d2mvqd0odt4w8" path="res://glb_models/ice.glb" id="1_64lud"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64lud"]
+transparency = 1
+albedo_color = Color(0.78431374, 1, 1, 0.78431374)
+
+[node name="ice" instance=ExtResource("1_64lud")]
+
+[node name="Cube" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_64lud")

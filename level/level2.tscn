@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://df5xdwq1o1gwc"]
+[gd_scene load_steps=49 format=3 uid="uid://df5xdwq1o1gwc"]
 
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="5_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="6_glloo"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bpid1eiphcprc" path="res://scenery/flashlight.tscn" id="9_36wr8"]
 [ext_resource type="PackedScene" uid="uid://dgig7ncsh5l7" path="res://scenery/door.tscn" id="9_tk77j"]
 [ext_resource type="PackedScene" uid="uid://sqbxf6672y1v" path="res://scenery/statue.tscn" id="10_k4cq1"]
+[ext_resource type="PackedScene" uid="uid://clhcyv44qxmlo" path="res://scenery/boiler.tscn" id="10_khk1g"]
+[ext_resource type="PackedScene" uid="uid://5l2rve2nx5bk" path="res://scenery/ice.tscn" id="11_3g882"]
 [ext_resource type="PackedScene" uid="uid://xj88hbrbvdun" path="res://scenery/code_paper.tscn" id="11_82s7j"]
 [ext_resource type="PackedScene" uid="uid://dt7atlsnbmcuf" path="res://scenery/light_switch.tscn" id="11_bsijp"]
 [ext_resource type="PackedScene" uid="uid://dfmw2pa162rv2" path="res://scenery/bulb.tscn" id="12_bkxn3"]
@@ -461,7 +463,7 @@ shape = SubResource("ConvexPolygonShape3D_82s7j")
 transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -2.0268621, 1.2299993, 6.8459854)
 
 [node name="Utils_Room" type="Node3D" parent="NavigationRegion3D/House"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.896706, 0, -18.760681)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.896706, 0.54536223, -18.760681)
 
 [node name="meshes" type="Node3D" parent="NavigationRegion3D/House/Utils_Room"]
 
@@ -517,6 +519,9 @@ shape = SubResource("ConvexPolygonShape3D_82s7j")
 
 [node name="door" parent="NavigationRegion3D/House/Utils_Room" instance=ExtResource("9_tk77j")]
 transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -2.0268621, 1.2299993, 6.8459854)
+
+[node name="boiler" parent="NavigationRegion3D/House/Utils_Room" instance=ExtResource("10_khk1g")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.49036312)
 
 [node name="Utils_Room3" type="Node3D" parent="NavigationRegion3D/House"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.896706, 4.400701, -18.760681)
@@ -634,6 +639,12 @@ shape = SubResource("ConvexPolygonShape3D_82s7j")
 [node name="door" parent="NavigationRegion3D/House/Kitchen" instance=ExtResource("9_tk77j")]
 transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -2.0268621, 1.2299993, 6.8459854)
 
+[node name="fridge" parent="NavigationRegion3D/House/Kitchen" instance=ExtResource("13_vkwk6")]
+transform = Transform3D(-1.3113417e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.3113417e-08, -8.827605, 1.2658267, 0.5161457)
+
+[node name="ice" parent="NavigationRegion3D/House/Kitchen" instance=ExtResource("11_3g882")]
+transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, -8.785104, 1.6259736, 0.5769825)
+
 [node name="Elevator_Room" type="Node3D" parent="NavigationRegion3D/House"]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.32772684, 0, 19.404213)
 
@@ -710,6 +721,14 @@ light_bulb = NodePath("../bulb3")
 
 [node name="bulb3" parent="NavigationRegion3D/House/lights" instance=ExtResource("12_bkxn3")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 11.791677, 3.574137, 16.559628)
+
+[node name="light_switch15" parent="NavigationRegion3D/House/lights" node_paths=PackedStringArray("light_bulb") instance=ExtResource("11_bsijp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.102036, 1.5738361, -14.946641)
+on = true
+light_bulb = NodePath("../bulb15")
+
+[node name="bulb15" parent="NavigationRegion3D/House/lights" instance=ExtResource("12_bkxn3")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -8.224537, 3.574137, -18.031408)
 
 [node name="light_switch4" parent="NavigationRegion3D/House/lights" node_paths=PackedStringArray("light_bulb") instance=ExtResource("11_bsijp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.160758, 5.9598665, -6.759174)
@@ -801,9 +820,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 9.924612, 7.966355, -1.
 
 [node name="MatchStick" type="Node3D" parent="NavigationRegion3D/House"]
 
-[node name="fridge" parent="NavigationRegion3D/House" instance=ExtResource("13_vkwk6")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 11.660055, 1.2658267, 0)
-
 [node name="Elevator" parent="NavigationRegion3D/House" instance=ExtResource("14_ygglr")]
 transform = Transform3D(-0.19999999, 0, -3.3998923e-08, 0, 0.22408175, 0, 1.7484554e-08, 0, -0.38890234, 14.404642, 1.536944, 16.819967)
 
@@ -868,14 +884,14 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -11.612772, 5.718896, -
 [node name="drawers2" parent="NavigationRegion3D/House" instance=ExtResource("8_3fddd")]
 transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113417e-08, -7.6353936, 5.2737303, -7.1786265)
 
+[node name="shelf3" parent="NavigationRegion3D/House" instance=ExtResource("15_l7f7e")]
+transform = Transform3D(-0.19, 0, -1.6610327e-08, 0, 0.19, 0, 1.6610327e-08, 0, -0.19, -11.76255, 0.5882329, -1.3803779)
+
+[node name="shelf4" parent="NavigationRegion3D/House" instance=ExtResource("15_l7f7e")]
+transform = Transform3D(-0.19, 0, -1.6610327e-08, 0, 0.19, 0, 1.6610327e-08, 0, -0.19, -11.76255, 0.5882329, 6.0138416)
+
 [node name="lock" parent="NavigationRegion3D/House" instance=ExtResource("17_gurg6")]
 transform = Transform3D(0.018492104, 0, 0, 0, 0.027177261, 0, 0, 0, 0.010193063, -4.7642903, 5.6245246, -17.084593)
-
-[node name="shelf" parent="NavigationRegion3D" instance=ExtResource("15_l7f7e")]
-transform = Transform3D(-0.38, 0, -3.3220655e-08, 0, 0.38, 0, 3.3220655e-08, 0, -0.38, -23.5251, 1.1764657, -2.7607558)
-
-[node name="shelf2" parent="NavigationRegion3D" instance=ExtResource("15_l7f7e")]
-transform = Transform3D(-0.38, 0, -3.3220655e-08, 0, 0.38, 0, 3.3220655e-08, 0, -0.38, -23.5251, 1.1764657, 12.027683)
 
 [node name="code_paper" parent="." instance=ExtResource("11_82s7j")]
 

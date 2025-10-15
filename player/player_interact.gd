@@ -64,11 +64,12 @@ func _physics_process(delta: float) -> void:
 		if not hit:
 			return
 
-		var hit_name = hit.name.to_lower()  # lowercase for dropped items
+		var hit_name = hit.name.to_lower()
 
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
-						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2"]:
+						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
+						"turner"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -158,8 +159,8 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				player_level.level1 += 1
 				player_level.crystals += 1
 			player_ui.set_task(".Leave the property")
-		"water_boiler":
-			if boiler:
+		"turner":
+			if !boiler:
 				hit.get_parent().toggle_boil()
 				player_ui.set_task(".Nice now melt the ice")
 				boiler = true

@@ -258,9 +258,11 @@ material_override = SubResource("StandardMaterial3D_6w6l5")
 mesh = SubResource("ArrayMesh_sdjju")
 skeleton = NodePath("")
 
-[node name="bottom_door" type="Node3D" parent="."]
+[node name="bottom_door" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12319, -0.631428, 0.872853)
 script = ExtResource("2_4mmmb")
+play_open = NodePath("DrawerSound")
+play_close = NodePath("DrawerSound")
 
 [node name="Cube_002" type="MeshInstance3D" parent="bottom_door"]
 transform = Transform3D(0.12781, 0, 0, 0, 1.09577, 0, 0, 0, 0.886095, -0.111052, -0.0448638, -0.873103)
@@ -285,12 +287,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_fm6hy")
 }
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="bottom_door"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="bottom_door"]
 stream = ExtResource("5_4mmmb")
 
-[node name="top_door" type="Node3D" parent="."]
+[node name="top_door" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11122, 1.29191, 0.869482)
 script = ExtResource("2_4mmmb")
+play_open = NodePath("DrawerSound")
+play_close = NodePath("DrawerSound")
 
 [node name="Cube_001" type="MeshInstance3D" parent="top_door"]
 transform = Transform3D(0.12781, 0, 0, 0, 0.585542, 0, 0, 0, 0.886095, -0.107324, -0.0182652, -0.869482)
@@ -315,7 +319,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_fm6hy")
 }
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="top_door"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="top_door"]
 stream = ExtResource("5_4mmmb")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
