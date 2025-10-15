@@ -41,7 +41,7 @@ func elevator(button: String):
 		level = ""
 		await get_tree().create_timer(2).timeout
 		for i in range(90):
-			global_position.y += .1
+			global_position.y -= .1
 			await get_tree().create_timer(.1).timeout
 		$AnimationPlayer.play("open")
 		await get_tree().create_timer(2).timeout

@@ -72,6 +72,8 @@ func _physics_process(delta: float) -> void:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
+		else:
+			crosshair.visible = false
 
 func handle_interaction(hit: Node, hit_name: String) -> void:
 	match hit_name:
