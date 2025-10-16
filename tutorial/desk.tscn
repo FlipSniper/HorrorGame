@@ -319,9 +319,11 @@ shape = SubResource("BoxShape3D_ncc5p")
 transform = Transform3D(1, 0, 0, 0, 1.00001, 0, 0, 0, 1, -0.902925, -0.0348991, -0.467133)
 shape = SubResource("BoxShape3D_aw3aq")
 
-[node name="top" type="Node3D" parent="."]
+[node name="top" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.103, 1.16148, -1.30302)
 script = ExtResource("2_aw3aq")
+play_open = NodePath("DrawerSound")
+play_close = NodePath("DrawerSound")
 
 [node name="Cube_001" type="MeshInstance3D" parent="top"]
 transform = Transform3D(0.688756, 0, 0, 0, 0.474538, 0, 0, 0, 1, -0.109601, -0.20568, 0.141803)
@@ -364,12 +366,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_pcjst")
 }
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="top"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="top"]
 stream = ExtResource("5_pcjst")
 
-[node name="middle" type="Node3D" parent="."]
+[node name="middle" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.103, 0.121943, -1.33297)
 script = ExtResource("2_aw3aq")
+play_open = NodePath("DrawerSound")
+play_close = NodePath("DrawerSound")
 
 [node name="Cube_002" type="MeshInstance3D" parent="middle"]
 transform = Transform3D(0.688756, 0, 0, 0, 0.474538, 0, 0, 0, 1, -0.109601, -0.174685, 0.171757)
@@ -412,12 +416,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_y6ybr")
 }
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="middle"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="middle"]
 stream = ExtResource("5_pcjst")
 
-[node name="bottom" type="Node3D" parent="."]
+[node name="bottom" type="Node3D" parent="." node_paths=PackedStringArray("play_open", "play_close")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.103, -1.22555, -1.49772)
 script = ExtResource("2_aw3aq")
+play_open = NodePath("DrawerSound")
+play_close = NodePath("DrawerSound")
 
 [node name="Cube_003" type="MeshInstance3D" parent="bottom"]
 transform = Transform3D(0.688756, 0, 0, 0, 0.474538, 0, 0, 0, 1, -0.109601, 0.134498, 0.336506)
@@ -459,7 +465,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_vk186")
 }
 
-[node name="DrawerSound" type="AudioStreamPlayer" parent="bottom"]
+[node name="DrawerSound" type="AudioStreamPlayer3D" parent="bottom"]
 stream = ExtResource("5_pcjst")
 
 [node name="light" type="Node3D" parent="."]

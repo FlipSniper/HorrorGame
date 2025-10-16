@@ -23,11 +23,13 @@ var powerbox = false
 var trapdoor = false
 var proper_crowbar
 var main_scene_name = ""
-var boiler = false
+var boiler = true
 var melted = false
 var elevator_animplayer
 var elevator
 var fire
+var flash
+
 
 func _ready() -> void:
 	var current_scene = get_tree().current_scene
@@ -35,11 +37,13 @@ func _ready() -> void:
 		main_scene_name = current_scene.name
 
 	if main_scene_name == "level":
+		flash = true
 		powerbox = false
 		lock_opened = current_scene.get_node_or_null("house/lock")
 		key_collider = current_scene.get_node_or_null("key/CollisionShape3D")
 		key = current_scene.get_node_or_null("key/Node3D")
 	elif main_scene_name == "office":
+		flash = false
 		coffee_collider = current_scene.get_node_or_null("coffee/CollisionShape3D")
 		coffee = current_scene.get_node_or_null("coffee")
 		flashlight_collider = current_scene.get_node_or_null("flashlight/CollisionShape3D")
@@ -49,6 +53,7 @@ func _ready() -> void:
 		proper_crowbar = current_scene.get_node_or_null("crowbar")
 		proper_crowbar.disable_body()
 	elif main_scene_name == "level2":
+		flash = true
 		powerbox = true
 		elevator_animplayer = current_scene.get_node_or_null("NavigationRegion3D/House/Elevator/AnimationPlayer")
 		plank1 = current_scene.get_node_or_null("planks/plank1")
@@ -69,8 +74,9 @@ func _physics_process(delta: float) -> void:
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
-						"turner"]:
+						"turner", "key_card"]:
 			crosshair.visible = true
+			print(hit_name)
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
 		else:
@@ -130,9 +136,11 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			if hit != null:
 				hit.queue_free()
 			Inventory.add_item("FLASHLIGHT")
-			player_ui.set_task(".Now leave the office. Use the crowbar to get rid of planks","res://assets/icons/crowbar.png")
-			player.change_arrow("exit")
-			get_tree().current_scene.get_node("task_trigger3").leave = true
+			if flash:
+				player_ui.set_task(".Now leave the office. Use the crowbar to get rid of planks","res://assets/icons/crowbar.png")
+				player.change_arrow("exit")
+				get_tree().current_scene.get_node("task_trigger3").leave = true
+			flash = false
 		"coffee":
 			if hit != null:
 				hit.queue_free()
@@ -168,6 +176,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			if !melted and boiler:
 				hit.get_parent().melt_ice()
 				player_ui.set_task(".Now take the key card")
+				melted = true
 		"elevator_button":
 			var same =  await elevator.elevator("g_back")
 			print(same)
@@ -182,3 +191,6 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"elevator_floor1":
 			print("trying")
 			await hit.get_parent().get_parent().elevator("floor")
+		"key_card":
+			print("here")
+			pass

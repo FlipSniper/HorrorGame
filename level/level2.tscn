@@ -643,7 +643,7 @@ transform = Transform3D(0.27, 0, 0, 0, 0.27, 0, 0, 0, 0.27, -2.0268621, 1.229999
 transform = Transform3D(-1.3113417e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.3113417e-08, -8.827605, 1.2658267, 0.5161457)
 
 [node name="ice" parent="NavigationRegion3D/House/Kitchen" instance=ExtResource("11_3g882")]
-transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, -8.785104, 1.6259736, 0.5769825)
+transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, -8.785104, 1.6468987, 0.6593857)
 
 [node name="Elevator_Room" type="Node3D" parent="NavigationRegion3D/House"]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.32772684, 0, 19.404213)
@@ -968,3 +968,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.37179, -3.71855, -17.7545)
 
 [node name="destination6" parent="destinations" instance=ExtResource("15_bkxn3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44914, 1.32202, -10.2328)
+
+[editable path="NavigationRegion3D/House/Kitchen/fridge"]
+[editable path="NavigationRegion3D/House/Kitchen/ice"]

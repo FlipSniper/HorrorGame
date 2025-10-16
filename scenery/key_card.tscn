@@ -15,8 +15,8 @@ size = Vector3(1.0215771, 0.06648438, 0.69)
 [node name="Cube_001" parent="." index="0"]
 material_override = SubResource("StandardMaterial3D_i0p76")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." index="1"]
+[node name="key_card" type="RigidBody3D" parent="." index="1"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="0"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="key_card" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058640182, -3.9062463e-05, 0)
 shape = SubResource("BoxShape3D_1ko8h")
