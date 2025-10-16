@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://5l2rve2nx5bk"]
 
 [ext_resource type="Script" uid="uid://pm0id6xbx18m" path="res://general_scripts/ice.gd" id="1_64lud"]
-[ext_resource type="PackedScene" uid="uid://jpfwa745y53d" path="res://scenery/key_card.tscn" id="2_25f4b"]
+[ext_resource type="PackedScene" uid="uid://mkjqpvprdkp2" path="res://scenery/key_card_fridge.tscn" id="2_25f4b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_64lud"]
 transparency = 1

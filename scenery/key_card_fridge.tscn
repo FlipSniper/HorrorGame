@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://jpfwa745y53d"]
+[gd_scene load_steps=6 format=4 uid="uid://mkjqpvprdkp2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ko8h"]
 size = Vector3(1.0215771, 0.06648438, 0.69)
@@ -40,7 +40,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cfntm")
 
-[node name="key_card" type="RigidBody3D"]
+[node name="key_card" type="StaticBody3D"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.058640182, -3.9062463e-05, 0)
