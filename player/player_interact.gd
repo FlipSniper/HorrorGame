@@ -191,5 +191,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			print("trying")
 			await hit.get_parent().get_parent().elevator("floor")
 		"key_card":
-			print("here")
-			pass
+			if hit != null:
+				hit.queue_free()
+			Inventory.add_item("KEY_CARD")
+			player_ui.set_task(".You can now access the elevator")

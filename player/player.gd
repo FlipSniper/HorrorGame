@@ -30,6 +30,7 @@ var tutorial
 @onready var player_coffee = $head/coffee
 @onready var player_crowbar = $head/crowbar
 @onready var player_flashlight = $head/flashlight
+@onready var player_keycard = $head/keycard
 @onready var player_arm = $head/arm
 @onready var equipped_item: String = ""
 @onready var rng = RandomNumberGenerator.new()
@@ -38,12 +39,14 @@ var tutorial
 @export var coffee_scene: PackedScene
 @export var crowbar_scene: PackedScene
 @export var flashlight_scene: PackedScene
+@export var keycard_scene: PackedScene
 
 # --- OPTIONAL DROP SCALES ---
 var drop_scales = {
 	"KEY": Vector3(1,1,1),
 	"COFFEE": Vector3(0.5,0.5,0.5),
-	"CROWBAR": Vector3(0.2,0.2,0.2)
+	"CROWBAR": Vector3(0.2,0.2,0.2),
+	"KEY_CARD": Vector3(0.2,0.2,0.2)
 }
 
 func footsteps():
@@ -183,6 +186,7 @@ func equip_item(item_name: String) -> void:
 			"COFFEE": player_coffee.visible = false
 			"CROWBAR": player_crowbar.visible = false
 			"FLASHLIGHT": player_flashlight.visible = false
+			"KEY_CARD": player_keycard.visible = false
 
 	# Equip new item
 	equipped_item = item_name
@@ -191,6 +195,7 @@ func equip_item(item_name: String) -> void:
 		"COFFEE": player_coffee.visible = true
 		"CROWBAR": player_crowbar.visible = true
 		"FLASHLIGHT": player_flashlight.visible = true
+		"KEY_CARD": player_keycard.visible = true
 		_: pass
 
 # --- DROP ITEM ---
@@ -204,6 +209,7 @@ func drop_item() -> void:
 		"COFFEE": scene = coffee_scene
 		"CROWBAR": scene = crowbar_scene
 		"FLASHLIGHT": scene = flashlight_scene
+		"KEY_CARD": scene = keycard_scene
 		_: scene = null
 
 	if scene:
@@ -244,5 +250,6 @@ func drop_item() -> void:
 		"COFFEE": player_coffee.visible = false
 		"CROWBAR": player_crowbar.visible = false
 		"FLASHLIGHT": player_flashlight.visible = false
+		"KEY_CARD": player_keycard.visible = false
 
 	equipped_item = ""

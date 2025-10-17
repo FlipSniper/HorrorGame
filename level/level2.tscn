@@ -1,7 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://df5xdwq1o1gwc"]
+[gd_scene load_steps=50 format=3 uid="uid://df5xdwq1o1gwc"]
 
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="5_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="6_glloo"]
+[ext_resource type="PackedScene" uid="uid://jpfwa745y53d" path="res://scenery/key_card.tscn" id="6_k16d7"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="7_v1s08"]
 [ext_resource type="PackedScene" uid="uid://co2fckq670jhu" path="res://scenery/drawers.tscn" id="8_3fddd"]
 [ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="8_p7her"]
@@ -156,6 +157,7 @@ key_scene = ExtResource("6_glloo")
 coffee_scene = ExtResource("7_v1s08")
 crowbar_scene = ExtResource("8_p7her")
 flashlight_scene = ExtResource("9_36wr8")
+keycard_scene = ExtResource("6_k16d7")
 
 [node name="flashlight2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50375, 2.0701, 0)
@@ -626,6 +628,9 @@ transform = Transform3D(-1.3113417e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.3113417e-
 [node name="ice" parent="NavigationRegion3D/House/Kitchen" instance=ExtResource("11_3g882")]
 transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, -8.785104, 1.0016389, 0.6593857)
 
+[node name="spawn_card" type="Node3D" parent="NavigationRegion3D/House/Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.813064, 0.6030873, 0.5311718)
+
 [node name="Elevator_Room" type="Node3D" parent="NavigationRegion3D/House"]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0.32772684, 0, 19.404213)
 
@@ -903,7 +908,7 @@ transform = Transform3D(-0.54, 0, -4.72083e-08, 0, 0.54, 0, 4.72083e-08, 0, -0.5
 transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, 22.424469, 2.4599986, -28.463757)
 
 [node name="destinations" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.093765, 0, 17.977062)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.813967, 0, 17.977062)
 
 [node name="destination" parent="destinations" instance=ExtResource("15_bkxn3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.93755, 1.32202, -9.28257)
