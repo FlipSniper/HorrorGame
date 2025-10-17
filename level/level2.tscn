@@ -455,7 +455,7 @@ mesh = SubResource("BoxMesh_3fddd")
 shape = SubResource("ConvexPolygonShape3D_82s7j")
 
 [node name="Utils_Room" type="Node3D" parent="NavigationRegion3D/House"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.896706, 0.54536223, -18.760681)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.896706, 0.00801909, -18.760681)
 
 [node name="meshes" type="Node3D" parent="NavigationRegion3D/House/Utils_Room"]
 
@@ -510,7 +510,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_82s7j")
 
 [node name="boiler" parent="NavigationRegion3D/House/Utils_Room" instance=ExtResource("10_khk1g")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.49036312)
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 0, 0.59924793, 0.49036312)
 
 [node name="Utils_Room3" type="Node3D" parent="NavigationRegion3D/House"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.896706, 4.400701, -18.760681)
@@ -896,7 +896,7 @@ transform = Transform3D(-2.360415e-08, 0, 0.54, 0, 0.54, 0, -0.54, 0, -2.360415e
 transform = Transform3D(-2.360415e-08, 0, 0.54, 0, 0.54, 0, -0.54, 0, -2.360415e-08, -10.10144, 11.2614, -33.46764)
 
 [node name="door3" parent="doors" instance=ExtResource("9_tk77j")]
-transform = Transform3D(-2.360415e-08, 0, 0.54, 0, 0.54, 0, -0.54, 0, -2.360415e-08, -10.10144, 3.550723, -33.46764)
+transform = Transform3D(-2.360415e-08, 0, 0.54, 0, 0.54, 0, -0.54, 0, -2.360415e-08, -10.10144, 2.420874, -33.46764)
 
 [node name="door4" parent="doors" instance=ExtResource("9_tk77j")]
 transform = Transform3D(0.54, 0, 0, 0, 0.54, 0, 0, 0, 0.54, 6.563615, 2.4599986, -25.970592)

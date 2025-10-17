@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://clhcyv44qxmlo"]
+[gd_scene load_steps=23 format=3 uid="uid://clhcyv44qxmlo"]
 
 [ext_resource type="Texture2D" uid="uid://cke711im43by2" path="res://textures/cracked_concrete_wall_diff_4k.jpg" id="1_0w43g"]
+[ext_resource type="Script" uid="uid://b7qdsvt7ts2js" path="res://general_scripts/boiler.gd" id="1_iqnex"]
 [ext_resource type="Material" uid="uid://cyup7s0tfea3l" path="res://materials/metal_2.tres" id="2_ryr5a"]
 [ext_resource type="Texture2D" uid="uid://c3qln4dv2nq5y" path="res://textures/Symbol.png" id="3_iqnex"]
 [ext_resource type="Texture2D" uid="uid://d0embddnscp8" path="res://textures/stone.jpg" id="4_ryr5a"]
@@ -107,10 +108,10 @@ tracks/1/path = NodePath("turner/MeshInstance3D2:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-6.903751e-15, 0, 0)]
+"values": [Vector3(0, 0, 3.1415927), Vector3(-6.903751e-15, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -131,10 +132,10 @@ tracks/3/path = NodePath("turner/MeshInstance3D2:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0.77265906, -0.57475305)]
+"values": [Vector3(0, 0.4895407, -0.57475305), Vector3(0, 0.77265906, -0.57475305)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ryr5a"]
@@ -157,6 +158,7 @@ albedo_texture = ExtResource("4_ryr5a")
 size = Vector3(0.4711914, 0.44644165, 0.16732788)
 
 [node name="boiler" type="Node3D"]
+script = ExtResource("1_iqnex")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 0.08, 0, 0, 0, 1.2, 0, 0, 0)
@@ -207,12 +209,12 @@ libraries = {
 [node name="turner" type="Node3D" parent="."]
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="turner"]
-transform = Transform3D(0.13720365, 0, 0, 0, 0.25730318, 6.5568005e-16, 0, -1.776357e-15, 0.094974466, 0, 0.77265906, -0.57475305)
+transform = Transform3D(0.13720365, 0, 0, 0, 0.25730318, 6.5568e-16, 0, -1.776357e-15, 0.09497446, 0, 0.77265906, -0.57475305)
 material_override = SubResource("StandardMaterial3D_ryr5a")
 mesh = SubResource("BoxMesh_ryr5a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="turner"]
-transform = Transform3D(0.45999998, 0, 0, 0, -4.5896957e-09, -0.45999998, 0, 0.105, -2.0107239e-08, 0, 0.62758774, -0.49345362)
+transform = Transform3D(0.45999998, 0, 0, 0, -4.5896953e-09, -0.45999998, 0, 0.10499999, -2.0107239e-08, 0, 0.62758774, -0.49345362)
 material_override = SubResource("StandardMaterial3D_0w43g")
 mesh = SubResource("CylinderMesh_ryr5a")
 

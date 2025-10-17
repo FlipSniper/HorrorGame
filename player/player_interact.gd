@@ -23,7 +23,7 @@ var powerbox = false
 var trapdoor = false
 var proper_crowbar
 var main_scene_name = ""
-var boiler = true
+var boiler = false
 var melted = false
 var elevator_animplayer
 var elevator
@@ -73,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
-						"turner", "key_card"]:
+						"turner", "key_card", "matchstick"]:
 			crosshair.visible = true
 			print(hit_name)
 			if Input.is_action_just_pressed("interact"):
@@ -168,7 +168,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 			player_ui.set_task(".Leave the property")
 		"turner":
 			if !boiler:
-				hit.get_parent().get_parent().toggle_boil()
+				hit.get_parent().get_parent().toggle_boiler()
 				player_ui.set_task(".Nice now melt the ice")
 				boiler = true
 		"ice":

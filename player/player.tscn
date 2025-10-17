@@ -280,6 +280,7 @@ visible = false
 
 [node name="keycard" type="Node3D" parent="head"]
 transform = Transform3D(-0.09841787, 0.16034876, -0.067839526, 3.4063268e-09, -0.07792767, -0.18419358, -0.17410894, -0.0906397, 0.03834738, 0.4431253, -0.41165036, -0.7547631)
+visible = false
 
 [node name="Cube_001" type="MeshInstance3D" parent="head/keycard"]
 transform = Transform3D(-0.50799996, -3.7252903e-09, 2.6077032e-08, 0, 0.030999996, -3.7252903e-09, -4.4703484e-08, -1.1641532e-09, -0.34199995, -0.026669025, 1.2063665, -0.51038337)

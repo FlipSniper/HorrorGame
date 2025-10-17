@@ -35,11 +35,11 @@ func _process(delta: float) -> void:
 	if speed > 0:
 		footsteps()
 	if !chasing:
+		if speed != 2.0:
+			speed = 2.0
+	else:
 		if speed != 3.0:
 			speed = 3.0
-	else:
-		if speed != 5.0:
-			speed = 5.0
 		if chase_timer < 15.0:
 			chase_timer += delta
 		else:
