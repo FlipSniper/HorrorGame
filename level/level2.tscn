@@ -1,8 +1,9 @@
-[gd_scene load_steps=50 format=3 uid="uid://df5xdwq1o1gwc"]
+[gd_scene load_steps=52 format=3 uid="uid://df5xdwq1o1gwc"]
 
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="5_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="6_glloo"]
 [ext_resource type="PackedScene" uid="uid://jpfwa745y53d" path="res://scenery/key_card.tscn" id="6_k16d7"]
+[ext_resource type="PackedScene" uid="uid://8pk2rks64wwx" path="res://scenery/matchstick.tscn" id="7_01ea3"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="7_v1s08"]
 [ext_resource type="PackedScene" uid="uid://co2fckq670jhu" path="res://scenery/drawers.tscn" id="8_3fddd"]
 [ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="8_p7her"]
@@ -21,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://b5kc4rdnqjjtb" path="res://scenery/shelf.tscn" id="15_l7f7e"]
 [ext_resource type="PackedScene" uid="uid://dibgppnanl3oy" path="res://scenery/crate.tscn" id="16_c0tft"]
 [ext_resource type="PackedScene" uid="uid://teudi5kv344b" path="res://scenery/lock.tscn" id="17_gurg6"]
+[ext_resource type="PackedScene" uid="uid://cmrvj0u7nt3tn" path="res://scenery/matchsticks.tscn" id="22_b8oox"]
 [ext_resource type="Script" uid="uid://dfdfal4rcseak" path="res://general_scripts/flashlight.gd" id="22_u3hms"]
 [ext_resource type="PackedScene" uid="uid://dlvptlhvd1s0a" path="res://scenery/enemy.tscn" id="26_xhkwa"]
 
@@ -158,6 +160,7 @@ coffee_scene = ExtResource("7_v1s08")
 crowbar_scene = ExtResource("8_p7her")
 flashlight_scene = ExtResource("9_36wr8")
 keycard_scene = ExtResource("6_k16d7")
+matchstick_scene = ExtResource("7_01ea3")
 
 [node name="flashlight2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50375, 2.0701, 0)
@@ -878,6 +881,9 @@ transform = Transform3D(-0.19, 0, -1.6610327e-08, 0, 0.19, 0, 1.6610327e-08, 0, 
 
 [node name="lock" parent="NavigationRegion3D/House" instance=ExtResource("17_gurg6")]
 transform = Transform3D(0.018492104, 0, 0, 0, 0.027177261, 0, 0, 0, 0.010193063, -4.7642903, 5.6245246, -17.084593)
+
+[node name="matchsticks" parent="NavigationRegion3D/House" instance=ExtResource("22_b8oox")]
+transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -11.732207, 1.2269222, -1.0038557)
 
 [node name="code_paper" parent="." instance=ExtResource("11_82s7j")]
 

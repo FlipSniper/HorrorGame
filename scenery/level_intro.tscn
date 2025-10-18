@@ -16,8 +16,8 @@ colors = PackedColorArray(0.266575, 0.266575, 0.266575, 1, 0.61339, 0.61339, 0.6
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ej46k"]
 width = 350
 height = 1200
-color_ramp = SubResource("Gradient_1jt86")
 noise = SubResource("FastNoiseLite_xgdo2")
+color_ramp = SubResource("Gradient_1jt86")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_7rerw"]
 frequency = 0.1
@@ -25,9 +25,9 @@ frequency = 0.1
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_b8d4s"]
 width = 350
 height = 1200
+noise = SubResource("FastNoiseLite_7rerw")
 as_normal_map = true
 bump_strength = 4.0
-noise = SubResource("FastNoiseLite_7rerw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phngh"]
 albedo_color = Color(0.589096, 0.589096, 0.589096, 1)
@@ -56,9 +56,9 @@ colors = PackedColorArray(0, 0, 0, 1, 0.0945964, 0.152289, 0.357978, 1)
 noise_type = 3
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0v1st"]
-seamless = true
-color_ramp = SubResource("Gradient_xgdo2")
 noise = SubResource("FastNoiseLite_ej46k")
+color_ramp = SubResource("Gradient_xgdo2")
+seamless = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7rerw"]
 sky_top_color = Color(0.469625, 0.659434, 1, 1)
@@ -363,7 +363,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99271, 0.63385, -18.4228)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.99271, 0.63385, -11.4225)
 
 [node name="cutscene_cam" type="Camera3D" parent="."]
-transform = Transform3D(-0.214904, 0, 0.976635, 0, 1, 0, -0.976635, 0, -0.214904, 8.71541, 1.33757, 3.78706)
+transform = Transform3D(-0.21490408, 0, 0.9766349, 0, 1, 0, -0.9766349, 0, -0.21490408, 8.71541, 1.33757, 3.78706)
 fov = 132.9
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

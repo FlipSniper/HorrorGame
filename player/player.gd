@@ -27,6 +27,7 @@ var tutorial
 
 # --- PLAYER PICKUPS ---
 @onready var player_key = $head/player_key
+@onready var player_matchstick = $head/matchstick
 @onready var player_coffee = $head/coffee
 @onready var player_crowbar = $head/crowbar
 @onready var player_flashlight = $head/flashlight
@@ -40,6 +41,7 @@ var tutorial
 @export var crowbar_scene: PackedScene
 @export var flashlight_scene: PackedScene
 @export var keycard_scene: PackedScene
+@export var matchstick_scene: PackedScene
 
 # --- OPTIONAL DROP SCALES ---
 var drop_scales = {
@@ -187,6 +189,7 @@ func equip_item(item_name: String) -> void:
 			"CROWBAR": player_crowbar.visible = false
 			"FLASHLIGHT": player_flashlight.visible = false
 			"KEY_CARD": player_keycard.visible = false
+			"MATCHSTICK": player_matchstick.visible = false
 
 	# Equip new item
 	equipped_item = item_name
@@ -196,6 +199,7 @@ func equip_item(item_name: String) -> void:
 		"CROWBAR": player_crowbar.visible = true
 		"FLASHLIGHT": player_flashlight.visible = true
 		"KEY_CARD": player_keycard.visible = true
+		"MATCHSTICK": player_matchstick.visible = true
 		_: pass
 
 # --- DROP ITEM ---
@@ -210,6 +214,7 @@ func drop_item() -> void:
 		"CROWBAR": scene = crowbar_scene
 		"FLASHLIGHT": scene = flashlight_scene
 		"KEY_CARD": scene = keycard_scene
+		"MATCHSTICK": scene = matchstick_scene
 		_: scene = null
 
 	if scene:
@@ -251,5 +256,6 @@ func drop_item() -> void:
 		"CROWBAR": player_crowbar.visible = false
 		"FLASHLIGHT": player_flashlight.visible = false
 		"KEY_CARD": player_keycard.visible = false
+		"MATCHSTICK": player_matchstick.visible = false
 
 	equipped_item = ""

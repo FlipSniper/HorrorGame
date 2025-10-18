@@ -29,7 +29,7 @@ var elevator_animplayer
 var elevator
 var fire
 var flash
-
+var library
 
 func _ready() -> void:
 	var current_scene = get_tree().current_scene
@@ -53,6 +53,7 @@ func _ready() -> void:
 		proper_crowbar = current_scene.get_node_or_null("crowbar")
 		proper_crowbar.disable_body()
 	elif main_scene_name == "level2":
+		library = current_scene.get_node_or_null("NavigationRegion3D/House/shelf2")
 		flash = true
 		powerbox = true
 		elevator_animplayer = current_scene.get_node_or_null("NavigationRegion3D/House/Elevator/AnimationPlayer")
@@ -73,7 +74,7 @@ func _physics_process(delta: float) -> void:
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
-						"turner", "key_card", "matchstick","fire"]:
+						"turner", "key_card", "matchstick", "matchstick_rigid","fire"]:
 			crosshair.visible = true
 			print(hit_name)
 			if Input.is_action_just_pressed("interact"):
@@ -107,7 +108,6 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				trapdoor = true
 				player_ui.set_task(".Crouch and open the trapdoor, make sure you find the right place to lift it from","res://assets/icons/trapdoor.png")
 		"plank1":
-			print(player_crowbar.visible)
 			if player_crowbar.visible:
 				hit.get_parent().toggle_plank(0)
 				if hit.get_parent().unlocked == 2:
@@ -119,37 +119,44 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					door.locked = false
 		"key":
 			if hit != null:
-				hit.queue_free()
-			Inventory.add_item("KEY")
-			player_ui.set_task(".Nice work. Now open the lock","res://assets/icons/lock.png")
+				var added = Inventory.add_item("KEY")
+				if added:
+					hit.queue_free()
+					player_ui.set_task(".Nice work. Now open the lock","res://assets/icons/lock.png")
+				else:
+					print("Inventory full! Couldn't pick up key.")
 		"crowbar":
-			print(hit != null)
 			if hit != null:
-				proper_crowbar.queue_free()
-				print("here")
-			Inventory.add_item("CROWBAR")
-			player_ui.set_task(".Nice work. Now take down the planks","res://assets/icons/plank.png")
+				var added = Inventory.add_item("CROWBAR")
+				if added:
+					proper_crowbar.queue_free()
+					print("Picked up crowbar.")
+					player_ui.set_task(".Nice work. Now take down the planks","res://assets/icons/plank.png")
+				else:
+					print("Inventory full! Couldn't pick up crowbar.")
 		"flashlight":
-			if flashlight_collider: flashlight_collider.visible = false
-			if flashlight: flashlight.visible = false
 			if hit != null:
-				hit.queue_free()
-			Inventory.add_item("FLASHLIGHT")
-			if flash:
-				player_ui.set_task(".Now leave the office. Use the crowbar to get rid of planks","res://assets/icons/crowbar.png")
-				player.change_arrow("exit")
-				get_tree().current_scene.get_node("task_trigger3").leave = true
-			flash = false
+				var added = Inventory.add_item("FLASHLIGHT")
+				if added:
+					if flashlight_collider: flashlight_collider.visible = false
+					if flashlight: flashlight.visible = false
+					hit.queue_free()
+					if flash:
+						player_ui.set_task(".Now leave the office. Use the crowbar to get rid of planks","res://assets/icons/crowbar.png")
+						player.change_arrow("exit")
+						get_tree().current_scene.get_node("task_trigger3").leave = true
+					flash = false
+				else:
+					print("Inventory full! Couldn't pick up flashlight.")
 		"coffee":
 			if hit != null:
-				hit.queue_free()
-
-			# Update player visuals / inventory
-			Inventory.add_item("COFFEE")
-			player_ui.set_task(".Nice work. Now go to the boss's office. Use R and equip the coffee","res://assets/icons/coffee.png")
-			player.change_arrow("boss")
-
-
+				var added = Inventory.add_item("COFFEE")
+				if added:
+					hit.queue_free()
+					player_ui.set_task(".Nice work. Now go to the boss's office. Use R and equip the coffee","res://assets/icons/coffee.png")
+					player.change_arrow("boss")
+				else:
+					print("Inventory full! Couldn't pick up coffee.")
 		"trapdoor":
 			if trapdoor:
 				hit.get_parent().get_parent().get_parent().toggle_lock()
@@ -178,7 +185,6 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				melted = true
 		"elevator_button":
 			var same =  await elevator.elevator("g_back")
-			print(same)
 			if same:
 				elevator_animplayer.play("open")
 		"elevator_button2":
@@ -188,12 +194,29 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"elevator_ground":
 			await hit.get_parent().get_parent().elevator("ground")
 		"elevator_floor1":
-			print("trying")
 			await hit.get_parent().get_parent().elevator("floor")
 		"key_card":
 			if hit != null:
-				hit.queue_free()
-			Inventory.add_item("KEY_CARD")
-			player_ui.set_task(".You can now access the elevator")
+				var added = Inventory.add_item("KEY_CARD")
+				if added:
+					hit.queue_free()
+					player_ui.set_task(".You can now access the elevator")
+				else:
+					print("Inventory full! Couldn't pick up key card.")
 		"matchstick":
-			Inventory.add_item("MATCHSTICK")
+			if hit != null:
+				var added = Inventory.add_item("MATCHSTICK")
+				if added:
+					hit.get_parent().toggle_matchstick()
+				else:
+					print("Inventory full! Couldn't pick up matchstick.")
+		"rigid_matchstick":
+			if hit != null:
+				var added = Inventory.add_item("MATCHSTICK")
+				if added:
+					hit.queue_free()
+				else:
+					print("Inventory full! Couldn't pick up matchstick.")
+		"fire":
+			if player.equipped == "MATCHSTICK":
+				library.play("open")

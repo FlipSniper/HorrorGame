@@ -1,4 +1,22 @@
-[gd_scene load_steps=47 format=4 uid="uid://cmrvj0u7nt3tn"]
+[gd_scene load_steps=57 format=4 uid="uid://cmrvj0u7nt3tn"]
+
+[ext_resource type="Script" uid="uid://cd41amdy8sorw" path="res://general_scripts/matchsticks.gd" id="1_12s4x"]
+
+[sub_resource type="Gradient" id="Gradient_12s4x"]
+offsets = PackedFloat32Array(0, 0.4676259, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.6119103, 0, 0.22664478, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_j78nc"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_fuiet"]
+noise = SubResource("FastNoiseLite_j78nc")
+color_ramp = SubResource("Gradient_12s4x")
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vtn2a"]
+albedo_color = Color(0.31764707, 0, 0, 1)
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_fuiet")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wrvu5"]
 resource_name = "Material"
@@ -38,6 +56,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wnu2e")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h1v82"]
+albedo_color = Color(1, 0.22352941, 0, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhv3n"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_k87lm"]
@@ -70,6 +91,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k87lm")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_12s4x"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_j78nc"]
+noise = SubResource("FastNoiseLite_12s4x")
+as_normal_map = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fuiet"]
+albedo_color = Color(1, 0, 0, 1)
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_j78nc")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxh0u"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xpskj"]
@@ -101,6 +133,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xpskj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fie64"]
+albedo_color = Color(1, 0.5023, 0.43550968, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kf3tj"]
 
@@ -454,94 +489,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_4nfse")
 
-[sub_resource type="Animation" id="Animation_pis7s"]
-resource_name = "take_stick"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cube_002:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.027184725, 0, 0), Vector3(-3.3402603, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cube_013:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9, 1.3, 1.6, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.17570662, 0, 0.51460505), Vector3(-0.17570662, 0, 0.51460505), Vector3(-0.17570662, 1.292623, 0.51460505), Vector3(-0.3577481, 0.86693466, 0.51460505), Vector3(-0.3577481, 1.6331183, 0.51460505), Vector3(1.5306681, 1.6822463, 0.51460505)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Cube_012:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9, 1.3, 1.6, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.3531837, 0, 0.51460505), Vector3(-1.3531837, 0, 0.51460505), Vector3(-1.3531837, 1.292623, 0.51460505), Vector3(-1.1711423, 1.7183114, 0.51460505), Vector3(-1.1711423, 2.4844952, 0.51460505), Vector3(1.0946698, 2.776028, 0.51460505)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Cube_013:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9, 1.3, 1.6, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, -0.80820954), Vector3(0, 0, -0.80820954), Vector3(0, 0, -1.1914839)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cube_012:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.9, 1.3, 1.6, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, -0.8082096), Vector3(0, 0, -0.80820954), Vector3(0, 0, -1.1914839)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Cube_012:visible")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Cube_013:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
 [sub_resource type="Animation" id="Animation_12s4x"]
 length = 0.001
 tracks/0/type = "value"
@@ -629,6 +576,94 @@ tracks/6/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_pis7s"]
+resource_name = "take_stick"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cube_002:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.08, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.027184725, 0, 0), Vector3(-3.3402603, 0, 0), Vector3(0, 0, 0), Vector3(-0.027184725, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cube_013:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9, 1.3, 1.6, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.17570662, 0, 0.51460505), Vector3(-0.17570662, 0, 0.51460505), Vector3(-0.17570662, 1.292623, 0.51460505), Vector3(-0.3577481, 0.86693466, 0.51460505), Vector3(-0.3577481, 1.6331183, 0.51460505), Vector3(1.5306681, 1.6822463, 0.51460505)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cube_012:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9, 1.3, 1.6, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.3531837, 0, 0.51460505), Vector3(-1.3531837, 0, 0.51460505), Vector3(-1.3531837, 1.292623, 0.51460505), Vector3(-1.1711423, 1.7183114, 0.51460505), Vector3(-1.1711423, 2.4844952, 0.51460505), Vector3(1.0946698, 2.776028, 0.51460505)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cube_013:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9, 1.3, 1.6, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, -0.80820954), Vector3(0, 0, -0.80820954), Vector3(0, 0, -1.1914839)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cube_012:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9, 1.3, 1.6, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, -0.8082096), Vector3(0, 0, -0.80820954), Vector3(0, 0, -1.1914839)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Cube_012:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.1333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cube_013:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.1333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_12s4x"]
 _data = {
 &"RESET": SubResource("Animation_12s4x"),
@@ -639,77 +674,91 @@ _data = {
 size = Vector3(3.4306488, 0.68896484, 2.2085571)
 
 [node name="matchsticks" type="Node3D"]
+script = ExtResource("1_12s4x")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.6290989, 0, 0, 0, 0.28500843, 0, 0, 0, 1.0840106, 0.0013196468, 0, 0)
+transform = Transform3D(1.6290989, 0, 0, 0, 0.28500843, 0, 0, 0, 1.0840106, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_vtn2a")
 mesh = SubResource("ArrayMesh_ecfup")
 skeleton = NodePath("")
 
 [node name="Cube_002" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.7189357, 0, 0, 0, 0.33850268, 0, 0, 0, 1.1028092, -0.027184725, 0, 0)
+material_override = SubResource("StandardMaterial3D_h1v82")
 mesh = SubResource("ArrayMesh_0vsho")
 skeleton = NodePath("")
 
 [node name="Cube_004" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1646027, 0, 0, 0, 0.14216632, 0, 0, 0, 0.1440532, -1.3531837, 0, 0.1869044)
+material_override = SubResource("StandardMaterial3D_fuiet")
 mesh = SubResource("ArrayMesh_a470e")
 skeleton = NodePath("")
 
 [node name="Cube_005" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1928427, 0, 0, 0, 0.10250442, 0, 0, 0, 0.10386491, -0.17570662, 0, 0.1869044)
+material_override = SubResource("StandardMaterial3D_fie64")
 mesh = SubResource("ArrayMesh_gc5ns")
 skeleton = NodePath("")
 
 [node name="Cube_006" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1928427, 0, 0, 0, 0.10250442, 0, 0, 0, 0.10386491, -0.17570662, 0, -0.12143031)
+material_override = SubResource("StandardMaterial3D_fie64")
 mesh = SubResource("ArrayMesh_p61oe")
 skeleton = NodePath("")
 
 [node name="Cube_007" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1646027, 0, 0, 0, 0.14216632, 0, 0, 0, 0.1440532, -1.3531837, 0, -0.12143031)
+material_override = SubResource("StandardMaterial3D_fuiet")
 mesh = SubResource("ArrayMesh_htl1w")
 skeleton = NodePath("")
 
 [node name="Cube_008" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1646027, 0, 0, 0, 0.14216632, 0, 0, 0, 0.1440532, -1.3531837, 0, -0.44858932)
+material_override = SubResource("StandardMaterial3D_fuiet")
 mesh = SubResource("ArrayMesh_4ss6l")
 skeleton = NodePath("")
 
 [node name="Cube_009" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1928427, 0, 0, 0, 0.10250442, 0, 0, 0, 0.10386491, -0.17570662, 0, -0.44858932)
+material_override = SubResource("StandardMaterial3D_fie64")
 mesh = SubResource("ArrayMesh_t5ft3")
 skeleton = NodePath("")
 
 [node name="Cube_010" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1928427, 0, 0, 0, 0.10250442, 0, 0, 0, 0.10386491, -0.17570662, 0, -0.78975606)
+material_override = SubResource("StandardMaterial3D_fie64")
 mesh = SubResource("ArrayMesh_ajm3p")
 skeleton = NodePath("")
 
 [node name="Cube_011" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1646027, 0, 0, 0, 0.14216632, 0, 0, 0, 0.1440532, -1.3531837, 0, -0.78975606)
-visible = false
+material_override = SubResource("StandardMaterial3D_fuiet")
 mesh = SubResource("ArrayMesh_w7l75")
 skeleton = NodePath("")
 
 [node name="Cube_012" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.16460271, 0, 0, 0, 0.14216632, 0, 0, 0, 0.14405319, -1.3531837, 0, 0.51460505)
 visible = false
+material_override = SubResource("StandardMaterial3D_fuiet")
 mesh = SubResource("ArrayMesh_puyrw")
 skeleton = NodePath("")
 
 [node name="Cube_013" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1928426, 0, 0, 0, 0.10250441, 0, 0, 0, 0.10386492, -0.17570662, 0, 0.51460505)
 visible = false
+material_override = SubResource("StandardMaterial3D_fie64")
 mesh = SubResource("ArrayMesh_djxb0")
 skeleton = NodePath("")
 
 [node name="Cube_014" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1928427, 0, 0, 0, 0.10250442, 0, 0, 0, 0.10386491, -0.17570662, 0, 0.8299577)
+material_override = SubResource("StandardMaterial3D_fie64")
 mesh = SubResource("ArrayMesh_sm1j5")
 skeleton = NodePath("")
 
 [node name="Cube_015" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1646027, 0, 0, 0, 0.14216632, 0, 0, 0, 0.1440532, -1.3531837, 0, 0.8299577)
+material_override = SubResource("StandardMaterial3D_fuiet")
 mesh = SubResource("ArrayMesh_l1pkp")
 skeleton = NodePath("")
 
