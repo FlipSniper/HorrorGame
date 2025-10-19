@@ -74,7 +74,7 @@ func _physics_process(delta: float) -> void:
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
-						"turner", "key_card", "matchstick", "matchstick_rigid","fire","boiler_wheel"]:
+						"turner", "key_card", "matchstick_box", "matchstick","fire","boiler_wheel"]:
 			crosshair.visible = true
 			print(hit_name)
 			if Input.is_action_just_pressed("interact"):
@@ -203,16 +203,16 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					player_ui.set_task(".You can now access the elevator")
 				else:
 					print("Inventory full! Couldn't pick up key card.")
-		"matchstick":
+		"matchstick_box":
 			if hit != null:
-				var added = Inventory.add_item("MATCHSTICK_RIGID")
+				var added = Inventory.add_item("MATCHSTICK")
 				if added:
 					hit.get_parent().toggle_matchstick()
 				else:
 					print("Inventory full! Couldn't pick up matchstick.")
-		"rigid_matchstick":
+		"matchstick":
 			if hit != null:
-				var added = Inventory.add_item("MATCHSTICK_RIGID")
+				var added = Inventory.add_item("MATCHSTICK")
 				if added:
 					hit.queue_free()
 				else:

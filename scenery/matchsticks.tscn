@@ -673,7 +673,7 @@ _data = {
 [sub_resource type="BoxShape3D" id="BoxShape3D_pis7s"]
 size = Vector3(3.4306488, 0.68896484, 2.2085571)
 
-[node name="matchsticks" type="Node3D"]
+[node name="matchstick_box" type="Node3D"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("1_12s4x")
 
@@ -768,8 +768,8 @@ libraries = {
 &"": SubResource("AnimationLibrary_12s4x")
 }
 
-[node name="matchstick" type="StaticBody3D" parent="."]
+[node name="matchstick_box" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="matchstick"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="matchstick_box"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013038635, -0.0056152344, 0.0042419434)
 shape = SubResource("BoxShape3D_pis7s")

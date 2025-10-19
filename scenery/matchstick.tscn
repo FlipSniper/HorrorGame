@@ -81,7 +81,7 @@ shadow_mesh = SubResource("ArrayMesh_4yj5s")
 [sub_resource type="BoxShape3D" id="BoxShape3D_1ei5f"]
 size = Vector3(2.6729736, 0.35943604, 0.2940039)
 
-[node name="rigid_matchstick" type="RigidBody3D"]
+[node name="matchstick" type="RigidBody3D"]
 
 [node name="Cube_010" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.1928426, 0, 0, 0, 0.10250443, 0, 0, 0, 0.103864916, 0, 0, 0)

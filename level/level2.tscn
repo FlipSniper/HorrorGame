@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="5_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="6_glloo"]
 [ext_resource type="PackedScene" uid="uid://jpfwa745y53d" path="res://scenery/key_card.tscn" id="6_k16d7"]
-[ext_resource type="PackedScene" uid="uid://8pk2rks64wwx" path="res://scenery/rigid_matchstick.tscn" id="7_01ea3"]
+[ext_resource type="PackedScene" uid="uid://8pk2rks64wwx" path="res://scenery/matchstick.tscn" id="7_01ea3"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="7_v1s08"]
 [ext_resource type="PackedScene" uid="uid://co2fckq670jhu" path="res://scenery/drawers.tscn" id="8_3fddd"]
 [ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="8_p7her"]
