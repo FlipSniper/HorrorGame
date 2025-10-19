@@ -368,6 +368,7 @@ skeleton = NodePath("")
 
 [node name="matchstick" type="Node3D" parent="head"]
 transform = Transform3D(-7.86805e-09, 0.18, 0, -0.17258756, -7.544042e-09, 0.051122766, 0.051122766, 2.2346471e-09, 0.17258756, 0.5783636, -0.49241185, -0.6804118)
+visible = false
 
 [node name="Cube_010" type="MeshInstance3D" parent="head/matchstick"]
 transform = Transform3D(1.1761882, 0.016370978, -0.0048956517, -0.19050899, 0.08476233, -0.05600106, -0.056224406, 0.0552675, 0.08733748, -0.18392658, 0.083533525, -0.035420895)

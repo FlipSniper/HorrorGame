@@ -674,6 +674,7 @@ _data = {
 size = Vector3(3.4306488, 0.68896484, 2.2085571)
 
 [node name="matchsticks" type="Node3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 script = ExtResource("1_12s4x")
 
 [node name="Cube" type="MeshInstance3D" parent="."]

@@ -9,7 +9,7 @@ var item_icons := {
 	"COFFEE": "res://assets/icons/coffee.png",
 	"FLASHLIGHT": "res://assets/icons/flashlight.png",
 	"KEY_CARD": "res://assets/icons/keycard.png",
-	"MATCHSTICK": "res://assets/icons/matchstick.png"
+	"MATCHSTICK_RIGID": "res://assets/icons/matchstick.png"
 }
 
 func _ready() -> void:

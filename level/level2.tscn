@@ -1,15 +1,14 @@
-[gd_scene load_steps=52 format=3 uid="uid://df5xdwq1o1gwc"]
+[gd_scene load_steps=53 format=3 uid="uid://df5xdwq1o1gwc"]
 
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="5_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="6_glloo"]
 [ext_resource type="PackedScene" uid="uid://jpfwa745y53d" path="res://scenery/key_card.tscn" id="6_k16d7"]
-[ext_resource type="PackedScene" uid="uid://8pk2rks64wwx" path="res://scenery/matchstick.tscn" id="7_01ea3"]
+[ext_resource type="PackedScene" uid="uid://8pk2rks64wwx" path="res://scenery/rigid_matchstick.tscn" id="7_01ea3"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="7_v1s08"]
 [ext_resource type="PackedScene" uid="uid://co2fckq670jhu" path="res://scenery/drawers.tscn" id="8_3fddd"]
 [ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="8_p7her"]
 [ext_resource type="PackedScene" uid="uid://bpid1eiphcprc" path="res://scenery/flashlight.tscn" id="9_36wr8"]
 [ext_resource type="PackedScene" uid="uid://dgig7ncsh5l7" path="res://scenery/door.tscn" id="9_tk77j"]
-[ext_resource type="PackedScene" uid="uid://sqbxf6672y1v" path="res://scenery/statue.tscn" id="10_k4cq1"]
 [ext_resource type="PackedScene" uid="uid://clhcyv44qxmlo" path="res://scenery/boiler.tscn" id="10_khk1g"]
 [ext_resource type="PackedScene" uid="uid://5l2rve2nx5bk" path="res://scenery/ice.tscn" id="11_3g882"]
 [ext_resource type="PackedScene" uid="uid://xj88hbrbvdun" path="res://scenery/code_paper.tscn" id="11_82s7j"]
@@ -24,6 +23,8 @@
 [ext_resource type="PackedScene" uid="uid://teudi5kv344b" path="res://scenery/lock.tscn" id="17_gurg6"]
 [ext_resource type="PackedScene" uid="uid://cmrvj0u7nt3tn" path="res://scenery/matchsticks.tscn" id="22_b8oox"]
 [ext_resource type="Script" uid="uid://dfdfal4rcseak" path="res://general_scripts/flashlight.gd" id="22_u3hms"]
+[ext_resource type="Script" uid="uid://bdnk57f1e6lm" path="res://general_scripts/spawns.gd" id="25_b8oox"]
+[ext_resource type="PackedScene" uid="uid://bg2qwiqs1g8ae" path="res://scenery/boiler_wheel.tscn" id="26_3amep"]
 [ext_resource type="PackedScene" uid="uid://dlvptlhvd1s0a" path="res://scenery/enemy.tscn" id="26_xhkwa"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_bkxn3"]
@@ -136,7 +137,6 @@ sky_material = SubResource("ProceduralSkyMaterial_bkxn3")
 
 [sub_resource type="Environment" id="Environment_vkwk6"]
 background_mode = 2
-background_energy_multiplier = 0.38
 sky = SubResource("Sky_oi3di")
 tonemap_mode = 3
 ssr_max_steps = 256
@@ -682,9 +682,6 @@ shape = SubResource("ConvexPolygonShape3D_82s7j")
 [node name="door" parent="NavigationRegion3D/House/Elevator_Room" instance=ExtResource("9_tk77j")]
 transform = Transform3D(0.2699999, 0, 0, 0, 0.27, 0, 0, 0, 0.2699999, -2.026862, 1.2299993, 8.783687)
 
-[node name="Statue" parent="NavigationRegion3D/House" instance=ExtResource("10_k4cq1")]
-transform = Transform3D(-1.385, 0, -2.0912918e-07, 0, 1.385, 0, 2.0912918e-07, 0, -1.385, -10.70533, 6.2728105, -11.80672)
-
 [node name="lights" type="Node3D" parent="NavigationRegion3D/House"]
 
 [node name="light_switch" parent="NavigationRegion3D/House/lights" node_paths=PackedStringArray("light_bulb") instance=ExtResource("11_bsijp")]
@@ -882,9 +879,6 @@ transform = Transform3D(-0.19, 0, -1.6610327e-08, 0, 0.19, 0, 1.6610327e-08, 0, 
 [node name="lock" parent="NavigationRegion3D/House" instance=ExtResource("17_gurg6")]
 transform = Transform3D(0.018492104, 0, 0, 0, 0.027177261, 0, 0, 0, 0.010193063, -4.7642903, 5.6245246, -17.084593)
 
-[node name="matchsticks" parent="NavigationRegion3D/House" instance=ExtResource("22_b8oox")]
-transform = Transform3D(0.08, 0, 0, 0, 0.08, 0, 0, 0, 0.08, -11.732207, 1.2269222, -1.0038557)
-
 [node name="code_paper" parent="." instance=ExtResource("11_82s7j")]
 
 [node name="safe" parent="." instance=ExtResource("12_kouoh")]
@@ -981,6 +975,55 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.37179, -3.71855, -17.7545)
 
 [node name="destination6" parent="destinations" instance=ExtResource("15_bkxn3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.44914, 1.32202, -10.2328)
+
+[node name="spawns" type="Node3D" parent="." node_paths=PackedStringArray("rigid_spawns", "static_spawns")]
+script = ExtResource("25_b8oox")
+rigid_spawns = [NodePath("spawn1"), NodePath("spawn2"), NodePath("spawn3"), NodePath("spawn4"), NodePath("spawn5"), NodePath("spawn6"), NodePath("spawn7"), NodePath("spawn8"), NodePath("spawn9"), NodePath("spawn10"), NodePath("spawn11"), NodePath("spawn12"), NodePath("spawn13"), NodePath("spawn14")]
+static_spawns = [NodePath("spawn1"), NodePath("spawn2"), NodePath("spawn3"), NodePath("spawn4"), NodePath("spawn5"), NodePath("spawn6"), NodePath("spawn7"), NodePath("spawn8"), NodePath("spawn9"), NodePath("spawn10"), NodePath("spawn11"), NodePath("spawn12")]
+matchsticks = ExtResource("22_b8oox")
+boiler_wheel = ExtResource("26_3amep")
+
+[node name="spawn1" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.492378, 3.3330667, -3.8604457)
+
+[node name="spawn2" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.492378, 3.3330667, -1.9042392)
+
+[node name="spawn3" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.492378, 2.3606975, -1.9042392)
+
+[node name="spawn4" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.492378, 2.3606975, -3.6730933)
+
+[node name="spawn5" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.492378, 1.3759687, -1.9042392)
+
+[node name="spawn6" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.492378, 1.3759687, -3.6730933)
+
+[node name="spawn7" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.51016, 3.3330667, 10.917491)
+
+[node name="spawn8" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.51016, 3.3330667, 12.873697)
+
+[node name="spawn9" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.51016, 2.3606975, 12.873697)
+
+[node name="spawn10" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.51016, 2.3606975, 11.104843)
+
+[node name="spawn11" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.51016, 1.3759687, 12.873697)
+
+[node name="spawn12" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.51016, 1.3759687, 11.104843)
+
+[node name="spawn13" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.27948, 1.9079626, 5.294433)
+
+[node name="spawn14" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.27948, 1.9079626, 3.525579)
 
 [editable path="NavigationRegion3D/House/Kitchen/fridge"]
 [editable path="NavigationRegion3D/House/Kitchen/ice"]
