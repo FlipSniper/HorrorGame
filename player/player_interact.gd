@@ -6,6 +6,7 @@ extends RayCast3D
 
 # Pickups
 @onready var player_key = get_tree().current_scene.get_node_or_null("player/head/player_key")
+@onready var player_boilerwheel = get_tree().current_scene.get_node_or_null("player/head/player_boiler_wheel")
 @onready var player_crowbar = get_tree().current_scene.get_node_or_null("player/head/crowbar")
 
 # Objects
@@ -74,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
-						"turner", "key_card", "matchstick_box", "matchstick","fire","boiler_wheel"]:
+						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -174,11 +175,6 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				player_level.level1 += 1
 				player_level.crystals += 1
 			player_ui.set_task(".Leave the property")
-		"turner":
-			if !boiler:
-				hit.get_parent().get_parent().toggle_boiler()
-				player_ui.set_task(".Nice now melt the ice")
-				boiler = true
 		"ice":
 			if !melted and boiler:
 				hit.get_parent().melt_ice()
@@ -229,7 +225,9 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 						hit.queue_free()
 				else:
 					print("Inventory full! Couldn't pick up BOILER_WHEEL.")
-		
+		"missing_wheel":
+			if lock_opened and player_boilerwheel.visible:
+				hit.get_parent().toggle_lock()
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")

@@ -1,10 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://clhcyv44qxmlo"]
+[gd_scene load_steps=20 format=3 uid="uid://clhcyv44qxmlo"]
 
 [ext_resource type="Texture2D" uid="uid://cke711im43by2" path="res://textures/cracked_concrete_wall_diff_4k.jpg" id="1_0w43g"]
 [ext_resource type="Script" uid="uid://b7qdsvt7ts2js" path="res://general_scripts/boiler.gd" id="1_iqnex"]
 [ext_resource type="Material" uid="uid://cyup7s0tfea3l" path="res://materials/metal_2.tres" id="2_ryr5a"]
 [ext_resource type="Texture2D" uid="uid://c3qln4dv2nq5y" path="res://textures/Symbol.png" id="3_iqnex"]
-[ext_resource type="Texture2D" uid="uid://d0embddnscp8" path="res://textures/stone.jpg" id="4_ryr5a"]
+[ext_resource type="Material" uid="uid://btujvem6k057b" path="res://materials/metal_3.tres" id="5_iqnex"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2pds"]
 albedo_texture = ExtResource("1_0w43g")
@@ -38,105 +38,9 @@ size = Vector3(1.22083, 2.28789, 1.2902516)
 
 [sub_resource type="Animation" id="Animation_ryr5a"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("turner/MeshInstance3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.5707964, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("turner/MeshInstance3D2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-6.903751e-15, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("turner/MeshInstance3D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.62758774, -0.49345362)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("turner/MeshInstance3D2:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.77265906, -0.57475305)]
-}
 
 [sub_resource type="Animation" id="Animation_0w43g"]
 resource_name = "boiling"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("turner/MeshInstance3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.5707964, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("turner/MeshInstance3D2:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 3.1415927), Vector3(-6.903751e-15, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("turner/MeshInstance3D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.62758774, -0.49345362)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("turner/MeshInstance3D2:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.4895407, -0.57475305), Vector3(0, 0.77265906, -0.57475305)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ryr5a"]
 _data = {
@@ -144,18 +48,12 @@ _data = {
 &"boiling": SubResource("Animation_0w43g")
 }
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ryr5a"]
-albedo_color = Color(1, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ryr5a"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0w43g"]
-albedo_texture = ExtResource("4_ryr5a")
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_iqnex"]
+height = 0.109436035
+radius = 0.05517578
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ryr5a"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ryr5a"]
-size = Vector3(0.4711914, 0.44644165, 0.16732788)
+radial_segments = 12
 
 [node name="boiler" type="Node3D"]
 script = ExtResource("1_iqnex")
@@ -206,20 +104,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_ryr5a")
 }
 
-[node name="turner" type="Node3D" parent="."]
+[node name="missing_wheel" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="turner"]
-transform = Transform3D(0.13720365, 0, 0, 0, 0.25730318, 6.5568e-16, 0, -1.776357e-15, 0.09497446, 0, 0.77265906, -0.57475305)
-material_override = SubResource("StandardMaterial3D_ryr5a")
-mesh = SubResource("BoxMesh_ryr5a")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="missing_wheel"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.64580405, -0.53952026)
+shape = SubResource("CylinderShape3D_iqnex")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="turner"]
-transform = Transform3D(0.45999998, 0, 0, 0, -4.5896953e-09, -0.45999998, 0, 0.10499999, -2.0107239e-08, 0, 0.62758774, -0.49345362)
-material_override = SubResource("StandardMaterial3D_0w43g")
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.09325353, 0, 0, 0, -4.076241e-09, -0.09325353, 0, 0.09325353, -4.076241e-09, 0, 0.65164775, -0.49442482)
+material_override = ExtResource("5_iqnex")
 mesh = SubResource("CylinderMesh_ryr5a")
-
-[node name="turner" type="StaticBody3D" parent="turner"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="turner/turner"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0031738281, 0.6303494, -0.52237916)
-shape = SubResource("BoxShape3D_ryr5a")
