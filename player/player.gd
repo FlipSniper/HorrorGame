@@ -49,7 +49,7 @@ var drop_scales = {
 	"COFFEE": Vector3(0.5,0.5,0.5),
 	"CROWBAR": Vector3(0.2,0.2,0.2),
 	"KEY_CARD": Vector3(0.2,0.2,0.2),
-	"MATCHSTICK": Vector3(0.1,0.1,0.1)
+	"MATCHSTICK": Vector3(0.01,0.01,0.0s1)
 }
 
 func footsteps():
@@ -109,13 +109,14 @@ func update_pointer() -> void:
 	if tutorial:
 		var pointer = $head/pointer
 		var obj = ray.get_collider()
+		print(looking_for)
 		match looking_for:
 			"code_paper":
 				if not obj or obj.name != "code_paper": pointer.look_at(code_paper.global_transform.origin, Vector3.UP)
 			"safe":
 				if not obj or obj.name != "safe": pointer.look_at(safe.global_transform.origin, Vector3.UP)
 			"flashlight":
-				if not obj or obj.name != "flashlight2": pointer.look_at(flash.global_transform.origin, Vector3.UP)
+				if not obj or obj.name != "flashlight": pointer.look_at(flash.global_transform.origin, Vector3.UP)
 			"exit":
 				if not obj or obj.name != "exit": pointer.look_at(exit.global_transform.origin, Vector3.UP)
 			"boss":
@@ -128,6 +129,7 @@ func update_pointer() -> void:
 
 func change_arrow(find: String):
 	looking_for = find
+	print(looking_for)
 
 # Helper: checks if player is actually moving
 func is_moving() -> bool:

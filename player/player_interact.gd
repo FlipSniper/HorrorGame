@@ -37,13 +37,13 @@ func _ready() -> void:
 		main_scene_name = current_scene.name
 
 	if main_scene_name == "level":
-		flash = true
+		flash = false
 		powerbox = false
 		lock_opened = current_scene.get_node_or_null("house/lock")
 		key_collider = current_scene.get_node_or_null("key/CollisionShape3D")
 		key = current_scene.get_node_or_null("key/Node3D")
 	elif main_scene_name == "office":
-		flash = false
+		flash = true
 		coffee_collider = current_scene.get_node_or_null("coffee/CollisionShape3D")
 		coffee = current_scene.get_node_or_null("coffee")
 		flashlight_collider = current_scene.get_node_or_null("flashlight/CollisionShape3D")
@@ -54,7 +54,7 @@ func _ready() -> void:
 		proper_crowbar.disable_body()
 	elif main_scene_name == "level2":
 		library = current_scene.get_node_or_null("NavigationRegion3D/House/shelf2")
-		flash = true
+		flash = false
 		powerbox = true
 		elevator_animplayer = current_scene.get_node_or_null("NavigationRegion3D/House/Elevator/AnimationPlayer")
 		plank1 = current_scene.get_node_or_null("planks/plank1")
@@ -76,7 +76,6 @@ func _physics_process(delta: float) -> void:
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
 						"turner", "key_card", "matchstick_box", "matchstick","fire","boiler_wheel"]:
 			crosshair.visible = true
-			print(hit_name)
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
 		else:
@@ -141,7 +140,9 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					if flashlight_collider: flashlight_collider.visible = false
 					if flashlight: flashlight.visible = false
 					hit.queue_free()
+					print("ye mint")
 					if flash:
+						print("stupid")
 						player_ui.set_task(".Now leave the office. Use the crowbar to get rid of planks","res://assets/icons/crowbar.png")
 						player.change_arrow("exit")
 						get_tree().current_scene.get_node("task_trigger3").leave = true

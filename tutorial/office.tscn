@@ -398,7 +398,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0578, -1.8143, -13.5237)
 [node name="player" parent="." node_paths=PackedStringArray("code_paper", "safe", "boss", "exit", "flash") instance=ExtResource("2_q07b3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.79262, -1.57559, -1.93292)
 code_paper = NodePath("../code_paper")
-safe = NodePath("../task_trigger")
+safe = NodePath("../office_layout/safe")
 boss = NodePath("../task_trigger2")
 exit = NodePath("../task_trigger3")
 flash = NodePath("../flashlight")
@@ -412,6 +412,7 @@ door = NodePath("../../../door")
 
 [node name="coffee" parent="player/head" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.728495, -0.435333, -0.662195)
+visible = true
 
 [node name="arm" parent="player/head" index="4"]
 transform = Transform3D(1, 0, 0, 0, -0.13853674, 0.990358, 0, -0.990358, -0.13853674, 0.143681, 0, -0.402633)
