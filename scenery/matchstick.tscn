@@ -84,17 +84,17 @@ size = Vector3(2.6729736, 0.35943604, 0.2940039)
 [node name="matchstick" type="RigidBody3D"]
 
 [node name="Cube_010" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.1928426, 0, 0, 0, 0.10250443, 0, 0, 0, 0.103864916, 0, 0, 0)
+transform = Transform3D(0.19340958, 0, 0, 0, 0.016620247, 0, 0, 0, 0.016840838, -0.39839038, 2.5569405e-05, -0.0009464093)
 material_override = SubResource("StandardMaterial3D_1ei5f")
 mesh = SubResource("ArrayMesh_fp7ic")
 skeleton = NodePath("")
 
 [node name="Cube_011" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.16460273, 0, 0, 0, 0.14216636, 0, 0, 0, 0.14405324, -1.2956614, 0, 0)
+transform = Transform3D(0.026688972, 0, 0, 0, 0.023051102, 0, 0, 0, 0.023357043, -0.60847116, 2.5569405e-05, -0.0009464093)
 material_override = SubResource("StandardMaterial3D_bysl2")
 mesh = SubResource("ArrayMesh_trli8")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, -0.13079834, 9.1552734e-05, -0.003388673)
+transform = Transform3D(0.16214173, 0, 0, 0, 0.16214173, 0, 0, 0, 0.16214174, -0.41959825, 4.0413925e-05, -0.0014958546)
 shape = SubResource("BoxShape3D_1ei5f")

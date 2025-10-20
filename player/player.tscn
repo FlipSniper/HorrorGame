@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://licyfb78hh3h"]
+[gd_scene load_steps=44 format=4 uid="uid://licyfb78hh3h"]
 
 [ext_resource type="Script" uid="uid://ccoimpw7w8ddd" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c5ctnuitskyhe" path="res://player/fp_cam.gd" id="2_rkbax"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b3ca4hein56pc" path="res://scenery/arrow_pointer.tscn" id="7_rgyib"]
 [ext_resource type="PackedScene" uid="uid://chmpqj5xlw1sg" path="res://scenery/player_crowbar.tscn" id="8_8t03j"]
 [ext_resource type="AudioStream" uid="uid://dxvltc7324uke" path="res://sound/footstep1.mp3" id="9_hg6s5"]
+[ext_resource type="PackedScene" uid="uid://bg2qwiqs1g8ae" path="res://scenery/boiler_wheel.tscn" id="12_yllr7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -381,6 +382,10 @@ transform = Transform3D(0.16230455, 0.022705387, -0.006789908, -0.026288705, 0.1
 material_override = SubResource("StandardMaterial3D_tqiix")
 mesh = SubResource("ArrayMesh_e7oew")
 skeleton = NodePath("")
+
+[node name="boiler_wheel" parent="head" instance=ExtResource("12_yllr7")]
+transform = Transform3D(0.06669287, 0.065760314, -0.035037722, -0.04438058, -0.0027144349, -0.08957118, -0.059853364, 0.075287536, 0.027374474, 0.57486475, -0.48094654, -0.72880435)
+visible = false
 
 [node name="player_ui" parent="." instance=ExtResource("4_yw30f")]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djiiwrw80fuq3"
-path="res://.godot/imported/matchstick.png-76c553cfe5ffc20eb7cdd49471435192.ctex"
+uid="uid://dmnolp377a1bw"
+path="res://.godot/imported/boilerwheel.png-09cee56c2cc8379083d39e43f723e0b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/icons/matchstick.png"
-dest_files=["res://.godot/imported/matchstick.png-76c553cfe5ffc20eb7cdd49471435192.ctex"]
+source_file="res://assets/icons/boilerwheel.png"
+dest_files=["res://.godot/imported/boilerwheel.png-09cee56c2cc8379083d39e43f723e0b4.ctex"]
 
 [params]
 

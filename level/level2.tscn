@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://df5xdwq1o1gwc"]
+[gd_scene load_steps=54 format=3 uid="uid://df5xdwq1o1gwc"]
 
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="5_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="6_glloo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8pk2rks64wwx" path="res://scenery/matchstick.tscn" id="7_01ea3"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="7_v1s08"]
 [ext_resource type="PackedScene" uid="uid://co2fckq670jhu" path="res://scenery/drawers.tscn" id="8_3fddd"]
+[ext_resource type="PackedScene" uid="uid://tmpm4tsotn2o" path="res://scenery/boiler_wheel_rigid.tscn" id="8_b3ylc"]
 [ext_resource type="PackedScene" uid="uid://cvsm5gvl2uxjt" path="res://scenery/crowbar.tscn" id="8_p7her"]
 [ext_resource type="PackedScene" uid="uid://bpid1eiphcprc" path="res://scenery/flashlight.tscn" id="9_36wr8"]
 [ext_resource type="PackedScene" uid="uid://dgig7ncsh5l7" path="res://scenery/door.tscn" id="9_tk77j"]
@@ -161,6 +162,7 @@ crowbar_scene = ExtResource("8_p7her")
 flashlight_scene = ExtResource("9_36wr8")
 keycard_scene = ExtResource("6_k16d7")
 matchstick_scene = ExtResource("7_01ea3")
+boilerwheel_scene = ExtResource("8_b3ylc")
 
 [node name="flashlight2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50375, 2.0701, 0)

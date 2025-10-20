@@ -218,7 +218,18 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					hit.queue_free()
 				else:
 					print("Inventory full! Couldn't pick up matchstick.")
-				
+		"boiler_wheel":
+			if hit != null:
+				var added = Inventory.add_item("BOILER_WHEEL")
+				if added:
+					if hit is StaticBody3D:
+						hit.get_parent().queue_free()
+						print("here")
+					else:
+						hit.queue_free()
+				else:
+					print("Inventory full! Couldn't pick up BOILER_WHEEL.")
+		
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")
