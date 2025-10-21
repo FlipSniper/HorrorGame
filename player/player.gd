@@ -266,6 +266,6 @@ func drop_item() -> void:
 		"FLASHLIGHT": player_flashlight.visible = false
 		"KEY_CARD": player_keycard.visible = false
 		"MATCHSTICK": player_matchstick.visible = false
-		"BOILER_WHEEL": player_matchstick.visible = false
+		"BOILER_WHEEL": player_boilerwheel.visible = false
 
 	equipped_item = ""

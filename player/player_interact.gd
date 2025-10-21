@@ -6,7 +6,7 @@ extends RayCast3D
 
 # Pickups
 @onready var player_key = get_tree().current_scene.get_node_or_null("player/head/player_key")
-@onready var player_boilerwheel = get_tree().current_scene.get_node_or_null("player/head/player_boiler_wheel")
+@onready var player_boilerwheel = get_tree().current_scene.get_node_or_null("player/head/boiler_wheel")
 @onready var player_crowbar = get_tree().current_scene.get_node_or_null("player/head/crowbar")
 
 # Objects
@@ -226,8 +226,10 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				else:
 					print("Inventory full! Couldn't pick up BOILER_WHEEL.")
 		"missing_wheel":
-			if lock_opened and player_boilerwheel.visible:
+			if boiler and player_boilerwheel.visible:
+				print("wth boi")
 				hit.get_parent().toggle_wheel()
+				boiler = true
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")

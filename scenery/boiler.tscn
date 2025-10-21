@@ -111,6 +111,7 @@ radial_segments = 12
 
 [node name="boiler" type="Node3D"]
 script = ExtResource("1_iqnex")
+new_wheel = ExtResource("6_gdlb3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.2, 0, 0, 0, 0.08, 0, 0, 0, 1.2, 0, 0, 0)
@@ -169,6 +170,3 @@ shape = SubResource("CylinderShape3D_iqnex")
 transform = Transform3D(0.048949502, 0, 0, 0, -4.2948405e-09, -0.048949502, 0, 0.0982545, -2.1396507e-09, 0, 0.65415066, -0.49035004)
 material_override = ExtResource("5_iqnex")
 mesh = SubResource("CylinderMesh_ryr5a")
-
-[node name="boiler_wheel" parent="." instance=ExtResource("6_gdlb3")]
-transform = Transform3D(-4.371139e-09, 0.1, -4.371139e-09, 0, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 1.9106854e-16, 0, 0.6541811, -0.8822186)
