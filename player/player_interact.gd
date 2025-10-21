@@ -227,7 +227,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("Inventory full! Couldn't pick up BOILER_WHEEL.")
 		"missing_wheel":
 			if lock_opened and player_boilerwheel.visible:
-				hit.get_parent().toggle_lock()
+				hit.get_parent().toggle_wheel()
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://clhcyv44qxmlo"]
+[gd_scene load_steps=22 format=3 uid="uid://clhcyv44qxmlo"]
 
 [ext_resource type="Texture2D" uid="uid://cke711im43by2" path="res://textures/cracked_concrete_wall_diff_4k.jpg" id="1_0w43g"]
 [ext_resource type="Script" uid="uid://b7qdsvt7ts2js" path="res://general_scripts/boiler.gd" id="1_iqnex"]
 [ext_resource type="Material" uid="uid://cyup7s0tfea3l" path="res://materials/metal_2.tres" id="2_ryr5a"]
 [ext_resource type="Texture2D" uid="uid://c3qln4dv2nq5y" path="res://textures/Symbol.png" id="3_iqnex"]
 [ext_resource type="Material" uid="uid://btujvem6k057b" path="res://materials/metal_3.tres" id="5_iqnex"]
+[ext_resource type="PackedScene" uid="uid://bg2qwiqs1g8ae" path="res://scenery/boiler_wheel.tscn" id="6_gdlb3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2pds"]
 albedo_texture = ExtResource("1_0w43g")
@@ -38,19 +39,72 @@ size = Vector3(1.22083, 2.28789, 1.2902516)
 
 [sub_resource type="Animation" id="Animation_ryr5a"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("boiler_wheel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.6541811, -0.8822186)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("boiler_wheel:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 1.5707964, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_0w43g"]
 resource_name = "boiling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("boiler_wheel:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1.5707964, 1.5707964, 0), Vector3(-4.8781953, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gdlb3"]
+resource_name = "insert_wheel"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("boiler_wheel:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.6541811, -0.8822186), Vector3(0, 0.6541811, -0.688935)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ryr5a"]
 _data = {
 &"RESET": SubResource("Animation_ryr5a"),
-&"boiling": SubResource("Animation_0w43g")
+&"boiling": SubResource("Animation_0w43g"),
+&"insert_wheel": SubResource("Animation_gdlb3")
 }
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iqnex"]
-height = 0.109436035
-radius = 0.05517578
+margin = 0.185
+height = 0.10501099
+radius = 0.0234375
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ryr5a"]
 radial_segments = 12
@@ -105,12 +159,16 @@ libraries = {
 }
 
 [node name="missing_wheel" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6721797, -0.5289326)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="missing_wheel"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.64580405, -0.53952026)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.016763508, -0.008375168)
 shape = SubResource("CylinderShape3D_iqnex")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.09325353, 0, 0, 0, -4.076241e-09, -0.09325353, 0, 0.09325353, -4.076241e-09, 0, 0.65164775, -0.49442482)
+transform = Transform3D(0.048949502, 0, 0, 0, -4.2948405e-09, -0.048949502, 0, 0.0982545, -2.1396507e-09, 0, 0.65415066, -0.49035004)
 material_override = ExtResource("5_iqnex")
 mesh = SubResource("CylinderMesh_ryr5a")
+
+[node name="boiler_wheel" parent="." instance=ExtResource("6_gdlb3")]
+transform = Transform3D(-4.371139e-09, 0.1, -4.371139e-09, 0, -4.371139e-09, -0.1, -0.1, -4.371139e-09, 1.9106854e-16, 0, 0.6541811, -0.8822186)
