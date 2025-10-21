@@ -25,6 +25,7 @@ var trapdoor = false
 var proper_crowbar
 var main_scene_name = ""
 var boiler = false
+var wheel_in = false
 var melted = false
 var elevator_animplayer
 var elevator
@@ -75,7 +76,8 @@ func _physics_process(delta: float) -> void:
 		if hit_name in ["safe", "light_switch", "powerbox", "door", "drawer", "door_bell",
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
-						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"]:
+						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"
+						,"magnet_spawn"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -207,6 +209,13 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					hit.get_parent().toggle_matchstick()
 				else:
 					print("Inventory full! Couldn't pick up matchstick.")
+		"magnet_spawn":
+			if hit != null:
+				var added = Inventory.add_item("MAGNET")
+				if added:
+					hit.get_parent().toggle_matchstick()
+				else:
+					print("Inventory full! Couldn't pick up magnet.")
 		"matchstick":
 			if hit != null:
 				var added = Inventory.add_item("MATCHSTICK")
@@ -216,20 +225,25 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("Inventory full! Couldn't pick up matchstick.")
 		"boiler_wheel":
 			if hit != null:
-				var added = Inventory.add_item("BOILER_WHEEL")
-				if added:
-					if hit is StaticBody3D:
-						hit.get_parent().queue_free()
-						print("here")
+				if !hit.get_parent().get_parent().name == "boiler":
+					var added = Inventory.add_item("BOILER_WHEEL")
+					if added:
+						if hit is StaticBody3D:
+							hit.get_parent().queue_free()
+							print("here")
+						else:
+							hit.queue_free()
 					else:
-						hit.queue_free()
+						print("Inventory full! Couldn't pick up BOILER_WHEEL.")
 				else:
-					print("Inventory full! Couldn't pick up BOILER_WHEEL.")
+					if wheel_in and !boiler:
+						hit.get_parent().get_parent().toggle_boiler()
+						boiler = true
 		"missing_wheel":
-			if boiler and player_boilerwheel.visible:
+			if !wheel_in and player_boilerwheel.visible:
 				print("wth boi")
 				hit.get_parent().toggle_wheel()
-				boiler = true
+				wheel_in = true
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")
