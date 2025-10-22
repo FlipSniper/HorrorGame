@@ -33,6 +33,7 @@ var tutorial
 @onready var player_flashlight = $head/flashlight
 @onready var player_keycard = $head/keycard
 @onready var player_boilerwheel = $head/boiler_wheel
+@onready var player_magnet = $head/magnet
 @onready var player_arm = $head/arm
 @onready var equipped_item: String = ""
 @onready var rng = RandomNumberGenerator.new()
@@ -44,6 +45,7 @@ var tutorial
 @export var keycard_scene: PackedScene
 @export var matchstick_scene: PackedScene
 @export var boilerwheel_scene: PackedScene
+@export var magnet_scene: PackedScene
 
 # --- OPTIONAL DROP SCALES ---
 var drop_scales = {
@@ -52,7 +54,8 @@ var drop_scales = {
 	"CROWBAR": Vector3(0.2,0.2,0.2),
 	"KEY_CARD": Vector3(0.2,0.2,0.2),
 	"MATCHSTICK": Vector3(0.1,0.1,0.1),
-	"BOILER_WHEEL": Vector3(0.1,0.1,0.1)
+	"BOILER_WHEEL": Vector3(0.1,0.1,0.1),
+	"MAGNET": Vector3(0.1,0.1,0.1)
 }
 
 func footsteps():
@@ -197,6 +200,7 @@ func equip_item(item_name: String) -> void:
 			"KEY_CARD": player_keycard.visible = false
 			"MATCHSTICK": player_matchstick.visible = false
 			"BOILER_WHEEL": player_boilerwheel.visible = false
+			"MAGNET": player_magnet.visible = false
 
 	# Equip new item
 	equipped_item = item_name
@@ -208,6 +212,7 @@ func equip_item(item_name: String) -> void:
 		"KEY_CARD": player_keycard.visible = true
 		"MATCHSTICK": player_matchstick.visible = true
 		"BOILER_WHEEL": player_boilerwheel.visible = true
+		"MAGNET": player_magnet.visible = true
 		_: pass
 
 # --- DROP ITEM ---
@@ -224,6 +229,7 @@ func drop_item() -> void:
 		"KEY_CARD": scene = keycard_scene
 		"MATCHSTICK": scene = matchstick_scene
 		"BOILER_WHEEL": scene = boilerwheel_scene
+		"MAGNET": scene = magnet_scene
 		_: scene = null
 
 	if scene:
@@ -267,5 +273,6 @@ func drop_item() -> void:
 		"KEY_CARD": player_keycard.visible = false
 		"MATCHSTICK": player_matchstick.visible = false
 		"BOILER_WHEEL": player_boilerwheel.visible = false
+		"MAGNET": player_magnet.visible = false
 
 	equipped_item = ""

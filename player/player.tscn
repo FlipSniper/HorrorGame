@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://licyfb78hh3h"]
+[gd_scene load_steps=68 format=4 uid="uid://licyfb78hh3h"]
 
 [ext_resource type="Script" uid="uid://ccoimpw7w8ddd" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c5ctnuitskyhe" path="res://player/fp_cam.gd" id="2_rkbax"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="12_wodsf"]
 [ext_resource type="Texture2D" uid="uid://c6f05pwkum6ga" path="res://textures/rusty_metal_04_diff_4k.jpg" id="13_32hag"]
 [ext_resource type="Texture2D" uid="uid://fy8xyarl6348" path="res://textures/metal.jpg" id="14_tqiix"]
+[ext_resource type="PackedScene" uid="uid://lm4ginnlel4i" path="res://scenery/magnet.tscn" id="15_32hag"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -646,6 +647,10 @@ transform = Transform3D(0.21081853, 0, 0, 0, 1.3825823, -0.14529204, 0, 1.315018
 material_override = SubResource("StandardMaterial3D_bjvpn")
 mesh = SubResource("ArrayMesh_7pqkx")
 skeleton = NodePath("")
+
+[node name="magnet" parent="head" instance=ExtResource("15_32hag")]
+transform = Transform3D(-0.2805393, -0.051994905, 0.0927051, 0.054670677, -0.29497647, 0, 0.09115275, 0.01689417, 0.28531697, 0.61455667, -0.4670772, -0.7754618)
+visible = false
 
 [node name="player_ui" parent="." instance=ExtResource("4_yw30f")]
 

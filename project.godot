@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Shiba"
-run/main_scene="uid://df5xdwq1o1gwc"
+run/main_scene="uid://cgtkkv7yfx1qn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 run/max_fps=45
 config/icon="res://icon.svg"

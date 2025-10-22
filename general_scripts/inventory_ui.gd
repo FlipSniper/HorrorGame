@@ -10,7 +10,8 @@ var item_icons := {
 	"FLASHLIGHT": "res://assets/icons/flashlight.png",
 	"KEY_CARD": "res://assets/icons/keycard.png",
 	"MATCHSTICK": "res://assets/icons/matchstick.png",
-	"BOILER_WHEEL": "res://assets/icons/boilerwheel.png"
+	"BOILER_WHEEL": "res://assets/icons/boilerwheel.png",
+	"MAGNET": "res://assets/icons/boilerwheel.png"
 }
 
 func _ready() -> void:
