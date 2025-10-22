@@ -1,13 +1,16 @@
-[gd_scene load_steps=18 format=4 uid="uid://lm4ginnlel4i"]
+[gd_scene load_steps=18 format=4 uid="uid://duc2mcuvk2tc2"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2j7hm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_2j7hm"]
+size = Vector3(1, 1, 1.1542969)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjm3t"]
 albedo_color = Color(0.5890956, 0.5890956, 0.5890956, 1)
 metallic = 0.8
 roughness = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tnprj"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ldp0w"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_jaq2t"]
 _surfaces = [{
 "aabb": AABB(-0.99965256, -1.0000001, 0.0035275219, 1.9993051, 2.0000007, 0.9964725),
 "format": 34359742465,
@@ -21,7 +24,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_j7ud7"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_00byy"]
 resource_name = "magnet_Cylinder"
 _surfaces = [{
 "aabb": AABB(-0.99965256, -1.0000001, 0.0035275219, 1.9993051, 2.0000007, 0.9964725),
@@ -37,14 +40,14 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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vhR7PwAAgD/CxUc+LwaaPgAAgD9TJkU/MdtUPwAAgD/aOQ4/XoNsPwAAgD8W78M+LwaaPgAAgD+MO0o/2jkOPwAAgD8x21Q/8wQ1PwAAgD/zBDU/81IbPgAAgD/yoEc/wsVHvgAAgD++FHs/wsVHPgAAgD++FHs/AAAAAAAAgD8AAIA/qp8EvgAAgD+4X2E/2jkOvwAAgD8x21Q/MdtUvwAAgD/aOQ4/8wQ1vwAAgD/zBDU/chx0vgAAgD9wSwQ/vhR7vwAAgD/CxUc+XoNsvwAAgD8W78M+bRx0PgAAgD98CPM+bBx0PgUAgD/yoEc/chx0PgAAgL9wSwQ/bhx0vgAAgL98CPM+bBx0vgEAgL/0oEc/chx0vgAAgD9wSwQ/bBx0PgUAgD/yoEc/81IbPgAAgD/yoEc/chx0vgUAgD/yoEc//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//fwAAAAD/v/9/AAAAAP+//38AAAAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//3///wAA/7//f///////v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3///wAA/7//f///AAD/v/9///8AAP+//3//fwAA/7//f/9/AAD/v/9//38AAP+//3//fwAA/7//f/9/AAD/v////3//f///////f/9///////9//3///////3//f///HAjjd////78AAP9//38AgBwI43f///+/HAjjd////78cCON3////vwAA/3//fwCAHAjjd////7+F9P9///9C+n2l/3///77ShfT/f///Qvp9pf9///++0oFa/3+B2v+/gVr/f4Ha/795C/9/eIv/v3kL/394i/+//38AAP7//z//fwAA/v//P/9/AAD///8//38AAP///z//fwAA/v//P/9/AAD///8//38AAP///z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9/AAD+//8//38AAP///z//fwAA/v//P/9/AAD///8//38AAP///z//fwAA////P/9///////+//3///////7//f///////v/9///////+//3///////7//f////v//v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//3///////7//f///////v/////8AAP8//////wAA/z//////AAD/P/////8AAP8//////wAA/z//////AAD/P/////8AAP8//////wAA/z8AAP9//38AAAAA/38AAACAAAD/f/9/AAAAAP9//39XGAAA/38AAACA////f/9//n////9/AAAAgP///3//f/5/////f7O8//////9/AAAAgP9/AAD///+//38AAAAA/7//fwAAAAD/v/9///8AAP+//3//fwAA/7////9//3///////3////+/AAD/f/9/AIAAAP9//38AgAAA/3//fwCAAAD/f/9/AIAAAP9/////v8Lq/3///2D1gdr/f///QO3C6v9///9g9YHa/3///0Dtusz/f///XOa6zP9///9c5v+//3/////f/7//f////99Es/9///+h2USz/3///6HZPJX/f///nco8lf9///+dyv9//3////+//3//f////7/Cav9/wur/v8Jq/3/C6v+/ukz/f7rM/7+6TP9/usz/v/8//3//v/+//z//f/+//79EM/9/RLP/v0Qz/39Es/+/fSX/f32l/799Jf9/faX/vzwV/388lf+/PBX/fzyV/7//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9/AAD+//8//38AAP7//z//fwAA////P/9/AAD///8//38AAP///z//fwAA////P/9/AAD+//8//38AAP7//z//fwAA////P/9/AAD+//8//3////7//7//f///////v/9////+//+//3////7//7//f///////v/9////+//+//3///////7//f///////v/9///////+//3///////7//f///////v/9///////+//3////7//7//f///////v/9////+//+//3//////PfX/f///////v/9///////+/AAD/f/9/AAAAAP9/////vwAA/3//f14t////f/9//n////9/////v////3//f1D6/3/Naf///z//f81p////P/9/zWn///8/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_ldp0w")
+shadow_mesh = SubResource("ArrayMesh_jaq2t")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjm3t"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5khh3"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i6s0f"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_18w8f"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3rfny"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
@@ -57,7 +60,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_o1p7i"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_oljvm"]
 resource_name = "magnet_Cube_001"
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
@@ -72,14 +75,14 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_18w8f")
+shadow_mesh = SubResource("ArrayMesh_3rfny")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00byy"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n5uf2"]
 albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qp5ub"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_d81fn"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_0jl0j"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
@@ -92,7 +95,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_n1y1l"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_4ovg3"]
 resource_name = "magnet_Cube_002"
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
@@ -107,14 +110,14 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_d81fn")
+shadow_mesh = SubResource("ArrayMesh_0jl0j")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5khh3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw3ne"]
 albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wapm1"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_mpfae"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_l43ss"]
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
 "format": 34896613377,
@@ -127,7 +130,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_hwnqp"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_qni2w"]
 resource_name = "magnet_Cube_003"
 _surfaces = [{
 "aabb": AABB(-1, -1, -1, 2, 2, 2),
@@ -142,39 +145,36 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///78AAAAAAAD/v///AAD///+///8AAAAA/78AAAAA////v/////8AAP//AAD///////8AAP//AAD/////////////VNVU1VTVVNVU1VTVVNVU1f+//7//v/+//7//v/+//7+qKqoqqiqqKqoqqiqqKqoq/////////////////////wAA/38AAP9/AAD/fwAA/3//f/+//3//v/9//7//f/+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_mpfae")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2j7hm"]
-size = Vector3(1, 1, 1.1542969)
+shadow_mesh = SubResource("ArrayMesh_l43ss")
 
 [node name="magnet" type="Node3D"]
-
-[node name="Cylinder" type="MeshInstance3D" parent="."]
-transform = Transform3D(0, 0.2909175, 0, -0.52893585, 0, 0, 0, 0, 0.742569, 0, 0.010217771, 0)
-material_override = SubResource("StandardMaterial3D_2j7hm")
-mesh = SubResource("ArrayMesh_j7ud7")
-skeleton = NodePath("")
-
-[node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.066587195, 0, 0, 0, 0.059816565, 0, 0, 0, 0.046355605, 0, 0.4756069, 0.39831826)
-material_override = SubResource("StandardMaterial3D_tjm3t")
-mesh = SubResource("ArrayMesh_o1p7i")
-skeleton = NodePath("")
-
-[node name="Cube_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.28391865, 0, 0, 0, 0.18886085, 0, 0, 0, 0.20775706, 0, 0.33504146, -0.18367472)
-material_override = SubResource("StandardMaterial3D_00byy")
-mesh = SubResource("ArrayMesh_n1y1l")
-skeleton = NodePath("")
-
-[node name="Cube_002" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.28391865, 0, 0, 0, 0.18886085, 0, 0, 0, 0.20775706, 0, -0.32007247, -0.18367472)
-material_override = SubResource("StandardMaterial3D_5khh3")
-mesh = SubResource("ArrayMesh_hwnqp")
-skeleton = NodePath("")
 
 [node name="magnet_spawn" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="magnet_spawn"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.17632544)
+transform = Transform3D(0.33077425, 0, 0, 0, 0.33077425, 0, 0, 0, 0.33077425, 0, 0.067028806, 0.08606925)
 shape = SubResource("BoxShape3D_2j7hm")
+
+[node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(-7.647673e-09, 0.09622801, 0, -0.17495836, -4.2062602e-09, 0, 0, 0, 0.24562271, 0, 0.070408575, 0.027745333)
+material_override = SubResource("StandardMaterial3D_tjm3t")
+mesh = SubResource("ArrayMesh_00byy")
+skeleton = NodePath("")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.02202533, 0, 0, 0, 0.019785779, 0, 0, 0, 0.015333241, 0, 0.22434732, 0.15949875)
+material_override = SubResource("StandardMaterial3D_5khh3")
+mesh = SubResource("ArrayMesh_oljvm")
+skeleton = NodePath("")
+
+[node name="Cube_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.093912974, 0, 0, 0, 0.062470306, 0, 0, 0, 0.06872068, 0, 0.17785189, -0.033009537)
+material_override = SubResource("StandardMaterial3D_n5uf2")
+mesh = SubResource("ArrayMesh_4ovg3")
+skeleton = NodePath("")
+
+[node name="Cube_002" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.093912974, 0, 0, 0, 0.062470306, 0, 0, 0, 0.06872068, 0, -0.038842924, -0.033009537)
+material_override = SubResource("StandardMaterial3D_rw3ne")
+mesh = SubResource("ArrayMesh_qni2w")
+skeleton = NodePath("")

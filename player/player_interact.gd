@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
 						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"
-						,"magnet_spawn"]:
+						,"magnet_spawn", "magnet"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -209,13 +209,6 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					hit.get_parent().toggle_matchstick()
 				else:
 					print("Inventory full! Couldn't pick up matchstick.")
-		"magnet_spawn":
-			if hit != null:
-				var added = Inventory.add_item("MAGNET")
-				if added:
-					hit.get_parent().toggle_matchstick()
-				else:
-					print("Inventory full! Couldn't pick up magnet.")
 		"matchstick":
 			if hit != null:
 				var added = Inventory.add_item("MATCHSTICK")
@@ -223,6 +216,20 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					hit.queue_free()
 				else:
 					print("Inventory full! Couldn't pick up matchstick.")
+		"magnet_spawn":
+			if hit != null:
+				var added = Inventory.add_item("MAGNET")
+				if added:
+					hit.get_parent().queue_free()
+				else:
+					print("Inventory full! Couldn't pick up magnet.")
+		"magnet":
+			if hit != null:
+				var added = Inventory.add_item("MAGNET")
+				if added:
+					hit.queue_free()
+				else:
+					print("Inventory full! Couldn't pick up magnet.")
 		"boiler_wheel":
 			if hit != null:
 				if !hit.get_parent().get_parent().name == "boiler":

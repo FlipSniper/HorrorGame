@@ -5,7 +5,7 @@ extends Node3D
 @onready var rng = RandomNumberGenerator.new()
 @export var matchsticks : PackedScene
 @export var boiler_wheel : PackedScene
-@export var magnet : PackedScene
+@export var magnets : PackedScene
 var pos
 
 func _ready() -> void:
@@ -21,3 +21,11 @@ func _ready() -> void:
 	matchstick.global_position = static_spawns[pos].global_position
 	matchstick.position.y +=.035
 	print(pos)
+	static_spawns.remove_at(pos)
+	var magnet = magnets.instantiate()
+	pos = rng.randi_range(0,static_spawns.size()-1)
+	add_child(magnet)
+	magnet.global_position = static_spawns[pos].global_position
+	magnet.position.y +=.035
+	print(pos)
+	static_spawns.remove_at(pos)
