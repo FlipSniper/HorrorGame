@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://qyygpx2oba0h"]
+[gd_scene load_steps=11 format=4 uid="uid://qyygpx2oba0h"]
 
 [ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="1_ixyt0"]
 [ext_resource type="Material" uid="uid://btujvem6k057b" path="res://materials/metal_3.tres" id="2_x38no"]
@@ -77,6 +77,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xscas")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_x38no"]
+size = Vector3(1.9984131, 2.1614451, 1.9927979)
+
 [node name="batteries" type="Node3D"]
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
@@ -89,3 +92,9 @@ transform = Transform3D(0.42873988, 0, 0, 0, 0.10326189, 0, 0, 0, 0.42873988, 0,
 material_override = ExtResource("2_x38no")
 mesh = SubResource("ArrayMesh_cko5e")
 skeleton = NodePath("")
+
+[node name="battery" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="battery"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00018310547, 0.09927738, -0.003112793)
+shape = SubResource("BoxShape3D_x38no")

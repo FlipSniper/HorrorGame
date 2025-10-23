@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://licyfb78hh3h"]
+[gd_scene load_steps=85 format=4 uid="uid://licyfb78hh3h"]
 
 [ext_resource type="Script" uid="uid://ccoimpw7w8ddd" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://c5ctnuitskyhe" path="res://player/fp_cam.gd" id="2_rkbax"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="12_wodsf"]
 [ext_resource type="Texture2D" uid="uid://c6f05pwkum6ga" path="res://textures/rusty_metal_04_diff_4k.jpg" id="13_32hag"]
 [ext_resource type="Texture2D" uid="uid://fy8xyarl6348" path="res://textures/metal.jpg" id="14_tqiix"]
+[ext_resource type="Script" uid="uid://befn4348atqm6" path="res://general_scripts/magnet.gd" id="15_32hag"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kqu6x"]
 
@@ -623,6 +624,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_mpfae")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_32hag"]
+size = Vector3(3.728, 3.393, 3.619)
+
 [node name="player" type="CharacterBody3D"]
 floor_max_angle = 1.13446
 script = ExtResource("1_oul6g")
@@ -793,7 +797,7 @@ skeleton = NodePath("")
 
 [node name="magnet" type="Node3D" parent="head"]
 transform = Transform3D(0.29768327, 0.03388921, 0.0153672, -0.027235819, 0.28285483, -0.09618387, -0.025354275, 0.094046004, 0.2837472, 0.6052935, -0.30443215, -0.65820956)
-visible = false
+script = ExtResource("15_32hag")
 
 [node name="Cylinder" type="MeshInstance3D" parent="head/magnet"]
 transform = Transform3D(0, 0.2909175, 0, -0.52893585, 0, 0, 0, 0, 0.742569, 0, 0.010217771, 0)
@@ -819,6 +823,13 @@ material_override = SubResource("StandardMaterial3D_s7qer")
 mesh = SubResource("ArrayMesh_uw77l")
 skeleton = NodePath("")
 
+[node name="Area3D" type="Area3D" parent="head/magnet"]
+transform = Transform3D(3.3075936, -0.30262038, -0.28171432, 0.3765469, 3.142832, 1.0449558, 0.17074674, -1.0687102, 3.1527483, -2.0477269, -0.99163795, 2.465401)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="head/magnet/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062561044, 0.73845553, -2.2835834)
+shape = SubResource("BoxShape3D_32hag")
+
 [node name="player_ui" parent="." instance=ExtResource("4_yw30f")]
 
 [node name="FootstepPlayer" type="AudioStreamPlayer" parent="."]
@@ -829,3 +840,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.98817796, 0)
 stream = ExtResource("9_hg6s5")
 max_distance = 30.0
 bus = &"SFX"
+
+[connection signal="body_entered" from="head/magnet/Area3D" to="head/magnet" method="attract"]
+[connection signal="body_exited" from="head/magnet/Area3D" to="head/magnet" method="repel"]

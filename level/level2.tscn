@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://df5xdwq1o1gwc"]
+[gd_scene load_steps=59 format=3 uid="uid://df5xdwq1o1gwc"]
 
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="5_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="6_glloo"]
@@ -17,7 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://dt7atlsnbmcuf" path="res://scenery/light_switch.tscn" id="11_bsijp"]
 [ext_resource type="PackedScene" uid="uid://dfmw2pa162rv2" path="res://scenery/bulb.tscn" id="12_bkxn3"]
 [ext_resource type="PackedScene" uid="uid://jmuj3vk1m6ue" path="res://scenery/safe.tscn" id="12_kouoh"]
+[ext_resource type="PackedScene" uid="uid://f2dg62kdcejl" path="res://scenery/table.tscn" id="13_ujs60"]
 [ext_resource type="PackedScene" uid="uid://dmaeddh6b0il2" path="res://scenery/fridge.tscn" id="13_vkwk6"]
+[ext_resource type="PackedScene" uid="uid://qyygpx2oba0h" path="res://scenery/batteries.tscn" id="14_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clkdtrjj5cw62" path="res://scenery/elevator.tscn" id="14_ygglr"]
 [ext_resource type="PackedScene" uid="uid://chkx0fd0vglxp" path="res://scenery/destination.tscn" id="15_bkxn3"]
 [ext_resource type="PackedScene" uid="uid://b5kc4rdnqjjtb" path="res://scenery/shelf.tscn" id="15_l7f7e"]
@@ -68,6 +70,8 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_82s7j"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ix6xw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_gurg6"]
 
@@ -461,6 +465,23 @@ mesh = SubResource("BoxMesh_3fddd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/House/room3/MeshInstance3D4/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_82s7j")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="NavigationRegion3D/House/room3"]
+transform = Transform3D(4.5344315, 0, 0, 0, 1.2724868, 0, 0, 0, 0.27776873, -2.9276912, 1.1229079, 1.581047)
+mesh = SubResource("BoxMesh_ix6xw")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="NavigationRegion3D/House/room3"]
+transform = Transform3D(4.5344315, 0, 0, 0, 1.7132938, 0, 0, 0, 0.27776873, -2.9276912, 3.0973756, 1.581047)
+mesh = SubResource("BoxMesh_ix6xw")
+
+[node name="table" parent="NavigationRegion3D/House/room3" instance=ExtResource("13_ujs60")]
+transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, -3.1980495, 1.3497293, 0.44399834)
+
+[node name="batteries" parent="NavigationRegion3D/House/room3" instance=ExtResource("14_b7c05")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.8445354, 1.4943817, 0.61105156)
+
+[node name="batteries2" parent="NavigationRegion3D/House/room3" instance=ExtResource("14_b7c05")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.2868745, 1.4943817, 0.61105156)
 
 [node name="Utils_Room" type="Node3D" parent="NavigationRegion3D/House"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.896706, 0.00801909, -18.760681)

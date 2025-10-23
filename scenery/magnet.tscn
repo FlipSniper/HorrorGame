@@ -1,6 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://duc2mcuvk2tc2"]
-
-[ext_resource type="Script" uid="uid://befn4348atqm6" path="res://general_scripts/magnet.gd" id="1_tjm3t"]
+[gd_scene load_steps=18 format=4 uid="uid://duc2mcuvk2tc2"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2j7hm"]
 size = Vector3(1, 1, 1.1542969)
@@ -150,7 +148,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l43ss")
 
 [node name="magnet" type="Node3D"]
-script = ExtResource("1_tjm3t")
 
 [node name="magnet_spawn" type="StaticBody3D" parent="."]
 
