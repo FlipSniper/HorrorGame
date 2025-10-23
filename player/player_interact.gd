@@ -248,9 +248,17 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 						boiler = true
 		"missing_wheel":
 			if !wheel_in and player_boilerwheel.visible:
-				print("wth boi")
-				hit.get_parent().toggle_wheel()
-				wheel_in = true
+				var item_index = Inventory.find_item("BOILER_WHEEL")
+				if item_index != -1:
+					Inventory.remove_item(item_index)
+					player_boilerwheel.visible = false
+					player.equipped_item = ""
+					print("YEEEEEEE MINT")
+					print(Inventory.slots)
+					hit.get_parent().toggle_wheel()
+					wheel_in = true
+				else:
+					print("You don’t have the MAGNET!")
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")

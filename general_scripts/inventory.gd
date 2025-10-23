@@ -43,3 +43,9 @@ func remove_item(slot_index: int) -> void:
 			print("Slot is already empty.")
 	else:
 		print("Invalid slot index.")
+
+func find_item(item_name: String) -> int:
+	for i in range(unlocked_slots):
+		if slots[i] == item_name:
+			return i
+	return -1

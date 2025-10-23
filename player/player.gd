@@ -200,7 +200,9 @@ func equip_item(item_name: String) -> void:
 			"KEY_CARD": player_keycard.visible = false
 			"MATCHSTICK": player_matchstick.visible = false
 			"BOILER_WHEEL": player_boilerwheel.visible = false
-			"MAGNET": player_magnet.visible = false
+			"MAGNET":
+				player_magnet.visible = false
+				player_magnet.magnet_on = false
 
 	# Equip new item
 	equipped_item = item_name
@@ -212,7 +214,9 @@ func equip_item(item_name: String) -> void:
 		"KEY_CARD": player_keycard.visible = true
 		"MATCHSTICK": player_matchstick.visible = true
 		"BOILER_WHEEL": player_boilerwheel.visible = true
-		"MAGNET": player_magnet.visible = true
+		"MAGNET":
+			player_magnet.visible = true
+			player_magnet.magnet_on = true
 		_: pass
 
 # --- DROP ITEM ---
@@ -229,7 +233,9 @@ func drop_item() -> void:
 		"KEY_CARD": scene = keycard_scene
 		"MATCHSTICK": scene = matchstick_scene
 		"BOILER_WHEEL": scene = boilerwheel_scene
-		"MAGNET": scene = magnet_scene
+		"MAGNET":
+			scene = magnet_scene
+			player_magnet.magnet_on = true
 		_: scene = null
 
 	if scene:
@@ -273,6 +279,8 @@ func drop_item() -> void:
 		"KEY_CARD": player_keycard.visible = false
 		"MATCHSTICK": player_matchstick.visible = false
 		"BOILER_WHEEL": player_boilerwheel.visible = false
-		"MAGNET": player_magnet.visible = false
+		"MAGNET":
+			player_magnet.visible = false
+			player_magnet.magnet_on = false
 
 	equipped_item = ""
