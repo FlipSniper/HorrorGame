@@ -9,9 +9,12 @@ extends RayCast3D
 @onready var player_boilerwheel = get_tree().current_scene.get_node_or_null("player/head/boiler_wheel")
 @onready var player_crowbar = get_tree().current_scene.get_node_or_null("player/head/crowbar")
 @onready var player_battery = get_tree().current_scene.get_node_or_null("player/head/battery")
+@onready var player_keycard = get_tree().current_scene.get_node_or_null("player/head/keycard")
+@onready var scan = get_tree().current_scene.get_node_or_null("player/scan")
 
 # Objects
 @export var door: Node3D
+@export var door2: Node3D
 var lock_opened
 var key
 var key_collider
@@ -30,6 +33,7 @@ var wheel_in = false
 var melted = false
 var elevator_animplayer
 var elevator
+var scanned = false
 var fire
 var flash
 var library
@@ -79,7 +83,7 @@ func _physics_process(delta: float) -> void:
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
 						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"
-						,"magnet_spawn", "magnet","holder","battery"]:
+						,"magnet_spawn", "magnet","holder","battery","scanner"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -185,9 +189,10 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				player_ui.set_task(".Now take the key card")
 				melted = true
 		"elevator_button":
-			var same =  await elevator.elevator("g_back")
-			if same:
-				elevator_animplayer.play("open")
+			if battery_in == 2:
+				var same =  await elevator.elevator("g_back")
+				if same:
+					elevator_animplayer.play("open")
 		"elevator_button2":
 			var same = await elevator.elevator("f_back")
 			if same:
@@ -276,9 +281,14 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("YEEEEEEE MINT")
 					print(Inventory.slots)
 					hit.get_parent().toggle_battery()
-					battery_in +1
+					battery_in += 1
 				else:
 					print("You don’t have the BATTERY!")
+		"scanner":
+			if player_keycard.visible == true and !scanned:
+				scanned = true
+				door2.locked = false
+				scan.play()
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")

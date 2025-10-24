@@ -219,7 +219,7 @@ func equip_item(item_name: String) -> void:
 		"MATCHSTICK": player_matchstick.visible = true
 		"BOILER_WHEEL": player_boilerwheel.visible = true
 		"MAGNET": player_magnet.visible = true
-		"MBATTERY": player_battery.visible = true
+		"BATTERY": player_battery.visible = true
 		_: pass
 
 # --- DROP ITEM ---
