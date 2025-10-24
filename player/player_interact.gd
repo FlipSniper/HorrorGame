@@ -8,6 +8,7 @@ extends RayCast3D
 @onready var player_key = get_tree().current_scene.get_node_or_null("player/head/player_key")
 @onready var player_boilerwheel = get_tree().current_scene.get_node_or_null("player/head/boiler_wheel")
 @onready var player_crowbar = get_tree().current_scene.get_node_or_null("player/head/crowbar")
+@onready var player_battery = get_tree().current_scene.get_node_or_null("player/head/battery")
 
 # Objects
 @export var door: Node3D
@@ -32,6 +33,7 @@ var elevator
 var fire
 var flash
 var library
+var battery_in = 0
 
 func _ready() -> void:
 	var current_scene = get_tree().current_scene
@@ -77,7 +79,7 @@ func _physics_process(delta: float) -> void:
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
 						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"
-						,"magnet_spawn", "magnet","holder"]:
+						,"magnet_spawn", "magnet","holder","battery"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -230,6 +232,13 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					hit.queue_free()
 				else:
 					print("Inventory full! Couldn't pick up magnet.")
+		"battery":
+			if hit != null:
+				var added = Inventory.add_item("BATTERY")
+				if added:
+					hit.queue_free()
+				else:
+					print("Inventory full! Couldn't pick up battery.")
 		"boiler_wheel":
 			if hit != null:
 				if !hit.get_parent().get_parent().name == "boiler":
@@ -257,8 +266,19 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print(Inventory.slots)
 					hit.get_parent().toggle_wheel()
 					wheel_in = true
+		"holder":
+			if battery_in != 2 and player_battery.visible:
+				var item_index = Inventory.find_item("BATTERY")
+				if item_index != -1:
+					Inventory.remove_item(item_index)
+					player_battery.visible = false
+					player.equipped_item = ""
+					print("YEEEEEEE MINT")
+					print(Inventory.slots)
+					hit.get_parent().toggle_battery()
+					battery_in +1
 				else:
-					print("You don’t have the MAGNET!")
+					print("You don’t have the BATTERY!")
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")

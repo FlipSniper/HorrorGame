@@ -250,34 +250,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xscas")
 
-[sub_resource type="Animation" id="Animation_xdx6g"]
-resource_name = "battery1"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("battery:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(5.009518, -2.3558297, 1.5405078), Vector3(1.298764, -0.089410424, 1.5405078), Vector3(0, -0.1887641, 1.5405078)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("battery:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(0, 0, -0.62454855), Vector3(0, 0, -0.16191998), Vector3(0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_08xtb"]
 length = 0.001
 tracks/0/type = "value"
@@ -327,6 +299,34 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-3.1415925, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xdx6g"]
+resource_name = "battery1"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("battery:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(5.009518, -2.3558297, 1.5405078), Vector3(1.298764, -0.089410424, 1.5405078), Vector3(0, -0.1887641, 1.5405078)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("battery:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.62454855), Vector3(0, 0, -0.16191998), Vector3(0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_xoy15"]
@@ -402,6 +402,7 @@ skeleton = NodePath("")
 
 [node name="battery" type="Node3D" parent="."]
 transform = Transform3D(1.037, 0, 0, 0, 1.9961281, 0, 0, 0, 1.037, 0, -0.1887641, 1.5405078)
+visible = false
 
 [node name="Cylinder" type="MeshInstance3D" parent="battery"]
 material_override = SubResource("StandardMaterial3D_x38no")
@@ -416,6 +417,7 @@ skeleton = NodePath("")
 
 [node name="battery2" type="Node3D" parent="."]
 transform = Transform3D(1.0369998, 0, 0, 0, -1.9961276, 1.5658257e-07, 0, -3.0140689e-07, -1.0369995, 0, 0.21855855, -1.4813042)
+visible = false
 
 [node name="Cylinder" type="MeshInstance3D" parent="battery2"]
 material_override = SubResource("StandardMaterial3D_x38no")

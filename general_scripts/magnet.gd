@@ -1,6 +1,6 @@
 extends Node3D
 
-@onready var battery = get_tree().current_scene.get_node_or_null("NavigationRegion3D/House/room3/batteries")
+@onready var battery = get_tree().current_scene.get_node_or_null("NavigationRegion3D/House/room3/battery")
 var magnet_on = false
 var move_speed = 5.0
 var close = false

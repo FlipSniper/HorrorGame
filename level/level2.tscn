@@ -178,6 +178,7 @@ keycard_scene = ExtResource("6_k16d7")
 matchstick_scene = ExtResource("7_01ea3")
 boilerwheel_scene = ExtResource("8_b3ylc")
 magnet_scene = ExtResource("9_t0ie7")
+battery_scene = ExtResource("14_b7c05")
 
 [node name="flashlight2" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50375, 2.0701, 0)
@@ -495,11 +496,11 @@ shape = SubResource("ConvexPolygonShape3D_p7her")
 [node name="table" parent="NavigationRegion3D/House/room3" instance=ExtResource("13_ujs60")]
 transform = Transform3D(0.62, 0, 0, 0, 0.62, 0, 0, 0, 0.62, -3.1980495, 1.3497293, 0.44399834)
 
-[node name="batteries" parent="NavigationRegion3D/House/room3" instance=ExtResource("14_b7c05")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -2.8445354, 1.4943817, 0.61105156)
+[node name="battery" parent="NavigationRegion3D/House/room3" instance=ExtResource("14_b7c05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1363087, 1.494494, 0)
 
-[node name="batteries2" parent="NavigationRegion3D/House/room3" instance=ExtResource("14_b7c05")]
-transform = Transform3D(0.03520966, 0, 0, 0, 0.06155931, 0, 0, 0, 0.03520966, 7.8208632, 1.3689585, 37.67681)
+[node name="battery2" parent="NavigationRegion3D/House/room3" instance=ExtResource("14_b7c05")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.34369, 1.494494, 0)
 
 [node name="Utils_Room" type="Node3D" parent="NavigationRegion3D/House"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.896706, 0.00801909, -18.760681)

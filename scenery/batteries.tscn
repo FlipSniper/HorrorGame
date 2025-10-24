@@ -78,23 +78,22 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_xscas")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x38no"]
-size = Vector3(1.9984131, 2.1614451, 1.9927979)
+size = Vector3(2.0627136, 4.4242115, 2.0359955)
 
-[node name="batteries" type="Node3D"]
+[node name="battery" type="RigidBody3D"]
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.055508547, 0, 0, 0, 0.10985409, 0, 0, 0, 0.055508547, 0.00024519453, 0.00075018406, -6.390499e-05)
 material_override = SubResource("StandardMaterial3D_x38no")
 mesh = SubResource("ArrayMesh_0g5i8")
 skeleton = NodePath("")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.42873988, 0, 0, 0, 0.10326189, 0, 0, 0, 0.42873988, 0, 1.0935658, 0)
+transform = Transform3D(0.023798726, 0, 0, 0, 0.011343741, 0, 0, 0, 0.023798726, 0.00024519453, 0.12088287, -6.390499e-05)
 material_override = ExtResource("2_x38no")
 mesh = SubResource("ArrayMesh_cko5e")
 skeleton = NodePath("")
 
-[node name="battery" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="battery"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00018310547, 0.09927738, -0.003112793)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.054529905, 0, 0, 0, 0.054529905, 0, 0, 0, 0.054529905, 0.0002878088, 0.011705637, -7.818413e-05)
 shape = SubResource("BoxShape3D_x38no")

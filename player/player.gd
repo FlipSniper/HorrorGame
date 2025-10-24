@@ -35,6 +35,7 @@ var tutorial
 @onready var player_boilerwheel = $head/boiler_wheel
 @onready var player_magnet = $head/magnet
 @onready var player_arm = $head/arm
+@onready var player_battery = $head/battery
 @onready var equipped_item: String = ""
 @onready var rng = RandomNumberGenerator.new()
 
@@ -46,6 +47,7 @@ var tutorial
 @export var matchstick_scene: PackedScene
 @export var boilerwheel_scene: PackedScene
 @export var magnet_scene: PackedScene
+@export var battery_scene: PackedScene
 
 # --- OPTIONAL DROP SCALES ---
 var drop_scales = {
@@ -204,6 +206,7 @@ func equip_item(item_name: String) -> void:
 			"MATCHSTICK": player_matchstick.visible = false
 			"BOILER_WHEEL": player_boilerwheel.visible = false
 			"MAGNET": player_magnet.visible = false
+			"BATTERY": player_battery.visible = false
 
 	# Equip new item
 	equipped_item = item_name
@@ -216,6 +219,7 @@ func equip_item(item_name: String) -> void:
 		"MATCHSTICK": player_matchstick.visible = true
 		"BOILER_WHEEL": player_boilerwheel.visible = true
 		"MAGNET": player_magnet.visible = true
+		"MBATTERY": player_battery.visible = true
 		_: pass
 
 # --- DROP ITEM ---
@@ -233,6 +237,7 @@ func drop_item() -> void:
 		"MATCHSTICK": scene = matchstick_scene
 		"BOILER_WHEEL": scene = boilerwheel_scene
 		"MAGNET": scene = magnet_scene
+		"BATTERY": scene = battery_scene
 		_: scene = null
 
 	if scene:
@@ -277,5 +282,6 @@ func drop_item() -> void:
 		"MATCHSTICK": player_matchstick.visible = false
 		"BOILER_WHEEL": player_boilerwheel.visible = false
 		"MAGNET": player_magnet.visible = false
+		"BATTERY": player_battery.visible = false
 
 	equipped_item = ""
