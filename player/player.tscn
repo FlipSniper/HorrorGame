@@ -796,36 +796,36 @@ mesh = SubResource("ArrayMesh_7pqkx")
 skeleton = NodePath("")
 
 [node name="magnet" type="Node3D" parent="head"]
-transform = Transform3D(0.29768327, 0.03388921, 0.0153672, -0.027235819, 0.28285483, -0.09618387, -0.025354275, 0.094046004, 0.2837472, 0.6052935, -0.30443215, -0.65820956)
+transform = Transform3D(0.29768327, 0.03388921, 0.0153672, -0.027235819, 0.28285483, -0.09618387, -0.025354275, 0.094046004, 0.2837472, 0.592422, -0.22386898, -0.8958749)
 visible = false
 script = ExtResource("15_32hag")
 
 [node name="Cylinder" type="MeshInstance3D" parent="head/magnet"]
-transform = Transform3D(0, 0.2909175, 0, -0.52893585, 0, 0, 0, 0, 0.742569, 0, 0.010217771, 0)
+transform = Transform3D(2.7939677e-09, 0.2909175, 3.7252903e-09, -0.52893585, 9.313226e-10, 0, -1.4901161e-08, 0, 0.74256915, -2.3841858e-07, 0.010217786, 0.83759546)
 material_override = SubResource("StandardMaterial3D_wodsf")
 mesh = SubResource("ArrayMesh_32hag")
 skeleton = NodePath("")
 
 [node name="Cube" type="MeshInstance3D" parent="head/magnet"]
-transform = Transform3D(0.066587195, 0, 0, 0, 0.059816565, 0, 0, 0, 0.046355605, 0, 0.4756069, 0.39831826)
+transform = Transform3D(0.066587195, -2.3283064e-10, 2.3283064e-10, 5.820766e-10, 0.059816565, -9.313226e-10, -9.313226e-10, -3.7252903e-09, 0.046355613, -2.3841858e-07, 0.4756068, 1.2359138)
 material_override = SubResource("StandardMaterial3D_c35mf")
 mesh = SubResource("ArrayMesh_65viv")
 skeleton = NodePath("")
 
 [node name="Cube_001" type="MeshInstance3D" parent="head/magnet"]
-transform = Transform3D(0.28391865, 0, 0, 0, 0.18886085, 0, 0, 0, 0.20775706, 0, 0.33504146, -0.18367472)
+transform = Transform3D(0.28391865, -1.3969839e-09, 1.8626451e-09, -2.7939677e-09, 0.18886083, 3.7252903e-09, 0, 7.450581e-09, 0.2077571, 0, 0.3350414, 0.6539211)
 material_override = SubResource("StandardMaterial3D_x7c3f")
 mesh = SubResource("ArrayMesh_bjvpn")
 skeleton = NodePath("")
 
 [node name="Cube_002" type="MeshInstance3D" parent="head/magnet"]
-transform = Transform3D(0.28391865, 0, 0, 0, 0.18886085, 0, 0, 0, 0.20775706, 0, -0.32007247, -0.18367472)
+transform = Transform3D(0.28391865, -1.3969839e-09, 1.8626451e-09, -2.7939677e-09, 0.18886083, 3.7252903e-09, 0, 7.450581e-09, 0.2077571, 0, -0.3200726, 0.6539209)
 material_override = SubResource("StandardMaterial3D_s7qer")
 mesh = SubResource("ArrayMesh_uw77l")
 skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="head/magnet"]
-transform = Transform3D(3.3075936, -0.30262038, -0.28171432, 0.3765469, 3.142832, 1.0449558, 0.17074674, -1.0687102, 3.1527483, -2.0477269, -0.99163795, 2.465401)
+transform = Transform3D(3.3075936, -0.30262044, -0.28171435, 0.3765469, 3.142832, 1.0449558, 0.17074671, -1.0687102, 3.152749, -2.0477269, -0.991638, 3.302997)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="head/magnet/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062561044, 0.73845553, -2.2835834)

@@ -6,16 +6,18 @@ var move_speed = 5.0
 var close = false
 
 func _process(delta: float) -> void:
-	if magnet_on and battery and close:
+	if magnet_on and battery and close and visible:
 		print("here")
 		battery.global_position = battery.global_position.move_toward(global_position, move_speed * delta)
 
 
 func attract(body: Node3D) -> void:
-	if body == battery:
+	print(body.name)
+	if body.name == "battery":
+		print("yep")
 		close = true
 
 
 func repel(body: Node3D) -> void:
-	if body == battery:
+	if body.name == "battery":
 		close = false
