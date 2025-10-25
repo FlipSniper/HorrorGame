@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://qyygpx2oba0h"]
+[gd_scene load_steps=12 format=4 uid="uid://qyygpx2oba0h"]
 
+[ext_resource type="Script" uid="uid://devn55tnjxqcj" path="res://general_scripts/batteries.gd" id="1_gkc3v"]
 [ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="1_ixyt0"]
 [ext_resource type="Material" uid="uid://btujvem6k057b" path="res://materials/metal_3.tres" id="2_x38no"]
 
@@ -81,6 +82,9 @@ shadow_mesh = SubResource("ArrayMesh_xscas")
 size = Vector3(2.0627136, 4.4242115, 2.0359955)
 
 [node name="battery" type="RigidBody3D"]
+contact_monitor = true
+max_contacts_reported = 3
+script = ExtResource("1_gkc3v")
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.055508547, 0, 0, 0, 0.10985409, 0, 0, 0, 0.055508547, 0.00024519453, 0.00075018406, -6.390499e-05)
@@ -97,3 +101,5 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.054529905, 0, 0, 0, 0.054529905, 0, 0, 0, 0.054529905, 0.0002878088, 0.011705637, -7.818413e-05)
 shape = SubResource("BoxShape3D_x38no")
+
+[connection signal="body_entered" from="." to="." method="hit_obj"]
