@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://df5xdwq1o1gwc"]
+[gd_scene load_steps=69 format=3 uid="uid://df5xdwq1o1gwc"]
 
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="5_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="6_glloo"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://bdnk57f1e6lm" path="res://general_scripts/spawns.gd" id="25_b8oox"]
 [ext_resource type="PackedScene" uid="uid://bg2qwiqs1g8ae" path="res://scenery/boiler_wheel.tscn" id="26_3amep"]
 [ext_resource type="PackedScene" uid="uid://dlvptlhvd1s0a" path="res://scenery/enemy.tscn" id="26_xhkwa"]
+[ext_resource type="PackedScene" uid="uid://bs7pwryywutyp" path="res://scenery/control_panel.tscn" id="27_36wr8"]
 [ext_resource type="PackedScene" uid="uid://elgqifolhagi" path="res://scenery/scanner.tscn" id="27_p7her"]
 [ext_resource type="PackedScene" uid="uid://duc2mcuvk2tc2" path="res://scenery/magnet.tscn" id="29_ix6xw"]
 
@@ -940,6 +941,9 @@ transform = Transform3D(0.018492104, 0, 0, 0, 0.027177261, 0, 0, 0, 0.010193063,
 [node name="scanner" parent="NavigationRegion3D/House" instance=ExtResource("27_p7her")]
 transform = Transform3D(-9.616506e-09, 0, 0.22, 0, 0.22, 0, -0.22, 0, -9.616506e-09, 1.2753594, 1.2718102, 10.316987)
 
+[node name="control_panel" parent="NavigationRegion3D" instance=ExtResource("27_36wr8")]
+transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 2, 1, 10)
+
 [node name="code_paper" parent="." instance=ExtResource("11_82s7j")]
 
 [node name="safe" parent="." instance=ExtResource("12_kouoh")]
@@ -1101,3 +1105,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.823963, 2.0295718, 3.8492
 [editable path="player"]
 [editable path="NavigationRegion3D/House/Kitchen/fridge"]
 [editable path="NavigationRegion3D/House/Kitchen/ice"]
+[editable path="NavigationRegion3D/control_panel"]
