@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs7pwryywutyp"]
+
+[ext_resource type="PackedScene" uid="uid://dyyw6ooc0dw0x" path="res://glb_models/screw.glb" id="1_phhmw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mfno1"]
+
+[node name="control_panel" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.13418955, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_mfno1")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.04, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_mfno1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.167, 0, 0.15, -0.41240275)
+mesh = SubResource("BoxMesh_mfno1")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 0.167, 0, 0.2, 0, -1, 0, -7.2998017e-09, 0.42, 0.15, 0)
+mesh = SubResource("BoxMesh_mfno1")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 0.167, 0, 0.2, 0, -1, 0, -7.2998017e-09, -0.42, 0.15, 0)
+mesh = SubResource("BoxMesh_mfno1")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.167, 0, 0.15, 0.41373694)
+mesh = SubResource("BoxMesh_mfno1")
+
+[node name="screw" parent="." instance=ExtResource("1_phhmw")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.45, 0.275, 0.45)
+
+[node name="screw2" parent="." instance=ExtResource("1_phhmw")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.45, 0.275, 0.45)
+
+[node name="screw3" parent="." instance=ExtResource("1_phhmw")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.45, 0.275, -0.45)
+
+[node name="screw4" parent="." instance=ExtResource("1_phhmw")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.45, 0.275, -0.45)
+
+[node name="screw5" parent="." instance=ExtResource("1_phhmw")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.275, -0.45)
+
+[node name="screw6" parent="." instance=ExtResource("1_phhmw")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.275, 0.45)
+
+[node name="screw7" parent="." instance=ExtResource("1_phhmw")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.45, 0.275, 0)
+
+[node name="screw8" parent="." instance=ExtResource("1_phhmw")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.45, 0.275, 0)
