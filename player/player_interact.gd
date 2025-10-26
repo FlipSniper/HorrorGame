@@ -83,7 +83,8 @@ func _physics_process(delta: float) -> void:
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
 						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"
-						,"magnet_spawn", "magnet","holder","battery","scanner"]:
+						,"screwdriver","screw","screw2","screw3","magnet_spawn", "magnet","holder","battery","scanner",
+						"screw4","screw5","screw6","screw7","screw8"]:
 			crosshair.visible = true
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
@@ -92,6 +93,8 @@ func _physics_process(delta: float) -> void:
 
 func handle_interaction(hit: Node, hit_name: String) -> void:
 	match hit_name:
+		"screw":
+			hit.get_parent().toggle_screw(0)
 		"safe":
 			if powerbox or main_scene_name == "office":
 				player_ui.open_safe_password()

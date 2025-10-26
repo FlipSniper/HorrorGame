@@ -1,55 +1,92 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs7pwryywutyp"]
+[gd_scene load_steps=10 format=3 uid="uid://bs7pwryywutyp"]
 
+[ext_resource type="Material" uid="uid://bhgafs8grgwv1" path="res://materials/metal_5.tres" id="1_j20c8"]
+[ext_resource type="Script" uid="uid://rql81qmpwnqh" path="res://general_scripts/rigid_fall.gd" id="2_g6avl"]
 [ext_resource type="PackedScene" uid="uid://dnbidw0gs8wda" path="res://scenery/screw.tscn" id="2_j20c8"]
+[ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="2_pe7b2"]
+[ext_resource type="Script" uid="uid://c8qc7rakylch0" path="res://general_scripts/screw.gd" id="3_q5m0g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mfno1"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pe7b2"]
+size = Vector3(1, 0.04, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5m0g"]
+albedo_texture = ExtResource("2_pe7b2")
+metallic = 1.0
+roughness = 0.5
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6avl"]
+albedo_texture = ExtResource("2_pe7b2")
+metallic = 1.0
+roughness = 0.5
+uv1_scale = Vector3(3, 2, 1)
+
 [node name="control_panel" type="Node3D"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.13418955, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_mfno1")
+[node name="meshes" type="Node3D" parent="."]
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="meshes"]
+transform = Transform3D(1, 0, 0, 0, 0.07, 0, 0, 0, 1, 0, 0.02, 0)
+material_override = ExtResource("1_j20c8")
+mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
+
+[node name="top_panel" type="RigidBody3D" parent="meshes"]
+script = ExtResource("2_g6avl")
+screw_nodes = Array[NodePath]([NodePath(".")])
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="meshes/top_panel"]
 transform = Transform3D(1, 0, 0, 0, 0.04, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("1_j20c8")
 mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="meshes/top_panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_pe7b2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="meshes"]
 transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.167, 0, 0.15, -0.41240275)
+material_override = SubResource("StandardMaterial3D_q5m0g")
 mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 0.167, 0, 0.2, 0, -1, 0, -7.2998017e-09, 0.42, 0.15, 0)
-mesh = SubResource("BoxMesh_mfno1")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, 0.167, 0, 0.2, 0, -1, 0, -7.2998017e-09, -0.42, 0.15, 0)
-mesh = SubResource("BoxMesh_mfno1")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="meshes"]
 transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.167, 0, 0.15, 0.41373694)
+material_override = SubResource("StandardMaterial3D_q5m0g")
 mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
 
-[node name="screw" parent="." instance=ExtResource("2_j20c8")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.45, 0.275, 0.45)
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="meshes"]
+transform = Transform3D(-4.371139e-08, 0, 0.167, 0, 0.2, 0, -1, 0, -7.2998017e-09, -0.42, 0.15, 0)
+material_override = SubResource("StandardMaterial3D_g6avl")
+mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
 
-[node name="screw2" parent="." instance=ExtResource("2_j20c8")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.45, 0.275, 0.45)
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="meshes"]
+transform = Transform3D(-4.371139e-08, 0, 0.167, 0, 0.2, 0, -1, 0, -7.2998017e-09, 0.42, 0.15, 0)
+material_override = SubResource("StandardMaterial3D_g6avl")
+mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
 
-[node name="screw3" parent="." instance=ExtResource("2_j20c8")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.45, 0.275, -0.45)
+[node name="screws" type="Node3D" parent="."]
+script = ExtResource("3_q5m0g")
+screw_nodes = Array[NodePath]([NodePath("screw"), NodePath("screw2"), NodePath("screw3"), NodePath("screw4"), NodePath("screw5"), NodePath("screw6"), NodePath("screw7"), NodePath("screw8")])
 
-[node name="screw4" parent="." instance=ExtResource("2_j20c8")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.45, 0.275, -0.45)
+[node name="screw" parent="screws" instance=ExtResource("2_j20c8")]
 
-[node name="screw5" parent="." instance=ExtResource("2_j20c8")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.275, -0.45)
+[node name="screw2" parent="screws" instance=ExtResource("2_j20c8")]
 
-[node name="screw6" parent="." instance=ExtResource("2_j20c8")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.275, 0.45)
+[node name="screw3" parent="screws" instance=ExtResource("2_j20c8")]
 
-[node name="screw7" parent="." instance=ExtResource("2_j20c8")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0.45, 0.275, 0)
+[node name="screw4" parent="screws" instance=ExtResource("2_j20c8")]
 
-[node name="screw8" parent="." instance=ExtResource("2_j20c8")]
-transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, -0.45, 0.275, 0)
+[node name="screw5" parent="screws" instance=ExtResource("2_j20c8")]
+
+[node name="screw6" parent="screws" instance=ExtResource("2_j20c8")]
+
+[node name="screw7" parent="screws" instance=ExtResource("2_j20c8")]
+
+[node name="screw8" parent="screws" instance=ExtResource("2_j20c8")]

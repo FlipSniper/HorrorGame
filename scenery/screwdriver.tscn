@@ -124,7 +124,7 @@ shadow_mesh = SubResource("ArrayMesh_tpdff")
 [sub_resource type="BoxShape3D" id="BoxShape3D_co23t"]
 size = Vector3(2.8, 8.3, 2.8)
 
-[node name="screwdriver" type="Node3D"]
+[node name="screwdriver" type="RigidBody3D"]
 
 [node name="Cylinder" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.56480736, 0, 0, 0, 3.2596388, 0, 0, 0, 0.56480736, 0, 0, 0)
@@ -144,7 +144,5 @@ material_override = SubResource("StandardMaterial3D_461g5")
 mesh = SubResource("ArrayMesh_461g5")
 skeleton = NodePath("")
 
-[node name="screwdriver" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="screwdriver"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_co23t")
