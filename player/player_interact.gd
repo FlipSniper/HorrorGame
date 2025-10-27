@@ -12,7 +12,6 @@ extends RayCast3D
 @onready var player_keycard = get_tree().current_scene.get_node_or_null("player/head/keycard")
 @onready var player_screwdriver = get_tree().current_scene.get_node_or_null("player/head/screwdriver")
 @onready var scan = get_tree().current_scene.get_node_or_null("player/scan")
-@onready var panel = get_tree().current_scene.get_node_or_null("NavigationRegion3D/control_panel/meshes/top_panel")
 
 # Objects
 @export var door: Node3D
@@ -33,6 +32,7 @@ var main_scene_name = ""
 var boiler = false
 var wheel_in = false
 var melted = false
+var panel
 var elevator_animplayer
 var elevator
 var scanned = false
@@ -63,6 +63,7 @@ func _ready() -> void:
 		proper_crowbar = current_scene.get_node_or_null("crowbar")
 		proper_crowbar.disable_body()
 	elif main_scene_name == "level2":
+		panel = get_tree().current_scene.get_node_or_null("NavigationRegion3D/control_panel/meshes/top_panel")
 		library = current_scene.get_node_or_null("NavigationRegion3D/House/shelf2")
 		flash = false
 		powerbox = true
@@ -71,6 +72,8 @@ func _ready() -> void:
 		plank2 = current_scene.get_node_or_null("planks/plank2")
 		elevator = current_scene.get_node_or_null("NavigationRegion3D/House/Elevator")
 		fire = current_scene.get_node_or_null("matchstick")
+		panel.freeze = true
+		panel.sleeping = true
 
 func _physics_process(delta: float) -> void:
 	if is_colliding():
@@ -88,6 +91,8 @@ func _physics_process(delta: float) -> void:
 						,"screwdriver","screw","screw2","screw3","magnet_spawn", "magnet","holder","battery","scanner",
 						"screw4","screw5","screw6","screw7","screw8"]:
 			crosshair.visible = true
+			if hit.name == "screw":
+				print("wth bro")
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
 		else:
@@ -105,14 +110,21 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(0)
-				if hit.unlocked == 8:
+				print(hit.get_parent().unlocked)
+				if hit.get_parent().unlocked == 8:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
 					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
 		"screw2":
-			if player.screwdriver.visible:
+			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(1)
+				print(hit.get_parent().unlocked)
+				if hit.get_parent().unlocked == 8:
+					print("yeye")
+					panel.freeze = false
+					panel.sleeping = false
+					panel.apply_impulse(Vector3(randf() - 0.5,1, randf() - 0.5))
 		"screw3":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(2)
