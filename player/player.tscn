@@ -1041,22 +1041,22 @@ mesh = SubResource("ArrayMesh_2uvqg")
 skeleton = NodePath("")
 
 [node name="screwdriver" type="Node3D" parent="head"]
-transform = Transform3D(-0.078784615, -0.0069459197, 0.012030697, -6.0568275e-09, -0.06928203, -0.04, 0.013891851, -0.03939231, 0.06822948, 0.55, -0.3, -0.7)
+transform = Transform3D(-0.078784615, -0.0069459197, 0.012030697, -6.0568275e-09, -0.06928203, -0.04, 0.013891851, -0.03939231, 0.06822948, 0.55, -0.3, -0.5)
 
 [node name="Cylinder" type="MeshInstance3D" parent="head/screwdriver"]
-transform = Transform3D(0.56480736, 0, 0, 0, 3.2596388, 0, 0, 0, 0.56480736, 0, 0, 0)
+transform = Transform3D(0.13192108, 0, -1.8626451e-09, -9.313226e-10, 0.7613482, 7.450581e-09, 3.7252903e-09, -2.9802322e-08, 0.13192108, 9.536743e-07, 0.30933332, 0)
 material_override = SubResource("StandardMaterial3D_knn7v")
 mesh = SubResource("ArrayMesh_1s1yo")
 skeleton = NodePath("")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="head/screwdriver"]
-transform = Transform3D(1.3658392, 0, 0, 0, 1.53502, 0, 0, 0, 1.3658392, 0, -2.6061368, 0)
+transform = Transform3D(0.3190167, 0, -3.7252903e-09, 0, 0.35853195, 0, -3.7252903e-09, 0, 0.31901675, 0, -0.29937696, 0)
 material_override = SubResource("StandardMaterial3D_5ejfk")
 mesh = SubResource("ArrayMesh_jd2rm")
 skeleton = NodePath("")
 
 [node name="Cone" type="MeshInstance3D" parent="head/screwdriver"]
-transform = Transform3D(0, 0, 0.5704318, 0, 0.5704318, 0, -0.5704318, 0, 0, 0, 3.8169415, 0)
+transform = Transform3D(0, 9.313226e-10, 0.13323477, 3.7252903e-09, 0.13323477, 0, -0.13323478, -3.7252903e-09, 3.7252903e-09, 0, 1.2008495, 0)
 material_override = SubResource("StandardMaterial3D_q28gw")
 mesh = SubResource("ArrayMesh_ge24q")
 skeleton = NodePath("")

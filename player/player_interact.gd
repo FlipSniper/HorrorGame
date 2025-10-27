@@ -16,6 +16,7 @@ extends RayCast3D
 # Objects
 @export var door: Node3D
 @export var door2: Node3D
+var y_impulse
 var lock_opened
 var key
 var key_collider
@@ -116,7 +117,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
-					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
+					panel.apply_impulse(Vector3(randf() - 0.5, y_impulse, randf() - 0.5) * 3.0)
 		"screw2":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(1)
@@ -126,7 +127,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
-					panel.apply_impulse(Vector3(randf() - 0.5,1, randf() - 0.5) * 3.0)
+					panel.apply_impulse(Vector3(randf() - 0.5, y_impulse, randf() - 0.5) * 3.0)
 		"screw3":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(2)
@@ -136,7 +137,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
-					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
+					panel.apply_impulse(Vector3(randf() - 0.5, y_impulse, randf() - 0.5) * 3.0)
 		"screw4":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(3)
@@ -146,7 +147,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
-					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
+					panel.apply_impulse(Vector3(randf() - 0.5, y_impulse, randf() - 0.5) * 3.0)
 		"screw5":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(4)
@@ -156,7 +157,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
-					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
+					panel.apply_impulse(Vector3(randf() - 0.5, y_impulse, randf() - 0.5) * 3.0)
 		"screw6":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(5)
@@ -166,7 +167,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
-					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
+					panel.apply_impulse(Vector3(randf() - 0.5, y_impulse, randf() - 0.5) * 3.0)
 		"screw7":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(6)
@@ -176,7 +177,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
-					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
+					panel.apply_impulse(Vector3(randf() - 0.5, y_impulse, randf() - 0.5) * 3.0)
 		"screw8":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(7)
@@ -186,7 +187,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
-					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
+					panel.apply_impulse(Vector3(randf() - 0.5, y_impulse, randf() - 0.5) * 3.0)
 		"safe":
 			if powerbox or main_scene_name == "office":
 				player_ui.open_safe_password()
