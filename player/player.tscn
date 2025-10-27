@@ -1041,6 +1041,7 @@ mesh = SubResource("ArrayMesh_2uvqg")
 skeleton = NodePath("")
 
 [node name="screwdriver" type="Node3D" parent="head"]
+transform = Transform3D(-0.078784615, -0.0069459197, 0.012030697, -6.0568275e-09, -0.06928203, -0.04, 0.013891851, -0.03939231, 0.06822948, 0.55, -0.3, -0.7)
 
 [node name="Cylinder" type="MeshInstance3D" parent="head/screwdriver"]
 transform = Transform3D(0.56480736, 0, 0, 0, 3.2596388, 0, 0, 0, 0.56480736, 0, 0, 0)
