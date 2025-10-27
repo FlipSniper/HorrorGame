@@ -110,6 +110,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(0)
+				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
 					print("yeye")
@@ -119,6 +120,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw2":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(1)
+				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
 					print("yeye")
@@ -128,6 +130,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw3":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(2)
+				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
 					print("yeye")
@@ -137,6 +140,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw4":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(3)
+				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
 					print("yeye")
@@ -146,6 +150,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw5":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(4)
+				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
 					print("yeye")
@@ -155,6 +160,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw6":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(5)
+				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
 					print("yeye")
@@ -164,6 +170,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw7":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(6)
+				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
 					print("yeye")
@@ -173,6 +180,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw8":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(7)
+				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
 					print("yeye")
