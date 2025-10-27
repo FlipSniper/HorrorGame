@@ -10,6 +10,7 @@ extends RayCast3D
 @onready var player_crowbar = get_tree().current_scene.get_node_or_null("player/head/crowbar")
 @onready var player_battery = get_tree().current_scene.get_node_or_null("player/head/battery")
 @onready var player_keycard = get_tree().current_scene.get_node_or_null("player/head/keycard")
+@onready var player_screwdriver = get_tree().current_scene.get_node_or_null("player/head/screwdriver")
 @onready var scan = get_tree().current_scene.get_node_or_null("player/scan")
 
 # Objects
@@ -101,21 +102,29 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				else:
 					print("Inventory full! Couldn't pick up screwdriver.")
 		"screw":
-			hit.get_parent().toggle_screw(0)
+			if player_screwdriver.visible:
+				hit.get_parent().toggle_screw(0)
 		"screw2":
-			hit.get_parent().toggle_screw(1)
+			if player.screwdriver.visible:
+				hit.get_parent().toggle_screw(1)
 		"screw3":
-			hit.get_parent().toggle_screw(2)
+			if player_screwdriver.visible:
+				hit.get_parent().toggle_screw(2)
 		"screw4":
-			hit.get_parent().toggle_screw(3)
+			if player_screwdriver.visible:
+				hit.get_parent().toggle_screw(3)
 		"screw5":
-			hit.get_parent().toggle_screw(4)
+			if player_screwdriver.visible:
+				hit.get_parent().toggle_screw(4)
 		"screw6":
-			hit.get_parent().toggle_screw(5)
+			if player_screwdriver.visible:
+				hit.get_parent().toggle_screw(5)
 		"screw7":
-			hit.get_parent().toggle_screw(6)
+			if player_screwdriver.visible:
+				hit.get_parent().toggle_screw(6)
 		"screw8":
-			hit.get_parent().toggle_screw(7)
+			if player_screwdriver.visible:
+				hit.get_parent().toggle_screw(7)
 		"safe":
 			if powerbox or main_scene_name == "office":
 				player_ui.open_safe_password()
