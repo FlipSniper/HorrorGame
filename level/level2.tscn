@@ -947,7 +947,7 @@ transform = Transform3D(-9.616506e-09, 0, 0.22, 0, 0.22, 0, -0.22, 0, -9.616506e
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 2, 1, 10)
 
 [node name="screws" type="Node3D" parent="NavigationRegion3D"]
-transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, 2, 1, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.02, 10)
 script = ExtResource("28_00h0i")
 screw_nodes = Array[NodePath]([NodePath("screw"), NodePath("screw2"), NodePath("screw3"), NodePath("screw4"), NodePath("screw5"), NodePath("screw6"), NodePath("screw7"), NodePath("screw8")])
 

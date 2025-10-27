@@ -93,6 +93,13 @@ func _physics_process(delta: float) -> void:
 
 func handle_interaction(hit: Node, hit_name: String) -> void:
 	match hit_name:
+		"screwdriver":
+			if hit != null:
+				var added = Inventory.add_item("SCREWDRIVER")
+				if added:
+					hit.queue_free()
+				else:
+					print("Inventory full! Couldn't pick up screwdriver.")
 		"screw":
 			hit.get_parent().toggle_screw(0)
 		"screw2":

@@ -27,6 +27,7 @@ var tutorial
 
 # --- PLAYER PICKUPS ---
 @onready var player_key = $head/player_key
+@onready var player_screwdriver = $head/screwdriver
 @onready var player_matchstick = $head/matchstick
 @onready var player_coffee = $head/coffee
 @onready var player_crowbar = $head/crowbar
@@ -48,6 +49,7 @@ var tutorial
 @export var boilerwheel_scene: PackedScene
 @export var magnet_scene: PackedScene
 @export var battery_scene: PackedScene
+@export var screwdriver_scene: PackedScene
 
 # --- OPTIONAL DROP SCALES ---
 var drop_scales = {
@@ -207,6 +209,7 @@ func equip_item(item_name: String) -> void:
 			"BOILER_WHEEL": player_boilerwheel.visible = false
 			"MAGNET": player_magnet.visible = false
 			"BATTERY": player_battery.visible = false
+			"SCREWDRIVVER": player_screwdriver.visible = false
 
 	# Equip new item
 	equipped_item = item_name
@@ -220,6 +223,7 @@ func equip_item(item_name: String) -> void:
 		"BOILER_WHEEL": player_boilerwheel.visible = true
 		"MAGNET": player_magnet.visible = true
 		"BATTERY": player_battery.visible = true
+		"SCREWDRIVER": player_screwdriver = true
 		_: pass
 
 # --- DROP ITEM ---
@@ -238,6 +242,7 @@ func drop_item() -> void:
 		"BOILER_WHEEL": scene = boilerwheel_scene
 		"MAGNET": scene = magnet_scene
 		"BATTERY": scene = battery_scene
+		"SCREWDRIVER": scene = screwdriver_scene
 		_: scene = null
 
 	if scene:
@@ -283,5 +288,6 @@ func drop_item() -> void:
 		"BOILER_WHEEL": player_boilerwheel.visible = false
 		"MAGNET": player_magnet.visible = false
 		"BATTERY": player_battery.visible = false
+		"SCREWDRIVER": player_screwdriver.visible = false
 
 	equipped_item = ""
