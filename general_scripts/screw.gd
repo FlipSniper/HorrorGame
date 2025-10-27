@@ -7,22 +7,31 @@ var fallen: Array[bool] = []   # keep track of which ones have fallen
 
 func _ready() -> void:
 	for path in screw_nodes:
+		print("yo 1st")
 		var screw = get_node(path)
 		if screw and screw is RigidBody3D:
-			screws.append(screws)
+			print("yo 2nd")
+			screws.append(screw)
 			fallen.append(false)
 			screw.freeze = true
 			screw.sleeping = true
+			print(screws)
 
 func toggle_screw(index: int) -> void:
+	print("hehe")
 	if index < 0 or index >= screws.size():
+		print(index >= screws.size())
+		print(screws.size())
 		return  # invalid index
 
 	if fallen[index]:
+		print("sthu")
 		return  # already dropped
 
 	var screw = screws[index]
+	print("screw")
 	if screw:
+		print("yoooo")
 		var anim = screw.get_node("AnimationPlayer")
 		anim.play("unscrew")
 		await get_tree().create_timer(1.8).timeout

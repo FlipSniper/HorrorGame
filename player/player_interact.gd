@@ -95,6 +95,20 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 	match hit_name:
 		"screw":
 			hit.get_parent().toggle_screw(0)
+		"screw2":
+			hit.get_parent().toggle_screw(1)
+		"screw3":
+			hit.get_parent().toggle_screw(2)
+		"screw4":
+			hit.get_parent().toggle_screw(3)
+		"screw5":
+			hit.get_parent().toggle_screw(4)
+		"screw6":
+			hit.get_parent().toggle_screw(5)
+		"screw7":
+			hit.get_parent().toggle_screw(6)
+		"screw8":
+			hit.get_parent().toggle_screw(7)
 		"safe":
 			if powerbox or main_scene_name == "office":
 				player_ui.open_safe_password()

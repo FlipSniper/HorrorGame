@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs7pwryywutyp"]
+[gd_scene load_steps=8 format=3 uid="uid://bs7pwryywutyp"]
 
 [ext_resource type="Material" uid="uid://bhgafs8grgwv1" path="res://materials/metal_5.tres" id="1_j20c8"]
 [ext_resource type="Script" uid="uid://rql81qmpwnqh" path="res://general_scripts/rigid_fall.gd" id="2_g6avl"]
-[ext_resource type="PackedScene" uid="uid://dnbidw0gs8wda" path="res://scenery/screw.tscn" id="2_j20c8"]
 [ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="2_pe7b2"]
-[ext_resource type="Script" uid="uid://c8qc7rakylch0" path="res://general_scripts/screw.gd" id="3_q5m0g"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mfno1"]
 
@@ -70,23 +68,3 @@ transform = Transform3D(-4.371139e-08, 0, 0.167, 0, 0.2, 0, -1, 0, -7.2998017e-0
 material_override = SubResource("StandardMaterial3D_g6avl")
 mesh = SubResource("BoxMesh_mfno1")
 skeleton = NodePath("../..")
-
-[node name="screws" type="Node3D" parent="."]
-script = ExtResource("3_q5m0g")
-screw_nodes = Array[NodePath]([NodePath("screw"), NodePath("screw2"), NodePath("screw3"), NodePath("screw4"), NodePath("screw5"), NodePath("screw6"), NodePath("screw7"), NodePath("screw8")])
-
-[node name="screw" parent="screws" instance=ExtResource("2_j20c8")]
-
-[node name="screw2" parent="screws" instance=ExtResource("2_j20c8")]
-
-[node name="screw3" parent="screws" instance=ExtResource("2_j20c8")]
-
-[node name="screw4" parent="screws" instance=ExtResource("2_j20c8")]
-
-[node name="screw5" parent="screws" instance=ExtResource("2_j20c8")]
-
-[node name="screw6" parent="screws" instance=ExtResource("2_j20c8")]
-
-[node name="screw7" parent="screws" instance=ExtResource("2_j20c8")]
-
-[node name="screw8" parent="screws" instance=ExtResource("2_j20c8")]
