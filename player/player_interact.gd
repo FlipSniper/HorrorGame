@@ -124,25 +124,61 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
-					panel.apply_impulse(Vector3(randf() - 0.5,1, randf() - 0.5))
+					panel.apply_impulse(Vector3(randf() - 0.5,1, randf() - 0.5) * 3.0)
 		"screw3":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(2)
+				print(hit.get_parent().unlocked)
+				if hit.get_parent().unlocked == 8:
+					print("yeye")
+					panel.freeze = false
+					panel.sleeping = false
+					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
 		"screw4":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(3)
+				print(hit.get_parent().unlocked)
+				if hit.get_parent().unlocked == 8:
+					print("yeye")
+					panel.freeze = false
+					panel.sleeping = false
+					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
 		"screw5":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(4)
+				print(hit.get_parent().unlocked)
+				if hit.get_parent().unlocked == 8:
+					print("yeye")
+					panel.freeze = false
+					panel.sleeping = false
+					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
 		"screw6":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(5)
+				print(hit.get_parent().unlocked)
+				if hit.get_parent().unlocked == 8:
+					print("yeye")
+					panel.freeze = false
+					panel.sleeping = false
+					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
 		"screw7":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(6)
+				print(hit.get_parent().unlocked)
+				if hit.get_parent().unlocked == 8:
+					print("yeye")
+					panel.freeze = false
+					panel.sleeping = false
+					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
 		"screw8":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(7)
+				print(hit.get_parent().unlocked)
+				if hit.get_parent().unlocked == 8:
+					print("yeye")
+					panel.freeze = false
+					panel.sleeping = false
+					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
 		"safe":
 			if powerbox or main_scene_name == "office":
 				player_ui.open_safe_password()
