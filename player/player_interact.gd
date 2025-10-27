@@ -12,6 +12,7 @@ extends RayCast3D
 @onready var player_keycard = get_tree().current_scene.get_node_or_null("player/head/keycard")
 @onready var player_screwdriver = get_tree().current_scene.get_node_or_null("player/head/screwdriver")
 @onready var scan = get_tree().current_scene.get_node_or_null("player/scan")
+@onready var panel = get_tree().current_scene.get_node_or_null("NavigationRegion3D/control_panel/meshes/top_panel")
 
 # Objects
 @export var door: Node3D
@@ -104,6 +105,11 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"screw":
 			if player_screwdriver.visible:
 				hit.get_parent().toggle_screw(0)
+				if hit.unlocked == 8:
+					print("yeye")
+					panel.freeze = false
+					panel.sleeping = false
+					panel.apply_impulse(Vector3(randf() - 0.5, 1, randf() - 0.5) * 3.0)
 		"screw2":
 			if player.screwdriver.visible:
 				hit.get_parent().toggle_screw(1)
