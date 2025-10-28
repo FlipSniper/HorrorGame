@@ -78,6 +78,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="crosshairtex" type="TextureRect" parent="CanvasLayer/crosshair"]
+modulate = Color(1, 1, 1, 0.29803923)
 layout_mode = 2
 texture = ExtResource("1_cfom6")
 
