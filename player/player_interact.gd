@@ -30,6 +30,7 @@ var plank2
 var powerbox = false
 var trapdoor = false
 var proper_crowbar
+var control_panel
 var main_scene_name = ""
 var boiler = false
 var wheel_in = false
@@ -74,17 +75,15 @@ func _ready() -> void:
 		plank2 = current_scene.get_node_or_null("planks/plank2")
 		elevator = current_scene.get_node_or_null("NavigationRegion3D/House/Elevator")
 		fire = current_scene.get_node_or_null("matchstick")
+		control_panel = current_scene.get_node_or_null("NavigationRegion3D/control_panel")
 		panel.freeze = true
 		panel.sleeping = true
 
 func _physics_process(delta: float) -> void:
 	if !is_colliding():
-		crosshair.visible = false
 		crosshair_tex.modulate = "ffffff4c"
 	if is_colliding():
 		var hit = get_collider()
-		
-		crosshair_tex.modulate = "ffffff4c"
 
 		if not hit:
 			return
@@ -95,17 +94,19 @@ func _physics_process(delta: float) -> void:
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
 						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"
 						,"screwdriver","screw","screw2","screw3","magnet_spawn", "magnet","holder","battery","scanner",
-						"screw4","screw5","screw6","screw7","screw8"]:
-			crosshair.visible = true
+						"screw4","screw5","screw6","screw7","screw8","control_switch"]:
+			crosshair_tex.modulate = "ffffffff"
 			if hit.name == "screw":
 				print("wth bro")
 			if Input.is_action_just_pressed("interact"):
 				handle_interaction(hit, hit_name)
 		else:
-			crosshair.visible = false
+			crosshair_tex.modulate = "ffffff4c"
 
 func handle_interaction(hit: Node, hit_name: String) -> void:
 	match hit_name:
+		"control_switch":
+			hit.get_parent().get_parent().get_parent().toggle_switch()
 		"screwdriver":
 			if hit != null:
 				var added = Inventory.add_item("SCREWDRIVER")
@@ -307,7 +308,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				var added = Inventory.add_item("KEY_CARD")
 				if added:
 					hit.queue_free()
-					player_ui.set_task(".You can now access the elevator")
+					player_ui.set_task(".Scan the card on the scanner")
 				else:
 					print("Inventory full! Couldn't pick up key card.")
 		"matchstick_box":
@@ -361,6 +362,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					if wheel_in and !boiler:
 						hit.get_parent().get_parent().toggle_boiler()
 						boiler = true
+						player_ui.set_task(".The boiler is now on. Melt the ice")
 		"missing_wheel":
 			if !wheel_in and player_boilerwheel.visible:
 				var item_index = Inventory.find_item("BOILER_WHEEL")
@@ -372,6 +374,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					print(Inventory.slots)
 					hit.get_parent().toggle_wheel()
 					wheel_in = true
+					player_ui.set_task(".Turn the wheel to switch the boiler on")
 		"holder":
 			if battery_in != 2 and player_battery.visible:
 				var item_index = Inventory.find_item("BATTERY")
@@ -386,10 +389,11 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				else:
 					print("You don’t have the BATTERY!")
 		"scanner":
-			if player_keycard.visible == true and !scanned:
+			if player_keycard.visible == true and !scanned and control_panel.switched_on:
 				scanned = true
 				door2.locked = false
 				scan.play()
+				player_ui.set_task(".Open the door and access the elevator")
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")
