@@ -55,8 +55,10 @@ func _process(delta: float) -> void:
 		visible = !visible
 		if visible:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			Inventory.mouse_lock = false
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Inventory.mouse_lock = true
 
 
 func update_inventory_ui() -> void:

@@ -107,11 +107,13 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 	match hit_name:
 		"control_switch":
 			hit.get_parent().get_parent().get_parent().toggle_switch()
+			player_ui.set_task(".The scanner and other electricty requiring appliances work now")
 		"screwdriver":
 			if hit != null:
 				var added = Inventory.add_item("SCREWDRIVER")
 				if added:
 					hit.queue_free()
+					player_ui.set_task(".You can now unscrew the screws of the control panel")
 				else:
 					print("Inventory full! Couldn't pick up screwdriver.")
 		"screw":
@@ -120,6 +122,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
+					player_ui.set_task(".Turn the lever on")
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
@@ -130,6 +133,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
+					player_ui.set_task(".Turn the lever on")
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
@@ -140,6 +144,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
+					player_ui.set_task(".Turn the lever on")
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
@@ -150,6 +155,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
+					player_ui.set_task(".Turn the lever on")
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
@@ -160,6 +166,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
+					player_ui.set_task(".Turn the lever on")
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
@@ -170,6 +177,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
+					player_ui.set_task(".Turn the lever on")
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
@@ -180,6 +188,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
+					player_ui.set_task(".Turn the lever on")
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
@@ -190,6 +199,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				await get_tree().create_timer(1.8).timeout
 				print(hit.get_parent().unlocked)
 				if hit.get_parent().unlocked == 8:
+					player_ui.set_task(".Turn the lever on")
 					print("yeye")
 					panel.freeze = false
 					panel.sleeping = false
@@ -316,6 +326,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				var added = Inventory.add_item("MATCHSTICK")
 				if added:
 					hit.get_parent().toggle_matchstick()
+					player_ui.set_task(".Light up the fire on the statue, to reveal a secret")
 				else:
 					print("Inventory full! Couldn't pick up matchstick.")
 		"matchstick":
@@ -323,6 +334,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				var added = Inventory.add_item("MATCHSTICK")
 				if added:
 					hit.queue_free()
+					player_ui.set_task(".Light up the fire on the statue, to reveal a secret")
 				else:
 					print("Inventory full! Couldn't pick up matchstick.")
 		"magnet_spawn":
@@ -330,6 +342,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				var added = Inventory.add_item("MAGNET")
 				if added:
 					hit.get_parent().queue_free()
+					player_ui.set_task(".Use this to get the hidden battery")
 				else:
 					print("Inventory full! Couldn't pick up magnet.")
 		"magnet":
@@ -337,6 +350,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				var added = Inventory.add_item("MAGNET")
 				if added:
 					hit.queue_free()
+					player_ui.set_task(".Use this to get the hidden battery")
 				else:
 					print("Inventory full! Couldn't pick up magnet.")
 		"battery":
@@ -344,6 +358,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				var added = Inventory.add_item("BATTERY")
 				if added:
 					hit.queue_free()
+					player_ui.set_task(".This is needed to be placed on the battery holder. Opposite of the elevator")
 				else:
 					print("Inventory full! Couldn't pick up battery.")
 		"boiler_wheel":
@@ -353,6 +368,7 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					if added:
 						if hit is StaticBody3D:
 							hit.get_parent().queue_free()
+							player_ui.set_task(".You found the missing wheel. Place it onto the boiler")
 							print("here")
 						else:
 							hit.queue_free()
@@ -388,6 +404,8 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 					battery_in += 1
 				else:
 					print("You don’t have the BATTERY!")
+				if battery_in == 2:
+					player_ui.set_task(".The elevator is now powered")
 		"scanner":
 			if player_keycard.visible == true and !scanned and control_panel.switched_on:
 				scanned = true
@@ -397,3 +415,4 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 		"fire":
 			if player.equipped == "MATCHSTICK":
 				library.play("open")
+				player_ui.set_task(".The secret passage is open")

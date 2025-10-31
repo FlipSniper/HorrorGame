@@ -10,6 +10,7 @@ func _ready() -> void:
 
 
 func toggle_switch():
-	anim_player.play("switch_on")
-	await get_tree().create_timer(1).timeout
-	switched_on = true
+	if !switched_on:
+		anim_player.play("switch_on")
+		await get_tree().create_timer(1).timeout
+		switched_on = true

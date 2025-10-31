@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 			flashlight.visible = !flashlight.visible
 	if player_flashlight.visible == false:
 		flashlight.visible = false
+	
 
 func _input(event: InputEvent) -> void:
 	# Keep your original reset logic

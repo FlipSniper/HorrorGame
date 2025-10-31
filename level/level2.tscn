@@ -385,6 +385,9 @@ transform = Transform3D(-1.3113417e-08, 0, -0.3, 0, 0.3, 0, 0.3, 0, -1.3113417e-
 [node name="drawers7" parent="NavigationRegion3D/House" instance=ExtResource("8_3fddd")]
 transform = Transform3D(-0.3, 0, -2.6226834e-08, 0, 0.3, 0, 2.6226834e-08, 0, -0.3, 12.2, 0.844, -18)
 
+[node name="drawers8" parent="NavigationRegion3D/House" instance=ExtResource("8_3fddd")]
+transform = Transform3D(-1.3113417e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.3113417e-08, 7, 0.844, -3.8)
+
 [node name="room1" type="Node3D" parent="NavigationRegion3D/House"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/House/room1"]
@@ -956,6 +959,12 @@ transform = Transform3D(-0.19, 0, -1.6610327e-08, 0, 0.19, 0, 1.6610327e-08, 0, 
 [node name="shelf5" parent="NavigationRegion3D/House" instance=ExtResource("15_l7f7e")]
 transform = Transform3D(-8.305164e-09, 0, -0.19, 0, 0.19, 0, 0.19, 0, -8.305164e-09, 9.1, 0.588, -14.6)
 
+[node name="shelf6" parent="NavigationRegion3D/House" instance=ExtResource("15_l7f7e")]
+transform = Transform3D(-8.305164e-09, 0, -0.19, 0, 0.19, 0, 0.19, 0, -8.305164e-09, 9.1, 0.588, -3.8)
+
+[node name="shelf7" parent="NavigationRegion3D/House" instance=ExtResource("15_l7f7e")]
+transform = Transform3D(-8.305164e-09, 0, -0.19, 0, 0.19, 0, 0.19, 0, -8.305164e-09, 11.3, 0.588, -3.8)
+
 [node name="shelf4" parent="NavigationRegion3D/House" instance=ExtResource("15_l7f7e")]
 transform = Transform3D(-0.19, 0, -1.6610327e-08, 0, 0.19, 0, 1.6610327e-08, 0, -0.19, -11.76255, 0.5882329, 6.0138416)
 
@@ -1194,6 +1203,42 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19, 
 
 [node name="spawn26" type="Node3D" parent="spawns"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.3, 1.43, -29.2)
+
+[node name="spawn27" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19, 3.4, -7.7)
+
+[node name="spawn28" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.3, 3.4, -7.7)
+
+[node name="spawn29" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19, 2.38, -7.7)
+
+[node name="spawn30" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.3, 2.38, -7.7)
+
+[node name="spawn31" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 19, 1.43, -7.7)
+
+[node name="spawn32" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.3, 1.43, -7.7)
+
+[node name="spawn33" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 23.437775, 3.4, -7.67)
+
+[node name="spawn34" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.737774, 3.4, -7.67)
+
+[node name="spawn35" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 23.437775, 2.38, -7.67)
+
+[node name="spawn36" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.737774, 2.38, -7.67)
+
+[node name="spawn37" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 23.437775, 1.43, -7.67)
+
+[node name="spawn38" type="Node3D" parent="spawns"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.737774, 1.43, -7.67)
 
 [editable path="player"]
 [editable path="NavigationRegion3D/House/Kitchen/fridge"]

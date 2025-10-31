@@ -86,7 +86,7 @@ func _ready() -> void:
 		$head/pointer.visible = false
 
 func _input(event):
-	if controls_enabled and event is InputEventMouseMotion:
+	if controls_enabled and event is InputEventMouseMotion and Inventory.mouse_lock:
 		rotation.y -= event.relative.x * look_sensitivity
 		camera_pitch = clamp(camera_pitch - event.relative.y * look_sensitivity, -1.2, 1.2)
 		head.rotation.x = camera_pitch
@@ -109,14 +109,15 @@ func _process(delta: float) -> void:
 func handle_arrow_look(delta: float) -> void:
 	var look_x = 0.0
 	var look_y = 0.0
-	if Input.is_action_pressed("look_left"): look_x -= 0.5
-	if Input.is_action_pressed("look_right"): look_x += 0.5
-	if Input.is_action_pressed("look_up"): look_y += 0.5
-	if Input.is_action_pressed("look_down"): look_y -= 0.5
+	if Inventory.mouse_lock:
+		if Input.is_action_pressed("look_left"): look_x -= 0.5
+		if Input.is_action_pressed("look_right"): look_x += 0.5
+		if Input.is_action_pressed("look_up"): look_y += 0.5
+		if Input.is_action_pressed("look_down"): look_y -= 0.5
 
-	rotation.y -= look_x * look_sensitivity * 10.0
-	camera_pitch = clamp(camera_pitch + look_y * look_sensitivity * 10.0, -1.2, 1.2)
-	head.rotation.x = camera_pitch
+		rotation.y -= look_x * look_sensitivity * 10.0
+		camera_pitch = clamp(camera_pitch + look_y * look_sensitivity * 10.0, -1.2, 1.2)
+		head.rotation.x = camera_pitch
 
 func update_pointer() -> void:
 	if tutorial:
