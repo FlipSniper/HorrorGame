@@ -47,7 +47,7 @@ func _ready() -> void:
 	var screwdriver = screwdrivers.instantiate()
 	pos = rng.randi_range(0 , rigid_spawns.size()-1)
 	add_child(screwdriver)
-	screwdriver.global_position = rigid_spawns[pos].global_position
+	screwdriver.global_position = rigid_spawns[0].global_position
 	screwdriver.global_rotation = Vector3(deg_to_rad(90),0,0)
 	screwdriver.position.y += 0.035
 	print(pos)

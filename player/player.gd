@@ -224,7 +224,7 @@ func equip_item(item_name: String) -> void:
 		"BOILER_WHEEL": player_boilerwheel.visible = true
 		"MAGNET": player_magnet.visible = true
 		"BATTERY": player_battery.visible = true
-		"SCREWDRIVER": player_screwdriver = true
+		"SCREWDRIVER": player_screwdriver.visible = true
 		_: pass
 
 # --- DROP ITEM ---
@@ -279,6 +279,7 @@ func drop_item() -> void:
 	Inventory.emit_signal("inventory_updated")
 
 	# Hide visuals
+	print(player_screwdriver)
 	match equipped_item:
 		"KEY": player_key.visible = false
 		"COFFEE": player_coffee.visible = false

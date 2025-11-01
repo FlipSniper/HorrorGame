@@ -1,12 +1,12 @@
-[gd_scene load_steps=16 format=4 uid="uid://clrasu46keh74"]
+[gd_scene load_steps=16 format=4 uid="uid://doqt46g53h66q"]
 
-[ext_resource type="Script" uid="uid://cy607ly3vsjx2" path="res://general_scripts/key.gd" id="1_rqye3"]
+[ext_resource type="Script" uid="uid://cy607ly3vsjx2" path="res://general_scripts/key.gd" id="1_jmypy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_havoa"]
 size = Vector3(1.53795, 0.228, 0.562908)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqye3"]
-albedo_color = Color(0, 0, 0, 1)
+albedo_color = Color(4.31973e-06, 0.424445, 0.118771, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ubb0"]
 resource_name = "Material"
@@ -163,7 +163,7 @@ shadow_mesh = SubResource("ArrayMesh_6useo")
 [node name="key" type="RigidBody3D"]
 contact_monitor = true
 max_contacts_reported = 3
-script = ExtResource("1_rqye3")
+script = ExtResource("1_jmypy")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.281796, 0, 0, 0, 0.281796, 0, 0, 0, 0.281796, -0.147787, 0.0136578, -0.0113579)

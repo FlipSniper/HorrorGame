@@ -504,9 +504,9 @@ material_override = ExtResource("2_q1p2b")
 mesh = SubResource("ArrayMesh_vnpi3")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cylinder"]
+[node name="fire" type="StaticBody3D" parent="Cylinder"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/fire"]
 shape = SubResource("ConvexPolygonShape3D_wxgx3")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="."]
@@ -515,9 +515,9 @@ material_override = ExtResource("3_7xkl3")
 mesh = SubResource("ArrayMesh_s3lyk")
 skeleton = NodePath("")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_001"]
+[node name="fire" type="StaticBody3D" parent="Cylinder_001"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder_001/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder_001/fire"]
 shape = SubResource("ConvexPolygonShape3D_h0em8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
 						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"
 						,"screwdriver","screw","screw2","screw3","magnet_spawn", "magnet","holder","battery","scanner",
-						"screw4","screw5","screw6","screw7","screw8","control_switch"]:
+						"screw4","screw5","screw6","screw7","screw8","control_switch", "fire"]:
 			crosshair_tex.modulate = "ffffffff"
 			if hit.name == "screw":
 				print("wth bro")
@@ -105,6 +105,8 @@ func _physics_process(delta: float) -> void:
 
 func handle_interaction(hit: Node, hit_name: String) -> void:
 	match hit_name:
+		"fire":
+			pass
 		"control_switch":
 			hit.get_parent().get_parent().get_parent().toggle_switch()
 			player_ui.set_task(".The scanner and other electricty requiring appliances work now")

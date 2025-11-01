@@ -221,8 +221,8 @@ shadow_mesh = SubResource("ArrayMesh_6gmh7")
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wodsf"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_32hag"]
-as_normal_map = true
 noise = SubResource("FastNoiseLite_wodsf")
+as_normal_map = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tqiix"]
 albedo_color = Color(1, 0, 0, 1)
@@ -1041,22 +1041,22 @@ mesh = SubResource("ArrayMesh_2uvqg")
 skeleton = NodePath("")
 
 [node name="screwdriver" type="Node3D" parent="head"]
-transform = Transform3D(-0.0787846, -0.00694592, 0.0120307, -6.05683e-09, -0.069282, -0.04, 0.0138919, -0.0393923, 0.0682295, 0.55, -0.3, -0.5)
+transform = Transform3D(-0.0787846, -0.00694592, 0.0120307, -6.05683e-09, -0.069282, -0.04, 0.0138919, -0.0393923, 0.0682295, 0.77811384, -0.3068084, -0.7022521)
 
 [node name="Cylinder" type="MeshInstance3D" parent="head/screwdriver"]
-transform = Transform3D(0.131921, 0, -1.86265e-09, -9.31323e-10, 0.761348, 7.45058e-09, 3.72529e-09, -2.98023e-08, 0.131921, 9.53674e-07, 0.309333, 0)
+transform = Transform3D(0.17129694, 1.4901161e-08, -3.7252903e-09, 1.8626451e-09, 0.9885961, 0, 0, 0, 0.17129692, 2.861023e-06, 0.28119516, 0)
 material_override = SubResource("StandardMaterial3D_knn7v")
 mesh = SubResource("ArrayMesh_1s1yo")
 skeleton = NodePath("")
 
 [node name="Cylinder_001" type="MeshInstance3D" parent="head/screwdriver"]
-transform = Transform3D(0.319017, 0, -3.72529e-09, 0, 0.358532, 0, -3.72529e-09, 0, 0.319017, 0, -0.299377, 0)
+transform = Transform3D(0.41423756, -3.7252903e-09, -7.450581e-09, 3.7252903e-09, 0.46554697, -1.4901161e-08, -1.4901161e-08, -2.9802322e-08, 0.4142375, 9.536743e-07, -0.50920296, 0)
 material_override = SubResource("StandardMaterial3D_5ejfk")
 mesh = SubResource("ArrayMesh_jd2rm")
 skeleton = NodePath("")
 
 [node name="Cone" type="MeshInstance3D" parent="head/screwdriver"]
-transform = Transform3D(0, 9.31323e-10, 0.133235, 3.72529e-09, 0.133235, 0, -0.133235, -3.72529e-09, 3.72529e-09, 0, 1.20085, 0)
+transform = Transform3D(-1.8626451e-09, 2.7939677e-09, 0.17300315, 1.4901161e-08, 0.1730031, 1.8626451e-09, -0.1730031, -1.4901161e-08, -1.8626451e-09, 9.536743e-07, 1.4388127, 0)
 material_override = SubResource("StandardMaterial3D_q28gw")
 mesh = SubResource("ArrayMesh_ge24q")
 skeleton = NodePath("")
