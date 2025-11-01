@@ -1,9 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://brmwm74sq4y6e"]
+[gd_scene load_steps=39 format=3 uid="uid://brmwm74sq4y6e"]
 
 [ext_resource type="PackedScene" uid="uid://bsggq4ktqk3tf" path="res://tutorial/office_layout.tscn" id="1_8v3bu"]
 [ext_resource type="Script" uid="uid://cnsdxahrsxi5g" path="res://general_scripts/cutscenes.gd" id="1_al5yc"]
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="2_q07b3"]
 [ext_resource type="PackedScene" uid="uid://xj88hbrbvdun" path="res://scenery/code_paper.tscn" id="3_746kk"]
+[ext_resource type="Texture2D" uid="uid://bg8rnal5p8agd" path="res://textures/carpet.jpg" id="3_mg862"]
 [ext_resource type="PackedScene" uid="uid://dfmw2pa162rv2" path="res://scenery/bulb.tscn" id="4_dfmmr"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="5_mk3jd"]
 [ext_resource type="PackedScene" uid="uid://d08avp4q2esg2" path="res://tutorial/coffee.tscn" id="6_c8dsk"]
@@ -35,6 +36,11 @@ background_energy_multiplier = 0.0
 sky = SubResource("Sky_al5yc")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kfjf7"]
+albedo_color = Color(0.240051, 0.150057, 0.543062, 1)
+albedo_texture = ExtResource("3_mg862")
+uv1_scale = Vector3(6.67, 5.34, 1)
 
 [sub_resource type="Animation" id="Animation_al5yc"]
 length = 0.001
@@ -379,6 +385,9 @@ environment = SubResource("Environment_086d5")
 
 [node name="office_layout" parent="." instance=ExtResource("1_8v3bu")]
 transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+
+[node name="Cube_004" parent="office_layout/office_meshes" index="3"]
+material_override = SubResource("StandardMaterial3D_kfjf7")
 
 [node name="monitor" parent="office_layout/desk" index="2"]
 transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 13.4771, 0, -11.9892)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=43 format=4 uid="uid://dawbf2a213khp"]
+[gd_scene load_steps=49 format=4 uid="uid://dawbf2a213khp"]
 
 [ext_resource type="Texture2D" uid="uid://d0embddnscp8" path="res://textures/stone.jpg" id="1_1mfm0"]
+[ext_resource type="Script" uid="uid://ivrouyrresie" path="res://general_scripts/statue_performance.gd" id="1_7xkl3"]
 [ext_resource type="Material" uid="uid://cyup7s0tfea3l" path="res://materials/metal_2.tres" id="2_q1p2b"]
 [ext_resource type="Material" uid="uid://ywrbi3a0ckvc" path="res://materials/metal.tres" id="3_7xkl3"]
 
@@ -352,7 +353,73 @@ shadow_mesh = SubResource("ArrayMesh_seyko")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h0em8"]
 points = PackedVector3Array(1, 1, -0.000195742, 1, -1, -0.000195742, 0.980619, 1, -0.195184, 0.980619, 1, 0.194988, 0.980619, -1, 0.194988, 0.980619, -1, -0.195184, 0.923845, 1, -0.382733, 0.923845, 1, 0.382537, 0.923845, -1, 0.382537, 0.923845, -1, -0.382733, 0.831441, 1, -0.555599, 0.831441, 1, 0.555403, 0.831441, -1, 0.555403, 0.831441, -1, -0.555599, 0.70693, 1, -0.707126, 0.70693, 1, 0.70693, 0.70693, -1, 0.70693, 0.70693, -1, -0.707126, 0.555403, 1, -0.831637, 0.555403, 1, 0.831441, 0.555403, -1, 0.831441, 0.555403, -1, -0.831637, 0.382537, 1, -0.924041, 0.382537, 1, 0.923845, 0.382537, -1, 0.923845, 0.382537, -1, -0.924041, 0.194988, 1, -0.980814, 0.194988, 1, 0.980619, 0.194988, -1, 0.980619, 0.194988, -1, -0.980814, -0.000195742, 1, -1, -0.000195742, 1, 1, -0.000195742, -1, 1, -0.000195742, -1, -1, -0.195184, 1, -0.980814, -0.195184, 1, 0.980619, -0.195184, -1, 0.980619, -0.195184, -1, -0.980814, -0.382733, 1, -0.924041, -0.382733, 1, 0.923845, -0.382733, -1, 0.923845, -0.382733, -1, -0.924041, -0.555599, 1, -0.831637, -0.555599, 1, 0.831441, -0.555599, -1, 0.831441, -0.555599, -1, -0.831637, -0.707126, 1, -0.707126, -0.707126, 1, 0.70693, -0.707126, -1, 0.70693, -0.707126, -1, -0.707126, -0.831637, 1, -0.555599, -0.831637, 1, 0.555403, -0.831637, -1, 0.555403, -0.831637, -1, -0.555599, -0.924041, 1, -0.382733, -0.924041, 1, 0.382537, -0.924041, -1, 0.382537, -0.924041, -1, -0.382733, -0.980814, 1, -0.195184, -0.980814, 1, 0.194988, -0.980814, -1, 0.194988, -0.980814, -1, -0.195184, -1, 1, -0.000195742, -1, -1, -0.000195742)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7xkl3"]
+albedo_color = Color(1, 0.3137255, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_q1p2b"]
+
+[sub_resource type="Animation" id="Animation_q1p2b"]
+resource_name = "fire"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:visible")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.100727, 1.9311852, 4.723376), Vector3(-2.100727, 2.589981, 5.1545944), Vector3(-2.100727, 2.2413044, 4.926366)]
+}
+
+[sub_resource type="Animation" id="Animation_7xkl3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.100727, 1.9311852, 4.723376)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7xkl3"]
+_data = {
+&"RESET": SubResource("Animation_7xkl3"),
+&"fire": SubResource("Animation_q1p2b")
+}
+
 [node name="statue_performance" type="Node3D"]
+script = ExtResource("1_7xkl3")
 
 [node name="Cube" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.03527, -0.0365986)
@@ -452,3 +519,14 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder_001/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_h0em8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.516, 0, 0, 0, 0.28916264, -0.28259537, 0, 0.1892732, 0.43173584, -2.100727, 1.9311852, 4.723376)
+visible = false
+material_override = SubResource("StandardMaterial3D_7xkl3")
+mesh = SubResource("CylinderMesh_q1p2b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7xkl3")
+}

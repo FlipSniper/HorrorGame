@@ -126,7 +126,7 @@ func pick_destination():
 	if available_destinations.size() == 0:
 		return
 
-	var new_destination: Node3D = available_destinations[rng.randi_range(23, available_destinations.size() - 1)]
+	var new_destination: Node3D = available_destinations[rng.randi_range(0, available_destinations.size() - 1)]
 
 	if destination != null and available_destinations.size() > 1:
 		while new_destination == destination:
