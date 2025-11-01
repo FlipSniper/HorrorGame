@@ -27,6 +27,7 @@ var tutorial
 
 # --- PLAYER PICKUPS ---
 @onready var player_key = $head/player_key
+@onready var player_black_key = $head/player_black_key
 @onready var player_screwdriver = $head/screwdriver
 @onready var player_matchstick = $head/matchstick
 @onready var player_coffee = $head/coffee
@@ -42,6 +43,7 @@ var tutorial
 
 @export var key_scene: PackedScene
 @export var coffee_scene: PackedScene
+@export var black_key_scene: PackedScene
 @export var crowbar_scene: PackedScene
 @export var flashlight_scene: PackedScene
 @export var keycard_scene: PackedScene
@@ -211,6 +213,7 @@ func equip_item(item_name: String) -> void:
 			"MAGNET": player_magnet.visible = false
 			"BATTERY": player_battery.visible = false
 			"SCREWDRIVVER": player_screwdriver.visible = false
+			"BLACK_KEY": player_black_key.visible = false
 
 	# Equip new item
 	equipped_item = item_name
@@ -225,6 +228,7 @@ func equip_item(item_name: String) -> void:
 		"MAGNET": player_magnet.visible = true
 		"BATTERY": player_battery.visible = true
 		"SCREWDRIVER": player_screwdriver.visible = true
+		"BLACK_KEY": player_black_key.visible = true
 		_: pass
 
 # --- DROP ITEM ---
@@ -244,6 +248,7 @@ func drop_item() -> void:
 		"MAGNET": scene = magnet_scene
 		"BATTERY": scene = battery_scene
 		"SCREWDRIVER": scene = screwdriver_scene
+		"BLACK_KEY": scene = black_key_scene
 		_: scene = null
 
 	if scene:
@@ -291,5 +296,6 @@ func drop_item() -> void:
 		"MAGNET": player_magnet.visible = false
 		"BATTERY": player_battery.visible = false
 		"SCREWDRIVER": player_screwdriver.visible = false
+		"BLACK_KEY": player_black_key.visible = false
 
 	equipped_item = ""
