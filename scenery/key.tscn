@@ -160,7 +160,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6useo")
 
-[node name="key" type="RigidBody3D"]
+[node name="black_key" type="RigidBody3D"]
 contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_rqye3")

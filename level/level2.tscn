@@ -655,7 +655,7 @@ skeleton = NodePath("../..")
 shape = SubResource("ConvexPolygonShape3D_82s7j")
 
 [node name="statue_performance" parent="NavigationRegion3D/House/Utils_Room3" instance=ExtResource("16_glloo")]
-transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, -7.10365, 2.11516, 0.988809)
+transform = Transform3D(-0.3, 0, -2.62268e-08, 0, 0.3, 0, 2.62268e-08, 0, -0.3, -7.10365, 2.11516, 1.3702517)
 
 [node name="Kitchen" type="Node3D" parent="NavigationRegion3D/House"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.7227, 0, 8.82761)
@@ -1129,8 +1129,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.6456, 1.32202, 86.9123)
 
 [node name="spawns" type="Node3D" parent="." node_paths=PackedStringArray("rigid_spawns", "static_spawns")]
 script = ExtResource("25_b8oox")
-rigid_spawns = [NodePath("spawn13"), NodePath("spawn14"), NodePath("spawn15"), NodePath("spawn16"), NodePath("spawn17"), NodePath("spawn18"), NodePath("spawn19"), NodePath("spawn20")]
-static_spawns = [NodePath("spawn1"), NodePath("spawn2"), NodePath("spawn3"), NodePath("spawn4"), NodePath("spawn5"), NodePath("spawn6"), NodePath("spawn7"), NodePath("spawn8"), NodePath("spawn9"), NodePath("spawn10"), NodePath("spawn11"), NodePath("spawn12"), NodePath("spawn21"), NodePath("spawn22"), NodePath("spawn23"), NodePath("spawn24"), NodePath("spawn25"), NodePath("spawn26")]
+rigid_spawns = [NodePath("spawn13"), NodePath("spawn14"), NodePath("spawn15"), NodePath("spawn16"), NodePath("spawn17"), NodePath("spawn18"), NodePath("spawn19"), NodePath("spawn20"), NodePath("spawn39"), NodePath("spawn40"), NodePath("spawn41"), NodePath("spawn42"), NodePath("spawn43"), NodePath("spawn44")]
+static_spawns = [NodePath("spawn1"), NodePath("spawn2"), NodePath("spawn3"), NodePath("spawn4"), NodePath("spawn5"), NodePath("spawn6"), NodePath("spawn7"), NodePath("spawn8"), NodePath("spawn9"), NodePath("spawn10"), NodePath("spawn11"), NodePath("spawn12"), NodePath("spawn21"), NodePath("spawn22"), NodePath("spawn23"), NodePath("spawn24"), NodePath("spawn25"), NodePath("spawn26"), NodePath("spawn27"), NodePath("spawn28"), NodePath("spawn29"), NodePath("spawn30"), NodePath("spawn31"), NodePath("spawn32"), NodePath("spawn33"), NodePath("spawn34"), NodePath("spawn35"), NodePath("spawn36"), NodePath("spawn37"), NodePath("spawn38")]
 matchsticks = ExtResource("22_b8oox")
 boiler_wheel = ExtResource("26_3amep")
 magnets = ExtResource("29_ix6xw")
@@ -1250,6 +1250,24 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 23.437
 
 [node name="spawn38" type="Node3D" parent="spawns"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.7378, 1.43, -7.67)
+
+[node name="spawn39" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.171538, 2.03, -7.532987)
+
+[node name="spawn40" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.871539, 2.03, -7.532987)
+
+[node name="spawn41" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.940396, 2.03, -39.060852)
+
+[node name="spawn42" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.640397, 2.03, -39.060852)
+
+[node name="spawn43" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.249605, 2.03, -39.220993)
+
+[node name="spawn44" type="Node3D" parent="spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5496044, 2.03, -39.220993)
 
 [editable path="player"]
 [editable path="NavigationRegion3D/House/Kitchen/fridge"]

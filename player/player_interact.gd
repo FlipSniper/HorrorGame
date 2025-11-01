@@ -41,7 +41,7 @@ var elevator
 var scanned = false
 var fire
 var flash
-var library
+var library_anim
 var battery_in = 0
 
 func _ready() -> void:
@@ -67,7 +67,7 @@ func _ready() -> void:
 		proper_crowbar.disable_body()
 	elif main_scene_name == "level2":
 		panel = get_tree().current_scene.get_node_or_null("NavigationRegion3D/control_panel/meshes/top_panel")
-		library = current_scene.get_node_or_null("NavigationRegion3D/House/shelf2")
+		library_anim = current_scene.get_node_or_null("NavigationRegion3D/House/shelf2/AnimationPlayer")
 		flash = false
 		powerbox = true
 		elevator_animplayer = current_scene.get_node_or_null("NavigationRegion3D/House/Elevator/AnimationPlayer")
@@ -94,7 +94,7 @@ func _physics_process(delta: float) -> void:
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
 						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"
 						,"screwdriver","screw","screw2","screw3","magnet_spawn", "magnet","holder","battery","scanner",
-						"screw4","screw5","screw6","screw7","screw8","control_switch", "fire"]:
+						"screw4","screw5","screw6","screw7","screw8","control_switch", "fire", "black_key"]:
 			crosshair_tex.modulate = "ffffffff"
 			if hit.name == "screw":
 				print("wth bro")
@@ -103,10 +103,28 @@ func _physics_process(delta: float) -> void:
 		else:
 			crosshair_tex.modulate = "ffffff4c"
 
+"""if hit != null:
+				var added = Inventory.add_item("KEY")
+				if added:
+					hit.queue_free()
+					player_ui.set_task(".Nice work. Now open the lock","res://assets/icons/lock.png")
+				else:
+print("Inventory full! Couldn't pick up key.")"""
 func handle_interaction(hit: Node, hit_name: String) -> void:
 	match hit_name:
+		"black_key":
+			if hit != null:
+				var added = Inventory.add_item("BLACK_KEY")
+				if added:
+					hit.queue_free()
+					player_ui.set_task(".The key unlocks a very mysterious room, with a mysterious figure. Go forth and find the lock")
+				else:
+					print("Inventory full! Couldn't pick up key.")
 		"fire":
-			pass
+			if player.equipped == "MATCHSTICK":
+				hit.get_parent().get_parent().toggle_fire()
+				library_anim.play("open")
+				player_ui.set_task(".The secret passage is open")
 		"control_switch":
 			hit.get_parent().get_parent().get_parent().toggle_switch()
 			player_ui.set_task(".The scanner and other electricty requiring appliances work now")
@@ -414,7 +432,3 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				door2.locked = false
 				scan.play()
 				player_ui.set_task(".Open the door and access the elevator")
-		"fire":
-			if player.equipped == "MATCHSTICK":
-				library.play("open")
-				player_ui.set_task(".The secret passage is open")
