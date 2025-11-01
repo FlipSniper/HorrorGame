@@ -34,7 +34,7 @@ func toggle_screw(index: int) -> void:
 		print("yoooo")
 		var anim = screw.get_node("AnimationPlayer")
 		anim.play("unscrew")
-		await get_tree().create_timer(1.8).timeout
+		await get_tree().create_timer(1.5).timeout
 		unlocked +=1
 		screw.freeze = false
 		screw.sleeping = false

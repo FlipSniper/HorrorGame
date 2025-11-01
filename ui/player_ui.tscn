@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://csjdgig62xg20"]
+[gd_scene load_steps=28 format=3 uid="uid://csjdgig62xg20"]
 
 [ext_resource type="Texture2D" uid="uid://d3wagh2ww0gvu" path="res://textures/crosshair.png" id="1_cfom6"]
 [ext_resource type="Script" uid="uid://de4s4500fkd71" path="res://general_scripts/player_ui.gd" id="1_ehg4m"]
@@ -21,6 +21,20 @@
 [ext_resource type="AudioStream" uid="uid://cgajcreqwlqcr" path="res://sound/goblin-cackle-87566.mp3" id="19_prpn4"]
 [ext_resource type="AudioStream" uid="uid://m0kk1mfe7xsq" path="res://sound/goblin-scream-87564.mp3" id="20_ud46t"]
 [ext_resource type="Script" uid="uid://c7ioevsa5kcna" path="res://ui/quests.gd" id="21_ud46t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2dni3"]
+bg_color = Color(0.27451, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ud46t"]
+bg_color = Color(0.776471, 0.0823529, 0, 0.74902)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hff70"]
 size = Vector2(455.5, 569)
@@ -78,7 +92,7 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="crosshairtex" type="TextureRect" parent="CanvasLayer/crosshair"]
-modulate = Color(1, 1, 1, 0.29803923)
+modulate = Color(1, 1, 1, 0.298039)
 layout_mode = 2
 texture = ExtResource("1_cfom6")
 
@@ -93,37 +107,40 @@ offset_bottom = 650.0
 [node name="slots" type="Node2D" parent="InventoryUI/Panel"]
 
 [node name="Slot1" type="Button" parent="InventoryUI/Panel/slots"]
-custom_minimum_size = Vector2(292.535, 31.505)
-offset_right = 8.0
-offset_bottom = 8.0
+custom_minimum_size = Vector2(292.535, 30.73)
+offset_right = 293.0
+offset_bottom = 30.0
 scale = Vector2(1, 2.48)
 focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_2dni3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ud46t")
 
 [node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot1"]
 layout_mode = 0
-offset_left = 1.0000076
-offset_right = 41.000008
+offset_left = 1.00001
+offset_right = 41.0
 offset_bottom = 40.0
-scale = Vector2(2.0800006, 0.75806457)
+scale = Vector2(2.08, 0.758065)
 expand_mode = 3
 stretch_mode = 4
 
 [node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot1"]
 layout_mode = 0
 offset_left = 251.0
-offset_top = 10.483871
+offset_top = 10.4839
 offset_right = 291.0
-offset_bottom = 33.48387
-scale = Vector2(1, 0.40322578)
+offset_bottom = 33.4839
+scale = Vector2(1, 0.403226)
 text = "No"
 horizontal_alignment = 2
 
 [node name="Highlight" type="ColorRect" parent="InventoryUI/Panel/slots/Slot1"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-scale = Vector2(7.270647, 1.34153)
-color = Color(0.6666667, 0, 0, 0.65882355)
+scale = Vector2(7.27065, 1.34153)
+color = Color(0.666667, 0, 0, 0.658824)
 
 [node name="Slot2" type="Button" parent="InventoryUI/Panel/slots"]
 custom_minimum_size = Vector2(292.535, 31.505)
@@ -131,23 +148,24 @@ offset_top = 79.0
 offset_right = 292.535
 offset_bottom = 110.505
 scale = Vector2(1, 2.48)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ud46t")
 
 [node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot2"]
 layout_mode = 0
-offset_left = 1.0000076
-offset_right = 41.000008
+offset_left = 1.00001
+offset_right = 41.0
 offset_bottom = 40.0
-scale = Vector2(2.0800006, 0.75806457)
+scale = Vector2(2.08, 0.758065)
 expand_mode = 3
 stretch_mode = 4
 
 [node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot2"]
 layout_mode = 0
 offset_left = 251.0
-offset_top = 10.483871
+offset_top = 10.4839
 offset_right = 291.0
-offset_bottom = 33.48387
-scale = Vector2(1, 0.40322578)
+offset_bottom = 33.4839
+scale = Vector2(1, 0.403226)
 text = "No"
 horizontal_alignment = 2
 
@@ -155,8 +173,8 @@ horizontal_alignment = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-scale = Vector2(7.270647, 1.34153)
-color = Color(0.6666667, 0, 0, 0.65882355)
+scale = Vector2(7.27065, 1.34153)
+color = Color(0.666667, 0, 0, 0.658824)
 
 [node name="Slot3" type="Button" parent="InventoryUI/Panel/slots"]
 custom_minimum_size = Vector2(292.535, 31.505)
@@ -167,19 +185,19 @@ scale = Vector2(1, 2.48)
 
 [node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot3"]
 layout_mode = 0
-offset_left = 1.0000076
-offset_right = 41.000008
+offset_left = 1.00001
+offset_right = 41.0
 offset_bottom = 40.0
-scale = Vector2(2.0800006, 0.75806457)
+scale = Vector2(2.08, 0.758065)
 expand_mode = 5
 
 [node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot3"]
 layout_mode = 0
 offset_left = 251.0
-offset_top = 10.483871
+offset_top = 10.4839
 offset_right = 291.0
-offset_bottom = 33.48387
-scale = Vector2(1, 0.40322578)
+offset_bottom = 33.4839
+scale = Vector2(1, 0.403226)
 text = "No"
 horizontal_alignment = 2
 
@@ -187,8 +205,8 @@ horizontal_alignment = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-scale = Vector2(7.270647, 1.34153)
-color = Color(0.6666667, 0, 0, 0.65882355)
+scale = Vector2(7.27065, 1.34153)
+color = Color(0.666667, 0, 0, 0.658824)
 
 [node name="Slot4" type="Button" parent="InventoryUI/Panel/slots"]
 custom_minimum_size = Vector2(292.535, 31.505)
@@ -199,19 +217,19 @@ scale = Vector2(1, 2.48)
 
 [node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot4"]
 layout_mode = 0
-offset_left = 1.0000076
-offset_right = 41.000008
+offset_left = 1.00001
+offset_right = 41.0
 offset_bottom = 40.0
-scale = Vector2(2.0800006, 0.75806457)
+scale = Vector2(2.08, 0.758065)
 expand_mode = 5
 
 [node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot4"]
 layout_mode = 0
 offset_left = 251.0
-offset_top = 10.483871
+offset_top = 10.4839
 offset_right = 291.0
-offset_bottom = 33.48387
-scale = Vector2(1, 0.40322578)
+offset_bottom = 33.4839
+scale = Vector2(1, 0.403226)
 text = "No"
 horizontal_alignment = 2
 
@@ -219,32 +237,32 @@ horizontal_alignment = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-scale = Vector2(7.270647, 1.34153)
-color = Color(0.6666667, 0, 0, 0.65882355)
+scale = Vector2(7.27065, 1.34153)
+color = Color(0.666667, 0, 0, 0.658824)
 
 [node name="Slot5" type="Button" parent="InventoryUI/Panel/slots"]
 custom_minimum_size = Vector2(292.535, 31.505)
 offset_left = 1.0
-offset_top = 327.00003
+offset_top = 327.0
 offset_right = 293.535
-offset_bottom = 358.50504
+offset_bottom = 358.505
 scale = Vector2(1, 2.48)
 
 [node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot5"]
 layout_mode = 0
-offset_left = 1.0000076
-offset_right = 41.000008
+offset_left = 1.00001
+offset_right = 41.0
 offset_bottom = 40.0
-scale = Vector2(2.0800006, 0.75806457)
+scale = Vector2(2.08, 0.758065)
 expand_mode = 5
 
 [node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot5"]
 layout_mode = 0
 offset_left = 251.0
-offset_top = 10.483871
+offset_top = 10.4839
 offset_right = 291.0
-offset_bottom = 33.48387
-scale = Vector2(1, 0.40322578)
+offset_bottom = 33.4839
+scale = Vector2(1, 0.403226)
 text = "No"
 horizontal_alignment = 2
 
@@ -252,8 +270,8 @@ horizontal_alignment = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-scale = Vector2(7.270647, 1.34153)
-color = Color(0.6666667, 0, 0, 0.65882355)
+scale = Vector2(7.27065, 1.34153)
+color = Color(0.666667, 0, 0, 0.658824)
 
 [node name="Slot6" type="Button" parent="InventoryUI/Panel/slots"]
 custom_minimum_size = Vector2(292.535, 31.505)
@@ -264,19 +282,19 @@ scale = Vector2(1, 2.48)
 
 [node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot6"]
 layout_mode = 0
-offset_left = 1.0000076
-offset_right = 41.000008
+offset_left = 1.00001
+offset_right = 41.0
 offset_bottom = 40.0
-scale = Vector2(2.0800006, 0.75806457)
+scale = Vector2(2.08, 0.758065)
 expand_mode = 5
 
 [node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot6"]
 layout_mode = 0
 offset_left = 251.0
-offset_top = 10.483871
+offset_top = 10.4839
 offset_right = 291.0
-offset_bottom = 33.48387
-scale = Vector2(1, 0.40322578)
+offset_bottom = 33.4839
+scale = Vector2(1, 0.403226)
 text = "No"
 horizontal_alignment = 2
 
@@ -284,8 +302,8 @@ horizontal_alignment = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-scale = Vector2(7.270647, 1.34153)
-color = Color(0.6666667, 0, 0, 0.65882355)
+scale = Vector2(7.27065, 1.34153)
+color = Color(0.666667, 0, 0, 0.658824)
 
 [node name="Slot7" type="Button" parent="InventoryUI/Panel/slots"]
 custom_minimum_size = Vector2(292.535, 31.505)
@@ -296,19 +314,19 @@ scale = Vector2(1, 2.48)
 
 [node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot7"]
 layout_mode = 0
-offset_left = 1.0000076
-offset_right = 41.000008
+offset_left = 1.00001
+offset_right = 41.0
 offset_bottom = 40.0
-scale = Vector2(2.0800006, 0.75806457)
+scale = Vector2(2.08, 0.758065)
 expand_mode = 5
 
 [node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot7"]
 layout_mode = 0
 offset_left = 251.0
-offset_top = 10.483871
+offset_top = 10.4839
 offset_right = 291.0
-offset_bottom = 33.48387
-scale = Vector2(1, 0.40322578)
+offset_bottom = 33.4839
+scale = Vector2(1, 0.403226)
 text = "No"
 horizontal_alignment = 2
 
@@ -316,8 +334,8 @@ horizontal_alignment = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-scale = Vector2(7.270647, 1.34153)
-color = Color(0.6666667, 0, 0, 0.65882355)
+scale = Vector2(7.27065, 1.34153)
+color = Color(0.666667, 0, 0, 0.658824)
 
 [node name="Slot8" type="Button" parent="InventoryUI/Panel/slots"]
 custom_minimum_size = Vector2(292.535, 31.505)
@@ -328,19 +346,19 @@ scale = Vector2(1, 2.48)
 
 [node name="Icon" type="TextureRect" parent="InventoryUI/Panel/slots/Slot8"]
 layout_mode = 0
-offset_left = 1.0000076
-offset_right = 41.000008
+offset_left = 1.00001
+offset_right = 41.0
 offset_bottom = 40.0
-scale = Vector2(2.0800006, 0.75806457)
+scale = Vector2(2.08, 0.758065)
 expand_mode = 5
 
 [node name="AmountLabel" type="Label" parent="InventoryUI/Panel/slots/Slot8"]
 layout_mode = 0
 offset_left = 251.0
-offset_top = 10.483871
+offset_top = 10.4839
 offset_right = 291.0
-offset_bottom = 33.48387
-scale = Vector2(1, 0.40322578)
+offset_bottom = 33.4839
+scale = Vector2(1, 0.403226)
 text = "No"
 horizontal_alignment = 2
 
@@ -348,8 +366,8 @@ horizontal_alignment = 2
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-scale = Vector2(7.270647, 1.34153)
-color = Color(0.6666667, 0, 0, 0.65882355)
+scale = Vector2(7.27065, 1.34153)
+color = Color(0.666667, 0, 0, 0.658824)
 
 [node name="InventoryOpenSound" type="AudioStreamPlayer" parent="InventoryUI"]
 stream = ExtResource("19_prpn4")

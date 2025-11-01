@@ -35,7 +35,7 @@ uv1_offset = Vector3(-0.99, -0.015, 0)
 [sub_resource type="PlaneMesh" id="PlaneMesh_agemk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uplfa"]
-size = Vector3(1.22083, 2.28789, 1.2902516)
+size = Vector3(1.22083, 2.28789, 1.29025)
 
 [sub_resource type="Animation" id="Animation_ryr5a"]
 length = 0.001
@@ -49,7 +49,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.6541811, -0.8822186)]
+"values": [Vector3(0, 0.654181, -0.882219)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -61,7 +61,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1.5707964, 1.5707964, 0)]
+"values": [Vector3(1.5708, 1.5708, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_0w43g"]
@@ -76,7 +76,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(1.5707964, 1.5707964, 0), Vector3(-4.8781953, 1.5707964, 0)]
+"values": [Vector3(1.5708, 1.5708, 0), Vector3(-4.8782, 1.5708, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_gdlb3"]
@@ -91,7 +91,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0.6541811, -0.8822186), Vector3(0, 0.6541811, -0.688935)]
+"values": [Vector3(0, 0.654181, -0.882219), Vector3(0, 0.654181, -0.688935)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ryr5a"]
@@ -103,7 +103,7 @@ _data = {
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_iqnex"]
 margin = 0.185
-height = 0.10501099
+height = 0.105011
 radius = 0.0234375
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_ryr5a"]
@@ -151,7 +151,7 @@ mesh = SubResource("PlaneMesh_agemk")
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00494385, 1.0485, 0.2199842)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00494385, 1.0485, 0.219984)
 shape = SubResource("BoxShape3D_uplfa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -160,13 +160,13 @@ libraries = {
 }
 
 [node name="missing_wheel" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6721797, -0.5289326)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.67218, -0.528933)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="missing_wheel"]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.016763508, -0.008375168)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.0167635, -0.00837517)
 shape = SubResource("CylinderShape3D_iqnex")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.048949502, 0, 0, 0, -4.2948405e-09, -0.048949502, 0, 0.0982545, -2.1396507e-09, 0, 0.65415066, -0.49035004)
+transform = Transform3D(0.0489495, 0, 0, 0, -4.29484e-09, -0.0489495, 0, 0.0982545, -2.13965e-09, 0, 0.654151, -0.49035)
 material_override = ExtResource("5_iqnex")
 mesh = SubResource("CylinderMesh_ryr5a")

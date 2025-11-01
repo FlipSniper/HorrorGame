@@ -102,7 +102,7 @@ func _on_slot_hover(index: int) -> void:
 	if index <= Inventory.unlocked_slots:
 		var slot = get_node("Panel/slots/Slot" + str(index))
 		var highlight = slot.get_node("Highlight")
-		highlight.visible = true
+		#highlight.visible = true
 		highlight.modulate = Color(0.8, 0, 0, 0.6)
 
 
