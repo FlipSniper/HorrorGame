@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://df5xdwq1o1gwc"]
+[gd_scene load_steps=77 format=3 uid="uid://df5xdwq1o1gwc"]
 
 [ext_resource type="PackedScene" uid="uid://licyfb78hh3h" path="res://player/player.tscn" id="5_b7c05"]
 [ext_resource type="PackedScene" uid="uid://clrasu46keh74" path="res://scenery/key.tscn" id="6_glloo"]
@@ -48,8 +48,17 @@ cell_height = 0.05
 
 [sub_resource type="BoxMesh" id="BoxMesh_43ny1"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_os02w"]
+size = Vector3(26.8578, 0.2988662, 42.0206)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vrcsn"]
+size = Vector3(26.8578, 0.9674064, 42.0206)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_43ny1"]
-size = Vector3(26.8578, 2.67285, 42.0206)
+size = Vector3(26.8578, 1.1249082, 42.0206)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o54fc"]
+size = Vector3(26.8578, 1.1249082, 42.0206)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_36wr8"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
@@ -188,7 +197,7 @@ adjustment_color_correction = SubResource("GradientTexture1D_0v1st")
 [node name="level2" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("5_b7c05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50483, 1.95273, 15.0598)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50483, 2.7905378, 15.0598)
 key_scene = ExtResource("6_glloo")
 coffee_scene = ExtResource("7_v1s08")
 crowbar_scene = ExtResource("8_p7her")
@@ -233,8 +242,8 @@ skeleton = NodePath("../..")
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/House/floor1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/House/floor1/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285828, -0.836426, -0.0662231)
-shape = SubResource("BoxShape3D_43ny1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285828, 0.35957906, -0.0662231)
+shape = SubResource("BoxShape3D_os02w")
 
 [node name="floor2" type="Node3D" parent="NavigationRegion3D/House"]
 
@@ -244,11 +253,11 @@ mesh = SubResource("BoxMesh_43ny1")
 skeleton = NodePath("../..")
 
 [node name="StaticBody3D8" type="StaticBody3D" parent="NavigationRegion3D/House/floor2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2996314, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5117004, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/House/floor2/StaticBody3D8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285828, 0, -0.0662231)
-shape = SubResource("BoxShape3D_43ny1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285828, 0.8527219, -0.0662231)
+shape = SubResource("BoxShape3D_vrcsn")
 
 [node name="roof" type="Node3D" parent="NavigationRegion3D/House"]
 
@@ -270,8 +279,8 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.89412, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/House/floor3/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285828, 0, -0.0662231)
-shape = SubResource("BoxShape3D_43ny1")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285828, -0.07875061, -0.0662231)
+shape = SubResource("BoxShape3D_o54fc")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="NavigationRegion3D/House/floor3"]
 transform = Transform3D(25.3319, 0, 0, 0, 1, 0, 0, 0, 41.4696, 0, 8.84527, 0)
