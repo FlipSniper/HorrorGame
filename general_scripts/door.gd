@@ -10,12 +10,16 @@ func ai_enable_door(body):
 		opened = true
 		play_open.play()
 		$AnimationPlayer.play("open")
+	elif body.name == "enemy" and locked:
+		print("ye mint")
+		body.pick_destination()
 func ai_disable_door(body):
 	if body.name == "enemy" and !locked and $AnimationPlayer.current_animation != "open":
 		opened = false
 		play_close.play()
 		$AnimationPlayer.play_backwards("open")
-
+	elif body.name == "enemy" and locked:
+		body.pick_destination()
 func toggle_door():
 	if $AnimationPlayer.current_animation != "open" and !locked:
 		opened  = !opened

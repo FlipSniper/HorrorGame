@@ -205,7 +205,7 @@ script = ExtResource("22_u3hms")
 
 [node name="enemy" parent="." node_paths=PackedStringArray("patrol_destinations") instance=ExtResource("26_xhkwa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.16775, 2.12808, -9.043239)
-patrol_destinations = [NodePath("../destinations/destination"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+patrol_destinations = [NodePath("../destinations/destination"), NodePath("../destinations/destination2"), NodePath("../destinations/destination3"), NodePath("../destinations/destination4"), NodePath("../destinations/destination5"), NodePath("../destinations/destination6"), NodePath("../destinations/destination7"), NodePath("../destinations/destination8"), NodePath("../destinations/destination9"), NodePath("../destinations/destination10"), NodePath("../destinations/destination11"), NodePath("../destinations/destination12"), NodePath("../destinations/destination13"), NodePath("../destinations/destination14"), NodePath("../destinations/destination15"), NodePath("../destinations/destination16"), NodePath("../destinations/destination17"), NodePath("../destinations/destination18"), NodePath("../destinations/destination19"), NodePath("../destinations/destination20"), NodePath("../destinations/destination21"), NodePath("../destinations/destination22"), NodePath("../destinations/destination23"), NodePath("../destinations/destination24"), NodePath("../destinations/destination25"), NodePath("../destinations/destination26")]
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_bkxn3")
@@ -1046,6 +1046,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.402987, 1.32202, 45.7965)
 
 [node name="destination24" parent="destinations" instance=ExtResource("15_bkxn3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.402987, 1.32202, 67.1502)
+
+[node name="destination25" parent="destinations" instance=ExtResource("15_bkxn3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.402987, 1.32202, 73.76854)
+
+[node name="destination26" parent="destinations" instance=ExtResource("15_bkxn3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.645607, 1.32202, 86.91226)
 
 [node name="spawns" type="Node3D" parent="." node_paths=PackedStringArray("rigid_spawns", "static_spawns")]
 script = ExtResource("25_b8oox")

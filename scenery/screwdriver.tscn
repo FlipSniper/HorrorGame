@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://brvhj816oedie"]
+
+[ext_resource type="PackedScene" uid="uid://cpckftt04ffwf" path="res://glb_models/screwdriver.glb" id="1_lj2kd"]
+[ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="2_co23t"]
+[ext_resource type="Material" uid="uid://btujvem6k057b" path="res://materials/metal_3.tres" id="3_juip1"]
+[ext_resource type="Material" uid="uid://cfxov12qxoubv" path="res://materials/metal_4.tres" id="4_jsvg7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flyc0"]
+albedo_texture = ExtResource("2_co23t")
+metallic = 1.0
+roughness = 0.5
+uv1_scale = Vector3(0.78, 2.625, 1)
+
+[node name="screwdriver" instance=ExtResource("1_lj2kd")]
+
+[node name="Cylinder" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_flyc0")
+
+[node name="Cylinder_001" parent="." index="1"]
+material_override = ExtResource("3_juip1")
+
+[node name="Cone" parent="." index="2"]
+material_override = ExtResource("4_jsvg7")

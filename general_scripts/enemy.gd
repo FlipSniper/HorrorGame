@@ -6,7 +6,6 @@ var speed = 3.0
 @onready var rng = RandomNumberGenerator.new()
 var destination
 var chasing = false
-var destination_value
 var killed = false
 var chase_timer = 0
 @export var footstep_sound: Array[AudioStream]
@@ -18,28 +17,29 @@ func _ready() -> void:
 	pick_destination()
 
 func footsteps():
-	if !chasing and $feet.pitch_scale != 1.0:
+	if not chasing and $feet.pitch_scale != 1.0:
 		$feet.pitch_scale = 1.0
 	elif chasing and $feet.pitch_scale != 1.5:
 		$feet.pitch_scale = 1.5
-	if !$feet.playing:
-		$feet.stream = footstep_sound[rng.randi_range(0,footstep_sound.size()-1)]
+	if not $feet.playing:
+		$feet.stream = footstep_sound[rng.randi_range(0, footstep_sound.size() - 1)]
 		$feet.play()
-
 
 func _process(delta: float) -> void:
 	if killed:
 		if anim.current_animation != "jumpscare":
 			anim.play("jumpscare")
 		return
+
 	if speed > 0:
 		footsteps()
-	if !chasing:
-		if speed != 2.0:
-			speed = 2.0
+
+	if chasing:
+		speed = 3.0
 	else:
-		if speed != 3.0:
-			speed = 3.0
+		speed = 2.0
+
+	if chasing:
 		if chase_timer < 15.0:
 			chase_timer += delta
 		else:
@@ -85,6 +85,10 @@ func _physics_process(delta: float) -> void:
 		velocity = velocity.move_toward(new_velocity, 0.25)
 		move_and_slide()
 
+		if not chasing and current_location.distance_to(destination.global_transform.origin) < 1.0:
+			await get_tree().create_timer(rng.randf_range(1.0, 3.0)).timeout
+			pick_destination()
+
 	if velocity.length() > 0.1:
 		if anim.current_animation != "walk":
 			anim.play("walk")
@@ -93,13 +97,12 @@ func _physics_process(delta: float) -> void:
 			anim.play("idle")
 
 func kill_player():
-	print("trying")
-	if !$killcast/killcast.enabled:
+	if not $killcast/killcast.enabled:
 		$killcast/killcast.enabled = true
 	$killcast.look_at(player.global_transform.origin)
 	if $killcast/killcast.is_colliding():
 		var hit = $killcast/killcast.get_collider()
-		if hit.name == "player" and !killed:
+		if hit.name == "player" and not killed:
 			killed = true
 			$jumpscare_cam.current = true
 			anim.play("jumpscare")
@@ -107,19 +110,29 @@ func kill_player():
 			player.process_mode = Node.PROCESS_MODE_DISABLED
 			velocity = Vector3.ZERO
 			move_and_slide()
-			await get_tree().create_timer(2.5,false).timeout
+			await get_tree().create_timer(2.5, false).timeout
 			get_tree().change_scene_to_file("res://scenery/death.tscn")
 
-func pick_destination(dont_choose = null):
-	if !chasing and !killed:
-		var num = rng.randi_range(0, patrol_destinations.size() - 1)
-		destination_value = num
-		destination = patrol_destinations[num]
-		if destination != null and dont_choose != null and destination == patrol_destinations[dont_choose]:
-			if dont_choose < 1:
-				destination = patrol_destinations[dont_choose + 1]
-			elif dont_choose > 0 and dont_choose <= patrol_destinations.size() - 1:
-				destination = patrol_destinations[dont_choose - 1]
+func pick_destination():
+	if killed or chasing:
+		return
+
+	var available_destinations: Array[Node3D] = []
+
+	for dest in patrol_destinations:
+		if dest != null and (not dest.has_method("locked") or not dest.locked):
+			available_destinations.append(dest)
+
+	if available_destinations.size() == 0:
+		return
+
+	var new_destination: Node3D = available_destinations[rng.randi_range(23, available_destinations.size() - 1)]
+
+	if destination != null and available_destinations.size() > 1:
+		while new_destination == destination:
+			new_destination = available_destinations[rng.randi_range(0, available_destinations.size() - 1)]
+
+	destination = new_destination
 
 func update_target_location():
 	$NavigationAgent3D.target_position = destination.global_transform.origin
