@@ -3,6 +3,7 @@ extends Node
 signal inventory_updated()
 signal slot_unlocked(new_total_slots)
 
+var mouse_lock = true
 @export var max_slots: int = 8
 @onready var unlocked_slots: int = 1
 

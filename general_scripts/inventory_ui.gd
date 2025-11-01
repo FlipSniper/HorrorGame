@@ -12,7 +12,8 @@ var item_icons := {
 	"MATCHSTICK": "res://assets/icons/matchstick.png",
 	"BOILER_WHEEL": "res://assets/icons/boilerwheel.png",
 	"MAGNET": "res://assets/icons/magnet.png",
-	"BATTERY": "res://assets/icons/battery.png"
+	"BATTERY": "res://assets/icons/battery.png",
+	"SCREWDRIVER": "res://assets/icons/battery.png"
 }
 
 func _ready() -> void:
@@ -54,8 +55,10 @@ func _process(delta: float) -> void:
 		visible = !visible
 		if visible:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			Inventory.mouse_lock = false
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			Inventory.mouse_lock = true
 
 
 func update_inventory_ui() -> void:

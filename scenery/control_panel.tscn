@@ -1,0 +1,199 @@
+[gd_scene load_steps=21 format=3 uid="uid://bs7pwryywutyp"]
+
+[ext_resource type="Script" uid="uid://dmujre6nah8xm" path="res://general_scripts/control_panel.gd" id="1_g6avl"]
+[ext_resource type="Material" uid="uid://bhgafs8grgwv1" path="res://materials/metal_5.tres" id="1_j20c8"]
+[ext_resource type="Script" uid="uid://rql81qmpwnqh" path="res://general_scripts/rigid_fall.gd" id="2_g6avl"]
+[ext_resource type="Texture2D" uid="uid://5c2jfndoq4c6" path="res://textures/metal-texture-25.jpg" id="2_pe7b2"]
+[ext_resource type="Material" uid="uid://cfxov12qxoubv" path="res://materials/metal_4.tres" id="4_q5m0g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mfno1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pe7b2"]
+size = Vector3(1, 0.04, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pe7b2"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5m0g"]
+albedo_texture = ExtResource("2_pe7b2")
+metallic = 1.0
+roughness = 0.5
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_q5m0g"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_g6avl"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6avl"]
+albedo_texture = ExtResource("2_pe7b2")
+metallic = 1.0
+roughness = 0.5
+uv1_scale = Vector3(3, 2, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ikyf7"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_8ysyt"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pe7b2"]
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ikyf7"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6avl"]
+size = Vector3(0.4, 0.1, 0.27)
+
+[sub_resource type="Animation" id="Animation_q5m0g"]
+resource_name = "switch_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-3.021165, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g6avl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ikyf7"]
+_data = {
+&"RESET": SubResource("Animation_g6avl"),
+&"switch_on": SubResource("Animation_q5m0g")
+}
+
+[node name="control_panel" type="Node3D"]
+script = ExtResource("1_g6avl")
+
+[node name="meshes" type="Node3D" parent="."]
+
+[node name="top_panel" type="RigidBody3D" parent="meshes"]
+visible = false
+script = ExtResource("2_g6avl")
+screw_nodes = Array[NodePath]([NodePath(".")])
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="meshes/top_panel"]
+transform = Transform3D(1, 0, 0, 0, 0.04, 0, 0, 0, 1, 0, 0.25, 0)
+material_override = ExtResource("1_j20c8")
+mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="meshes/top_panel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_pe7b2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="meshes"]
+transform = Transform3D(1, 0, 0, 0, 0.07, 0, 0, 0, 1, 0, 0.02, 0)
+material_override = ExtResource("1_j20c8")
+mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="meshes/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="meshes/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_pe7b2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="meshes"]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.167, 0, 0.15, -0.41240275)
+material_override = SubResource("StandardMaterial3D_q5m0g")
+mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="meshes/MeshInstance3D2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="meshes/MeshInstance3D2/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_q5m0g")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="meshes"]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.167, 0, 0.15, 0.41373694)
+material_override = SubResource("StandardMaterial3D_q5m0g")
+mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="meshes/MeshInstance3D3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="meshes/MeshInstance3D3/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_g6avl")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="meshes"]
+transform = Transform3D(-4.371139e-08, 0, 0.167, 0, 0.2, 0, -1, 0, -7.2998017e-09, -0.42, 0.15, 0)
+material_override = SubResource("StandardMaterial3D_g6avl")
+mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="meshes/MeshInstance3D5"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="meshes/MeshInstance3D5/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_ikyf7")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="meshes"]
+transform = Transform3D(-4.371139e-08, 0, 0.167, 0, 0.2, 0, -1, 0, -7.2998017e-09, 0.42, 0.15, 0)
+material_override = SubResource("StandardMaterial3D_g6avl")
+mesh = SubResource("BoxMesh_mfno1")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="meshes/MeshInstance3D4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="meshes/MeshInstance3D4/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_8ysyt")
+
+[node name="switch" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="switch"]
+transform = Transform3D(-4.371139e-09, -0.24, 0, 0.1, -1.0490733e-08, 0, 0, 0, 0.1, 0, 0.11, 0)
+material_override = ExtResource("4_q5m0g")
+mesh = SubResource("CylinderMesh_pe7b2")
+
+[node name="hinge" type="Node3D" parent="switch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11, -0.007)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="switch/hinge"]
+transform = Transform3D(0.1, 0, 0, 0, -5.2453664e-09, -0.1, 0, 0.12, -4.371139e-09, 0.1, 0, 0.10700001)
+material_override = ExtResource("4_q5m0g")
+mesh = SubResource("CylinderMesh_pe7b2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="switch/hinge"]
+transform = Transform3D(0.1, 0, 0, 0, -5.2453664e-09, -0.1, 0, 0.12, -4.371139e-09, -0.1, 0, 0.10700001)
+material_override = ExtResource("4_q5m0g")
+mesh = SubResource("CylinderMesh_pe7b2")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="switch/hinge"]
+transform = Transform3D(-5.2453664e-09, 0.192, -5.2453664e-09, 0, -8.392586e-09, -0.12, -0.12, -8.392586e-09, 2.2928226e-16, 0, 0, 0.207)
+material_override = SubResource("StandardMaterial3D_ikyf7")
+mesh = SubResource("CylinderMesh_pe7b2")
+skeleton = NodePath("../..")
+
+[node name="control_switch" type="StaticBody3D" parent="switch/hinge"]
+transform = Transform3D(1, 0, 0, 0, -0.99275744, -0.120136894, 0, 0.120136894, -0.99275744, 0, 0.108362354, -0.020164361)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="switch/hinge/control_switch"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.1)
+shape = SubResource("BoxShape3D_g6avl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="switch"]
+libraries = {
+&"": SubResource("AnimationLibrary_ikyf7")
+}

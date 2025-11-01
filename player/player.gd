@@ -27,6 +27,7 @@ var tutorial
 
 # --- PLAYER PICKUPS ---
 @onready var player_key = $head/player_key
+@onready var player_screwdriver = $head/screwdriver
 @onready var player_matchstick = $head/matchstick
 @onready var player_coffee = $head/coffee
 @onready var player_crowbar = $head/crowbar
@@ -48,6 +49,7 @@ var tutorial
 @export var boilerwheel_scene: PackedScene
 @export var magnet_scene: PackedScene
 @export var battery_scene: PackedScene
+@export var screwdriver_scene: PackedScene
 
 # --- OPTIONAL DROP SCALES ---
 var drop_scales = {
@@ -84,7 +86,7 @@ func _ready() -> void:
 		$head/pointer.visible = false
 
 func _input(event):
-	if controls_enabled and event is InputEventMouseMotion:
+	if controls_enabled and event is InputEventMouseMotion and Inventory.mouse_lock:
 		rotation.y -= event.relative.x * look_sensitivity
 		camera_pitch = clamp(camera_pitch - event.relative.y * look_sensitivity, -1.2, 1.2)
 		head.rotation.x = camera_pitch
@@ -107,14 +109,15 @@ func _process(delta: float) -> void:
 func handle_arrow_look(delta: float) -> void:
 	var look_x = 0.0
 	var look_y = 0.0
-	if Input.is_action_pressed("look_left"): look_x -= 0.5
-	if Input.is_action_pressed("look_right"): look_x += 0.5
-	if Input.is_action_pressed("look_up"): look_y += 0.5
-	if Input.is_action_pressed("look_down"): look_y -= 0.5
+	if Inventory.mouse_lock:
+		if Input.is_action_pressed("look_left"): look_x -= 0.5
+		if Input.is_action_pressed("look_right"): look_x += 0.5
+		if Input.is_action_pressed("look_up"): look_y += 0.5
+		if Input.is_action_pressed("look_down"): look_y -= 0.5
 
-	rotation.y -= look_x * look_sensitivity * 10.0
-	camera_pitch = clamp(camera_pitch + look_y * look_sensitivity * 10.0, -1.2, 1.2)
-	head.rotation.x = camera_pitch
+		rotation.y -= look_x * look_sensitivity * 10.0
+		camera_pitch = clamp(camera_pitch + look_y * look_sensitivity * 10.0, -1.2, 1.2)
+		head.rotation.x = camera_pitch
 
 func update_pointer() -> void:
 	if tutorial:
@@ -207,6 +210,7 @@ func equip_item(item_name: String) -> void:
 			"BOILER_WHEEL": player_boilerwheel.visible = false
 			"MAGNET": player_magnet.visible = false
 			"BATTERY": player_battery.visible = false
+			"SCREWDRIVVER": player_screwdriver.visible = false
 
 	# Equip new item
 	equipped_item = item_name
@@ -220,6 +224,7 @@ func equip_item(item_name: String) -> void:
 		"BOILER_WHEEL": player_boilerwheel.visible = true
 		"MAGNET": player_magnet.visible = true
 		"BATTERY": player_battery.visible = true
+		"SCREWDRIVER": player_screwdriver = true
 		_: pass
 
 # --- DROP ITEM ---
@@ -238,6 +243,7 @@ func drop_item() -> void:
 		"BOILER_WHEEL": scene = boilerwheel_scene
 		"MAGNET": scene = magnet_scene
 		"BATTERY": scene = battery_scene
+		"SCREWDRIVER": scene = screwdriver_scene
 		_: scene = null
 
 	if scene:
@@ -283,5 +289,6 @@ func drop_item() -> void:
 		"BOILER_WHEEL": player_boilerwheel.visible = false
 		"MAGNET": player_magnet.visible = false
 		"BATTERY": player_battery.visible = false
+		"SCREWDRIVER": player_screwdriver.visible = false
 
 	equipped_item = ""

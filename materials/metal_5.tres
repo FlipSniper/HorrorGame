@@ -6,4 +6,3 @@
 albedo_texture = ExtResource("1_nb00r")
 metallic = 1.0
 roughness = 0.5
-uv1_scale = Vector3(2.585, 3.845, 1)
