@@ -84,6 +84,7 @@ func _physics_process(delta: float) -> void:
 		crosshair_tex.modulate = "ffffff4c"
 	if is_colliding():
 		var hit = get_collider()
+		print(hit)
 
 		if not hit:
 			return
@@ -93,7 +94,7 @@ func _physics_process(delta: float) -> void:
 						"lock", "plank1", "plank2", "key", "crowbar", "flashlight", "coffee", "trapdoor","crystal","elevator","ice", "water_boiler",
 						"matchstick", "elevator_ground", "elevator_floor1", "elevator_button", "elevator_button2",
 						"key_card", "matchstick_box", "matchstick","fire","boiler_wheel","missing_wheel"
-						,"screwdriver","screw","screw2","screw3","magnet_spawn", "magnet","holder","battery","scanner",
+						,"screwdriver","screw","screw2","screw3","magnet_spawn", "magnet","holder","battery","battery2","scanner",
 						"screw4","screw5","screw6","screw7","screw8","control_switch", "fire", "black_key"]:
 			crosshair_tex.modulate = "ffffffff"
 			if hit.name == "screw":
@@ -379,6 +380,14 @@ func handle_interaction(hit: Node, hit_name: String) -> void:
 				if added:
 					hit.queue_free()
 					player_ui.set_task(".This is needed to be placed on the battery holder. Opposite of the elevator")
+				else:
+					print("Inventory full! Couldn't pick up battery.")
+		"battery2":
+			if hit != null:
+				var added = Inventory.add_item("BATTERY")
+				if added:
+					hit.queue_free()
+					player_ui.set_task(".This is needed to be placed on the battery holder. Opposite the elevator")
 				else:
 					print("Inventory full! Couldn't pick up battery.")
 		"boiler_wheel":
