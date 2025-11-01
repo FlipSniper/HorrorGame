@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cke711im43by2" path="res://textures/cracked_concrete_wall_diff_4k.jpg" id="1_pcbvw"]
 
 [resource]
-albedo_color = Color(0.50928617, 0.50928617, 0.50928617, 1)
+albedo_color = Color(0.509286, 0.509286, 0.509286, 1)
 albedo_texture = ExtResource("1_pcbvw")
 metallic = 1.0
 roughness = 0.1

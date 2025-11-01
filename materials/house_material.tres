@@ -5,8 +5,8 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_kfeee"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1rxbs"]
-noise = SubResource("FastNoiseLite_kfeee")
 as_normal_map = true
+noise = SubResource("FastNoiseLite_kfeee")
 
 [resource]
 albedo_texture = ExtResource("1_kfeee")
