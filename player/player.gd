@@ -122,7 +122,7 @@ func handle_arrow_look(delta: float) -> void:
 		head.rotation.x = camera_pitch
 
 func update_pointer() -> void:
-	if tutorial:
+
 		var pointer = $head/pointer
 		var obj = ray.get_collider()
 		print(looking_for)
